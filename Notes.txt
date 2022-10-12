@@ -1,0 +1,17 @@
+Ein Modul für den Arduino welches Sprache zu Text übersetzt wird es wohl nicht geben, da diese Aufgabe zu komplex ist.
+Dafür müsste das Modul bereits darauf trainiert sein Muster in Schallwellen zu erkennen und diese Wörtern zuzuordnen.
+Ein anderer Ansatz wäre vielleicht bereits die Informationen über die Schallwellen an das System zur Sprachverarbeitung zu senden.
+
+Es gibt höchstens Module welche manuell auf einige wenige Schlüsselwörter oder (sogar!) Sätze trainiert werden können.
+Dies erfüllt aber nicht unseren use case, da der Benutzer dann keine beliebigen Sätze (bspw. auch für wechselnde "Cocktails") sagen kann.
+
+Ein Gerät kann nicht dauerhaft lauschen. Deshalb benötigt man ein Schlüsselwort wie etwa "Alexa", welche einen Sprachbefehl einleitet.
+Nachdem das Schlüsselwort gesprochen wurde, lauscht das Gerät für eine bestimmte Zeit nach Sprachbefehlen, die es "versteht".
+
+Über ein vorhandenes Arduino WIFI/Ethernet Shield HTTP-Anfragen zu senden scheint tatsächlich unkompliziert zu sein.
+
+Lösungsmöglichkeit: Man spricht nicht mit der Maschine sondern mit der App. 
+Die App sendet dann die (HTTP-)Anfrage an die Maschine mit auszuführendem Kommando.
+Die passende Antwort kann dann auch direkt von der App gegeben werden.
+Somit ist gar kein Sprachmodul nötig (nur ein WLAN-Modul).
+Ethernet-Modul ebenfalls möglich aber ungeeignet, da passender Anschluss in der Maschine vorhanden sein muss (und in der Umgebung).
