@@ -15,3 +15,19 @@ Die App sendet dann die (HTTP-)Anfrage an die Maschine mit auszuführendem Komma
 Die passende Antwort kann dann auch direkt von der App gegeben werden.
 Somit ist gar kein Sprachmodul nötig (nur ein WLAN-Modul).
 Ethernet-Modul ebenfalls möglich aber ungeeignet, da passender Anschluss in der Maschine vorhanden sein muss (und in der Umgebung).
+
+Gedanken zu unseren versch. Konzepten wenn ich Nachts nicht schlafen kann:
+
+Erstes Konzept war Spracherkennung direkt im Arduino der dann das Gesprochene als string ausgibt 
+-> string dann an die cloud zum Interpretieren
+Problem: kein solches Modul vorhanden; würde bereits trainiertes Modell zur Erkennung von Wörtern und Sätzen benötigen; 
+es gibt allerdings Module die vordefinierte und manuell gelernte Wörter und Sätze erkennen 
+-> Problem: nicht dynamisch, bspw. bei wechselnden und benutzerdefinierten Cocktails, Sätze müssen immer genau gleich formuliert werden...
+
+Gibt evtl. auch Module die das definieren von Schlüsselwörtern oder -sätzen zur Laufzeit bzw. im Code erlauben -> etwas mehr Dynamik möglich
+
+Sprachein- und -ausgabe über mobile App unintuitiv -> Anwender will ja eigentlich mit Mischmaschine kommunizieren
+
+Verbauen eines Sprachausgabemoduls dass wenigstens die Maschine und nicht das Handy spricht? 
+Senden der Antwort die gegeben werden soll an die Maschine über HTTP von der Cloud/App.
+Herausforderungen: wo verbaut man das Mikrofon dass der Anwender alles gut hören kann?
