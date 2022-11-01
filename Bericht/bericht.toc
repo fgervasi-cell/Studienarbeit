@@ -1,22 +1,11 @@
-\boolfalse {citerequest}\boolfalse {citetracker}\boolfalse {pagetracker}\boolfalse {backtracker}\relax 
-\babel@toc {ngerman}{}
-\defcounter {refsection}{0}\relax 
+\babel@toc {ngerman}{}\relax 
 \contentsline {chapter}{Abbildungsverzeichnis}{ii}{chapter*.1}%
-\defcounter {refsection}{0}\relax 
 \contentsline {chapter}{Listingverzeichnis}{iii}{chapter*.2}%
-\defcounter {refsection}{0}\relax 
 \contentsline {chapter}{Akürzungsverzeichnis}{iv}{chapter*.4}%
-\defcounter {refsection}{0}\relax 
 \contentsline {chapter}{\numberline {1}Einleitung}{1}{chapter.1}%
-\defcounter {refsection}{0}\relax 
 \contentsline {chapter}{\numberline {2}Stand der Technik}{2}{chapter.2}%
-\defcounter {refsection}{0}\relax 
 \contentsline {chapter}{\numberline {3}Konzept}{3}{chapter.3}%
-\defcounter {refsection}{0}\relax 
 \contentsline {chapter}{\numberline {4}Implementierung}{4}{chapter.4}%
-\defcounter {refsection}{0}\relax 
 \contentsline {chapter}{\numberline {5}Fazit und Ausblick}{5}{chapter.5}%
-\defcounter {refsection}{0}\relax 
 \contentsline {chapter}{Literaturverzeichnis}{v}{chapter.5}%
-\defcounter {refsection}{0}\relax 
 \contentsline {chapter}{Liste der ToDo's}{v}{chapter.5}%
