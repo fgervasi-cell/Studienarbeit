@@ -31,3 +31,24 @@ Sprachein- und -ausgabe über mobile App unintuitiv -> Anwender will ja eigentli
 Verbauen eines Sprachausgabemoduls dass wenigstens die Maschine und nicht das Handy spricht? 
 Senden der Antwort die gegeben werden soll an die Maschine über HTTP von der Cloud/App.
 Herausforderungen: wo verbaut man das Mikrofon dass der Anwender alles gut hören kann?
+
+Anderer Plan: Verbauen eines Raspberry Pi in die Getränkemischmaschine
+> Spracherkennung und Generierung einer Antwort direkt in der Getränkemischmaschine auf dem Raspberry Pi
+> Raspberry Pi kommuniziert über serielle Schnittstelle (USB) mit Ardunio
+> Auszuführender Befehl über serielle Schnittstelle von Raspberry zu Arduino als String
+> keine App nötig!
+> kein WLAN-Modul nötig (Raspberry bereits internetfähig)!
+> benötigte Komponenten: Raspberry Pi 4, 3B oder 3B+, USB-Kabel zum Verbinden von Raspberry und Arduino, Mikrofon und Lautsprecher 
+> Mikrofon oder Lautsprecher bereits im Raspberry integriert?
+> Infos: https://roboticsbackend.com/raspberry-pi-arduino-serial-communication/#Hardware_setup_for_Serial_communication
+
+Spracherkennung in Android: https://developer.android.com/reference/android/speech/SpeechRecognizer
+HTTP mit Arduino: https://arduinogetstarted.com/tutorials/arduino-http-request
+Video zu einfacher Spracherkennung mit Arduino: https://www.youtube.com/watch?v=WBKNOYe9D0o
+Spracherkennungsmodule für Arduino:
+	> https://www.audeme.com/movi.html
+	> https://www.geeetech.com/wiki/index.php/Arduino_Voice_Recognition_Module
+	> https://www.geeetech.com/wiki/images/6/69/Voice_Recognize_manual.pdf
+	> https://www.werken.ch/arduino-4-eine-simple-sprachsteuerung-mit-dem-arduino/
+	> http://rfanat.ru/Arduino_projekts/Arduino-Realtime-Audio-Processing.html
+Sonstiges: https://opus-hshn.bsz-bw.de/frontdoor/deliver/index/docId/158/file/kappler.pdf
