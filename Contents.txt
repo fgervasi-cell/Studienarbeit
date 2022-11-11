@@ -1,0 +1,62 @@
+Inhaltsverzeichnis
+
+Abstract:
+
+Einleitung:
+
+Stand der Technik: (Sortierung beachten -> wichtigstes (bspw. Getränkemischmaschine) zuerst!)
+
++ Spracherkennung
++ Sprachmodelle und KI
++ Arduino-Programmierung
++ Getränkemischmaschine
+
+Konzept:
+
++ Wie soll unser System grob funktionieren/umgesetzt werden?
++ Allgemein
+	- Wie ist die grundlegende Idee/Vorgehensweise?
+	- Benutzer soll über Sprache mit der Mischmaschine interagieren können
+	- Das Gesprochene muss irgendwie aufgenommen (Mikrofon) und verarbeitet werden (Sprachmodell)
+	- Verarbeitung soll durch ein Sprachmodell gelöst werden (Maschinelles Lernen)
+	- Mischmaschine soll Sprache des Benutzers aufnehmen können (Mikrofon)
+	- Anhand der Spracheingabe werden eine Antwort und ein konkreter Befehl generiert 
+		- Sprachverarbeitung 
+		- Maschinelles Lernen
+		- KI
+		- Sprachmodell
+	- Antwort muss ausgegeben werden (Lautsprecher)
+	- Konkreter Befehl ist Anweisung an Maschine (bspw. bereite Getränk xy zu)
++ Bewertungskriterien
+	- Anhand welcher Kriterien können die folgenden Konzepte bewertet werden?
++ Konzept A: Spracherkennung und -verarbeitung mittels Arduino
+	- Audiosignal wird direkt von einem der Arduinos in Getränkemischmaschine aufgenommen
+	- Arduino verarbeitet Audiosignal zu Text/verabler Darstellung (Spracherkennung)
+	- Anhand der Spracheingabe berechnet Arduino Antwort, die gegeben werden soll, und führt Aktion aus
+	- Problem: Leistung des Arduinos zu schwach um Sprachmodell auszuführen
+	- Abwandlung des Konzepts: Lediglich Spracherkennung im Arduino und senden der Audiosignale (bspw. als Text) and einen Server, der die Berechnungen vornimmt
+	- Problem: Sprachmodule für Arduino, welche Audiosignale in lesbare Form/Text übersetzen können nur sehr rudimentär/nicht mächtig genug
+		- nur vordefinierte und manuell trainierte Wörter und/oder Sätze
+		- Sätze müssen immer exakt gleich gesprochen/formuliert werden
+		- keine Dynamik -> wenn auf der Maschine neue Getränke hinzugefügt werden müsste Konfiguration des Sprachmoduls angepasst werden
+		- Für jedes Getränk einen Satz wie "ich möchte Getränk xy"
+	- Bewertungsmatrix
++ Konzept B: Spracherkennung und -verarbeitung mittels mobiler Anwendung
++ Konzept C: Spracherkennung und -verarbeitung auf Computer-Hardware
++ Konzept D:
++ Finales Konzept
+	- Für welches Konzept wurde sich entschieden und warum?
+	
+Umsetzung:
+
++ Trainieren des Sprachmodells
++ Befehlsverarbeitung in der Getränkemischmaschine
++ Anbindung des Sprachmodells an die Mischmaschine
+
+Validierung:
+
++ Wie gut funktioniert unser System?
++ Wie oft wird bspw. die "richtige" Antwort gegeben?
++ Entspricht das Ergebnis den Erwartungen?
+
+Fazit und Ausblick:

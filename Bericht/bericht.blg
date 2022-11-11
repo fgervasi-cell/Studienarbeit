@@ -34,12 +34,12 @@ Reallocating 'singl_function' (item size: 4) to 100 items.
 Reallocating 'singl_function' (item size: 4) to 100 items.
 Database file #1: bericht-blx.bib
 Database file #2: bericht.bib
-Biblatex version: 3.18
+Biblatex version: 3.16
 Reallocating 'wiz_functions' (item size: 4) to 9000 items.
 Reallocating 'singl_function' (item size: 4) to 100 items.
 You've used 1 entry,
-            6399 wiz_defined-function locations,
-            1210 strings with 9174 characters,
+            6393 wiz_defined-function locations,
+            1208 strings with 9156 characters,
 and the built_in function-call counts, 1522 in all, are:
 = -- 72
 > -- 70
