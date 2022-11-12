@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (MiKTeX 21.3) (preloaded format=pdflatex 2021.4.14)  11 NOV 2022 15:47
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (MiKTeX 21.3) (preloaded format=pdflatex 2021.4.14)  12 NOV 2022 15:38
 entering extended mode
 **c:/Users/fgerv/OneDrive/Documents/Studium_2022_2023/Studienarbeit/Bericht/bericht.tex
 (c:/Users/fgerv/OneDrive/Documents/Studium_2022_2023/Studienarbeit/Bericht/bericht.tex
@@ -981,10 +981,10 @@ Package biblatex Info: ... file 'bericht.bbl' found.
 Package biblatex Info: Reference section=0 on input line 105.
 Package biblatex Info: Reference segment=0 on input line 105.
 \c@lstlisting=\count453
-<./img/DHBW_Logo_KA.png, id=6, 88.038pt x 42.3765pt>
-File: ./img/DHBW_Logo_KA.png Graphic file (type png)
-<use ./img/DHBW_Logo_KA.png>
-Package pdftex.def Info: ./img/DHBW_Logo_KA.png  used on input line 112.
+<img//DHBW_Logo_KA.png, id=6, 88.038pt x 42.3765pt>
+File: img//DHBW_Logo_KA.png Graphic file (type png)
+<use img//DHBW_Logo_KA.png>
+Package pdftex.def Info: img//DHBW_Logo_KA.png  used on input line 112.
 (pdftex.def)             Requested size: 113.81102pt x 54.78615pt.
 Package microtype Info: Character `029' is missing
 (microtype)             in font `T1/lmr/m/sc/24.88'.
@@ -1024,7 +1024,7 @@ File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 ) [1
 
-{C:/Users/fgerv/AppData/Local/MiKTeX/pdftex/config/pdftex.map} <./img/DHBW_Logo_KA.png>] (Kapitel/erklaerung.tex)pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has been already used, duplicate ignored
+{C:/Users/fgerv/AppData/Local/MiKTeX/pdftex/config/pdftex.map} <./img//DHBW_Logo_KA.png>] (Kapitel/erklaerung.tex)pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
 l.143 \begin{abstract}
@@ -1096,13 +1096,19 @@ Kapitel 3.
 LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 20.
 (C:\Users\fgerv\AppData\Local\Programs\MiKTeX\tex/latex/lm\ts1lmr.fd
 File: ts1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
-) [3
+)
+<img//Bilder_Kapitel_3/Konzept_A.png, id=89, 317.31047pt x 271.0125pt>
+File: img//Bilder_Kapitel_3/Konzept_A.png Graphic file (type png)
+<use img//Bilder_Kapitel_3/Konzept_A.png>
+Package pdftex.def Info: img//Bilder_Kapitel_3/Konzept_A.png  used on input line 29.
+(pdftex.def)             Requested size: 362.37569pt x 309.52812pt.
+ [3
 
 
 
 
 ]
-Overfull \hbox (12.81593pt too wide) in paragraph at lines 32--32
+Overfull \hbox (12.81593pt too wide) in paragraph at lines 33--33
 []\T1/lmr/bx/n/14.4 (-20) Konzept C: Spra-cher-ken-nung und -verarbeitung auf Computer-
  []
 
@@ -1110,7 +1116,7 @@ Overfull \hbox (12.81593pt too wide) in paragraph at lines 32--32
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   
 l.171 \include{./Kapitel/Kapitel3_Konzept}
-                                          ]
+                                           <./img//Bilder_Kapitel_3/Konzept_A.png>]
 \openout2 = `./Kapitel/Kapitel4_Implementierung.aux'.
 
  (Kapitel/Kapitel4_Implementierung.tex
@@ -1148,17 +1154,17 @@ Package logreq Info: Writing requests to 'bericht.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 33550 strings out of 479321
- 616887 string characters out of 2856583
- 1351808 words of memory out of 3000000
- 50238 multiletter control sequences out of 15000+600000
+ 33557 strings out of 479321
+ 617099 string characters out of 2856583
+ 1351807 words of memory out of 3000000
+ 50243 multiletter control sequences out of 15000+600000
  456670 words of font info for 99 fonts, out of 8000000 for 9000
  1143 hyphenation exceptions out of 8191
- 117i,7n,116p,1943b,2329s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 117i,9n,116p,1943b,2329s stack positions out of 5000i,500n,10000p,200000b,80000s
 {C:/Users/fgerv/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-ec.enc}{C:/Users/fgerv/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-ts1.enc}<C:/Users/fgerv/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx10.pfb><C:/Users/fgerv/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx12.pfb><C:/Users/fgerv/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmcsc10.pfb><C:/Users/fgerv/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr10.pfb><C:/Users/fgerv/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr12.pfb><C:/Users/fgerv/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr17.pfb><C:/Users/fgerv/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmro10.pfb>
-Output written on bericht.pdf (15 pages, 244076 bytes).
+Output written on bericht.pdf (15 pages, 356669 bytes).
 PDF statistics:
- 198 PDF objects out of 1000 (max. 8388607)
+ 200 PDF objects out of 1000 (max. 8388607)
  30 named destinations out of 1000 (max. 500000)
- 32922 words of extra memory for PDF output out of 35830 (max. 10000000)
+ 32927 words of extra memory for PDF output out of 35830 (max. 10000000)
 
