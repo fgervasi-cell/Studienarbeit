@@ -8,7 +8,7 @@ Der Benutzer soll über Spracheingaben mit der Mischmaschine interagieren könne
 Dafür muss das Gesprochene zunächst durch ein Mikrofon aufgenommen werden.
 Anschließend können die Audiosignale weiterverarbeitet werden.
 Der Benutzer soll hierbei nicht auf fest vorgegebene Sprachbefehle beschränkt sein, sondern für nahezu jede Eingabe eine sinnvolle Antwort zurückerhalten.
-Um dies zu gewährleisten wird die Spracheingabe durch ein Sprachmodell, welches mittels maschinellen Lernverfahren trainiert wurde, verarbeitet. 
+Um dies zu gewährleisten wird die Spracheingabe durch ein Sprachmodell, welches mittels maschinellen Lernverfahren trainiert wurde, verarbeitet.
 Ergebnisse dieser Verarbeitung sind die Antwort, die an den Benutzer zurückgegeben wird, und ein konkreter Befehl für die Mischmaschine.
 Ein Beispiel für einen solchen Befehl könnte etwa die Zubereitung eines bestimmten Getränks sein.
 Für die Ausgabe einer Antwort ist ein Lautsprecher notwendig.
@@ -23,16 +23,74 @@ Im Folgenden sind die Bewertungskriterien für die einzelnen Konzepte aufgeliste
 \end{itemize}
 \section{Konzept A: Spracherkennung und -verarbeitung mittels Arduino}
 Ein erstes Konzept sieht vor, dass das Audiosignal direkt von einem der Arduinos in der Getränkemischmaschine aufgenommen wird.
+Das Audiosignal wird vom Arduino interpretiert und eine passende Antwort wird ausgegeben.
+Außerdem sendet der Arduino die entsprechenden Signale, um die vom Benutzer gewünschte Aktion von der Getränkemischmaschine ausführen zu lassen.
+Ein Problem ist hierbei die Interpretation des Audiosignals durch den Arduino, da dessen Leistung nicht für das Ausführen eines Sprachmodells ausreicht.
+Folglich muss dieser Prozess ausgelagert werden.
+Das Konzept wird deshalb um ein cloudbasiertes Sprachverarbeitungssystem ergänzt, welches den Sprachbefehl des Benutzers vom Arduino entgegennimmt und einen passenden Befehl und eine passende Antwort zurückgibt (s. Abb. \ref{figure:Spracherkennung_mittels_Arduino}).
+Die Kommunikation zwischen Arduino und Cloudsystem kann über das \ac{HTTP} erfolgen.
 \begin{figure}[H]
     \centering
     % \includegraphics does not allow jpg images apparently!
     \fbox{\includegraphics[width=0.8\textwidth]{Bilder_Kapitel_3/Konzept_A.png}}
     \caption{\label{figure:Spracherkennung_mittels_Arduino}Spracherkennung und -verarbeitung mittels Arduino}
 \end{figure}
+\noindent
+Es muss ein geeignetes Format zum Versenden des Sprachbefehls über \ac{HTTP} gefunden werden.
+Eine Möglichkeit besteht darin, das eingehende Audiosignal im Arduino in textform umzuwandeln und diesen String zu versenden.
+Die auf dem Markt verfügbaren Arduino-Sprach-Module sind jedoch nicht in der Lage beliebige Spracheingaben in Text umzuwandeln, sondern bieten diese Funktionalität nur für vordefinierte Werte an.
+Dies würde das Ziel dieser Arbeit verfehlen, dem Benutzer eine Konversation mit der Mischmaschine zu ermöglichen.
+Ein weiteres Problem dieser Lösung besteht darin, dass beispielsweise bei wechselnder Getränkeauswahl die zur Verfügung stehenden Sprachbefehle wie "`Ich hätte gerne Getränk xy"' jedes Mal aufs neue manuell angepasst werden müssten.
+Dies hat zur Folge, dass auch die reine Spracherkennung aus der Mischmaschine ausgelagert werden muss.
+Ein denkbares Format sind die rohen Audiosignale, die vom Arduino aufgenommen werden.
 \section{Konzept B: Spracherkennung und -verarbeitung mittels mobiler Anwendung}
+Die Audiosignale über ein Mikrofon in der Mischmaschine aufzunehmen und eine Antwort über einen Lautsprecher auszugeben, so wie es in Konzept A der Fall ist, kann ein Problem darstellen.
+Zum Einen wird dadurch zusätzliche Hardware benötigt und zum Anderen muss diese korrekt verbaut werden.
+Das Tonsignal muss vom Mikrofon in einer guten Qualität aufgenommen werden können und die Antwort aus dem Lautsprecher für den Benutzer verständlich sein.
+Konzept B umgeht dieses Problem durch den Einsatz einer mobilen Anwendung, die durch den Benutzer installiert wird.
+Über diese Anwendung können anschließend die Aufnahme der Audiosignale, die Spracherkennung und die Kommunikation mit dem Sprachverarbeitungsservice und der Mischmaschine abgewickelt werden, wie in Abbildung \ref{figure:Konzept_mobile_App} zu sehen ist.
+\begin{figure}[H]
+    \centering
+    \fbox{\includegraphics[width=0.8\textwidth]{Bilder_Kapitel_3/Konzept_B.png}}
+    \caption{\label{figure:Konzept_mobile_App}Spracherkennung und -verarbeitung mittels mobiler Anwendung}
+\end{figure}
+\noindent
+Ein Problem dieser Lösung ist der offensichtliche Mehraufwand durch die Entwicklung einer eigenen Anwendung für Mobiltelefone.
+Auch der Anwender hat zusätzlichen Aufwand durch die Installation.
+Außerdem ist die Spracheingabe und -ausgabe über das Mobiltelefon nicht intuitiv, da der Anwender eigentlich mit der Maschine kommunizieren sollte.
+Dieser Effekt kann dadurch abgeschwächt werden, dass wenigstens die Antwort durch einen Lautsprecher in der Mischmaschine an den Benutzer zurückgegeben wird.
 \section{Konzept C: Spracherkennung und -verarbeitung auf Computer-Hardware}
+Ein weiteres Konzept stützt sich auf die Verwendung eines Computers in der Mischmaschine anstelle eines Mikrocontrollers wie dem Arduino.
+Motivation ist hierbei der Leistungsgewinn gegenüber eines Mikrocontrollers, um die Spracherkennung und -verarbeitung mittels Sprachmodell zu gewährleisten.
+Ein Beispiel für einen solchen Miniaturcomputer ist der Raspberry-Pi.
+Dieser bietet genügend Schnittstellen, wie etwa USB-Hubs, zum verbinden von Mikrofon als auch Lautsprecher.
+Nimmt der Computer das Audiosignal auf verarbeitet er dieses und generiert daraus die Antwort, die durch den Lautsprecher ausgegeben wird, zusammen mit der Aktion für die Getränkemischmaschine.
+Diese muss an den Arduino, welcher die Mischmaschine steuert, übermittelt werden.
+Um dies zu ermöglichen können der Computer und der Arduino über eine serielle Schnittstelle, wie etwa einem USB-Kabel, miteinander  verbunden werden.
+Abbildung \ref{figure:Konzept_Raspberry} stellt den konzeptionellen Aufbau graphisch dar.
+\begin{figure}[H]
+    \centering
+    \fbox{\includegraphics[width=0.8\textwidth]{Bilder_Kapitel_3/Konzept_C.png}}
+    \caption{\label{figure:Konzept_Raspberry}Spracherkennung und -verarbeitung auf Computer-Hardware}
+\end{figure}
+\noindent
+Obwohl ein Computer wie der Raspberry-Pi im Allgemeinen eine höhere Leistung als ein Mikrocontroller hat ist damit nicht sichergestellt, dass diese zur Ausführung des Sprachmodells ausreicht.
+Beispielsweise ist das vierte Modell der Raspberry-Pi-Serie mit nur maximal acht Gigabyte Arbeitsspeicher erhältlich.
+Das Sprachmodell könnte allerdings noch weitaus mehr Daten im Arbeitsspeicher benötigen.
+Des Weiteren ist zu beachten, dass die Miniaturcomputer von Raspberry-Pi im Speziellen zum Zeitpunkt dieser Arbeit kaum zu vertretbaren Preisen verfügbar sind.
 \section{Konzept D:}
 \section{Finales Konzept}
+\begin{tabular}[H]{l|c|c|c|c}
+                                                      & Konzept A & Konzept B & Konzept C & Konzept D \\
+    \hline
+    Freiheitsgrade in der Spracheingabe des Benutzers &           &           &           &           \\
+    \hline
+    Hardwarekosten                                    & hoch      & niedrig   & sehr hoch &           \\
+    \hline
+    Verfügbare Rechenleistung                         & niedrig   & hoch      & hoch      &           \\
+\end{tabular}
+// TODO: Konzepte anders aufteilen damit die Bewertungsmatrix einen Sinn ergibt;
+Konzept A weiter unterteilen in "alles auf Arduino/in Maschine" und "Aufteilen zwischen Maschine und Cloud"
 \endinput
 
 

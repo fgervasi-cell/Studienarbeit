@@ -42,7 +42,27 @@ Konzept:
 		- Für jedes Getränk einen Satz wie "ich möchte Getränk xy"
 	- Bewertungsmatrix
 + Konzept B: Spracherkennung und -verarbeitung mittels mobiler Anwendung
+	- Audiosignale über Mikrofon in Mischmaschine aufzunehmen kann ein Problem darstellen
+	- Antwort über Mikrofon auszugeben ebenfalls 
+	- Zusätzliche Hardware benötigt, die auch noch richtig verbaut werden muss
+	- Kann das Tonsignal vom Mikrofon richtig aufgenommen werden?
+	- Wie ist die Klangqualität des Lautsprechers?
+	- Umgehen dieser Probleme durch Konzept B
+	- Kommunikation mit Getränkemischmaschine über eine App
+	- Aufnahme der Audiosignale, 
+	- Spracherkennung (Umwandlung in bspw. String), 
+	- versenden an cloudbasierten Sprachverarbeitungsservice, 
+	- Entgegennahme der Antwort, 
+	- Kommunikation mit Mischmaschine
+	- Kann alles über Mobiltelefon abgewickelt werden
+	- Probleme:
+	- Großer Overhead/Mehraufwand durch App-Entwicklung
+	- Spracheingabe und -ausgabe über App nicht intuitiv (Anwender möchte eigentlich mit Maschine kommunizieren
+	- Zusätzlicher Aufwand für Anwender -> App-Installation
+	- Immerhin die Antwort könnte von einem Lautsprecher in der Mischmaschine erfolgen?
 + Konzept C: Spracherkennung und -verarbeitung auf Computer-Hardware
+	- Computer statt Mikrocontroller
+	- Grund/Motivation: Mehr Leistung um Spracherkennung und -verarbeitung mittels Sprachmodell durchzuführen
 + Konzept D:
 + Finales Konzept
 	- Für welches Konzept wurde sich entschieden und warum?

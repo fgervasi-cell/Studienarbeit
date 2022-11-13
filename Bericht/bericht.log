@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (MiKTeX 21.3) (preloaded format=pdflatex 2021.4.14)  12 NOV 2022 15:38
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (MiKTeX 21.3) (preloaded format=pdflatex 2021.4.14)  13 NOV 2022 15:50
 entering extended mode
 **c:/Users/fgerv/OneDrive/Documents/Studium_2022_2023/Studienarbeit/Bericht/bericht.tex
 (c:/Users/fgerv/OneDrive/Documents/Studium_2022_2023/Studienarbeit/Bericht/bericht.tex
@@ -1097,31 +1097,67 @@ LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 20
 (C:\Users\fgerv\AppData\Local\Programs\MiKTeX\tex/latex/lm\ts1lmr.fd
 File: ts1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-<img//Bilder_Kapitel_3/Konzept_A.png, id=89, 317.31047pt x 271.0125pt>
+Package acronym Info: Label `acro:HTTP' newly defined as it shall be overridden
+although it is yet undefined on input line 31.
+<img//Bilder_Kapitel_3/Konzept_A.png, id=99, 317.31047pt x 271.0125pt>
 File: img//Bilder_Kapitel_3/Konzept_A.png Graphic file (type png)
 <use img//Bilder_Kapitel_3/Konzept_A.png>
-Package pdftex.def Info: img//Bilder_Kapitel_3/Konzept_A.png  used on input line 29.
+Package pdftex.def Info: img//Bilder_Kapitel_3/Konzept_A.png  used on input line 35.
 (pdftex.def)             Requested size: 362.37569pt x 309.52812pt.
  [3
 
 
 
 
-]
-Overfull \hbox (12.81593pt too wide) in paragraph at lines 33--33
+] [4pdfTeX warning (ext4): destination with the same identifier (name{figure.3.1}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  
+l.46 \section
+             {Konzept B: Spracherkennung und -verarbeitung mittels mobiler A... <./img//Bilder_Kapitel_3/Konzept_A.png>]
+<img//Bilder_Kapitel_3/Konzept_B.png, id=113, 683.55376pt x 386.94562pt>
+File: img//Bilder_Kapitel_3/Konzept_B.png Graphic file (type png)
+<use img//Bilder_Kapitel_3/Konzept_B.png>
+Package pdftex.def Info: img//Bilder_Kapitel_3/Konzept_B.png  used on input line 54.
+(pdftex.def)             Requested size: 362.37569pt x 205.13924pt.
+
+Overfull \hbox (75.58699pt too wide) has occurred while \output is active
+\T1/lmr/m/sl/10.95 3.4.  KONZEPT B: SPRACHERKENNUNG UND -VERARBEITUNG MITTELS MOBILER ANWENDUNG \T1/lmr/m/n/10.95 5
+ []
+
+[5pdfTeX warning (ext4): destination with the same identifier (name{figure.3.2}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  
+l.62 \section
+             {Konzept C: Spracherkennung und -verarbeitung auf Computer-Hard... <./img//Bilder_Kapitel_3/Konzept_B.png>]
+Overfull \hbox (12.81593pt too wide) in paragraph at lines 62--62
 []\T1/lmr/bx/n/14.4 (-20) Konzept C: Spra-cher-ken-nung und -verarbeitung auf Computer-
  []
 
-) [4pdfTeX warning (ext4): destination with the same identifier (name{figure.3.1}) has been already used, duplicate ignored
+<img//Bilder_Kapitel_3/Konzept_C.png, id=121, 630.85687pt x 432.11438pt>
+File: img//Bilder_Kapitel_3/Konzept_C.png Graphic file (type png)
+<use img//Bilder_Kapitel_3/Konzept_C.png>
+Package pdftex.def Info: img//Bilder_Kapitel_3/Konzept_C.png  used on input line 73.
+(pdftex.def)             Requested size: 362.37569pt x 248.21327pt.
+
+Overfull \hbox (52.54825pt too wide) has occurred while \output is active
+\T1/lmr/m/sl/10.95 3.5.  KONZEPT C: SPRACHERKENNUNG UND -VERARBEITUNG AUF COMPUTER-HARDWARE \T1/lmr/m/n/10.95 6
+ []
+
+[6pdfTeX warning (ext4): destination with the same identifier (name{figure.3.3}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   
-l.171 \include{./Kapitel/Kapitel3_Konzept}
-                                           <./img//Bilder_Kapitel_3/Konzept_A.png>]
+l.81 \section
+             {Konzept D:} <./img//Bilder_Kapitel_3/Konzept_C.png>])
+Overfull \hbox (55.78778pt too wide) in paragraph at lines 83--171
+[]
+ []
+
+[7]
 \openout2 = `./Kapitel/Kapitel4_Implementierung.aux'.
 
  (Kapitel/Kapitel4_Implementierung.tex
 Kapitel 4.
-) [5
+) [8
 
 
 
@@ -1131,7 +1167,7 @@ Kapitel 4.
 
  (Kapitel/Kapitel5_Fazit.tex
 Kapitel 5.
-) [6
+) [9
 
 
 
@@ -1154,17 +1190,17 @@ Package logreq Info: Writing requests to 'bericht.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 33557 strings out of 479321
- 617099 string characters out of 2856583
- 1351807 words of memory out of 3000000
- 50243 multiletter control sequences out of 15000+600000
- 456670 words of font info for 99 fonts, out of 8000000 for 9000
+ 33611 strings out of 479321
+ 617997 string characters out of 2856583
+ 1354104 words of memory out of 3000000
+ 50268 multiletter control sequences out of 15000+600000
+ 457500 words of font info for 109 fonts, out of 8000000 for 9000
  1143 hyphenation exceptions out of 8191
  117i,9n,116p,1943b,2329s stack positions out of 5000i,500n,10000p,200000b,80000s
 {C:/Users/fgerv/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-ec.enc}{C:/Users/fgerv/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-ts1.enc}<C:/Users/fgerv/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx10.pfb><C:/Users/fgerv/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx12.pfb><C:/Users/fgerv/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmcsc10.pfb><C:/Users/fgerv/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr10.pfb><C:/Users/fgerv/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr12.pfb><C:/Users/fgerv/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr17.pfb><C:/Users/fgerv/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmro10.pfb>
-Output written on bericht.pdf (15 pages, 356669 bytes).
+Output written on bericht.pdf (18 pages, 603534 bytes).
 PDF statistics:
- 200 PDF objects out of 1000 (max. 8388607)
- 30 named destinations out of 1000 (max. 500000)
- 32927 words of extra memory for PDF output out of 35830 (max. 10000000)
+ 233 PDF objects out of 1000 (max. 8388607)
+ 37 named destinations out of 1000 (max. 500000)
+ 32937 words of extra memory for PDF output out of 35830 (max. 10000000)
 
