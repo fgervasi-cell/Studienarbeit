@@ -3,9 +3,9 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {chapter}{Abbildungsverzeichnis}{ii}{chapter*.1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{Listingverzeichnis}{iii}{chapter*.2}%
+\contentsline {chapter}{Listingverzeichnis}{iv}{chapter*.3}%
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{Akürzungsverzeichnis}{iv}{chapter*.4}%
+\contentsline {chapter}{Akürzungsverzeichnis}{v}{chapter*.5}%
 \defcounter {refsection}{0}\relax 
 \contentsline {chapter}{\numberline {1}Einleitung}{1}{chapter.1}%
 \defcounter {refsection}{0}\relax 
@@ -19,18 +19,16 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {3.3}Konzept A: Spracherkennung und -verarbeitung mittels Arduino}{4}{section.3.3}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3.4}Konzept B: Spracherkennung und -verarbeitung mittels mobiler Anwendung}{5}{section.3.4}%
+\contentsline {section}{\numberline {3.4}Konzept B: Spracherkennung und -verarbeitung mittels mobiler Anwendung}{6}{section.3.4}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3.5}Konzept C: Spracherkennung und -verarbeitung auf Computer-Hardware}{6}{section.3.5}%
+\contentsline {section}{\numberline {3.5}Konzept C: Spracherkennung und -verarbeitung auf Computer-Hardware}{7}{section.3.5}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3.6}Konzept D:}{7}{section.3.6}%
+\contentsline {section}{\numberline {3.6}Finales Konzept}{8}{section.3.6}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3.7}Finales Konzept}{7}{section.3.7}%
+\contentsline {chapter}{\numberline {4}Implementierung}{10}{chapter.4}%
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {4}Implementierung}{8}{chapter.4}%
+\contentsline {chapter}{\numberline {5}Fazit und Ausblick}{11}{chapter.5}%
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {5}Fazit und Ausblick}{9}{chapter.5}%
+\contentsline {chapter}{Literaturverzeichnis}{vi}{chapter.5}%
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{Literaturverzeichnis}{v}{chapter.5}%
-\defcounter {refsection}{0}\relax 
-\contentsline {chapter}{Liste der ToDo's}{v}{chapter.5}%
+\contentsline {chapter}{Liste der ToDo's}{vi}{chapter.5}%

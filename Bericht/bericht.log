@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (MiKTeX 21.3) (preloaded format=pdflatex 2021.4.14)  13 NOV 2022 15:50
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (MiKTeX 21.3) (preloaded format=pdflatex 2021.4.14)  22 NOV 2022 12:01
 entering extended mode
 **c:/Users/fgerv/OneDrive/Documents/Studium_2022_2023/Studienarbeit/Bericht/bericht.tex
 (c:/Users/fgerv/OneDrive/Documents/Studium_2022_2023/Studienarbeit/Bericht/bericht.tex
@@ -854,50 +854,55 @@ Package: float 2001/11/08 v1.3d Float enhancements (AL)
 )
 \@float@every@eq=\toks45
 \c@eq=\count444
+) (C:\Users\fgerv\AppData\Local\Programs\MiKTeX\tex/latex/makecell\makecell.sty
+Package: makecell 2009/08/03 V0.1e Managing of Tab Column Heads and Cells
+\rotheadsize=\dimen277
+\c@nlinenum=\count445
+\TeXr@lab=\toks46
 )
 Package csquotes Info: Checking for multilingual support...
 Package csquotes Info: ... found 'babel' package.
-LaTeX Font Info:    Trying to load font information for T1+lmr on input line 105.
+LaTeX Font Info:    Trying to load font information for T1+lmr on input line 106.
  (C:\Users\fgerv\AppData\Local\Programs\MiKTeX\tex/latex/lm\t1lmr.fd
 File: t1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 ) (C:\Users\fgerv\AppData\Local\Programs\MiKTeX\tex/latex/l3backend\l3backend-pdftex.def
 File: l3backend-pdftex.def 2021-03-18 L3 backend support: PDF output (pdfTeX)
-\l__color_backend_stack_int=\count445
+\l__color_backend_stack_int=\count446
 \l__pdf_internal_box=\box69
 ) (bericht.aux (Kapitel/abk.aux) (Kapitel/Kapitel1_Einleitung.aux) (Kapitel/Kapitel2_Stand_der_Technik.aux) (Kapitel/Kapitel3_Konzept.aux) (Kapitel/Kapitel4_Implementierung.aux) (Kapitel/Kapitel5_Fazit.aux))
 \openout1 = `bericht.aux'.
 
-LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 105.
-LaTeX Font Info:    ... okay on input line 105.
-LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 105.
-LaTeX Font Info:    ... okay on input line 105.
-LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 105.
-LaTeX Font Info:    ... okay on input line 105.
-LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 105.
-LaTeX Font Info:    ... okay on input line 105.
-LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 105.
-LaTeX Font Info:    ... okay on input line 105.
-LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 105.
-LaTeX Font Info:    ... okay on input line 105.
-LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 105.
-LaTeX Font Info:    ... okay on input line 105.
-LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 105.
-LaTeX Font Info:    ... okay on input line 105.
-LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 105.
-LaTeX Font Info:    ... okay on input line 105.
+LaTeX Font Info:    Checking defaults for OML/cmm/m/it on input line 106.
+LaTeX Font Info:    ... okay on input line 106.
+LaTeX Font Info:    Checking defaults for OMS/cmsy/m/n on input line 106.
+LaTeX Font Info:    ... okay on input line 106.
+LaTeX Font Info:    Checking defaults for OT1/cmr/m/n on input line 106.
+LaTeX Font Info:    ... okay on input line 106.
+LaTeX Font Info:    Checking defaults for T1/cmr/m/n on input line 106.
+LaTeX Font Info:    ... okay on input line 106.
+LaTeX Font Info:    Checking defaults for TS1/cmr/m/n on input line 106.
+LaTeX Font Info:    ... okay on input line 106.
+LaTeX Font Info:    Checking defaults for OMX/cmex/m/n on input line 106.
+LaTeX Font Info:    ... okay on input line 106.
+LaTeX Font Info:    Checking defaults for U/cmr/m/n on input line 106.
+LaTeX Font Info:    ... okay on input line 106.
+LaTeX Font Info:    Checking defaults for PD1/pdf/m/n on input line 106.
+LaTeX Font Info:    ... okay on input line 106.
+LaTeX Font Info:    Checking defaults for PU/pdf/m/n on input line 106.
+LaTeX Font Info:    ... okay on input line 106.
  (C:\Users\fgerv\AppData\Local\Programs\MiKTeX\tex/context/base/mkii\supp-pdf.mkii
 [Loading MPS to PDF converter (version 2006.09.02).]
-\scratchcounter=\count446
-\scratchdimen=\dimen277
+\scratchcounter=\count447
+\scratchdimen=\dimen278
 \scratchbox=\box70
-\nofMPsegments=\count447
-\nofMParguments=\count448
-\everyMPshowfont=\toks46
-\MPscratchCnt=\count449
-\MPscratchDim=\dimen278
-\MPnumerator=\count450
-\makeMPintoPDFobject=\count451
-\everyMPtoPDFconversion=\toks47
+\nofMPsegments=\count448
+\nofMParguments=\count449
+\everyMPshowfont=\toks47
+\MPscratchCnt=\count450
+\MPscratchDim=\dimen279
+\MPnumerator=\count451
+\makeMPintoPDFobject=\count452
+\everyMPtoPDFconversion=\toks48
 ) (C:\Users\fgerv\AppData\Local\Programs\MiKTeX\tex/latex/epstopdf-pkg\epstopdf-base.sty
 Package: epstopdf-base 2020-01-24 v2.11 Base part for package epstopdf
 Package epstopdf-base Info: Redefining graphics rule for `.eps' on input line 485.
@@ -908,7 +913,7 @@ Package: pdflscape 2019/12/05 v0.12 Display of landscape pages in PDF (HO)
  (C:\Users\fgerv\AppData\Local\Programs\MiKTeX\tex/latex/graphics\lscape.sty
 Package: lscape 2020/05/28 v3.02 Landscape Pages (DPC)
 ))
-Package hyperref Info: Link coloring OFF on input line 105.
+Package hyperref Info: Link coloring OFF on input line 106.
  (C:\Users\fgerv\AppData\Local\Programs\MiKTeX\tex/latex/hyperref\nameref.sty
 Package: nameref 2021-04-02 v2.47 Cross-referencing by name of section
  (C:\Users\fgerv\AppData\Local\Programs\MiKTeX\tex/latex/refcount\refcount.sty
@@ -916,18 +921,18 @@ Package: refcount 2019/12/15 v3.6 Data extraction from label references (HO)
 ) (C:\Users\fgerv\AppData\Local\Programs\MiKTeX\tex/generic/gettitlestring\gettitlestring.sty
 Package: gettitlestring 2019/12/15 v1.6 Cleanup title references (HO)
 )
-\c@section@level=\count452
+\c@section@level=\count453
 )
-LaTeX Info: Redefining \ref on input line 105.
-LaTeX Info: Redefining \pageref on input line 105.
-LaTeX Info: Redefining \nameref on input line 105.
-LaTeX Info: Redefining \microtypecontext on input line 105.
-Package microtype Info: Applying patch `item' on input line 105.
-Package microtype Info: Applying patch `toc' on input line 105.
-Package microtype Info: Applying patch `eqnum' on input line 105.
+LaTeX Info: Redefining \ref on input line 106.
+LaTeX Info: Redefining \pageref on input line 106.
+LaTeX Info: Redefining \nameref on input line 106.
+LaTeX Info: Redefining \microtypecontext on input line 106.
+Package microtype Info: Applying patch `item' on input line 106.
+Package microtype Info: Applying patch `toc' on input line 106.
+Package microtype Info: Applying patch `eqnum' on input line 106.
 
 
-Package microtype Warning: Unable to apply patch `footnote' on input line 105.
+Package microtype Warning: Unable to apply patch `footnote' on input line 106.
 
 Package microtype Info: Generating PDF output.
 Package microtype Info: Character protrusion enabled (level 2).
@@ -935,7 +940,7 @@ Package microtype Info: Using default protrusion set `alltext'.
 Package microtype Info: Automatic font expansion enabled (level 2),
 (microtype)             stretch: 20, shrink: 20, step: 1, non-selected.
 Package microtype Info: Using default expansion set `alltext-nott'.
-LaTeX Info: Redefining \showhyphens on input line 105.
+LaTeX Info: Redefining \showhyphens on input line 106.
 Package microtype Info: No adjustment of tracking.
 Package microtype Info: No adjustment of interword spacing.
 Package microtype Info: No adjustment of character kerning.
@@ -978,46 +983,46 @@ Package: blx-case-expl3 2020/12/31 v3.16 expl3 case changing code for biblatex
 Package biblatex Info: Trying to load bibliographic data...
 Package biblatex Info: ... file 'bericht.bbl' found.
  (bericht.bbl)
-Package biblatex Info: Reference section=0 on input line 105.
-Package biblatex Info: Reference segment=0 on input line 105.
-\c@lstlisting=\count453
+Package biblatex Info: Reference section=0 on input line 106.
+Package biblatex Info: Reference segment=0 on input line 106.
+\c@lstlisting=\count454
 <img//DHBW_Logo_KA.png, id=6, 88.038pt x 42.3765pt>
 File: img//DHBW_Logo_KA.png Graphic file (type png)
 <use img//DHBW_Logo_KA.png>
-Package pdftex.def Info: img//DHBW_Logo_KA.png  used on input line 112.
+Package pdftex.def Info: img//DHBW_Logo_KA.png  used on input line 113.
 (pdftex.def)             Requested size: 113.81102pt x 54.78615pt.
 Package microtype Info: Character `029' is missing
 (microtype)             in font `T1/lmr/m/sc/24.88'.
 (microtype)             Ignoring protrusion settings for this character.
-LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 127.
+LaTeX Font Info:    Trying to load font information for OT1+lmr on input line 128.
  (C:\Users\fgerv\AppData\Local\Programs\MiKTeX\tex/latex/lm\ot1lmr.fd
 File: ot1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Trying to load font information for OML+lmm on input line 127.
+LaTeX Font Info:    Trying to load font information for OML+lmm on input line 128.
  (C:\Users\fgerv\AppData\Local\Programs\MiKTeX\tex/latex/lm\omllmm.fd
 File: omllmm.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 127.
+LaTeX Font Info:    Trying to load font information for OMS+lmsy on input line 128.
  (C:\Users\fgerv\AppData\Local\Programs\MiKTeX\tex/latex/lm\omslmsy.fd
 File: omslmsy.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 127.
+LaTeX Font Info:    Trying to load font information for OMX+lmex on input line 128.
  (C:\Users\fgerv\AppData\Local\Programs\MiKTeX\tex/latex/lm\omxlmex.fd
 File: omxlmex.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <10.95> on input line 127.
+(Font)              <10.95> on input line 128.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <8> on input line 127.
+(Font)              <8> on input line 128.
 LaTeX Font Info:    External font `lmex10' loaded for size
-(Font)              <6> on input line 127.
-LaTeX Font Info:    Trying to load font information for U+msa on input line 127.
+(Font)              <6> on input line 128.
+LaTeX Font Info:    Trying to load font information for U+msa on input line 128.
  (C:\Users\fgerv\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 ) (C:\Users\fgerv\AppData\Local\Programs\MiKTeX\tex/latex/microtype\mt-msa.cfg
 File: mt-msa.cfg 2006/02/04 v1.1 microtype config. file: AMS symbols (a) (RS)
 )
-LaTeX Font Info:    Trying to load font information for U+msb on input line 127.
+LaTeX Font Info:    Trying to load font information for U+msb on input line 128.
  (C:\Users\fgerv\AppData\Local\Programs\MiKTeX\tex/latex/amsfonts\umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 ) (C:\Users\fgerv\AppData\Local\Programs\MiKTeX\tex/latex/microtype\mt-msb.cfg
@@ -1027,17 +1032,17 @@ File: mt-msb.cfg 2005/06/01 v1.0 microtype config. file: AMS symbols (b) (RS)
 {C:/Users/fgerv/AppData/Local/MiKTeX/pdftex/config/pdftex.map} <./img//DHBW_Logo_KA.png>] (Kapitel/erklaerung.tex)pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.143 \begin{abstract}
+l.144 \begin{abstract}
                        [1]pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.145 \end{abstract}
+l.146 \end{abstract}
                      [1]pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.150 \end{abstract}
+l.151 \end{abstract}
                      [1]
-\c@roman-numbering=\count454
+\c@roman-numbering=\count455
  (bericht.toc)
 \tf@toc=\write6
 \openout6 = `bericht.toc'.
@@ -1051,17 +1056,23 @@ l.150 \end{abstract}
  [2
 
 
-] (bericht.lol)
-\tf@lol=\write8
-\openout8 = `bericht.lol'.
+] (bericht.lot)
+\tf@lot=\write8
+\openout8 = `bericht.lot'.
 
  [3
+
+] (bericht.lol)
+\tf@lol=\write9
+\openout9 = `bericht.lol'.
+
+ [4
 
 
 ]
 \openout2 = `./Kapitel/abk.aux'.
 
- (Kapitel/abk.tex) [4
+ (Kapitel/abk.tex) [5
 
 
 ]
@@ -1072,7 +1083,7 @@ Kapitel 1.
 )pdfTeX warning (ext4): destination with the same identifier (name{page.1}) has been already used, duplicate ignored
 <to be read again> 
                    \relax 
-l.169 \include{./Kapitel/Kapitel1_Einleitung}
+l.170 \include{./Kapitel/Kapitel1_Einleitung}
                                               [1
 
 
@@ -1096,68 +1107,87 @@ Kapitel 3.
 LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 20.
 (C:\Users\fgerv\AppData\Local\Programs\MiKTeX\tex/latex/lm\ts1lmr.fd
 File: ts1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
-)
+) [3
+
+
+
+
+]
 Package acronym Info: Label `acro:HTTP' newly defined as it shall be overridden
-although it is yet undefined on input line 31.
-<img//Bilder_Kapitel_3/Konzept_A.png, id=99, 317.31047pt x 271.0125pt>
+although it is yet undefined on input line 33.
+<img//Bilder_Kapitel_3/Konzept_A.png, id=109, 317.31047pt x 271.0125pt>
 File: img//Bilder_Kapitel_3/Konzept_A.png Graphic file (type png)
 <use img//Bilder_Kapitel_3/Konzept_A.png>
-Package pdftex.def Info: img//Bilder_Kapitel_3/Konzept_A.png  used on input line 35.
+Package pdftex.def Info: img//Bilder_Kapitel_3/Konzept_A.png  used on input line 37.
 (pdftex.def)             Requested size: 362.37569pt x 309.52812pt.
- [3
-
-
-
-
-] [4pdfTeX warning (ext4): destination with the same identifier (name{figure.3.1}) has been already used, duplicate ignored
-<argument> ...shipout:D \box_use:N \l_shipout_box 
-                                                  
-l.46 \section
-             {Konzept B: Spracherkennung und -verarbeitung mittels mobiler A... <./img//Bilder_Kapitel_3/Konzept_A.png>]
-<img//Bilder_Kapitel_3/Konzept_B.png, id=113, 683.55376pt x 386.94562pt>
+ [4]
+<img//Bilder_Kapitel_3/Konzept_B.png, id=118, 683.55376pt x 386.94562pt>
 File: img//Bilder_Kapitel_3/Konzept_B.png Graphic file (type png)
 <use img//Bilder_Kapitel_3/Konzept_B.png>
-Package pdftex.def Info: img//Bilder_Kapitel_3/Konzept_B.png  used on input line 54.
+Package pdftex.def Info: img//Bilder_Kapitel_3/Konzept_B.png  used on input line 56.
 (pdftex.def)             Requested size: 362.37569pt x 205.13924pt.
-
-Overfull \hbox (75.58699pt too wide) has occurred while \output is active
-\T1/lmr/m/sl/10.95 3.4.  KONZEPT B: SPRACHERKENNUNG UND -VERARBEITUNG MITTELS MOBILER ANWENDUNG \T1/lmr/m/n/10.95 5
- []
-
-[5pdfTeX warning (ext4): destination with the same identifier (name{figure.3.2}) has been already used, duplicate ignored
+ [5pdfTeX warning (ext4): destination with the same identifier (name{figure.3.1}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   
-l.62 \section
-             {Konzept C: Spracherkennung und -verarbeitung auf Computer-Hard... <./img//Bilder_Kapitel_3/Konzept_B.png>]
-Overfull \hbox (12.81593pt too wide) in paragraph at lines 62--62
+l.58 \end{figure}
+                  <./img//Bilder_Kapitel_3/Konzept_A.png>]
+Overfull \hbox (12.81593pt too wide) in paragraph at lines 64--64
 []\T1/lmr/bx/n/14.4 (-20) Konzept C: Spra-cher-ken-nung und -verarbeitung auf Computer-
  []
 
-<img//Bilder_Kapitel_3/Konzept_C.png, id=121, 630.85687pt x 432.11438pt>
+<img//Bilder_Kapitel_3/Konzept_C.png, id=125, 630.85687pt x 432.11438pt>
 File: img//Bilder_Kapitel_3/Konzept_C.png Graphic file (type png)
 <use img//Bilder_Kapitel_3/Konzept_C.png>
-Package pdftex.def Info: img//Bilder_Kapitel_3/Konzept_C.png  used on input line 73.
+Package pdftex.def Info: img//Bilder_Kapitel_3/Konzept_C.png  used on input line 75.
 (pdftex.def)             Requested size: 362.37569pt x 248.21327pt.
 
-Overfull \hbox (52.54825pt too wide) has occurred while \output is active
-\T1/lmr/m/sl/10.95 3.5.  KONZEPT C: SPRACHERKENNUNG UND -VERARBEITUNG AUF COMPUTER-HARDWARE \T1/lmr/m/n/10.95 6
+Overfull \hbox (75.58699pt too wide) has occurred while \output is active
+\T1/lmr/m/sl/10.95 3.4.  KONZEPT B: SPRACHERKENNUNG UND -VERARBEITUNG MITTELS MOBILER ANWENDUNG \T1/lmr/m/n/10.95 6
  []
 
-[6pdfTeX warning (ext4): destination with the same identifier (name{figure.3.3}) has been already used, duplicate ignored
+[6pdfTeX warning (ext4): destination with the same identifier (name{figure.3.2}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   
-l.81 \section
-             {Konzept D:} <./img//Bilder_Kapitel_3/Konzept_C.png>])
-Overfull \hbox (55.78778pt too wide) in paragraph at lines 83--171
-[]
+l.77 \end{figure}
+                  <./img//Bilder_Kapitel_3/Konzept_B.png>]
+Overfull \hbox (52.54825pt too wide) has occurred while \output is active
+\T1/lmr/m/sl/10.95 3.5.  KONZEPT C: SPRACHERKENNUNG UND -VERARBEITUNG AUF COMPUTER-HARDWARE \T1/lmr/m/n/10.95 7
  []
 
-[7]
+[7pdfTeX warning (ext4): destination with the same identifier (name{figure.3.3}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  
+l.83 \section
+             {Finales Konzept} <./img//Bilder_Kapitel_3/Konzept_C.png>]
+Overfull \hbox (1.85858pt too wide) in paragraph at lines 87--100
+ [][] 
+ []
+
+)
+Underfull \hbox (badness 10000) in paragraph at lines 102--172
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 102--172
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 102--172
+
+ []
+
+[8pdfTeX warning (ext4): destination with the same identifier (name{table.3.1}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  
+l.172 \include{./Kapitel/Kapitel3_Konzept}
+                                          ] [9]
 \openout2 = `./Kapitel/Kapitel4_Implementierung.aux'.
 
  (Kapitel/Kapitel4_Implementierung.tex
 Kapitel 4.
-) [8
+) [10
 
 
 
@@ -1167,20 +1197,20 @@ Kapitel 4.
 
  (Kapitel/Kapitel5_Fazit.tex
 Kapitel 5.
-) [9
+) [11
 
 
 
 
 ] (bericht.ind)
 
-LaTeX Warning: Empty bibliography on input line 201.
+LaTeX Warning: Empty bibliography on input line 202.
 
 (bericht.tdo)
-\tf@tdo=\write9
-\openout9 = `bericht.tdo'.
+\tf@tdo=\write10
+\openout10 = `bericht.tdo'.
 
- [5
+ [6
 
 
 
@@ -1190,17 +1220,17 @@ Package logreq Info: Writing requests to 'bericht.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 33611 strings out of 479321
- 617997 string characters out of 2856583
- 1354104 words of memory out of 3000000
- 50268 multiletter control sequences out of 15000+600000
- 457500 words of font info for 109 fonts, out of 8000000 for 9000
+ 33787 strings out of 479321
+ 619998 string characters out of 2856583
+ 1361120 words of memory out of 3000000
+ 50419 multiletter control sequences out of 15000+600000
+ 458081 words of font info for 116 fonts, out of 8000000 for 9000
  1143 hyphenation exceptions out of 8191
- 117i,9n,116p,1943b,2329s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 117i,18n,116p,1964b,2329s stack positions out of 5000i,500n,10000p,200000b,80000s
 {C:/Users/fgerv/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-ec.enc}{C:/Users/fgerv/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-ts1.enc}<C:/Users/fgerv/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx10.pfb><C:/Users/fgerv/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx12.pfb><C:/Users/fgerv/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmcsc10.pfb><C:/Users/fgerv/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr10.pfb><C:/Users/fgerv/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr12.pfb><C:/Users/fgerv/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr17.pfb><C:/Users/fgerv/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmro10.pfb>
-Output written on bericht.pdf (18 pages, 603534 bytes).
+Output written on bericht.pdf (21 pages, 608672 bytes).
 PDF statistics:
- 233 PDF objects out of 1000 (max. 8388607)
- 37 named destinations out of 1000 (max. 500000)
- 32937 words of extra memory for PDF output out of 35830 (max. 10000000)
+ 246 PDF objects out of 1000 (max. 8388607)
+ 41 named destinations out of 1000 (max. 500000)
+ 32929 words of extra memory for PDF output out of 35830 (max. 10000000)
 

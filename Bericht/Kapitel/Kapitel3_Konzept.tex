@@ -17,11 +17,13 @@ Das Sprachmodell mit der Getränkemischmaschine zu verknüpfen stellt eine Herau
 \section{Bewertungskriterien} \label{section:Bewertungskriterien}
 Im Folgenden sind die Bewertungskriterien für die einzelnen Konzepte aufgelistet:
 \begin{itemize}
-    \item Freiheitsgrade in der Spracheingabe des Benutzers
-    \item Hardwarekosten
-    \item Verfügbare Rechenleistung
+    \item Freiheitsgrade in der Spracheingabe des Benutzers: Erhält der Benutzer passende Antworten zurück egal was er sagt oder ist er auf einige wenige Befehle beschränkt?
+    \item Hardwarekosten: Wie kostspielig ist das Konzept bezüglich der zusätzlich benötigten Hardware?
+    \item Verfügbare Rechenleistung: Wie hoch ist die Verfügbare Rechenleistung im Vergleich zu den anderen Konzepten? Reicht diese aus um das Sprachmodell auszuführen?
+    \item Performanz: Als wie performant wird die Lösung eingeschätzt? Ist mit Latenzen zwischen der Einagbe des Benutzers, der Ausgabe einer Antwort und Ausführung der Aktion zu rechnen?
+    \item Overhead: Wie hoch ist im Allgemeinen der Mehraufwand einzuschätzen?
 \end{itemize}
-\section{Konzept A: Spracherkennung und -verarbeitung mittels Arduino}
+\section{Konzept A: Spracherkennung und -verarbeitung mittels Arduino} \label{section:Konzept_A}
 Ein erstes Konzept sieht vor, dass das Audiosignal direkt von einem der Arduinos in der Getränkemischmaschine aufgenommen wird.
 Das Audiosignal wird vom Arduino interpretiert und eine passende Antwort wird ausgegeben.
 Außerdem sendet der Arduino die entsprechenden Signale, um die vom Benutzer gewünschte Aktion von der Getränkemischmaschine ausführen zu lassen.
@@ -78,19 +80,53 @@ Obwohl ein Computer wie der Raspberry-Pi im Allgemeinen eine höhere Leistung al
 Beispielsweise ist das vierte Modell der Raspberry-Pi-Serie mit nur maximal acht Gigabyte Arbeitsspeicher erhältlich.
 Das Sprachmodell könnte allerdings noch weitaus mehr Daten im Arbeitsspeicher benötigen.
 Des Weiteren ist zu beachten, dass die Miniaturcomputer von Raspberry-Pi im Speziellen zum Zeitpunkt dieser Arbeit kaum zu vertretbaren Preisen verfügbar sind.
-\section{Konzept D:}
 \section{Finales Konzept}
-\begin{tabular}[H]{l|c|c|c|c}
-                                                      & Konzept A & Konzept B & Konzept C & Konzept D \\
-    \hline
-    Freiheitsgrade in der Spracheingabe des Benutzers &           &           &           &           \\
-    \hline
-    Hardwarekosten                                    & hoch      & niedrig   & sehr hoch &           \\
-    \hline
-    Verfügbare Rechenleistung                         & niedrig   & hoch      & hoch      &           \\
-\end{tabular}
-// TODO: Konzepte anders aufteilen damit die Bewertungsmatrix einen Sinn ergibt;
-Konzept A weiter unterteilen in "alles auf Arduino/in Maschine" und "Aufteilen zwischen Maschine und Cloud"
+Die folgende Tabelle zeigt eine Übersicht bezüglich der Bewertung der einzelnen Konzepte.
+\begin{table}[H]
+    \centering
+    \begin{tabular}{l|c|c|c|c}
+        Bewertungsmatrix          & \makecell{Konzept A                                     \\ (nur Arduino)} & Konzept A & Konzept B & Konzept C \\
+        \hline
+        \makecell[l]{Freiheitsgrade in der Spracheingabe                                    \\ des Benutzers} & niedrig                    & sehr hoch & sehr hoch & hoch      \\
+        \hline
+        Hardwarekosten            & niedrig             & hoch      & niedrig   & sehr hoch \\
+        \hline
+        Verfügbare Rechenleistung & niedrig             & sehr hoch & sehr hoch & hoch      \\
+        \hline
+        Performanz                & sehr hoch           & mittel    & mittel    & sehr hoch \\
+        \hline
+        Overhead                  & niedrig             & hoch      & sehr hoch & niedrig   \\
+    \end{tabular}
+    \caption{\label{table:Bewertungsmatrix_Konzepte}Bewertung der Konzepte}
+\end{table}
+\noindent
+Ein erster Ansatz wurde im Kapitel \ref{section:Konzept_A} zu Konzept A erläutert.
+Hierbei war die Idee, die Spracherkennung und -verarbeitung nur auf dem Arduino auszuführen.
+Aufgrund der mangelnden Leistung eines Arduinos können mit Hilfe von Sprachmodulen jedoch nur vordefinierte Sätze oder Wörter erkannt werden.
+Damit ist der Freiheitsgrad in der Spracheingabe des Benutzers äußerst eingeschränkt.
+Dafür sind die aufzuwendenden Hardwarekosten minimal.
+Lediglich das Sprachmodul sowie ein Lautsprecher müssten besorgt werden.
+Die Performanz wird als sehr hoch eingeschätzt, da die Spracherkennung direkt auf dem Ardunino erfolgen kann, der auch die Mischmaschine steuert.
+Niedrig ist hingegen der benötigte Mehraufwand, da kaum zusätzliche Awendungen, Services oder Hardwarekomponenten benötigt werden.\\\\
+Das Konzept wurde schließlich durch einen Sprachverarbeitungsservice in der Cloud ergänzt (Konzept A).
+Der Benutzer hat bei diesem Ansatz große Freiheiten in seinen Formulierungen, da es kein Problem darstellt ein großes Sprachmodell in der Cloud auszuführen.
+Die Hardwarekosten könnten allerdings hoch sein, je nach dem, ob der Server selbst bereitgestellt oder von einem externen Anbieter bezogen wird.
+Auch die letzten Endes tatsächlich benötigte Rechenleistung spielt dabei eine Rolle.
+Die verfügbare Rechenleistung ist theoretisch unbegrenzt, wobei die Performanz des Gesamtsystems nur als mittelmäßig eingestuft werden kann.
+Nach der Aufnahme und eventuell einer Vorverarbeitung des Aduiosignals durch den Arduino müssen \ac{HTTP}-Nachrichten gesendet und Empfangen werden.
+Je nach Last auf dem Netzwerk kann es dadurch zu Latenzen oder sogar Verbindungsabbrüchen kommen.
+Außerdem ist der Overhead durch den Einsatz einer Cloud recht hoch.\\\\
+Konzept B unterscheidet sich in Sachen Freiheitsgrad, Rechenleistung und Performanz nicht von Konzept A, da auch hier eine Cloud zum Einsatz kommt.
+Die Hardwarekosten sind jedoch niedriger, da immerhin kein Sprachmodul, Mikrofon und Lautsprecher benötigt werden.
+Die Aufgaben dieser Komponenten kann das Mobiltelefon des Anwenders übernehmen.
+Der Overhead ist deutlich größer, das das Konzept die Entwicklung einer eigenen Mobilanwendung voraussetzt.\\\\
+Der Freiheitsgrad wird bei Konzept C als hoch, jedoch nicht als sehr hoch, bewertet.
+Grund hierfür ist die, im Vergleich zur Cloud, etwas beschränkte Leistung, welche die Leistung/Größe des Sprachmodells beeinträchtigen könnte.
+Hardwarekosten können jedoch sehr hoch werden.
+Bei dem Einsatz einer Cloud kann ein günstiger Anbieter gefunden werden, sodass die Anschaffung eigener Hardware entfällt.
+Dies ist hier nicht der Fall. 
+Die Performanz des Gesamtsystems kann, wie bei Konzept A (nur mittels Arduino), sehr hoch eingeschätzt werden, da Spracherkennung und -verarbeitung direkt in der Mischmaschine von der Hardware übernommen wird.
+Der Mehraufwand ist gering, da weder ein Cloudservice noch eine externe Anwendung entwickelt werden müssen.
 \endinput
 
 
