@@ -1,15 +1,25 @@
 \boolfalse {citerequest}\boolfalse {citetracker}\boolfalse {pagetracker}\boolfalse {backtracker}\relax 
 \babel@toc {ngerman}{}
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{Abbildungsverzeichnis}{ii}{chapter*.1}%
+\contentsline {chapter}{Abbildungsverzeichnis}{iii}{chapter*.1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{Listingverzeichnis}{iv}{chapter*.3}%
+\contentsline {chapter}{Listingverzeichnis}{v}{chapter*.3}%
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{Akürzungsverzeichnis}{v}{chapter*.5}%
+\contentsline {chapter}{Akürzungsverzeichnis}{vi}{chapter*.5}%
 \defcounter {refsection}{0}\relax 
 \contentsline {chapter}{\numberline {1}Einleitung}{1}{chapter.1}%
 \defcounter {refsection}{0}\relax 
 \contentsline {chapter}{\numberline {2}Stand der Technik}{2}{chapter.2}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {2.1}Getränkemischmaschine}{2}{section.2.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {2.2}Hardware}{2}{section.2.2}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {2.3}Sprachverarbeitung}{2}{section.2.3}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {2.3.1}Spracherkennung}{2}{subsection.2.3.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {2.3.2}Vergleich verschiedener Ansätze}{2}{subsection.2.3.2}%
 \defcounter {refsection}{0}\relax 
 \contentsline {chapter}{\numberline {3}Konzept}{3}{chapter.3}%
 \defcounter {refsection}{0}\relax 
@@ -23,12 +33,24 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {section}{\numberline {3.5}Konzept C: Spracherkennung und -verarbeitung auf Computer-Hardware}{7}{section.3.5}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3.6}Finales Konzept}{8}{section.3.6}%
+\contentsline {section}{\numberline {3.6}Konzept für die Sprachsteuerung}{8}{section.3.6}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {3.7}Finales Konzept}{8}{section.3.7}%
 \defcounter {refsection}{0}\relax 
 \contentsline {chapter}{\numberline {4}Implementierung}{10}{chapter.4}%
 \defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {4.1}Implementierung des Sprachverarbeitungssystems}{10}{section.4.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {4.1.1}Word2Vec-Modell}{10}{subsection.4.1.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {4.1.2}Sequence-to-Sequence-Modell}{10}{subsection.4.1.2}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {4.2}Befehlsverarbeitung in der Mischmaschine}{10}{section.4.2}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {4.3}Anbindung des Sprachmodells an die Mischmaschine}{10}{section.4.3}%
+\defcounter {refsection}{0}\relax 
 \contentsline {chapter}{\numberline {5}Fazit und Ausblick}{11}{chapter.5}%
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{Literaturverzeichnis}{vi}{chapter.5}%
+\contentsline {chapter}{Literaturverzeichnis}{vii}{chapter.5}%
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{Liste der ToDo's}{vi}{chapter.5}%
+\contentsline {chapter}{Liste der ToDo's}{vii}{chapter.5}%

@@ -64,8 +64,34 @@ Konzept:
 	- Computer statt Mikrocontroller
 	- Grund/Motivation: Mehr Leistung um Spracherkennung und -verarbeitung mittels Sprachmodell durchzuführen
 + Konzept D:
++ Konzept für die Sprachsteuerung
 + Finales Konzept
 	- Für welches Konzept wurde sich entschieden und warum?
+	- Argumentation für Bewertungsmatrix
+	- Konzept A (nur Arduino): Man versucht alles auf dem Arduino zu machen -> Verwendung eines Sprachmoduls
+		- Freiheitsgrade in der Spracheingabe des Benutzers niedrig: eigentlich sogar keine -> nur vordefinierte Begriffe/Sätze erlaubt (trainiert mit Sprachmodul)
+		- Hardwarekosten niedrig: nur Sprachmodul, ein Ausgabe von Audio
+		- Verfügbare Rechenleistung niedrig: extrem gering (nur Arduino)
+		- Performanz sehr hoch: (direkte Ausführung von Aktion da Spracherkennung auf Arduino der auch Mischmaschine steuert)
+		- Overhead niedrig: man muss nichts kompliziertes zuzsätzlich Bauen/Programmieren 
+	- Konzept A
+		- Freiheitsgrade in der Spracheingabe des Benutzers sehr hoch: je nach Hardware sollte es kein Problem sein großes Modell in Cloud auszuführen
+		- Hardwarekosten hoch: kommt darauf an was man als Cloud nutzt, sorgt man selbst für die Hardware oder findet man günstigen Anbieter?, zusätzlich Sprachmodul (bzw. Mikrofon und Lautsprecher)
+		- Verfügbare Rechenleistung sehr hoch: kommt darauf an was man als Cloud nutzt und wie viel man ausgeben möchte -> theoretisch aber fast unbegrenzt 
+		- Performanz mittel: Aufnahme des Audiosignals vom Arduino (evtl. Vorverarbeitung) -> senden und Empfangen von HTTP-Requests -> Wartezeiten, Latenzen, Verbindungsabbrüche, Kommunikation über Netzwerk
+		- Overhead hoch: Sprachmodul für Arduino, Cloudanwendung und Anbieter bei dem die Anwendung läuft (oder selbst einen "Server" hinstellen)
+	- Konzept B: 
+		- Freiheitsgrade in der Spracheingabe des Benutzers sehr hoch: Ebenfalls Verwendung von Cloud (siehe Konzept A)
+		- Hardwarekosten niedrig: keine Cloud benötigt (auch kein Sprachmodul o.ä.) -> Handy hat jeder
+		- Verfügbare Rechenleistung sehr hoch: s. Konzept A -> Cloud, Mobiltelefon
+		- Performanz mittel: ebenfalls selbe Begründung wie bei A (hier evtl. noch schlechter da Umweg über Mobiltelefon)
+		- Overhead sehr hoch: eigene Mobilanwendung programmieren sehr aufwendig, auch für Benutzer unpraktisch
+	- Konzept C:
+		- Freiheitsgrade in der Spracheingabe des Benutzers hoch: nicht "sehr hoch" wegen eingeschränkter Leistung (man ist auf einen Miniaturcomputer beschränkt)
+		- Hardwarekosten sehr hoch: nicht wie bei Cloud wo man sich evtl. günstigen Anbieter suchen kann -> Raspberries bspw. extrem teuer und kaum verfügbar (Alternativen denkbar)
+		- Verfügbare Rechenleistung hoch: selbsterkärend schlechter als was mit Cloud möglich ist aber immernoch gut (besser als Arduino)
+		- Performanz sehr hoch: keine Latenzen, serielle Schnittstelle extrem schnell
+		- Overhead niedrig: Hardware driekt in Mischmaschine, nichts "aussen rum" benötigt (wie bspw. Cloud oder gar App) 
 	
 Umsetzung:
 

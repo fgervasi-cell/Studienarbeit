@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (MiKTeX 21.3) (preloaded format=pdflatex 2021.4.14)  22 NOV 2022 12:01
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (MiKTeX 21.3) (preloaded format=pdflatex 2021.4.14)  5 DEC 2022 13:55
 entering extended mode
 **c:/Users/fgerv/OneDrive/Documents/Studium_2022_2023/Studienarbeit/Bericht/bericht.tex
 (c:/Users/fgerv/OneDrive/Documents/Studium_2022_2023/Studienarbeit/Bericht/bericht.tex
@@ -1043,36 +1043,36 @@ l.146 \end{abstract}
 l.151 \end{abstract}
                      [1]
 \c@roman-numbering=\count455
- (bericht.toc)
+ (bericht.toc [1
+
+])
 \tf@toc=\write6
 \openout6 = `bericht.toc'.
 
- [1
-
-] (bericht.lof)
+ [2] (bericht.lof)
 \tf@lof=\write7
 \openout7 = `bericht.lof'.
 
- [2
+ [3
 
 
 ] (bericht.lot)
 \tf@lot=\write8
 \openout8 = `bericht.lot'.
 
- [3
+ [4
 
 ] (bericht.lol)
 \tf@lol=\write9
 \openout9 = `bericht.lol'.
 
- [4
+ [5
 
 
 ]
 \openout2 = `./Kapitel/abk.aux'.
 
- (Kapitel/abk.tex) [5
+ (Kapitel/abk.tex) [6
 
 
 ]
@@ -1115,13 +1115,13 @@ File: ts1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 ]
 Package acronym Info: Label `acro:HTTP' newly defined as it shall be overridden
 although it is yet undefined on input line 33.
-<img//Bilder_Kapitel_3/Konzept_A.png, id=109, 317.31047pt x 271.0125pt>
+<img//Bilder_Kapitel_3/Konzept_A.png, id=137, 317.31047pt x 271.0125pt>
 File: img//Bilder_Kapitel_3/Konzept_A.png Graphic file (type png)
 <use img//Bilder_Kapitel_3/Konzept_A.png>
 Package pdftex.def Info: img//Bilder_Kapitel_3/Konzept_A.png  used on input line 37.
 (pdftex.def)             Requested size: 362.37569pt x 309.52812pt.
  [4]
-<img//Bilder_Kapitel_3/Konzept_B.png, id=118, 683.55376pt x 386.94562pt>
+<img//Bilder_Kapitel_3/Konzept_B.png, id=144, 683.55376pt x 386.94562pt>
 File: img//Bilder_Kapitel_3/Konzept_B.png Graphic file (type png)
 <use img//Bilder_Kapitel_3/Konzept_B.png>
 Package pdftex.def Info: img//Bilder_Kapitel_3/Konzept_B.png  used on input line 56.
@@ -1135,7 +1135,7 @@ Overfull \hbox (12.81593pt too wide) in paragraph at lines 64--64
 []\T1/lmr/bx/n/14.4 (-20) Konzept C: Spra-cher-ken-nung und -verarbeitung auf Computer-
  []
 
-<img//Bilder_Kapitel_3/Konzept_C.png, id=125, 630.85687pt x 432.11438pt>
+<img//Bilder_Kapitel_3/Konzept_C.png, id=151, 630.85687pt x 432.11438pt>
 File: img//Bilder_Kapitel_3/Konzept_C.png Graphic file (type png)
 <use img//Bilder_Kapitel_3/Konzept_C.png>
 Package pdftex.def Info: img//Bilder_Kapitel_3/Konzept_C.png  used on input line 75.
@@ -1158,23 +1158,23 @@ Overfull \hbox (52.54825pt too wide) has occurred while \output is active
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   
 l.83 \section
-             {Finales Konzept} <./img//Bilder_Kapitel_3/Konzept_C.png>]
-Overfull \hbox (1.85858pt too wide) in paragraph at lines 87--100
+             {Konzept für die Sprachsteuerung} <./img//Bilder_Kapitel_3/Konzept_C.png>]
+Overfull \hbox (1.85858pt too wide) in paragraph at lines 88--101
  [][] 
  []
 
 )
-Underfull \hbox (badness 10000) in paragraph at lines 102--172
+Underfull \hbox (badness 10000) in paragraph at lines 103--172
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 102--172
+Underfull \hbox (badness 10000) in paragraph at lines 103--172
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 102--172
+Underfull \hbox (badness 10000) in paragraph at lines 103--172
 
  []
 
@@ -1210,7 +1210,7 @@ LaTeX Warning: Empty bibliography on input line 202.
 \tf@tdo=\write10
 \openout10 = `bericht.tdo'.
 
- [6
+ [7
 
 
 
@@ -1220,17 +1220,17 @@ Package logreq Info: Writing requests to 'bericht.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 33787 strings out of 479321
- 619998 string characters out of 2856583
- 1361120 words of memory out of 3000000
- 50419 multiletter control sequences out of 15000+600000
+ 33810 strings out of 479321
+ 620213 string characters out of 2856583
+ 1362120 words of memory out of 3000000
+ 50430 multiletter control sequences out of 15000+600000
  458081 words of font info for 116 fonts, out of 8000000 for 9000
  1143 hyphenation exceptions out of 8191
  117i,18n,116p,1964b,2329s stack positions out of 5000i,500n,10000p,200000b,80000s
-{C:/Users/fgerv/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-ec.enc}{C:/Users/fgerv/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-ts1.enc}<C:/Users/fgerv/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx10.pfb><C:/Users/fgerv/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx12.pfb><C:/Users/fgerv/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmcsc10.pfb><C:/Users/fgerv/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr10.pfb><C:/Users/fgerv/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr12.pfb><C:/Users/fgerv/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr17.pfb><C:/Users/fgerv/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmro10.pfb>
-Output written on bericht.pdf (21 pages, 608672 bytes).
+{C:/Users/fgerv/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-ts1.enc}{C:/Users/fgerv/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-ec.enc}<C:/Users/fgerv/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx10.pfb><C:/Users/fgerv/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx12.pfb><C:/Users/fgerv/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmcsc10.pfb><C:/Users/fgerv/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr10.pfb><C:/Users/fgerv/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr12.pfb><C:/Users/fgerv/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr17.pfb><C:/Users/fgerv/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmro10.pfb>
+Output written on bericht.pdf (22 pages, 619868 bytes).
 PDF statistics:
- 246 PDF objects out of 1000 (max. 8388607)
- 41 named destinations out of 1000 (max. 500000)
- 32929 words of extra memory for PDF output out of 35830 (max. 10000000)
+ 307 PDF objects out of 1000 (max. 8388607)
+ 53 named destinations out of 1000 (max. 500000)
+ 33017 words of extra memory for PDF output out of 35830 (max. 10000000)
 
