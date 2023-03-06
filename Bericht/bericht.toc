@@ -21,35 +21,43 @@
 \defcounter {refsection}{0}\relax 
 \contentsline {subsection}{\numberline {2.3.2}Vergleich verschiedener Ansätze}{2}{subsection.2.3.2}%
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {3}Konzept}{3}{chapter.3}%
+\contentsline {subsubsection}{Musterabgleich}{2}{section*.6}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3.1}Allgemein}{3}{section.3.1}%
+\contentsline {subsubsection}{Grounding}{4}{section*.7}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3.2}Bewertungskriterien}{3}{section.3.2}%
+\contentsline {subsubsection}{Suche}{5}{section*.8}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3.3}Konzept A: Spracherkennung und -verarbeitung mittels Arduino}{4}{section.3.3}%
+\contentsline {subsubsection}{Generierungsmethoden}{5}{section*.9}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3.4}Konzept B: Spracherkennung und -verarbeitung mittels mobiler Anwendung}{6}{section.3.4}%
+\contentsline {chapter}{\numberline {3}Konzept}{6}{chapter.3}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3.5}Konzept C: Spracherkennung und -verarbeitung auf Computer-Hardware}{7}{section.3.5}%
+\contentsline {section}{\numberline {3.1}Allgemein}{6}{section.3.1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3.6}Konzept für die Sprachsteuerung}{8}{section.3.6}%
+\contentsline {section}{\numberline {3.2}Bewertungskriterien}{6}{section.3.2}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {3.7}Finales Konzept}{8}{section.3.7}%
+\contentsline {section}{\numberline {3.3}Konzept A: Spracherkennung und -verarbeitung mittels Arduino}{7}{section.3.3}%
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {4}Implementierung}{10}{chapter.4}%
+\contentsline {section}{\numberline {3.4}Konzept B: Spracherkennung und -verarbeitung mittels mobiler Anwendung}{9}{section.3.4}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4.1}Implementierung des Sprachverarbeitungssystems}{10}{section.4.1}%
+\contentsline {section}{\numberline {3.5}Konzept C: Spracherkennung und -verarbeitung auf Computer-Hardware}{10}{section.3.5}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.1.1}Word2Vec-Modell}{10}{subsection.4.1.1}%
+\contentsline {section}{\numberline {3.6}Konzept für die Sprachsteuerung}{11}{section.3.6}%
 \defcounter {refsection}{0}\relax 
-\contentsline {subsection}{\numberline {4.1.2}Sequence-to-Sequence-Modell}{10}{subsection.4.1.2}%
+\contentsline {section}{\numberline {3.7}Finales Konzept}{11}{section.3.7}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4.2}Befehlsverarbeitung in der Mischmaschine}{10}{section.4.2}%
+\contentsline {chapter}{\numberline {4}Implementierung}{13}{chapter.4}%
 \defcounter {refsection}{0}\relax 
-\contentsline {section}{\numberline {4.3}Anbindung des Sprachmodells an die Mischmaschine}{10}{section.4.3}%
+\contentsline {section}{\numberline {4.1}Implementierung des Sprachverarbeitungssystems}{13}{section.4.1}%
 \defcounter {refsection}{0}\relax 
-\contentsline {chapter}{\numberline {5}Fazit und Ausblick}{11}{chapter.5}%
+\contentsline {subsection}{\numberline {4.1.1}Word2Vec-Modell}{13}{subsection.4.1.1}%
+\defcounter {refsection}{0}\relax 
+\contentsline {subsection}{\numberline {4.1.2}Sequence-to-Sequence-Modell}{13}{subsection.4.1.2}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {4.2}Befehlsverarbeitung in der Mischmaschine}{13}{section.4.2}%
+\defcounter {refsection}{0}\relax 
+\contentsline {section}{\numberline {4.3}Anbindung des Sprachmodells an die Mischmaschine}{13}{section.4.3}%
+\defcounter {refsection}{0}\relax 
+\contentsline {chapter}{\numberline {5}Fazit und Ausblick}{14}{chapter.5}%
 \defcounter {refsection}{0}\relax 
 \contentsline {chapter}{Literaturverzeichnis}{vii}{chapter.5}%
 \defcounter {refsection}{0}\relax 

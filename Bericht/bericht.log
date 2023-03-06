@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (MiKTeX 21.3) (preloaded format=pdflatex 2021.4.14)  5 DEC 2022 13:55
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (MiKTeX 21.3) (preloaded format=pdflatex 2021.4.14)  6 MAR 2023 13:03
 entering extended mode
 **c:/Users/fgerv/OneDrive/Documents/Studium_2022_2023/Studienarbeit/Bericht/bericht.tex
 (c:/Users/fgerv/OneDrive/Documents/Studium_2022_2023/Studienarbeit/Bericht/bericht.tex
@@ -1094,20 +1094,80 @@ l.170 \include{./Kapitel/Kapitel1_Einleitung}
 
  (Kapitel/Kapitel2_Stand_der_Technik.tex
 Kapitel 2.
-) [2
+LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 9.
+(C:\Users\fgerv\AppData\Local\Programs\MiKTeX\tex/latex/lm\ts1lmr.fd
+File: ts1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
+)
+<img//Bilder_Kapitel_2/aiml_bot.png, id=126, 366.168pt x 214.401pt>
+File: img//Bilder_Kapitel_2/aiml_bot.png Graphic file (type png)
+<use img//Bilder_Kapitel_2/aiml_bot.png>
+Package pdftex.def Info: img//Bilder_Kapitel_2/aiml_bot.png  used on input line 23.
+(pdftex.def)             Requested size: 362.37569pt x 212.18565pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 16--25
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 16--25
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 16--25
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 16--25
+
+ []
+
+[2
 
 
 
 
-]
+] [3pdfTeX warning (ext4): destination with the same identifier (name{figure.2.1}) has been already used, duplicate ignored
+<argument> ...shipout:D \box_use:N \l_shipout_box 
+                                                  
+l.28 \subsubsection
+                   {Grounding} <./img//Bilder_Kapitel_2/aiml_bot.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 29--36
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 29--36
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 29--36
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 29--36
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 29--36
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 29--36
+
+ []
+
+[4]) [5]
 \openout2 = `./Kapitel/Kapitel3_Konzept.aux'.
 
  (Kapitel/Kapitel3_Konzept.tex
 Kapitel 3.
-LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 20.
-(C:\Users\fgerv\AppData\Local\Programs\MiKTeX\tex/latex/lm\ts1lmr.fd
-File: ts1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
-) [3
+[6
 
 
 
@@ -1115,18 +1175,18 @@ File: ts1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 ]
 Package acronym Info: Label `acro:HTTP' newly defined as it shall be overridden
 although it is yet undefined on input line 33.
-<img//Bilder_Kapitel_3/Konzept_A.png, id=137, 317.31047pt x 271.0125pt>
+<img//Bilder_Kapitel_3/Konzept_A.png, id=156, 317.31047pt x 271.0125pt>
 File: img//Bilder_Kapitel_3/Konzept_A.png Graphic file (type png)
 <use img//Bilder_Kapitel_3/Konzept_A.png>
 Package pdftex.def Info: img//Bilder_Kapitel_3/Konzept_A.png  used on input line 37.
 (pdftex.def)             Requested size: 362.37569pt x 309.52812pt.
- [4]
-<img//Bilder_Kapitel_3/Konzept_B.png, id=144, 683.55376pt x 386.94562pt>
+ [7]
+<img//Bilder_Kapitel_3/Konzept_B.png, id=163, 683.55376pt x 386.94562pt>
 File: img//Bilder_Kapitel_3/Konzept_B.png Graphic file (type png)
 <use img//Bilder_Kapitel_3/Konzept_B.png>
 Package pdftex.def Info: img//Bilder_Kapitel_3/Konzept_B.png  used on input line 56.
 (pdftex.def)             Requested size: 362.37569pt x 205.13924pt.
- [5pdfTeX warning (ext4): destination with the same identifier (name{figure.3.1}) has been already used, duplicate ignored
+ [8pdfTeX warning (ext4): destination with the same identifier (name{figure.3.1}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   
 l.58 \end{figure}
@@ -1135,26 +1195,26 @@ Overfull \hbox (12.81593pt too wide) in paragraph at lines 64--64
 []\T1/lmr/bx/n/14.4 (-20) Konzept C: Spra-cher-ken-nung und -verarbeitung auf Computer-
  []
 
-<img//Bilder_Kapitel_3/Konzept_C.png, id=151, 630.85687pt x 432.11438pt>
+<img//Bilder_Kapitel_3/Konzept_C.png, id=170, 630.85687pt x 432.11438pt>
 File: img//Bilder_Kapitel_3/Konzept_C.png Graphic file (type png)
 <use img//Bilder_Kapitel_3/Konzept_C.png>
 Package pdftex.def Info: img//Bilder_Kapitel_3/Konzept_C.png  used on input line 75.
 (pdftex.def)             Requested size: 362.37569pt x 248.21327pt.
 
 Overfull \hbox (75.58699pt too wide) has occurred while \output is active
-\T1/lmr/m/sl/10.95 3.4.  KONZEPT B: SPRACHERKENNUNG UND -VERARBEITUNG MITTELS MOBILER ANWENDUNG \T1/lmr/m/n/10.95 6
+\T1/lmr/m/sl/10.95 3.4.  KONZEPT B: SPRACHERKENNUNG UND -VERARBEITUNG MITTELS MOBILER ANWENDUNG \T1/lmr/m/n/10.95 9
  []
 
-[6pdfTeX warning (ext4): destination with the same identifier (name{figure.3.2}) has been already used, duplicate ignored
+[9pdfTeX warning (ext4): destination with the same identifier (name{figure.3.2}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   
 l.77 \end{figure}
                   <./img//Bilder_Kapitel_3/Konzept_B.png>]
-Overfull \hbox (52.54825pt too wide) has occurred while \output is active
-\T1/lmr/m/sl/10.95 3.5.  KONZEPT C: SPRACHERKENNUNG UND -VERARBEITUNG AUF COMPUTER-HARDWARE \T1/lmr/m/n/10.95 7
+Overfull \hbox (58.02324pt too wide) has occurred while \output is active
+\T1/lmr/m/sl/10.95 3.5.  KONZEPT C: SPRACHERKENNUNG UND -VERARBEITUNG AUF COMPUTER-HARDWARE \T1/lmr/m/n/10.95 10
  []
 
-[7pdfTeX warning (ext4): destination with the same identifier (name{figure.3.3}) has been already used, duplicate ignored
+[10pdfTeX warning (ext4): destination with the same identifier (name{figure.3.3}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   
 l.83 \section
@@ -1178,16 +1238,16 @@ Underfull \hbox (badness 10000) in paragraph at lines 103--172
 
  []
 
-[8pdfTeX warning (ext4): destination with the same identifier (name{table.3.1}) has been already used, duplicate ignored
+[11pdfTeX warning (ext4): destination with the same identifier (name{table.3.1}) has been already used, duplicate ignored
 <argument> ...shipout:D \box_use:N \l_shipout_box 
                                                   
 l.172 \include{./Kapitel/Kapitel3_Konzept}
-                                          ] [9]
+                                          ] [12]
 \openout2 = `./Kapitel/Kapitel4_Implementierung.aux'.
 
  (Kapitel/Kapitel4_Implementierung.tex
 Kapitel 4.
-) [10
+) [13
 
 
 
@@ -1197,7 +1257,7 @@ Kapitel 4.
 
  (Kapitel/Kapitel5_Fazit.tex
 Kapitel 5.
-) [11
+) [14
 
 
 
@@ -1220,17 +1280,17 @@ Package logreq Info: Writing requests to 'bericht.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 33810 strings out of 479321
- 620213 string characters out of 2856583
- 1362120 words of memory out of 3000000
- 50430 multiletter control sequences out of 15000+600000
- 458081 words of font info for 116 fonts, out of 8000000 for 9000
+ 33843 strings out of 479321
+ 620726 string characters out of 2856583
+ 1362161 words of memory out of 3000000
+ 50441 multiletter control sequences out of 15000+600000
+ 458579 words of font info for 122 fonts, out of 8000000 for 9000
  1143 hyphenation exceptions out of 8191
  117i,18n,116p,1964b,2329s stack positions out of 5000i,500n,10000p,200000b,80000s
 {C:/Users/fgerv/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-ts1.enc}{C:/Users/fgerv/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-ec.enc}<C:/Users/fgerv/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx10.pfb><C:/Users/fgerv/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx12.pfb><C:/Users/fgerv/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmcsc10.pfb><C:/Users/fgerv/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr10.pfb><C:/Users/fgerv/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr12.pfb><C:/Users/fgerv/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr17.pfb><C:/Users/fgerv/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmro10.pfb>
-Output written on bericht.pdf (22 pages, 619868 bytes).
+Output written on bericht.pdf (25 pages, 639128 bytes).
 PDF statistics:
- 307 PDF objects out of 1000 (max. 8388607)
- 53 named destinations out of 1000 (max. 500000)
- 33017 words of extra memory for PDF output out of 35830 (max. 10000000)
+ 329 PDF objects out of 1000 (max. 8388607)
+ 61 named destinations out of 1000 (max. 500000)
+ 33022 words of extra memory for PDF output out of 35830 (max. 10000000)
 
