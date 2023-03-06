@@ -16,5 +16,33 @@
   {}
 \endgroup
 
-\datalist[entry]{nty/global//global/global}\enddatalist
+\datalist[entry]{nty/global//global/global}
+  \entry{woudenberg_chatbot_2014}{thesis}{}
+    \name{author}{1}{}{%
+      {{hash=WAv}{%
+         family={Woudenberg},
+         familyi={W\bibinitperiod},
+         given={Aswin\bibnamedelima van},
+         giveni={A\bibinitperiod\bibinitdelim v\bibinitperiod},
+      }}%
+    }
+    \strng{namehash}{WAv1}
+    \strng{fullhash}{WAv1}
+    \field{labelnamesource}{author}
+    \field{labeltitlesource}{shorttitle}
+    \field{labelyear}{2014}
+    \field{labeldatesource}{}
+    \field{sortinit}{W}
+    \field{sortinithash}{W}
+    \field{shorttitle}{A {Chatbot} {Dialogue} {Manager}-{Chatbots} and
+  {Dialogue} {Systems}}
+    \field{title}{A {Chatbot} {Dialogue} {Manager}-{Chatbots} and {Dialogue}
+  {Systems}: {A} {Hybrid} {Approach}}
+    \list{institution}{1}{%
+      {Open Universiteit Nederland}%
+    }
+    \field{type}{mathesis}
+    \field{year}{2014}
+  \endentry
+\enddatalist
 \endinput

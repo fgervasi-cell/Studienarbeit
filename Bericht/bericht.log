@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.141592653-2.6-1.40.22 (MiKTeX 21.3) (preloaded format=pdflatex 2021.4.14)  6 MAR 2023 13:03
+This is pdfTeX, Version 3.141592653-2.6-1.40.22 (MiKTeX 21.3) (preloaded format=pdflatex 2021.4.14)  6 MAR 2023 14:40
 entering extended mode
 **c:/Users/fgerv/OneDrive/Documents/Studium_2022_2023/Studienarbeit/Bericht/bericht.tex
 (c:/Users/fgerv/OneDrive/Documents/Studium_2022_2023/Studienarbeit/Bericht/bericht.tex
@@ -1098,7 +1098,10 @@ LaTeX Font Info:    Trying to load font information for TS1+lmr on input line 9.
 (C:\Users\fgerv\AppData\Local\Programs\MiKTeX\tex/latex/lm\ts1lmr.fd
 File: ts1lmr.fd 2009/10/30 v1.6 Font defs for Latin Modern
 )
-<img//Bilder_Kapitel_2/aiml_bot.png, id=126, 366.168pt x 214.401pt>
+Package microtype Info: Character `029' is missing
+(microtype)             in font `T1/lmr/m/sc/10.95'.
+(microtype)             Ignoring protrusion settings for this character.
+<img//Bilder_Kapitel_2/aiml_bot.png, id=128, 366.168pt x 214.401pt>
 File: img//Bilder_Kapitel_2/aiml_bot.png Graphic file (type png)
 <use img//Bilder_Kapitel_2/aiml_bot.png>
 Package pdftex.def Info: img//Bilder_Kapitel_2/aiml_bot.png  used on input line 23.
@@ -1175,13 +1178,13 @@ Kapitel 3.
 ]
 Package acronym Info: Label `acro:HTTP' newly defined as it shall be overridden
 although it is yet undefined on input line 33.
-<img//Bilder_Kapitel_3/Konzept_A.png, id=156, 317.31047pt x 271.0125pt>
+<img//Bilder_Kapitel_3/Konzept_A.png, id=159, 317.31047pt x 271.0125pt>
 File: img//Bilder_Kapitel_3/Konzept_A.png Graphic file (type png)
 <use img//Bilder_Kapitel_3/Konzept_A.png>
 Package pdftex.def Info: img//Bilder_Kapitel_3/Konzept_A.png  used on input line 37.
 (pdftex.def)             Requested size: 362.37569pt x 309.52812pt.
  [7]
-<img//Bilder_Kapitel_3/Konzept_B.png, id=163, 683.55376pt x 386.94562pt>
+<img//Bilder_Kapitel_3/Konzept_B.png, id=166, 683.55376pt x 386.94562pt>
 File: img//Bilder_Kapitel_3/Konzept_B.png Graphic file (type png)
 <use img//Bilder_Kapitel_3/Konzept_B.png>
 Package pdftex.def Info: img//Bilder_Kapitel_3/Konzept_B.png  used on input line 56.
@@ -1195,7 +1198,7 @@ Overfull \hbox (12.81593pt too wide) in paragraph at lines 64--64
 []\T1/lmr/bx/n/14.4 (-20) Konzept C: Spra-cher-ken-nung und -verarbeitung auf Computer-
  []
 
-<img//Bilder_Kapitel_3/Konzept_C.png, id=170, 630.85687pt x 432.11438pt>
+<img//Bilder_Kapitel_3/Konzept_C.png, id=173, 630.85687pt x 432.11438pt>
 File: img//Bilder_Kapitel_3/Konzept_C.png Graphic file (type png)
 <use img//Bilder_Kapitel_3/Konzept_C.png>
 Package pdftex.def Info: img//Bilder_Kapitel_3/Konzept_C.png  used on input line 75.
@@ -1262,17 +1265,15 @@ Kapitel 5.
 
 
 
-] (bericht.ind)
+] (bericht.ind) [7
 
-LaTeX Warning: Empty bibliography on input line 202.
 
-(bericht.tdo)
+
+] (bericht.tdo)
 \tf@tdo=\write10
 \openout10 = `bericht.tdo'.
 
- [7
-
-
+ [8
 
 ] (bericht.aux (Kapitel/abk.aux) (Kapitel/Kapitel1_Einleitung.aux) (Kapitel/Kapitel2_Stand_der_Technik.aux) (Kapitel/Kapitel3_Konzept.aux) (Kapitel/Kapitel4_Implementierung.aux) (Kapitel/Kapitel5_Fazit.aux))
 Package logreq Info: Writing requests to 'bericht.run.xml'.
@@ -1280,17 +1281,17 @@ Package logreq Info: Writing requests to 'bericht.run.xml'.
 
  ) 
 Here is how much of TeX's memory you used:
- 33843 strings out of 479321
- 620726 string characters out of 2856583
- 1362161 words of memory out of 3000000
- 50441 multiletter control sequences out of 15000+600000
- 458579 words of font info for 122 fonts, out of 8000000 for 9000
+ 34050 strings out of 479321
+ 624909 string characters out of 2856583
+ 1362259 words of memory out of 3000000
+ 50641 multiletter control sequences out of 15000+600000
+ 461576 words of font info for 125 fonts, out of 8000000 for 9000
  1143 hyphenation exceptions out of 8191
  117i,18n,116p,1964b,2329s stack positions out of 5000i,500n,10000p,200000b,80000s
 {C:/Users/fgerv/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-ts1.enc}{C:/Users/fgerv/AppData/Local/Programs/MiKTeX/fonts/enc/dvips/lm/lm-ec.enc}<C:/Users/fgerv/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx10.pfb><C:/Users/fgerv/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmbx12.pfb><C:/Users/fgerv/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmcsc10.pfb><C:/Users/fgerv/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr10.pfb><C:/Users/fgerv/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr12.pfb><C:/Users/fgerv/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmr17.pfb><C:/Users/fgerv/AppData/Local/Programs/MiKTeX/fonts/type1/public/lm/lmro10.pfb>
-Output written on bericht.pdf (25 pages, 639128 bytes).
+Output written on bericht.pdf (26 pages, 641580 bytes).
 PDF statistics:
- 329 PDF objects out of 1000 (max. 8388607)
- 61 named destinations out of 1000 (max. 500000)
- 33022 words of extra memory for PDF output out of 35830 (max. 10000000)
+ 337 PDF objects out of 1000 (max. 8388607)
+ 64 named destinations out of 1000 (max. 500000)
+ 35070 words of extra memory for PDF output out of 35830 (max. 10000000)
 
