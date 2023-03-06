@@ -21,3 +21,13 @@ Vorarbeit_Florian/*
 *-blx.aux
 *-blx.bib
 *.run.xml
+
+# listings
+*.lol
+
+# makeidx
+*.idx
+*.ilg
+*.ind
+
+# see https://github.com/github/gitignore/blob/main/TeX.gitignore
