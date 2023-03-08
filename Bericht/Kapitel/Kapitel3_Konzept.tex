@@ -81,6 +81,25 @@ Beispielsweise ist das vierte Modell der Raspberry-Pi-Serie mit nur maximal acht
 Das Sprachmodell könnte allerdings noch weitaus mehr Daten im Arbeitsspeicher benötigen.
 Des Weiteren ist zu beachten, dass die Miniaturcomputer von Raspberry-Pi im Speziellen zum Zeitpunkt dieser Arbeit kaum zu vertretbaren Preisen verfügbar sind.
 \section{Konzept für die Sprachsteuerung}
+\subsection{Ansatz für das Dialogsystem}
+Aus dem Vergleich der wichtigsten Ansätze zur Erstellung von Chatbots, die in Kapitel 2 besprochenen wurden, lassen sich die folgenden Vor- und Nachteile der einzelnen Methoden ableiten:
+\begin{table}[H]
+    \centering
+    \begin{tabular}{l|c|c}
+        Ansatz          & Vorteile                  & Nachteile\\
+        \hline
+        Musterabgleich &  \makecell{Einfacher Einstieg \\ Leicht wiederverwendbar \\ Modularität \\Leicht zu kontrollieren/einzuschränken} & \makecell{Themenbereich begrenzt \\Die Möglichkeiten sind durch \\ die Arbeitsbelastung des \\ Entwicklers begrenzt \\Komplexität der Fehlersuche \\Strenge und "spröde" Regeln} \\
+        \hline
+        Grounding            & \makecell{Gut im Beantworten logischer Fragen \\Leicht zu kontrollieren/einzuschränken}             & \makecell{Künstlicher, mechanischer Ton \\ Probleme mit Zweideutigkeiten \\ Probleme mit dem Allgemeinwissen \\Begrenzt auf strukturierte Daten \\ Erfordert die Extraktion von \\ Informationen in großem Umfang \\ Erfordert menschliche Aufsicht}    \\
+        \hline
+        Suche & \makecell{Einfachheit \\ Leicht zu lehren \\ Simulation von menschliche Konversation}             & \makecell{Unzureichende Skalierung \\ Die simulierte Persönlichkeit des Bots \\ ist inkonsistent \\ Kennt den Kontext nicht \\ Keine sachlichen Fragen} \\
+        \hline
+        Generierungsmethoden                & \makecell{Neue, kreative Dialoge \\ Weniger Arbeit für den Entwickler \\ Kontextsensitiv}           & \makecell{Schwierig zu lehren \\ Erfordert mehr Daten (Dialoge) \\ Schwierig, in die richtige Richtung \\ zu lenken \\Erfordert mehr Rechenleistung} \\
+    \end{tabular}
+    \caption{\label{table:Bewertungsmatrix_Konzepte_Dialogsysteme}Bewertung der Ansätze für die Erstellung eines Dialogsystems}
+\end{table}
+\noindent
+\subsection{Befehle}
 \section{Finales Konzept}
 Die folgende Tabelle zeigt eine Übersicht bezüglich der Bewertung der einzelnen Konzepte.
 \begin{table}[H]
