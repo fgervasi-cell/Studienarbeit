@@ -99,6 +99,24 @@ Aus dem Vergleich der wichtigsten Ansätze zur Erstellung von Chatbots, die in K
     \caption{\label{table:Bewertungsmatrix_Konzepte_Dialogsysteme}Bewertung der Ansätze für die Erstellung eines Dialogsystems}
 \end{table}
 \noindent
+Bei der Analyse des Problems, ein Dialogsystem für eine Getränkmischmaschine zu entwickeln, kann man zu dem Schluss kommen, dass die beste Option eine Mischung aus dem Ansatz der Informationssuchemethode und dem Musterabgleich wäre.\\\\
+Das erste Argument, das für diesen Ansatz spricht, ist die Möglichkeit, die Sprachsteuerung in deutscher Sprache zu verwenden, was die Anwendung der Generierungsmethoden erschwert, da der Zugang zu einer geeigneten Datenbank in dieser Sprache, die den Anforderungen des Projekts, nämlich eine ausreichende Anzahl von Beleidigungen zu enthalten, nicht möglich ist. 
+Gleichzeitig können bei der Verwendung von Musterabgleich Antwortvorlagen und Muster für entsprechende Anfragen in deutscher Sprache im Voraus erstellt werden, was die Erstellung und das Training des Dialogsystems erleichtert.\\\\
+Das zweite Argument ist, dass in diesem Projekt ein Raspberry Pi verwendet wird, was die Verwendung generativer Methoden aufgrund der begrenzten Hardware-Ressourcen einschränken kann. 
+Andererseits kann das Modell für die Informationssuche und den Musterabgleich auf Geräten mit geringem Stromverbrauch implementiert werden, was diesen Ansatz für dieses Projekt vorteilhaft macht.\\\\
+Generierungsmethoden könnten auch für dieses Problem zu mächtig sein. 
+Beim Mixen von Cocktails können die Antworten einfach und formelhaft sein, wie z. B. "Das hört sich eklig an, bist du sicher, dass du es willst?" oder "Ich hoffe, ich sehe dich nie wieder". 
+In diesem Fall kann der Einsatz von Generierungsmethoden wie seq2seq-Modellen überflüssig und ineffizient sein. 
+Für diese Aufgabe ist im Gegensatz zu komplexen natürlichsprachlichen Abfragen keine detaillierte semantische Verarbeitung erforderlich, so dass der Musterabgleich einen einfacheren und effizienteren Ansatz darstellt.\\\\
+Bei der Verwendung des Musterabgleiches kann man den Ton und den Humor des Geräts leicht steuern und so die gewünschte Atmosphäre erzeugen. 
+Die Antworten des seq2seq-Modells sind wiederum sehr schwer zu steuern. 
+Generierungsmethoden können zu unerwünschtem Maschinenverhalten führen, wenn das Modell auf ungeeigneten Daten trainiert wird oder Fehler in der Betriebslogik enthält. 
+Die Verwendung einer Datenbank, die genügend Beleidigungen enthält (z. B. die 4chan-Datenbank), kann dazu führen, dass die Antworten der Maschine über das Ziel hinausschießen und statt lustig zu sein, den Benutzer beleidigen.\\\\
+Mit diesem Ansatz wird auch die Effizienz der Maschinensteuerung verbessert. 
+Beim Musterabgleich kann eine Kategorie "Getränkebestellung" zugewiesen werden, die, wenn sie erkannt wird, die Maschine automatisch mit der Bearbeitung der Befehle beginnt. 
+Im Falle von seq2seq-Modell ist keine Kategorie vorgesehen, so dass eine zusätzliche Prüfung jeder Eingabeanweisung eingeführt werden müsste, um festzustellen, wann der Benutzer die Bestellung aufgegeben hat.\\\\
+Ein letztes Argument, das für den Ansatz spricht, ist die Möglichkeit, die Maschine bei Bedarf schnell an neue Anfragen und Anforderungen anzupassen, indem neue Muster und Regeln in das System eingeführt werden. 
+Daher ist eine Mischung aus Informationssuchemethode und Musterabgleich für das vorliegende Problem am besten geeignet.
 \subsection{Befehle}
 \section{Finales Konzept}
 Die folgende Tabelle zeigt eine Übersicht bezüglich der Bewertung der einzelnen Konzepte.
