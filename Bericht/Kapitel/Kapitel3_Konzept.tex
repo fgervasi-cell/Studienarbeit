@@ -82,40 +82,40 @@ Das Sprachmodell könnte allerdings noch weitaus mehr Daten im Arbeitsspeicher b
 Des Weiteren ist zu beachten, dass die Miniaturcomputer von Raspberry-Pi im Speziellen zum Zeitpunkt dieser Arbeit kaum zu vertretbaren Preisen verfügbar sind.
 \section{Konzept für die Sprachsteuerung}
 \subsection{Ansatz für das Dialogsystem}
-Aus dem Vergleich der wichtigsten Ansätze zur Erstellung von Chatbots, die in Kapitel 2 besprochenen wurden, lassen sich die folgenden Vor- und Nachteile der einzelnen Methoden ableiten:
+Aus dem Vergleich der wichtigsten Ansätze zur Erstellung von Chatbots, die in Kapitel \ref{sec:ansaetze_erstellung_chatbots} besprochen wurden, lassen sich die folgenden Vor- und Nachteile der einzelnen Methoden ableiten:
 \begin{table}[H]
     \centering
-    \begin{tabular}{l|c|c}
-        Ansatz          & Vorteile                  & Nachteile\\
+    \begin{tabular}{m{3cm}|m{6cm}|m{6cm}}
+        Ansatz               & Vorteile                                                  & Nachteile \\
         \hline
-        Musterabgleich &  \makecell{Einfacher Einstieg \\ Leicht wiederverwendbar \\ Modularität \\Leicht zu kontrollieren/einzuschränken} & \makecell{Themenbereich begrenzt \\Die Möglichkeiten sind durch \\ die Arbeitsbelastung des \\ Entwicklers begrenzt \\Komplexität der Fehlersuche \\Strenge und "spröde" Regeln} \\
+        Musterabgleich       & \makecell[l]{\tabitem Einfacher Einstieg                              \\ \tabitem Leicht wiederverwendbar\\ \tabitem Modularität\\ \tabitem Leicht zu kontrollieren/\\einzuschränken} & \makecell[l]{\tabitem Themenbereich begrenzt\\ \tabitem Die Möglichkeiten sind durch\\ die Arbeitsbelastung des\\ Entwicklers begrenzt\\ \tabitem Komplexität der Fehlersuche\\ \tabitem Strenge und \glqq{}spröde\grqq{} Regeln} \\
         \hline
-        Grounding            & \makecell{Gut im Beantworten logischer Fragen \\Leicht zu kontrollieren/einzuschränken}             & \makecell{Künstlicher, mechanischer Ton \\ Probleme mit Zweideutigkeiten \\ Probleme mit dem Allgemeinwissen \\Begrenzt auf strukturierte Daten \\ Erfordert die Extraktion von \\ Informationen in großem Umfang \\ Erfordert menschliche Aufsicht}    \\
+        Grounding            & \makecell[l]{\tabitem Gut im Beantworten logischer\\ Fragen             \\\tabitem Leicht zu kontrollieren/\\einzuschränken}             & \makecell[l]{\tabitem Künstlicher, mechanischer Ton \\ \tabitem Probleme mit Zweideutigkeiten \\ \tabitem Probleme mit dem Allgemein-\\wissen \\ \tabitem Begrenzt auf strukturierte\\ Daten \\ \tabitem Erfordert die Extraktion von\\ Informationen in großem Umfang \\ \tabitem Erfordert menschliche Aufsicht}    \\
         \hline
-        Suche & \makecell{Einfachheit \\ Leicht zu lehren \\ Simulation von menschliche Konversation}             & \makecell{Unzureichende Skalierung \\ Die simulierte Persönlichkeit des Bots \\ ist inkonsistent \\ Kennt den Kontext nicht \\ Keine sachlichen Fragen} \\
+        Suche                & \makecell[l]{\tabitem Einfachheit                                     \\ \tabitem Leicht zu lehren \\ \tabitem Simulation von menschlicher\\ Konversation}             & \makecell[l]{\tabitem Unzureichende Skalierung \\ \tabitem Die simulierte Persönlichkeit des\\ Bots ist inkonsistent \\ \tabitem Kennt den Kontext nicht \\ \tabitem Keine sachlichen Fragen} \\
         \hline
-        Generierungsmethoden                & \makecell{Neue, kreative Dialoge \\ Weniger Arbeit für den Entwickler \\ Kontextsensitiv}           & \makecell{Schwierig zu lehren \\ Erfordert mehr Daten (Dialoge) \\ Schwierig, in die richtige Richtung \\ zu lenken \\Erfordert mehr Rechenleistung} \\
+        \makecell[l]{Generierungs-\\methoden} & \makecell[l]{\tabitem Neue, kreative Dialoge                          \\ \tabitem Weniger Arbeit für den\\ Entwickler \\ \tabitem Kontextsensitiv}           & \makecell[l]{\tabitem Schwierig zu lehren \\ \tabitem Erfordert mehr Daten (Dialoge) \\ \tabitem Schwierig, in die richtige\\ Richtung zu lenken \\ \tabitem Erfordert mehr Rechenleistung} \\
     \end{tabular}
     \caption{\label{table:Bewertungsmatrix_Konzepte_Dialogsysteme}Bewertung der Ansätze für die Erstellung eines Dialogsystems}
 \end{table}
 \noindent
-Bei der Analyse des Problems, ein Dialogsystem für eine Getränkmischmaschine zu entwickeln, kann man zu dem Schluss kommen, dass die beste Option eine Mischung aus dem Ansatz der Informationssuchemethode und dem Musterabgleich wäre.\\\\
-Das erste Argument, das für diesen Ansatz spricht, ist die Möglichkeit, die Sprachsteuerung in deutscher Sprache zu verwenden, was die Anwendung der Generierungsmethoden erschwert, da der Zugang zu einer geeigneten Datenbank in dieser Sprache, die den Anforderungen des Projekts, nämlich eine ausreichende Anzahl von Beleidigungen zu enthalten, nicht möglich ist. 
+Bei der Analyse des Problems, ein Dialogsystem für eine Getränkmischmaschine zu entwickeln, kann man zu dem Schluss kommen, dass die beste Option eine Mischung aus dem Ansatz der Informationssuchemethode und dem Musterabgleich ist.\\\\
+Das erste Argument, das für diesen Ansatz spricht, ist die Möglichkeit, die Sprachsteuerung in deutscher Sprache zu verwenden, was die Anwendung der Generierungsmethoden erschwert, da der Zugang zu einer geeigneten Datenbank in dieser Sprache, die den Anforderungen des Projekts, nämlich eine ausreichende Anzahl von Beleidigungen zu enthalten, nicht möglich ist.
 Gleichzeitig können bei der Verwendung von Musterabgleich Antwortvorlagen und Muster für entsprechende Anfragen in deutscher Sprache im Voraus erstellt werden, was die Erstellung und das Training des Dialogsystems erleichtert.\\\\
-Das zweite Argument ist, dass in diesem Projekt ein Raspberry Pi verwendet wird, was die Verwendung generativer Methoden aufgrund der begrenzten Hardware-Ressourcen einschränken kann. 
+Das zweite Argument ist, dass in diesem Projekt ein Raspberry Pi verwendet wird, was die Verwendung generativer Methoden aufgrund der begrenzten Hardware-Ressourcen einschränken kann.
 Andererseits kann das Modell für die Informationssuche und den Musterabgleich auf Geräten mit geringem Stromverbrauch implementiert werden, was diesen Ansatz für dieses Projekt vorteilhaft macht.\\\\
-Generierungsmethoden könnten auch für dieses Problem zu mächtig sein. 
-Beim Mixen von Cocktails können die Antworten einfach und formelhaft sein, wie z. B. "Das hört sich eklig an, bist du sicher, dass du es willst?" oder "Ich hoffe, ich sehe dich nie wieder". 
-In diesem Fall kann der Einsatz von Generierungsmethoden wie seq2seq-Modellen überflüssig und ineffizient sein. 
+Generierungsmethoden könnten auch für dieses Problem zu mächtig sein.
+Beim Mixen von Cocktails können die Antworten einfach und formelhaft sein, wie z. B. \glqq{}Das hört sich eklig an, bist du sicher, dass du es willst?\grqq{} oder \glqq{}Ich hoffe, ich sehe dich nie wieder\grqq{}.
+In diesem Fall kann der Einsatz von Generierungsmethoden wie seq2seq-Modellen überflüssig und ineffizient sein.
 Für diese Aufgabe ist im Gegensatz zu komplexen natürlichsprachlichen Abfragen keine detaillierte semantische Verarbeitung erforderlich, so dass der Musterabgleich einen einfacheren und effizienteren Ansatz darstellt.\\\\
-Bei der Verwendung des Musterabgleiches kann man den Ton und den Humor des Geräts leicht steuern und so die gewünschte Atmosphäre erzeugen. 
-Die Antworten des seq2seq-Modells sind wiederum sehr schwer zu steuern. 
-Generierungsmethoden können zu unerwünschtem Maschinenverhalten führen, wenn das Modell auf ungeeigneten Daten trainiert wird oder Fehler in der Betriebslogik enthält. 
+Bei der Verwendung des Musterabgleiches kann man den Ton und den Humor des Geräts leicht steuern und so die gewünschte Atmosphäre erzeugen.
+Die Antworten des seq2seq-Modells sind wiederum sehr schwer zu steuern.
+Generierungsmethoden können zu unerwünschtem Maschinenverhalten führen, wenn das Modell auf ungeeigneten Daten trainiert wird oder Fehler in der Betriebslogik enthält.
 Die Verwendung einer Datenbank, die genügend Beleidigungen enthält (z. B. die 4chan-Datenbank), kann dazu führen, dass die Antworten der Maschine über das Ziel hinausschießen und statt lustig zu sein, den Benutzer beleidigen.\\\\
-Mit diesem Ansatz wird auch die Effizienz der Maschinensteuerung verbessert. 
-Beim Musterabgleich kann eine Kategorie "Getränkebestellung" zugewiesen werden, die, wenn sie erkannt wird, die Maschine automatisch mit der Bearbeitung der Befehle beginnt. 
+Mit diesem Ansatz wird auch die Effizienz der Maschinensteuerung verbessert.
+Beim Musterabgleich kann eine Kategorie \glqq{}Getränkebestellung\grqq{} zugewiesen werden, die, wenn sie erkannt wird, die Maschine automatisch zur Bearbeitung der Befehle veranlasst.
 Im Falle von seq2seq-Modell ist keine Kategorie vorgesehen, so dass eine zusätzliche Prüfung jeder Eingabeanweisung eingeführt werden müsste, um festzustellen, wann der Benutzer die Bestellung aufgegeben hat.\\\\
-Ein letztes Argument, das für den Ansatz spricht, ist die Möglichkeit, die Maschine bei Bedarf schnell an neue Anfragen und Anforderungen anzupassen, indem neue Muster und Regeln in das System eingeführt werden. 
+Ein letztes Argument, das für den Ansatz spricht, ist die Möglichkeit, die Maschine bei Bedarf schnell an neue Anfragen und Anforderungen anzupassen, indem neue Muster und Regeln in das System eingeführt werden.
 Daher ist eine Mischung aus Informationssuchemethode und Musterabgleich für das vorliegende Problem am besten geeignet.
 \subsection{Befehle}
 \section{Finales Konzept}
@@ -162,7 +162,7 @@ Der Freiheitsgrad wird bei Konzept C als hoch, jedoch nicht als sehr hoch, bewer
 Grund hierfür ist die, im Vergleich zur Cloud, etwas beschränkte Leistung, welche die Leistung/Größe des Sprachmodells beeinträchtigen könnte.
 Hardwarekosten können jedoch sehr hoch werden.
 Bei dem Einsatz einer Cloud kann ein günstiger Anbieter gefunden werden, sodass die Anschaffung eigener Hardware entfällt.
-Dies ist hier nicht der Fall. 
+Dies ist hier nicht der Fall.
 Die Performanz des Gesamtsystems kann, wie bei Konzept A (nur mittels Arduino), sehr hoch eingeschätzt werden, da Spracherkennung und -verarbeitung direkt in der Mischmaschine von der Hardware übernommen wird.
 Der Mehraufwand ist gering, da weder ein Cloudservice noch eine externe Anwendung entwickelt werden müssen.
 \endinput
