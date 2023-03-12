@@ -30,4 +30,8 @@ Vorarbeit_Florian/*
 *.ilg
 *.ind
 
+# Build tool auxiliary files:
+*.synctex.gz
+*.fdb_latexmk
+
 # see https://github.com/github/gitignore/blob/main/TeX.gitignore
