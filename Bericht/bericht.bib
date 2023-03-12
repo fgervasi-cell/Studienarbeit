@@ -1,58 +1,115 @@
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-%% Descr:       Vorlage für Berichte der DHBW-Karlsruhe, BibTeX
-%% Author:      Prof. Dr. Jürgen Vollmer, vollmer AT dhbw-karlsruhe.de
-%% $Id: bericht.bib,v 1.10 2016/03/16 12:27:42 vollmer draft $
-%% -*- coding: utf-8 -*-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-%%%%
-%%  declararion of abbreviations
-%%%%
-@STRING{addison		= "Addison-Wesley"}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-@book{knuth.1984a,
-  author    = {Knuth, Donald E.},
-  title     = {The \TeX{}book},
-  publisher = addison,
-  year      = 1984
-}
-
-@book{lamport.1995a,
-  author    = {Lamport, Leslie},
-  title     = {Das \LaTeX\ Handbuch},
-  publisher = addison,
-  year      = 1995
-}
-
-@book{tanenbaum.2009,
-  author    = {Tanenbaum, Andrew S.},
-  publisher = {Pearson Studium},
-  address   = {München [u.a]},
-  title     = {Moderne Betriebssysteme},
-  year      = {2009},
-  edition   = {3., aktualisierte Aufl.}
-}
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
-% Referenzieren von URL's
-@misc{dante.2010a,
-  author       = {Dante},
-  title        = {Webseite der \emph{Deutschsprachige Anwendervereinigung TeX e.V.}},
-  howpublished = {\url{http://www.dante.de}},
-  year         = 2010,
-  month        = jan
-}
-
 @mastersthesis{woudenberg_chatbot_2014,
-	title = {A {Chatbot} {Dialogue} {Manager}-{Chatbots} and {Dialogue} {Systems}: {A} {Hybrid} {Approach}},
-	shorttitle = {A {Chatbot} {Dialogue} {Manager}-{Chatbots} and {Dialogue} {Systems}},
-	school = {Open Universiteit Nederland},
-	author = {Woudenberg, Aswin van},
-	year = {2014},
+  title      = {A {Chatbot} {Dialogue} {Manager}-{Chatbots} and {Dialogue} {Systems}: {A} {Hybrid} {Approach}},
+  shorttitle = {A {Chatbot} {Dialogue} {Manager}-{Chatbots} and {Dialogue} {Systems}},
+  school     = {Open Universiteit Nederland},
+  author     = {Woudenberg, Aswin van},
+  year       = {2014}
 }
+
+@book{jurafsky_speech_2009,
+  title      = {Speech and language processing: an introduction to natural language processing, computational linguistics, and speech recognition / {Daniel} {Jurafsky} ({Stanford} {University}), {James} {H}. {Martin} ({University} of {Colorado} at {Boulder})},
+  isbn       = {978-0-13-504196-3},
+  shorttitle = {Speech and language processing},
+  language   = {eng},
+  author     = {Jurafsky, Dan and Martin, James H. and Norvig, Peter and Russell, Stuart J.},
+  year       = {2009},
+  keywords   = {Automatische Spracherkennung, Computerlinguistik, Lehrbuch}
+}
+
+
+@book{lane_natural_2019,
+  title      = {Natural language processing in action: understanding, analyzing, and generating text with {Python} / {Hobson} {Lane}, {Cole} {Howard}, {Hannes} {Max} {Hapke}},
+  isbn       = {978-1-61729-463-1},
+  shorttitle = {Natural language processing in action},
+  language   = {eng},
+  author     = {Lane, Hobson and Howard, Cole and Hapke, Hannes Max},
+  year       = {2019},
+  keywords   = {Automatische Sprachanalyse, Natürliche Sprache, Python (Programmiersprache), Textverstehendes System}
+}
+
+@book{seq2seq_alammar,
+  title     = {Sequence-to-Sequence Models for Chatbots},
+  isbn      = {?},
+  author    = {Jay Alammar},
+  year      = {?},
+  publisher = {?}
+}
+
+@book{dialogflow_chawla,
+  title     = {Building Chatbots with Google Dialogflow: Create chatbots with Dialogflow’s natural
+               language processing and machine learning capabilities},
+  isbn      = {?},
+  author    = {Sumit Chawla},
+  year      = {?},
+  publisher = {?}
+}
+
+@book{chatbot_development_sharma,
+  title     = {Chatbot Development using Machine Learning Techniques},
+  isbn      = {?},
+  author    = {Nupur Sharma, Anupriya},
+  year      = {?},
+  publisher = {?}
+}
+
+@misc{noauthor_aiml_nodate,
+  title   = {{AIML} {Foundation}},
+  url     = {http://www.aiml.foundation/doc.html},
+  urldate = {2023-03-12}
+}
+
+@book{diana_conversational_2011,
+  title      = {Conversational {Agents} and {Natural} {Language} {Interaction}: {Techniques} and {Effective} {Practices}: {Techniques} and {Effective} {Practices}},
+  isbn       = {978-1-60960-618-3},
+  shorttitle = {Conversational {Agents} and {Natural} {Language} {Interaction}},
+  abstract   = {By combining agent capabilities with computational linguistics, conversational agents can exploit natural language technologies to improve communication between humans and computers.Conversational Agents and Natural Language Interaction: Techniques and Effective Practices is a reference guide for researchers entering the promising field of conversational agents. It provides an introduction to fundamental concepts in the field, collects experiences of researchers working on conversational agents, and reviews techniques for the design and application of conversational agents. The book discusses the successes of and challenges faced by researchers, designers, and programmers who want to use conversational agents for e-commerce, help desks, website navigation, personalized service, and training or education applications.},
+  language   = {en},
+  publisher  = {IGI Global},
+  author     = {Diana, Perez-Marin and Ismael, Pascual-Nieto},
+  month      = jun,
+  year       = {2011},
+  note       = {Google-Books-ID: 2nUcqtbCOBcC},
+  keywords   = {Computers / Computer Science, Computers / Cybernetics, Computers / Intelligence (AI) \& Semantics}
+}
+
+@misc{amazon_lex,
+  author  = {amazon},
+  title   = {Amazon {Lex}: {How} {It} {Works} - {Amazon} {Lex}},
+  url     = {https://docs.aws.amazon.com/lex/latest/dg/how-it-works.html},
+  urldate = {2023-03-12}
+}
+
+@misc{scikit-learn,
+  author   = {{scikit-learn}},
+  title    = {scikit-learn documentation — {DevDocs}},
+  url      = {https://devdocs.io/scikit_learn/},
+  abstract = {scikit-learn 1.1.3 API documentation with instant search, offline support, keyboard shortcuts, mobile version, and more.},
+  language = {en},
+  urldate  = {2023-03-12}
+}
+
+@misc{li_adversarial_2017,
+  title     = {Adversarial {Learning} for {Neural} {Dialogue} {Generation}},
+  url       = {http://arxiv.org/abs/1701.06547},
+  doi       = {10.48550/arXiv.1701.06547},
+  abstract  = {In this paper, drawing intuition from the Turing test, we propose using adversarial training for open-domain dialogue generation: the system is trained to produce sequences that are indistinguishable from human-generated dialogue utterances. We cast the task as a reinforcement learning (RL) problem where we jointly train two systems, a generative model to produce response sequences, and a discriminator---analagous to the human evaluator in the Turing test--- to distinguish between the human-generated dialogues and the machine-generated ones. The outputs from the discriminator are then used as rewards for the generative model, pushing the system to generate dialogues that mostly resemble human dialogues. In addition to adversarial training we describe a model for adversarial \{{\textbackslash}em evaluation\} that uses success in fooling an adversary as a dialogue evaluation metric, while avoiding a number of potential pitfalls. Experimental results on several metrics, including adversarial evaluation, demonstrate that the adversarially-trained system generates higher-quality responses than previous baselines.},
+  urldate   = {2023-03-12},
+  publisher = {arXiv},
+  author    = {Li, Jiwei and Monroe, Will and Shi, Tianlin and Jean, Sébastien and Ritter, Alan and Jurafsky, Dan},
+  month     = sep,
+  year      = {2017},
+  note      = {arXiv:1701.06547 [cs]},
+  keywords  = {Computer Science - Computation and Language},
+  file      = {arXiv Fulltext PDF:C\:\\Users\\fgerv\\Zotero\\storage\\G42WFI22\\Li et al. - 2017 - Adversarial Learning for Neural Dialogue Generatio.pdf:application/pdf}
+}
+
+@misc{tensorflow,
+  title   = {{TensorFlow} - {Sequence}-to-{Sequence} {Models}},
+  url     = {https://chromium.googlesource.com/external/github.com/tensorflow/tensorflow/+/r0.7/tensorflow/g3doc/tutorials/seq2seq/index.md},
+  urldate = {2023-03-12},
+  file    = {TensorFlow - Sequence-to-Sequence Models:C\:\\Users\\fgerv\\Zotero\\storage\\U2ASXMTK\\index.html:text/html}
+}
+
 
 
 
