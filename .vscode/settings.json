@@ -24,6 +24,11 @@
         "**/*.ilg": true,
         "**/*.ind": true,
         "**/*.synctex.gz": true,
-        "**/*.fdb_latexmk": true
+        "**/*.fdb_latexmk": true,
+        "Bericht/PaxHeaders.13848/*": true,
+        "**/Vorarbeit_Florian": true,
+        "Bericht/PaxHeaders.13848": true,
+        "**/Vorarbeit_Florian/": true,
+        "**/Bericht/PaxHeaders.13848/": true
     }
 }
