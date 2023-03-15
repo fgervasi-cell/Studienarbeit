@@ -29,6 +29,8 @@
         "**/Vorarbeit_Florian": true,
         "Bericht/PaxHeaders.13848": true,
         "**/Vorarbeit_Florian/": true,
-        "**/Bericht/PaxHeaders.13848/": true
-    }
+        "**/Bericht/PaxHeaders.13848/": true,
+        "**/embedded_systems.pdf": true
+    },
+    "python.formatting.provider": "black"
 }
