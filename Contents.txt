@@ -4,6 +4,36 @@ Abstract:
 
 Einleitung:
 
++ Die Informationstechnik versteckt sich heutzutage fast überall - selbst dort, wo sie von den meisten Menschen nicht vermutet werden würde
++ Beispiele sind:
++ Hier sorgen Mikrochips für...
++ Solche Systeme, die Eigenschaft xyz erfüllen, nennt man häufig Embedded Systems (z. Dt. Eingebettete Systeme)
++ Internet der Dinge: eingebettete Systeme die internetfähig sind (vernetzte Geräte)
+	- Aktueller Trend der zu einem noch größeren Anstieg von eingebetteten Systemen sorgt
++ Nach Schätzungen von ... liegt die derzeitige Anzahl solcher eingebetteten Systemen derzeit bei ... weltweit - Tendenz steigend (Grafik einfügen)
++ Die Anzahl eingebetteter Systeme insgesamt kann also nocht höher eingeschätzt werden
++ Die unglaubliche Masse an benötigten Mikrochips/-computern bringt auch Probleme mit sich 
+	- (Kriege, technologischer Wettlauf, Ressourcenknappheit, Abhängigkeit von wenigen Ländern ...)
+	- Taiwan, China, USA ...
+	- Giga Factories für Chip Herstellung erwähnen, wo diese gebaut werden und wie viel Geld dort im Spiel ist
+	- Länder investieren Unsummen dafür im Bereich der Mikrochips unabhängiger zu werden
+	- https://www.capital.de/wirtschaft-politik/chips--china--usa-und-die-eu-im-wettlauf-um-die-spitzen-halbleiter-32600652.html
++ Aufgabenstellung
+	- Im Rahmen dieser Arbeit geht es um die Sprachsteuerung einer Getränkemischmaschine
+	- Die Getränkemischmaschine ist als das eingebettete System zu verstehen
+	- Die Getränkemischmaschine ist in einer vorherigen Arbeit bereits konzipiert und gebaut worden
+	- Sie verfügt derzeit ausschließlich über eine 
+	- Ziel der Arbeit ist es eine natürlichsprachliche Interaktion mit der Maschine zu ermöglichen mit mindestens dem Funktionsumfang der akutell über die Bildschirmeingabe möglich ist
++ Vorgehen
+	- Sprachverarbeitung mittels KI/ML
+		- Betrachtung verschiedener Möglichkeiten der Umsetzung
+		- Dient der Interpretation des Gesagten und dem Übersetzen in einen Maschinenbefehl
+	- Spracherkennung
+		- Aufnahme des Tonsignals
+		- Umwandeln des Tonsignals/der Schallwellen in "Text" der dann an das KI-Modell weitergereicht werden kann
+	- Man muss sich bei eingebetteten Systemen der Hardwareanforerungen/-leistung bewusst sein
+		- Diskussion verschiedener Ansätze
+
 Stand der Technik: (Sortierung beachten -> wichtigstes (bspw. Getränkemischmaschine) zuerst!)
 
 + Spracherkennung
