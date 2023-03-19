@@ -40,6 +40,25 @@ Stand der Technik: (Sortierung beachten -> wichtigstes (bspw. Getränkemischmasc
 + Sprachmodelle und KI
 + Arduino-Programmierung
 + Getränkemischmaschine
+	- Ziel der Arbeit ist die Implementierung einer Sprachsteuerung für eine Getränkemischmaschine
+	- Die Getränkemischmaschine wurde bereits in einem vorangegangenen Projekt erstellt
+	- In diesem Abschnitt soll darauf eingegangen werden um was es sich dabei handelt und wie die Mischmaschine derzeit funktioniert
+	- Anwendungsfall: dient dem Mischen von Getränken/Flüssigkeiten
+	- Aufbau
+		- Dazu 5 Behälter zu je einem Liter
+		- Für jeden Behälter gibt es eine Pumpe die den Inhalt zum "Ausgang" befördert
+		- Am "Ausgang" (besseres Wort finden) werden die Schläuche zusammengeführt wodurch die Getränke gemischt werden
+		- Sog. Rückschlagventile sorgen dafür, dass ein Zurückfließen des gemischten Getränks in die Behälter verhindert wird
+		- Ein Knopf auf der Vorderseite zum Einschalten und ein Touch-Display zur Konfiguration des Mischungsverhältnisses durch den Benutzer
+		- Ein weiterer Knopf zum Befüllen (gedrückt lassen)
+	- Funktionsweise (technisch)
+		- Arduino ist mit dem Touch-Display und den Pumpen verbunden
+		- Drücken des Startknopfes -> Stromversorgung -> Arduino und Display starten
+		- Das Bediendisplay kommuniziert mit dem Arduino
+		- Einstellen des Mischungsverhältnisses über "Slider"
+		- Wenn "Save" gedrückt wird -> übertragen der aktuellen Slider-Werte an Arduino
+		- Umrechnung der Slider-Werte in Durchsatzrate für Pumpen
+		- Wenn Druckknopf gedrückt: Arduino steuert Pumpen mit entsprechender Durchsatzrate an
 
 Konzept:
 
