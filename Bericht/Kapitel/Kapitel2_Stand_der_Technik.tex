@@ -39,13 +39,13 @@ Die Verarbeitung natürlicher Sprache wird es der Maschine ermöglichen, die Bef
 \subsection{Verarbeitung natürlicher Sprache}
 Die Verarbeitung natürlicher Sprache ist ein Forschungsbereich der Informatik und der \ac{KI}, der sich mit der Verarbeitung natürlicher Sprache befasst. 
 Bei der Verarbeitung geht es in der Regel darum, natürliche Sprache in Daten zu übersetzen, die ein Computer nutzen kann, um Informationen über die Welt um ihn herum zu erhalten.\\\\
-Die NLP-Pipeline, die zur Erstellung eines Dialogsystem erforderlich ist, erfordert vier Arten der Verarbeitung sowie eine Datenbank zur Speicherung vergangener Äußerungen und Antworten. 
+Die \ac{NLP}-Pipeline, die zur Erstellung eines Dialogsystems erforderlich ist, erfordert vier Arten der Verarbeitung sowie eine Datenbank zur Speicherung vergangener Äußerungen und Antworten. 
 Jeder dieser Schritte kann einen oder mehrere Verarbeitungsalgorithmen enthalten, die parallel oder sequentiell arbeiten \cite{lane_natural_2019}:
 \begin{itemize}
     \item Syntaktische Zergliederung - Extraktion von Merkmalen (strukturierte numerische Daten) aus natürlichem Text.
     \item Analyse - Erstellen und Kombinieren von Items, um Indikatoren für den Ton, die grammatikalische Korrektheit und die Semantik des Textes zu erhalten.
     \item Generierung - Generierung möglicher Antworten mit Hilfe von Mustern, Suchwerkzeugen oder Sprachmodellen.
-    \item Ausführung - bereitet Aussagen vor, die auf der Geschichte und dem Zweck des Gesprächs basieren, und wählt eine Folgeantwort.
+    \item Ausführung - bereitet Aussagen vor, die auf der Geschichte und dem Zweck des Gesprächs basieren und wählt eine Folgeantwort.
 \end{itemize}
 \begin{figure}[H]
     \centering
@@ -60,7 +60,7 @@ Ein Chatbot oder virtueller Assistent für Verbraucher wie Alexa oder Allo ist i
 Die Logik, die zur Beantwortung von Anfragen verwendet wird, ist jedoch oft oberflächlich und besteht aus einer Reihe von Codephrasen, die mit einer einzigen if-then-Entscheidungsverzweigung zur gleichen Antwort führen. 
 Alexa (und die zugrundeliegende Lex-Engine) verhält sich wie ein einschichtiger, flacher Baum von Operatoren (if, elif, elif...). 
 Andererseits stützt sich die Google Translate-Pipeline (oder jedes ähnliche maschinelle Übersetzungssystem) auf eine mehrstufige Hierarchie von Merkmalsextraktoren, Entscheidungsbäumen und Wissensgraphen, die Fragmente von Wissen über die Welt miteinander verbinden.\\\\
-Alle NLP-Merkmale müssen gut funktionieren, damitdas Dialogsystem richtig funktioniert:
+Alle \ac{NLP}-Merkmale müssen gut funktionieren, damit das Dialogsystem richtig funktioniert:
 \begin{itemize}
     \item Merkmalsextraktion (normalerweise zur Erstellung eines Vektorraummodells).
     \item Informationssuche zur Beantwortung von Sachfragen.
@@ -68,50 +68,50 @@ Alle NLP-Merkmale müssen gut funktionieren, damitdas Dialogsystem richtig funkt
     \item Generierung von natürlicher Sprache, um neue sinnvolle Aussagen zu verfassen.
 \end{itemize}
 \subsection{Tokenisierung von Wörtern}
-Eine der wichtigsten Aufgaben der Verarbeitung natürlicher Sprache die Tokenisierung, d. h. die Zerlegung von Text in einzelne Wörter oder Phrasen, die so genannten Token. 
+Eine der wichtigsten Aufgaben der Verarbeitung natürlicher Sprache ist die Tokenisierung, d. h. die Zerlegung von Text in einzelne Wörter oder Phrasen, die so genannten Token. 
 Dieser Prozess ist ein wichtiger Bestandteil der Verarbeitung natürlicher Sprache, da er es Programmen und Algorithmen ermöglicht, Texte anhand ihrer Bestandteile zu verstehen und zu analysieren. 
 Die Tokenisierung ist für die Verarbeitung natürlicher Sprache von entscheidender Bedeutung, da sie es Programmen ermöglicht, Schlüsselwörter, Phrasen und semantische Einheiten in einem Text hervorzuheben. 
 Die Tokenisierung kann auch dazu verwendet werden, nicht benötigte Textelemente wie Satzzeichen, Leerzeichen und andere Zeichen, die keine Bedeutung haben, zu entfernen. 
 Dadurch können Programme und Algorithmen effizienter und genauer arbeiten und die Wahrscheinlichkeit von Fehlern und falscher Textverarbeitung verringern.\\\\
-Im NLP ist die Tokenisierung eine besondere Art der Segmentierung von Dokumenten. 
+Im \ac{NLP} ist die Tokenisierung eine besondere Art der Segmentierung von Dokumenten. 
 Bei der Segmentierung wird der Text in kleinere Abschnitte (Segmente) mit engerem Informationsgehalt unterteilt. 
 Die Segmentierung kann die Aufteilung eines Dokuments in Absätze, in Sätze, in Phrasen und in Token (Wörter) sowie Satzzeichen umfassen. 
 Ein Tokenizer kann mit einem Scanner im Kompilierungsprozess verglichen werden. 
-Token sind in diesem Fall die Endpunkte von kontextfreien Grammatiken \ac{CFG} zur Analyse von Programmiersprachen - Terminals.\\\\
-Die Tokenisierung ist der erste Schritt in der NLP-Pipeline und kann daher den Rest der Pipeline stark beeinflussen. 
+Token sind in diesem Fall die Endpunkte von kontextfreien Grammatiken - \ac{CFG} - zur Analyse von Programmiersprachen-Terminalen.\\\\
+Die Tokenisierung ist der erste Schritt in der \ac{NLP}-Pipeline und kann daher den Rest der Pipeline stark beeinflussen. 
 Der Tokenizer zerlegt unstrukturierte Daten, d. h. natürlichsprachliche Texte, in Informationseinheiten, die als einzelne Elemente gezählt werden können. 
 Die so gezählte Anzahl von Token-Vorkommen in einem Dokument kann direkt als Vektor verwendet werden, der dieses Dokument repräsentiert. 
 Ein solcher Ansatz ermöglicht es, aus einer unstrukturierten Zeichenfolge (einem Textdokument) unmittelbar eine für das maschinelle Lernen geeignete numerische Datenstruktur zu gewinnen. 
 Diese Werte können den Computer direkt dazu veranlassen, nützliche Aktionen durchzuführen und Reaktionen zu erzeugen.\\\\
 Die einfachste Art, einen Satz zu tokenisieren, ist die Verwendung von Leerzeichen als Worttrenner in Zeichenketten. 
 Dies ist jedoch nicht optimal, denn wenn ein Satz z. B. ein Satzzeichen enthält, wird es von einem der Tokenisierer erfasst. 
-Optimierte Tokenizer sind in mehreren Python-Bibliotheken implementiert, die jeweils ihre eigenen Vor- und Nachteile haben - spaCy, Stanford CoreNLP, \ac{NLTK}. 
-\ac{NLTK} und StanfordCoreNLP sind die am längsten bestehenden und am häufigsten verwendeten Bibliotheken zum Vergleich von NLP-Algorithmen in wissenschaftlichen Artikeln. 
+Optimierte Tokenizer sind in mehreren Python-Bibliotheken implementiert, die jeweils ihre eigenen Vor- und Nachteile haben: spaCy, Stanford CoreNLP und \ac{NLTK}. 
+\ac{NLTK} und StanfordCoreNLP sind die am längsten bestehenden und am häufigsten verwendeten Bibliotheken zum Vergleich von \ac{NLP}-Algorithmen in wissenschaftlichen Artikeln. 
 Obwohl die StanfordCoreNLP-Bibliothek eine Python-API hat, basiert sie auf dem Java 8 CoreNLP-Anwendungsteil, der separat installiert und konfiguriert werden muss. 
-Daher wurde in dieser Arbeit \ac{NLTK} Tokenizer verwendet.\\\\
+Daher wurde in dieser Arbeit der \ac{NLTK}-Tokenizer verwendet.\\\\
 Ein wichtiges Konzept im Tokenisierungsprozess sind N-Gramme. 
 Ein N-Gramm ist eine Sequenz mit bis zu n Elementen, die aus einer Sequenz dieser Elemente, in der Regel einer Zeichenkette, extrahiert wurden. 
-Im Allgemeinen können die Elemente eines N-Grams Buchstaben, Silben, Wörter oder sogar Symbole sein. 
+Im Allgemeinen können die Elemente eines N-Gramms Buchstaben, Silben, Wörter oder sogar Symbole sein. 
 N-Gramme sind notwendig, weil bei der Konvertierung einer Menge von Wörtern in einen Vektor eine Folge von Token einen Großteil der Bedeutung verliert, die in der Reihenfolge dieser Wörter verkapselt ist. 
-Wenn das Token-Konzept auf Mehrwort-Token, N-Gramme, ausgedehnt wird, kann die NLP-Pipeline einen erheblichen Teil der Bedeutung, die in der Wortfolge dieser Äußerungen enthalten ist, beibehalten. 
-So bleibt beispielsweise das Wort \glqq{}kein\glqq{}, das die Bedeutung umkehrt, neben den benachbarten Wörtern stehen, wo es hingehört. 
-Ohne N-Gramm-Tokenisierung würde ein solches Wort an verschiedenen Positionen herumhängen, und seine Bedeutung würde mit dem gesamten Satz oder Dokument assoziiert werden, anstatt mit benachbarten Wörtern. 
-Das Bigramm "war nicht" behält viel mehr Bedeutung der einzelnen Wörter \glqq{}war\glqq{} und \glqq{}nicht\glqq{} als die entsprechenden Singlegramme im Multigrammvektor. 
+Wenn das Token-Konzept auf Mehrwort-Token, N-Gramme, ausgedehnt wird, kann die \ac{NLP}-Pipeline einen erheblichen Teil der Bedeutung, die in der Wortfolge dieser Äußerungen enthalten ist, beibehalten. 
+So bleibt beispielsweise das Wort \glqq{}kein\grqq{}, das die Bedeutung umkehrt, neben den benachbarten Wörtern stehen, wo es hingehört. 
+Ohne N-Gramm-Tokenisierung würde ein solches Wort an verschiedenen Positionen herumhängen und seine Bedeutung würde mit dem gesamten Satz oder Dokument assoziiert werden, anstatt mit benachbarten Wörtern. 
+Das Bigramm \glqq{}war nicht\grqq{} behält viel mehr Bedeutung der einzelnen Wörter \glqq{}war\grqq{} und \glqq{}nicht\grqq{} als die entsprechenden Singlegramme im Multigrammvektor. 
 Durch die Verknüpfung eines Wortes mit seinen Nachbarn in einem Förderband kann ein Teil seines Kontexts erhalten bleiben. 
 N-Gramme sind also ein Instrument zur Speicherung von Kontextinformationen, während die Daten die Pipeline durchlaufen.\\\\
-Die Größe des Vokabulars spielt eine wichtige Rolle für die Leistung der NLP-Pipeline. 
-Die Größe des Wörterbuchs bestimmt die Größe der Trainingsstichprobe, die benötigt wird, um eine Überanpassung an ein bestimmtes Wort oder eine bestimmte Phrase zu vermeiden, und die Größe der Trainingsmenge bestimmt die Kosten der Verarbeitung. 
+Die Größe des Vokabulars spielt eine wichtige Rolle für die Leistung der \ac{NLP}-Pipeline. 
+Die Größe des Wörterbuchs bestimmt die Größe der Trainingsstichprobe, die benötigt wird, um eine Überanpassung an ein bestimmtes Wort oder eine bestimmte Phrase zu vermeiden und die Größe der Trainingsmenge bestimmt die Kosten der Verarbeitung. 
 Eine Technik zur Verringerung der Größe des Wörterbuchs besteht darin, Token, die ähnliche Dinge bedeuten, in einer einzigen normalisierten Form zusammenzufassen. 
-Eine solche Technik reduziert die Anzahl der gespeicherten Token und verbessert die Verbindungen zwischen den Bedeutungen von Phrasen mit unterschiedlicher \glqq{}Schreibweise\glqq{} der Tokens und verringert die Wahrscheinlichkeit des Überlernens. 
+Eine solche Technik reduziert die Anzahl der gespeicherten Token und verbessert die Verbindungen zwischen den Bedeutungen von Phrasen mit unterschiedlicher \glqq{}Schreibweise\grqq{} der Tokens und verringert die Wahrscheinlichkeit des Überlernens. 
 Eine der Normalisierungsmöglichkeiten ist die Groß- und Kleinschreibung - die Kombination mehrerer Schreibweisen eines Wortes, die sich nur in der Groß- und Kleinschreibung unterscheiden. 
-In diesem Fall wird die Groß-/Kleinschreibung ignoriert, und zwei identische Wörter, von denen eines groß und das andere klein geschrieben wird, werden als dasselbe Token behandelt.\\\\
+In diesem Fall wird die Groß-/Kleinschreibung ignoriert und zwei identische Wörter, von denen eines groß und das andere klein geschrieben wird, werden als dasselbe Token behandelt.\\\\
 Ein weiterer wichtiger Schritt bei der Tokenisierung von Texten ist die Entfernung von Stoppwörtern, um den Umfang des Wörterbuchs zu verringern. 
 Stoppwörter sind in jeder Sprache gebräuchliche Wörter, die sehr häufig vorkommen, aber sehr viel weniger aussagekräftige Informationen über die Bedeutung eines Satzes enthalten (z. B. a, an, the, this, of, on im Englischen oder der, die, das, diese im Deutschen). 
 Stoppwörter können jedoch nützliche Informationen enthalten, so dass man sie nicht immer verwerfen sollte. 
 Das \ac{NLTK}-Paket für Python enthält derzeit die umfassendste Liste kanonischer Stoppwörter in verschiedenen Sprachen.\\\\
 Eine weitere gängige Methode der Normalisierung ist die Beseitigung kleiner semantischer Unterschiede im Zusammenhang mit Pluralendungen und Possessivendungen von Wörtern oder sogar unterschiedlichen Verbformen. 
 Diese Methode der Normalisierung, bei der ein gemeinsamer Wortstamm für verschiedene Wortformen gefunden wird, wird als Stemming bezeichnet. 
-Der gemeinsame Wortstamm von \glqq{}Gehäuse\glqq{} und \glqq{}Haus\glqq{} ist zum Beispiel \glqq{}Haus\glqq{}.
+Der gemeinsame Wortstamm von \glqq{}Gehäuse\grqq{} und \glqq{}Haus\grqq{} ist zum Beispiel \glqq{}Haus\grqq{}.
  Beim Stemming werden Suffixe von Wörtern entfernt, um Wörter mit ähnlicher Bedeutung unter einem gemeinsamen Stamm zu gruppieren. 
  Der Wortstamm muss nicht unbedingt ein gültiges Wort sein, sondern kann auch nur ein Token oder eine Bezeichnung sein, das mehrere mögliche Schreibweisen repräsentiert. 
  Einer der Hauptvorteile des Stemming besteht darin, die Anzahl der Wörter zu verringern, deren Bedeutung das Sprachmodell im Auge behalten muss. 
@@ -122,7 +122,7 @@ Mit Informationen über die Beziehungen zwischen den Bedeutungen verschiedener W
 Eine solche erweiterte Normalisierung eines Wortes auf seine semantische Wurzel - ein Lemma - wird Lemmatisierung genannt. 
 Die Lemmatisierung ist potenziell eine viel genauere Art der Normalisierung als das Stemming oder die Groß- und Kleinschreibung, da sie die Bedeutung des Wortes berücksichtigt. 
 Der Lemmatisierer verwendet eine Wissensbasis von Synonymen und Wortendungen, um nur eng verwandte Wörter zu einem Token zu kombinieren. 
-In Python kann die Lemmatisierung mit dem \ac{NLTK}-Paket implementiert werden, das den WordNetLemmatizer enthält.\\\\
+In Python kann die Lemmatisierung mit dem \ac{NLTK}-Paket implementiert werden, das den \textit{WordNetLemmatizer} enthält.\\\\
 Wie bereits gezeigt wurde, ist die Tokenisierung der Prozess der Zerlegung von Text in einzelne Wörter oder Token. 
 Für viele Anwendungen der Verarbeitung natürlicher Sprache ist jedoch nicht nur wichtig, welche Wörter im Text enthalten sind, sondern man muss auch in der Lage sein, diese Wörter als Zahlen darzustellen. 
 Dadurch wird es möglich, maschinelles Lernen und andere Algorithmen, die mit Zahlen arbeiten, zur Textverarbeitung einzusetzen. 
