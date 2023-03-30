@@ -1,19 +1,21 @@
 \chapter{Implementierung}
-\section{Implementierung des Sprachverarbeitungssystems}
+\section{Implementierung des Sprachverarbeitungssystems}\label{section:Implementierung_Sprachverarbeitung}
 \subsection{Word2Vec-Modell}
 \subsection{Sequence-to-Sequence-Modell}
 \section{Implementierung der Sprachsteuerung}
-\subsection{Spracherkennung}
+Im Folgenden wird erläutert, wie die Sprachsteuerung für die Getränkemischmaschine implementiert wurde und welche Technologien dafür zum Einsatz kamen. Dabei wird zunächst auf die Spracherkennung d.h., die Umwandlung der Audiosignale (Sprachbefehl des Benutzers) in eine Form, die innerhalb des Quelltextes weiterverarbeitet werden kann, eingegangen (s. Abschnitt \ref{section:Spracherkennung}). Danach wird die Anbindung des Sprachverarbeitungssystems beschrieben, dessen Implementierung in Abschnitt \ref{section:Implementierung_Sprachverarbeitung} erklärt wird. Abschließend wird die Kommunikation mit der Mischmaschine über den Arduino illustriert (s. Abschnitt \ref{section:Befehlsverarbeitung}).
+\subsection{Spracherkennung}\label{section:Spracherkennung}
+Die Spracherkennung ist der erste Schritt bei der Implementierung einer Sprachsteuerung für die Getränkemischmaschine. Mit Spracherkennung ist die Aufnahme eines Tonsignals über ein Audio-Eingabegerät (Mikrofon) und die Umwandlung der Audiodaten in Text gemeint. Der Quelltext zur Implementierung der Sprachsteuerung erfolgt mit der Programmiersprache \textit{Python}, da hier sehr viele, leicht zu bedienende Bibliotheken zur Spracherkennung, -verarbeitung und \ac{KI} zur Verfügung stehen.\\\\
+Für dieses Projekt viel die Wahl auf das Paket \textit{SpeechRecognition}, das die Verwendung verschiedener Spracherkennungsdienste über eine einheitliche Schnittstelle ermöglicht und zu diesem Zweck auch zur Aufnahme und Verarbeitung der Audiosignale verwendet werden kann \cite{speechrecognition}. Die Verwendung des \textit{SpeechRecognition}-Pakets findet fast ausschließlich über die \textit{Recognizer}-Klasse statt. Um Audiosignale über eine physische Audioquelle (bspw. ein Mikrofon am Computer) aufzunehmen kann die \textit{Microphone}-Klasse verwendet werden, die ebenfalls im Paket enthalten ist. Mit Hilfe eines Objekts vom Typ \textit{Microphone} und der Methode \textit{listen} der \textit{Recognizer}-Klasse können anschließend Audiodaten aufgenommen werden, die in einem Objekt vom Typ \textit{AudioData} gespeichert sind. Die Verwendung von \textit{Recognizer} und \textit{Microphone} sind in Listing \ref{speech_rec_1} zu sehen. 
+\lstinputlisting[language=python, style=algoBericht, label={speech_rec_1}, basicstyle=\tiny\sffamily, captionpos=b, caption={Audioaufnahme mit \textit{SpeechRecognition}}]{./Listings/speech_rec_1.py}
+Das \textit{AudioData}-Objekt kann nun verwendet werden um die darin gespeicherten Audiodaten zu erkennen und in Text umzuwandeln. Das \textit{SpeechRecognition}-Paket stellt dafür verschiedene Möglichkeiten zur Verfügung, wie eingangs erwähnt wurde. Diese sollen im Folgenden kurz beschrieben werden:
 \begin{itemize}
-    \item Was ist Spracherkennung und wie funktioniert es? (evtl. lieber in Stand der Technik)
-    \item Welche Bibliotheken zur Spracherkennung gibt es? (s. https://realpython.com/python-speech-recognition/)
-    \item Welche Bibliothek wurde gewählt und warum? (evtl. versch. Bibliotheken ausprobieren, Zeit messen, vergleichen, ...)
-    \item Welche APIs zur Spracherkennung gibt es? (z.B. Microsoft Bing Speech, Google Web Speech API, Google Cloud Speech, Houndify, IBM Speech to Text, CMU Sphinx, Wit.ai, Whisper, ...)
-    \item Welche API wurde gwählt und warum?
+    \item Whisper:
+    \item Google: kann nicht verwendet werden wegen Offline-Anforderung...
+    \item ...
 \end{itemize}
 \subsection{Anbindung des Sprachmodells an die Mischmaschine}
-\subsection{Befehlsverarbeitung in der Mischmaschine}
-aka wie sieht der Code auf dem Arduino aus und wie kommuniziert der Raspberry mit dem Arduino (pyserial Bibliothek...)
+\subsection{Befehlsverarbeitung in der Mischmaschine}\label{section:Befehlsverarbeitung}
 \endinput
 
 
