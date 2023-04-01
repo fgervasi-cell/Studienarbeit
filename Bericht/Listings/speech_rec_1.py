@@ -4,5 +4,5 @@ r = sr.Recognizer()
 m = sr.Microphone()
 
 with m as source:
-    audio = r.listen(m)
+    audio = r.listen(source)
     
