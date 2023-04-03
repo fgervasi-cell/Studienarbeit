@@ -133,9 +133,9 @@ Es gibt drei Möglichkeiten, Wörter und ihre Bedeutungen darzustellen:
 \begin{itemize}
     \item Multisets von Wörtern - Vektoren von Zahlen oder Häufigkeiten von Wörtern. 
     \item Multisets von N-Grammen - Vektoren von Mengen von Wortpaaren (Bigramme), Worttripeln (Trigramme), usw.
-    \item TF-IDF-Vektoren sind Indikatoren für Wörter, die deren Bedeutung am besten darstellen.
+    \item TF-IDF-Vektoren sind Indikatoren für Wörter, die deren Bedeutung am Besten darstellen.
 \end{itemize}
-Jede dieser Methoden kann entweder allein oder als Teil einer NLP-Pipeline angewendet werden. 
+Jede dieser Methoden kann entweder allein oder als Teil einer \ac{NLP}-Pipeline angewendet werden. 
 Alle beschriebenen Modelle sind statistisch in dem Sinne, dass sie auf Worthäufigkeiten beruhen.\\\\
 \ac{BOW}-Vektoren sind Vektoren, die Textdokumente als Wort-Multisets (Bags) darstellen, wobei ein Multiset eine Sammlung von Elementen ist, in der jedes Element mehr als einmal wiederholt werden kann. 
 Ein Wort-Bag ist eine Darstellung von Text, die das Vorkommen von Wörtern in einem Dokument beschreibt. 
@@ -146,17 +146,11 @@ Sie beinhaltet zwei Dinge:
 \end{enumerate}
 Dies wird als "Wort-Bag" bezeichnet, weil alle Informationen über die Reihenfolge oder Struktur der Wörter im Dokument verworfen werden. 
 Das Modell interessiert sich nur dafür, ob bekannte Wörter im Dokument vorkommen, nicht aber, wo im Dokument. 
-Bei diesem Ansatz wird das Histogramm der Wörter im Text betrachtet, d. h. wir betrachten jedes Wort als ein Merkal.
-(QELLE Neural Network Methods in Natural Language 
-Processing (Synthesis Lectures on Human Language Technologies https://
-www.amazon.com/Language-Processing-Synthesis-Lectures-Technologies/dp/
-1627052984/ref=as\_li\_ss\_tl?ie=UTF8\&qid=1502062931\&sr=8-
-1\&keywords=Neural+Network+Methods+in+Natural+Language+Processing\&linkCod
-e=sl1\&tag=inspiredalgor-20\&linkId=d63df073fea3ebe2d405820570b3ff03))\\\\
+Bei diesem Ansatz wird das Histogramm der Wörter im Text betrachtet, d. h. wir betrachten jedes Wort als ein Merkmal \cite{goldberg_neural_2017}.\\\\
 Ein Ansatz zur Vektorisierung einer Vielzahl von Wörtern besteht darin, für jedes Wort einen Einheitsvektor zu erstellen und diese Vektoren dann zu einem einzigen Vektor zu kombinieren. 
-Ein unitärer Vektor für ein Wort ist ein Vektor, dessen Länge der Dimension des Raumes entspricht, und alle seine Komponenten sind Null, mit Ausnahme einer Komponente, die der Position des Wortes im Wörterbuch entspricht. Unitäre Vektoren sind extrem spärlich. 
-Enthält das Wörterbuch beispielsweise 1000 Wörter, dann hat jeder unitäre Vektor eine Dimension von 1000, und die Komponente, die der Position des Wortes im Wörterbuch entspricht, ist gleich 1.
-Zum Beispiel, der unitäre Vektor für den Satz \glqq Mojito ist ein leckerer Cocktail\grqq{} (nach dem Tokenisierungsprozess) sieht so aus:
+Ein unitärer Vektor für ein Wort ist ein Vektor, dessen Länge der Dimension des Raumes entspricht und alle seine Komponenten sind Null, mit Ausnahme einer Komponente, die der Position des Wortes im Wörterbuch entspricht. Unitäre Vektoren sind extrem spärlich. 
+Enthält das Wörterbuch beispielsweise 1000 Wörter, dann hat jeder unitäre Vektor eine Dimension von 1000 und die Komponente, die der Position des Wortes im Wörterbuch entspricht, ist gleich eins.
+Zum Beispiel sieht der unitäre Vektor für den Satz \glqq Mojito ist ein leckerer Cocktail\grqq{} (nach dem Tokenisierungsprozess) so aus:
 \begin{figure}[H]
     \centering
     \fbox{\includegraphics[width=0.6\textwidth]{Bilder_Kapitel_2/unitaerer_vektor.png}}
@@ -166,7 +160,7 @@ Zum Beispiel, der unitäre Vektor für den Satz \glqq Mojito ist ein leckerer Co
 Eine der Eigenschaften der vektoriellen Darstellung von Wörtern und der tabellarischen Darstellung von Dokumenten ist, dass keine ursprünglichen Informationen verloren gehen. 
 Das Originaldokument kann aus dieser einheitlichen Vektortabelle rekonstruiert werden. 
 Daher werden solche unitären Vektoren in neuronalen Netzen, bei der \ac{seq2seq}-Modellierung und bei der Erstellung von Sprachmodellen verwendet. 
-Unitäre Vektoren eignen sich hervorragend für alle \ac{NLP}-Modelle oder -Pipelines, bei denen die Bedeutung des Ausgangstextes vollständig erhalten bleiben muss.\\\\
+Unitäre Vektoren eignen sich hervorragend für alle \ac{NLP}-Modelle oder -Pipelines, bei denen die Bedeutung des Ausgangstextes vollständig erhalten bleiben muss.
 \subsection{Syntaktische Analyse}
 \subsection{Ansätze für die Erstellung eines Chatbots}\label{sec:ansaetze_erstellung_chatbots}
 Derzeit gibt es vier Hauptansätze für die Erstellung eines Chatbots \cite{lane_natural_2019}:
