@@ -161,6 +161,27 @@ Eine der Eigenschaften der vektoriellen Darstellung von Wörtern und der tabella
 Das Originaldokument kann aus dieser einheitlichen Vektortabelle rekonstruiert werden. 
 Daher werden solche unitären Vektoren in neuronalen Netzen, bei der \ac{seq2seq}-Modellierung und bei der Erstellung von Sprachmodellen verwendet. 
 Unitäre Vektoren eignen sich hervorragend für alle \ac{NLP}-Modelle oder -Pipelines, bei denen die Bedeutung des Ausgangstextes vollständig erhalten bleiben muss.
+Die Erstellung von unitären Vektoren für jedes Wort kann mit verschiedenen Bibliotheken in Python erfolgen. 
+Zum Beispiel kann die NumPy-Bibliothek verwendet werden, um unitäre Vektoren zu erstellen.\\\\
+Diese Vektordarstellung hat jedoch ihre Nachteile. 
+Bei Dokumenten, die eine große Anzahl von Wörtern enthalten, wäre die Größe des unitären Vektorwörterbuchs enorm und würde enorme Ressourcen zur Verarbeitung erfordern. 
+Außerdem macht es keinen Sinn, so viele Nullen zu speichern. 
+Um mit dem Wörterbuch arbeiten zu können, ohne viel Zeit für die Verarbeitung zu verschwenden, ist es notwendig, das Wörterbuch zu verkleinern. 
+Dazu ist es notwendig, auf die Möglichkeit der Rekonstuierung des Originaldokuments zu verzichten, d.h. sich die Wortfolge aller Dokumente zu merken. 
+Es ist notwendig, den größten Teil der Informationen zu erfassen, nicht das gesamte Dokument. Dafür sind Multiset-Vektoren hilfreich\\\\
+Um einen Vektor für ein Multiset von Wörtern zu erstellen, müssen Sie für jedes Wort der Mehrmenge einen Einheitsvektor erstellen und diese Vektoren dann zu einem einzigen Vektor kombinieren. 
+Vektoren können nach verschiedenen Regeln kombiniert werden, z. B. durch Addition, Multiplikation, Verkettung oder andere Operationen. 
+Wenn alle diese unitären Vektoren zusammengezählt werden, wird einen Vektor der Worthäufigkeit erhalten. 
+Er spiegelt die Häufigkeit des Vorkommens von Wörtern wider, nicht die Reihenfolge, in der sie auftreten. 
+Dieser Vektor kann verwendet werden, um ein ganzes Dokument oder einen Satz als einen einzigen Vektor von nicht sehr großer Länge darzustellen. 
+Seine Länge entspricht der Länge des Wörterbuchs (der Anzahl der verfolgten eindeutigen Token). 
+Außerdem kann bei einer einfachen Schlüsselwortsuche ein binärer Multiset-Vektor durch eine logische OR-Operation aus unitären Vektoren gewonnen werden.\\\\
+Die Anzahl der Vorkommen eines Wortes in einem bestimmten Dokument wird als Termfrequenz (\ac{TF}) bezeichnet. 
+Je häufiger ein Wort in einem Dokument vorkommt, desto wahrscheinlicher ist es, dass das Dokument von diesem Thema handelt. 
+Anstelle von reinen Wortzählungen können auch normalisierte Termhäufigkeiten zur Beschreibung von Dokumenten aus einem Korpus verwendet werden. 
+Unter normalisierten Dokumenthäufigkeiten verstehen wir die Anzahl der Wörter im Verhältnis zur Länge des Dokuments. 
+Die Normalisierung ist sehr nützlich, um die Bedeutung eines Dokuments zu ermitteln, da reine Häufigkeiten nicht immer die tatsächliche Situation widerspiegeln. 
+Wenn beispielsweise das Wort \glqq Cocktail\grqq{} 15 Mal in Dokument \textnumero 1 und 400 Mal in Dokument \textnumero 2 vorkommt, kann man daraus schließen, dass es in Dokument Nummer zwei eher um Cocktails geht.\\\\
 \subsection{Syntaktische Analyse}
 \subsection{Ansätze für die Erstellung eines Chatbots}\label{sec:ansaetze_erstellung_chatbots}
 Derzeit gibt es vier Hauptansätze für die Erstellung eines Chatbots \cite{lane_natural_2019}:
