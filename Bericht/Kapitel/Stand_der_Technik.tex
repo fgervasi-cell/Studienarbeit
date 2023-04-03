@@ -168,20 +168,63 @@ Bei Dokumenten, die eine große Anzahl von Wörtern enthalten, wäre die Größe
 Außerdem macht es keinen Sinn, so viele Nullen zu speichern. 
 Um mit dem Wörterbuch arbeiten zu können, ohne viel Zeit für die Verarbeitung zu verschwenden, ist es notwendig, das Wörterbuch zu verkleinern. 
 Dazu ist es notwendig, auf die Möglichkeit der Rekonstuierung des Originaldokuments zu verzichten, d.h. sich die Wortfolge aller Dokumente zu merken. 
-Es ist notwendig, den größten Teil der Informationen zu erfassen, nicht das gesamte Dokument. Dafür sind Multiset-Vektoren hilfreich.\\\\
-Um einen Vektor für ein Multiset von Wörtern zu erstellen, müssen für jedes Wort der Mehrmenge ein Einheitsvektor erstellt und diese Vektoren dann zu einem einzigen Vektor kombiniert werden. 
+Es ist notwendig, den größten Teil der Informationen zu erfassen, nicht das gesamte Dokument. Dafür sind Multiset-Vektoren hilfreich\\\\
+Um einen Vektor für ein Multiset von Wörtern zu erstellen, müssen Sie für jedes Wort der Mehrmenge einen Einheitsvektor erstellen und diese Vektoren dann zu einem einzigen Vektor kombinieren. 
 Vektoren können nach verschiedenen Regeln kombiniert werden, z. B. durch Addition, Multiplikation, Verkettung oder andere Operationen. 
 Wenn alle diese unitären Vektoren zusammengezählt werden, wird einen Vektor der Worthäufigkeit erhalten. 
-Er spiegelt die Häufigkeit des Vorkommens von Wörtern wieder, nicht die Reihenfolge, in der sie auftreten. 
+Er spiegelt die Häufigkeit des Vorkommens von Wörtern wider, nicht die Reihenfolge, in der sie auftreten. 
 Dieser Vektor kann verwendet werden, um ein ganzes Dokument oder einen Satz als einen einzigen Vektor von nicht sehr großer Länge darzustellen. 
 Seine Länge entspricht der Länge des Wörterbuchs (der Anzahl der verfolgten eindeutigen Token). 
 Außerdem kann bei einer einfachen Schlüsselwortsuche ein binärer Multiset-Vektor durch eine logische OR-Operation aus unitären Vektoren gewonnen werden.\\\\
-Die Anzahl der Vorkommen eines Wortes in einem bestimmten Dokument wird als Termfrequenz bzw. \ac{TF} bezeichnet. 
+Die Anzahl der Vorkommen eines Wortes in einem bestimmten Dokument wird als Termfrequenz (\ac{TF}) bezeichnet. 
 Je häufiger ein Wort in einem Dokument vorkommt, desto wahrscheinlicher ist es, dass das Dokument von diesem Thema handelt. 
 Anstelle von reinen Wortzählungen können auch normalisierte Termhäufigkeiten zur Beschreibung von Dokumenten aus einem Korpus verwendet werden. 
-Unter normalisierten Dokumenthäufigkeiten versteht man die Anzahl der Wörter im Verhältnis zur Länge des Dokuments. 
+Unter normalisierten Dokumenthäufigkeiten verstehen wir die Anzahl der Wörter im Verhältnis zur Länge des Dokuments. 
 Die Normalisierung ist sehr nützlich, um die Bedeutung eines Dokuments zu ermitteln, da reine Häufigkeiten nicht immer die tatsächliche Situation widerspiegeln. 
-Wenn beispielsweise das Wort \glqq Cocktail\grqq{} 15 Mal in Dokument \textnumero 1 und 400 Mal in Dokument \textnumero 2 vorkommt, kann man daraus schließen, dass es in Dokument Nummer zwei eher um Cocktails geht.\\\\
+Wenn beispielsweise das Wort \glqq Cocktail\grqq{} 15 Mal in Dokument \textnumero 1 und 400 Mal in Dokument \textnumero 2 vorkommt, kann man daraus schließen, dass es in Dokument Nummer zwei eher um Cocktails geht.
+Vielleicht handelt es sich aber bei Dokument \textnumero 1 um ein Rezept für die Zubereitung von Mai Tais mit 100 Wörtern, während Dokument \textnumero 1 ein Roman mit 500.000 Wörtern ist, in dem die Figuren gelegentlich Cocktails trinken. 
+Die Häufigkeit des Wortes \glqq Cocktail\grqq{} in Dokument \textnumero 1 beträgt also 0,15 und 0,0008 in Dokument \textnumero 1, was die tatsächliche Bedeutung des Begriffs \glqq Cocktail\grqq{} in diesen Dokumenten viel besser widerspiegelt:
+\begin{figure}[H]
+    \centering
+    \fbox{\includegraphics[width=0.8\textwidth]{Bilder_Stand_der_Technik/norm_vektoren.png}}
+    \caption{\label{figure:Norm_Vektoren}Normalisierte \ac{TF}-Vektoren}
+\end{figure}
+\noindent
+Ebenso ist es möglich, diesen Wert für jedes Wort zu berechnen und die relative Bedeutung dieses Begriffs für jedes Dokument zu ermitteln, woraus sich die Bedeutung jedes Dokuments ableiten lässt. 
+Um die Anzahl der Vorkommen von Wörtern zu ermitteln, können Sie das Objekt collections.Counter in Python verwenden und anschließend eine Normalisierung durchführen:
+\begin{figure}[H]
+    \centering
+    \fbox{\includegraphics[width=0.8\textwidth]{Bilder_Stand_der_Technik/norm_vek_py.png}}
+    \caption{\label{figure:Norm_Vektoren_Python}Normalisierte \ac{TF}-Vektoren mit Python}
+\end{figure}
+\noindent
+Wenn mehr als ein Dokument bearbeitet wird, wird für jedes Dokument ein eigener Häufigkeitsvektor erstellt, der jedoch absolut alle Begriffe aus allen Dokumenten (alle Wörter aus dem Wörterbuch) enthält, auch wenn einige der Wörter nicht in allen Dokumenten vorkommen. 
+In diesem Fall werden die Vektoren an diesen Stellen Nullwerte enthalten.\\\\
+Das ultimative Ziel der Textvektorisierung besteht darin, natürliche Sprache in ein Format zu übersetzen, das der Computer verstehen kann. 
+Eine Möglichkeit, dies zu erreichen, ist die Verwendung von Vektorräumen. 
+Vektorräume sind mathematische Objekte, in denen jedes Element durch einen Vektor dargestellt wird, und verschiedene Operationen mit Vektoren ermöglichen es uns, nützliche Merkmale zu extrahieren. 
+So wird ein Vektor mit zwei Werten in einem zweidimensionalen Vektorraum verortet, ein Vektor mit drei Werten in einem dreidimensionalen Vektorraum, usw. 
+Beispielsweise ist der Vektorraum von Dokumenten, die nur aus den Wörtern \glqq Cocktail\grqq{} und \glqq Maschine\grqq{} bestehen, zweidimensional und die Vektoren der enthaltenen Dokumente können wie folgt dargestellt werden:
+\begin{figure}[H]
+    \centering
+    \fbox{\includegraphics[width=0.6\textwidth]{Bilder_Stand_der_Technik/vraum.png}}
+    \caption{\label{figure:Vraum}Zweidimensionale Vektoren von Termhäufigkeiten}
+\end{figure}
+\noindent
+Für einen Vektorraum von Dokumenten in einer natürlichen Sprache ist die Dimensionalität des Vektorraums gleich der Anzahl der verschiedenen Wörter im gesamten Korpus. 
+Jedes Dokument in einem K-dimensionalen Vektorraum kann durch einen K-dimensionalen Vektor beschrieben werden. 
+Wenn es Vektorrepräsentationen für alle Dokumente im gleichen Raum gibt, dann ist es möglich, sie zu vergleichen. 
+Den euklidischen Abstand zwischen Vektoren kann gemessen werden, indem sie subtrahiert werden und die Länge des Abstands zwischen ihnen berechnet wird, den sogenannten Abstand im Sinne der L2-Norm (L2-Metrik). 
+Dies ist der Abstand auf einer geraden Linie von dem Ort, der durch die Spitze (Scheitelpunkt) des einen Vektors gegeben ist, zu dem Ort, der der Spitze des anderen Vektors entspricht.\\\\
+Der Otiai-Koeffizient (Kosinuskoeffizient) ist ein Maß für die Ähnlichkeit zwischen zwei Multisets. 
+Der Otiae-Koeffizient kann verwendet werden, um den Grad der Ähnlichkeit zwischen zwei Dokumenten auf der Grundlage ihrer Wort-Multisets zu bestimmen. 
+Er ist einfach der Kosinus des Winkels zwischen zwei Vektoren (Theta):
+\begin{figure}[H]
+    \centering
+    \fbox{\includegraphics[width=0.6\textwidth]{Bilder_Stand_der_Technik/vraum_theta.png}}
+    \caption{\label{figure:Vraum_Theta}Zweidimensionale Theta}
+\end{figure}
+\noindent
 \subsection{Syntaktische Analyse}
 \subsection{Ansätze für die Erstellung eines Chatbots}\label{sec:ansaetze_erstellung_chatbots}
 Derzeit gibt es vier Hauptansätze für die Erstellung eines Chatbots \cite{lane_natural_2019}:
