@@ -36,9 +36,26 @@ Nach der Verwendung von \textit{pip} zur Installation von \textit{PyTorch} auf d
     \item Ein anderes vorkompiliertes Paket herunterladen und installieren, das auf die vorhandene Prozessorarchitektur angepasst und optimiert ist.
     \item Sollten alle zuvor genannten Versuche scheitern muss \textit{Whisper} durch eine andere Bibliothek ersetzt werden, die keine Abhängigkeit zu \textit{PyTorch} aufweist.
 \end{enumerate}
-Lösungsansatz eins erwies sich als nicht effektiv. Das Programm verursachte immernoch den selben Fehler. Lösungsansatz zwei scheiterte, da der Build-Prozess mehr als den zur Verfügung stehenden \ac{RAM} des Raspberry Pi aufbrauchte. Sogar mit vier \ac{GB} zusätzlich konfiguriertem Swap-Speicher wurde der Build-Prozess nach einiger Zeit vom Betriebssystem beendet aufgrund des hohen \ac{RAM}-Verbrauchs. TODO: dritte Möglichkeit hat geklappt; muss herausfinden wo ich das Paket nochmal her hatte mit dem es dann funktioniert hat...
+Lösungsansatz eins erwies sich als nicht effektiv. Das Programm verursachte immernoch den selben Fehler. Lösungsansatz zwei scheiterte, da der Build-Prozess mehr als den zur Verfügung stehenden \ac{RAM} des Raspberry Pi aufbrauchte. Sogar mit vier \ac{GB} zusätzlich konfiguriertem Swap-Speicher wurde der Build-Prozess nach einiger Zeit vom Betriebssystem beendet aufgrund des hohen \ac{RAM}-Verbrauchs. Lösungsansatz drei funktionierte schließlich. Mit Hilfe des vorkompilierten Pakets aus \cite{q-engineering_install_nodate} konnte \textit{PyTorch} installiert und erfolgreich importiert und verwendet werden.\\\\
+Ein weiteres Problem trat bei der Verwendung des Mikrofons über die \textit{SpeechRecognition}-Bibliothek auf. Bei den Aufrufen \textit{speech\_recognition.Microphone()} und\\ \textit{speech\_recognition.Recognizer().listen(source)} kommt es auf dem Raspberry Pi zu unerwarteten Fehlermeldungen, die in Abbildung \ref{img:alsa_errors} zu sehen sind.
+\begin{figure}[H]
+    \centering
+    \fbox{\includegraphics[width=0.8\textwidth]{./img/Bilder_Implementierung/alsa_errors.png}}
+    \caption{Fehlermeldungen beim Zugriff auf das Mikrofon}
+    \label{img:alsa_errors}
+\end{figure}
+\noindent
+Zwar kann das Programm trotz der Meldungen fehlerfrei ausgeführt werden, jedoch stören die Meldungen bspw. beim Debuggen und irritieren evtl. Programmierer, die zu einem späteren Zeitpunkt einen Blick auf das Projekt werfen. Um die Fehlermeldungen zu umgehen wurde deshalb im finalen Quelltext die Fehlerbehandlungsfunktion der \textit{libasound}-Bibliothek ausgetauscht wie in Listing \ref{speech_rec_3} zu sehen ist.
+\lstinputlisting[language=python, style=algoBericht, label={speech_rec_3}, basicstyle=\tiny\sffamily, captionpos=b, caption={Fehlerbehandlung}]{./Listings/speech_rec_3.py}
+Für einen Vorher-/Nachher-Vergleich sei auf Listing \ref{speech_rec_2} verwiesen. Zeilen vier bis zehn dienen der Definition einer C-Funktion zur Fehlerbehandlung, die bei ihrer Ausführung die auftretende Meldung ignoriert. In Zeile 16 wird die Standard Fehlerfunktion durch diese ersetzt und in Zeile 19 wieder zurückgeändert. 
 \subsection{Anbindung des Sprachmodells an die Mischmaschine}
 \subsection{Befehlsverarbeitung in der Mischmaschine}\label{section:Befehlsverarbeitung}
+Nachdem die Sprache des Benutzers erkannt, in Text konvertiert und durch das Sprachmodell interpretiert wurde muss der zurückerhaltene Befehl vom Raspberry Pi and den Arduino in der Getränkemischmaschine gesendet werden. Zur Umsetzung der Kommunikation zwischen Raspberry Pi und Arduino kommt die \textit{PySerial}-Bibliothek zum Einsatz \cite{pyserial}. Listing \ref{serial_1_py} zeigt, wie die Bibliothek zum Versenden von Nachrichten an ein Gerät über die serielle Schnittstelle erfolgen kann.
+\lstinputlisting[language=python, style=algoBericht, label={serial_1_py}, basicstyle=\tiny\sffamily, captionpos=b, caption={Serielle Kommunikation in Python}]{./Listings/serial_1.py}
+Das Programm öffnet in Zeile vier die serielle Schnittstelle zu dem Gerät mit dem Namen \glqq{}ttyACM0\grqq{}, mit einer Baud-Rate von 9600 und einem Timeout von fünf Sekunden. Der Gerätename ist je nach Gerät und Betriebssystem unterschiedlich und muss zuvor mit den verfügbaren Betriebssystemmitteln bestimmt werden. Die Baud-Rate gibt an, mit welcher Geschwindigkeit Symbole über die Schnittstelle gesendet werden. Die Baud-Rate muss sowohl beim Sender als auch beim Empfänger gleich sein, da es sonst zu Kommunikationsproblemen kommt. Der Timeout steuert wie lange bei einer Leseoperation gewartet werden soll, bis alle zu lesenden Bytes im Puffer vorhanden sind.\\\\
+In der darauffolgenden Zeile wird der Eingabepuffer geleert, um zu verhindern, dass unvollständige Daten an den Empfänger gesendet werden, die beim letzten Programmdurchlauf im Puffer verblieben sein könnten. Da der Verbindungsaufbau mit dem Gerät einige Zeit dauern kann wird die Programmausührung in Zeile sechs zunächst um fünf Sekunden verzögert.\\\\
+In Listing \ref{serial_1_ino} ist der Quelltext auf Empfängerseite zu sehen.
+\lstinputlisting[language=c++, style=algoBericht, label={serial_1_ino}, basicstyle=\tiny\sffamily, captionpos=b, caption={Serielle Kommunikation in Python}]{./Listings/serial_1.ino}
 \subsubsection{Herausforderungen bei der Implementierung der Befehlsverarbeitung}
 \endinput
 
