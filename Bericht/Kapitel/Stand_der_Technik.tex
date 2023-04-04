@@ -255,15 +255,15 @@ Daraus ist ersichtlich, wie weit unsere beiden Vektoren in dieselbe Richtung zei
 Ein offensichtlicher Vorteil ist, dass der vom Ochiai-Koeffizienten angenommene Wertebereich (von -1 bis +1) für die meisten Aufgaben des maschinellen Lernens geeignet ist. 
 Ein Kosinuskoeffizient von 1 spiegelt identische normalisierte Vektoren wider, die über alle Dimensionen hinweg in eine ähnliche Richtung zeigen. 
 Die Längen dieser Vektoren können unterschiedlich sein, aber sie zeigen in dieselbe Richtung. 
-Je näher der Cosinus-Ähnlichkeitswert bei 1 liegt, desto kleiner ist der Winkel zwischen den Vektoren. 
-Im NLP enthalten Dokumente, deren Kosinusfaktor der Vektoren nahe bei 1 liegt, ähnliche Wörter im gleichen Verhältnis. 
+Je näher der Kosinuskoeffizient bei 1 liegt, desto kleiner ist der Winkel zwischen den Vektoren. 
+Im NLP enthalten Dokumente, deren Kosinuskoeffizient der Vektoren nahe bei 1 liegt, ähnliche Wörter im gleichen Verhältnis. 
 Daher ist es wahrscheinlicher, dass es sich bei Dokumenten, deren Vektoren nahe beieinander liegen, um dieselbe Sache handelt. 
-Wenn der Kosinusfaktor 0 ist, haben die Vektoren keine gemeinsamen Komponenten. 
+Wenn der Kosinuskoeffizient 0 ist, haben die Vektoren keine gemeinsamen Komponenten. 
 Sie stehen in allen Dimensionen in einem 90°-Winkel zueinander. 
 Bei TF NLP-Vektoren tritt diese Situation nur ein, wenn die beiden Dokumente keine gemeinsamen Wörter haben. 
 Da sie völlig unterschiedliche Wörter verwenden, sprechen sie von völlig unterschiedlichen Dingen. 
 Das bedeutet nicht unbedingt, dass die Bedeutung oder das Thema unterschiedlich ist, sondern nur, dass sie unterschiedliche Wörter verwenden. 
-Bei einem Wert des Kosinusfaktors von -1 sind die Vektoren völlig entgegengesetzt. 
+Bei einem Wert des Kosinuskoeffizient von -1 sind die Vektoren völlig entgegengesetzt. 
 Sie zeigen in entgegengesetzte Richtungen. 
 Bei einfachen Vektoren der Termhäufigkeiten ist dies jedoch nicht möglich, da Vektoren der Termhäufigkeiten nicht negativ sein können. 
 Sie befinden sich also immer im gleichen Quadranten des Vektorraums.\\\\
@@ -292,6 +292,152 @@ Für jedes Wort in einem Dokument kann sein TF-IDF-Wert nach der folgenden Forme
 \begin{equation}
     TFIDF(t, d, D) = TF(t, d)\cdot IDF(t, D)
 \end{equation}
+Dabei ist t ein Wort, d ein Dokument, \ac{TF}(t, d) der Wert der Worthäufigkeit im Dokument und \ac{IDF}(t, D) der Wert der inversen Dokumenthäufigkeit. 
+Um einen TF-IDF-Vektor für jedes Dokument zu erhalten, müssen die TF-IDF-Werte für alle Wörter, die in dem Dokument vorkommen, verwendet werden. 
+Dies ergibt einen Vektor, bei dem jede Komponente einem TF-IDF-Wert für ein bestimmtes Wort im Dokument entspricht.
+Beispielsweise werden die folgenden drei Dokumente betrachtet:\\
+Dokument \textnumero 1 \glqq Ein Cocktail ist variationsreich und auch zuhause gut zu mixen\grqq{}\\
+Dokument \textnumero 2 \glqq Der Mojito ist ein klassischer Cocktail und ein erfrischender Drink der 
+immer passt\grqq{}\\
+Dokument \textnumero 3 \glqq Dank unserem Rezept machen Sie dieser Cocktail selber zuhause\grqq{}\\
+Zunächst müssen die Dokumente tokenisiert und unnötige Stoppwörter herausgefiltert werden, die für das Verständnis der Bedeutung der Dokumente keine große Rolle spielen. 
+Nach diesem Prozess sehen die Dokumente wie folgt aus:\\
+Dokument \textnumero 1 \glqq Cocktail variationsreich zuhause gut mixen\grqq{}\\
+Dokument \textnumero 2 \glqq Mojito klassischer Cocktail erfrischender Drink immer passt\grqq{}\\
+Dokument \textnumero 3 \glqq Dank Rezepte machen Cocktail selber zuhause\grqq{}\\
+Als erstes müssen die normalisierten TF-Vektoren jedes Terms berechnet werden:
+\begin{table}[H]
+    \centering
+    \begin{tabular}{l|c|c|c}
+        TF(t, d)          & Dokument \textnumero 1 & Dokument \textnumero 2 & Dokument \textnumero 3 \\
+        \hline
+        Cocktail            & 1/5 = 0.2             & 1/7 = 0.143      & 1/6 = 0.167 \\
+        \hline
+        variationsreich & 0.2             & 0 & 0      \\
+        \hline
+        zuhause                & 0.2           & 0    & 0.167 \\
+        \hline
+        gut                  & 0.2             & 0      & 0  \\
+        \hline
+        mixen            & 0.2             & 0      & 0 \\
+        \hline
+        Mojito & 0             & 0.143 & 0      \\
+        \hline
+        klassischer                & 0           & 0.143    & 0 \\
+        \hline
+        erfrischender                  & 0             & 0.143      & 0   \\
+        \hline
+        Drink            & 0             & 0.143      & 0 \\
+        \hline
+        immer & 0             & 0.143 & 0      \\
+        \hline
+        passt                & 0          & 0.143    & 0 \\
+        \hline
+        Dank                  & 0             & 0      & 0.167   \\
+        \hline
+        Rezepte            & 0             & 0      & 0.167 \\
+        \hline
+        machen & 0             & 0 & 0.167      \\
+        \hline
+        selber                & 0           & 0    & 0.167\\
+    \end{tabular}
+    \caption{\label{table:TF_Vektoren}TF-Vektoren}
+\end{table}
+\noindent
+Anschließend können die IDF-Vektoren für jeden Term (über den gesamten Dokumentenkorpus) berechnet werden:
+\begin{table}[H]
+    \centering
+    \begin{tabular}{l|c|c|c}
+        IDF(t, D)          & Dokumentenkorpus \\
+        \hline
+        Cocktail            & log(3/3) = 0  \\
+        \hline
+        variationsreich & 0.477   \\
+        \hline
+        zuhause                & 0.176  \\
+        \hline
+        gut                  & 0.477  \\
+        \hline
+        mixen            & 0.477  \\
+        \hline
+        Mojito & 0.477  \\
+        \hline
+        klassischer                & 0.477  \\
+        \hline
+        erfrischender                  & 0.477  \\
+        \hline
+        Drink            & 0.477  \\
+        \hline
+        immer & 0.477  \\
+        \hline
+        passt                & 0.477  \\
+        \hline
+        Dank                  & 0.477 \\
+        \hline
+        Rezepte            & 0.477 \\
+        \hline
+        machen & 0.477  \\
+        \hline
+        selber                & 0.477  \\
+    \end{tabular}
+    \caption{\label{table:IDF_Vektoren}IDF-Vektoren}
+\end{table}
+\noindent
+Jetzt kann mit der Berechnung der TF-IDF-Vektoren fortgefahren werden:
+\begin{table}[H]
+    \centering
+    \begin{tabular}{l|c|c|c}
+        TF-IDF(t, d, D)          & Dokument \textnumero 1 & Dokument \textnumero 2 & Dokument \textnumero 3 \\
+        \hline
+        Cocktail            & 0.2*0 = 0             & 0.143*0 = 0      & 0.167*0 = 0 \\
+        \hline
+        variationsreich & 0.0954             & 0 & 0      \\
+        \hline
+        zuhause                & 0.0352           & 0    & 0.03 \\
+        \hline
+        gut                  & 0.0954             & 0      & 0  \\
+        \hline
+        mixen            & 0.0954             & 0      & 0 \\
+        \hline
+        Mojito & 0             & 0.068 & 0      \\
+        \hline
+        klassischer                & 0           & 0.068    & 0 \\
+        \hline
+        erfrischender                  & 0             & 0.068      & 0   \\
+        \hline
+        Drink            & 0             & 0.068      & 0 \\
+        \hline
+        immer & 0             & 0.068 & 0      \\
+        \hline
+        passt                & 0          & 0.068    & 0 \\
+        \hline
+        Dank                  & 0             & 0      & 0.08   \\
+        \hline
+        Rezepte            & 0             & 0      & 0.08 \\
+        \hline
+        machen & 0             & 0 & 0.08      \\
+        \hline
+        selber                & 0           & 0    & 0.08\\
+    \end{tabular}
+    \caption{\label{table:TFIDF_Vektoren}TFIDF-Vektoren}
+\end{table}
+\noindent
+Wie aus dem Beispiel ersichtlich, haben Wörter, die in allen Dokumenten vorkommen, wie z.B. \glqq Cocktail\grqq{}, in jedem Dokument den gleichen TF-IDF-Wert, Wörter, die in mehr als einem Dokument vorkommen, wie z.B. \glqq zuhause\grqq{}, haben einen niedrigeren IDF-Wert als seltene Wörter, wie z.B. \glqq selber\grqq{} oder "Rezept", die in den Dokumenten, in denen sie vorkommen, einen hohen IDF-Wert und damit einen hohen TF-IDF-Wert haben. 
+Diese durch die Berechnung von TF-IDF erhaltene Zahl assoziiert also ein bestimmtes Wort oder Token mit einem bestimmten Dokument in einem bestimmten Korpus und legt dann einen numerischen Wert für die Bedeutung dieses Wortes in diesem Dokument fest, wobei sein Vorkommen im gesamten Korpus berücksichtigt wird. 
+Da für jedes Wort in den Dokumenten nun TF-IDF-Werte vorliegen, können diese zu TF-IDF-Vektoren für jedes Dokument kombiniert werden. 
+Der TF-IDF-Vektor für jedes Dokument hat eine Dimension, die der Gesamtzahl der eindeutigen Wörter im Textkorpus entspricht. 
+Jedes Element im Vektor entspricht einem bestimmten Wort, und der Wert des Elements ist gleich seinem TF-IDF-Wert für dieses Dokument. 
+In diesem Beispiel sehen die TF-IDF-Vektoren für jedes Dokument wie folgt aus:\\
+Dokument \textnumero 1 [0. 0.0954 0.0352 0.0954 0.0954 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]\\
+Dokument \textnumero 2 [0. 0. 0. 0. 0. 0.068 0.068 0.068 0.068 0.068 0.068 0. 0. 0. 0.]\\
+Dokument \textnumero 3 [0. 0. 0.03 0. 0. 0. 0. 0. 0. 0. 0. 0.08 0.08 0.08 0.08]\\\\
+Aus diesen Vektoren kann die Ähnlichkeit zwischen den Dokumenten berechnet werden, z. B. mit Hilfe des Kosinuskoeffizients. 
+Je näher die Werte des Kosinuskoeffizients bei 1 liegen, desto ähnlicher sind sich die Dokumente. 
+Für die maximale derzeit erreichbare Effizienz bei der semantischen Suche, der Dokumentenklassifikation, bei Dialogsystemen und den meisten anderen Anwendungen ist es daher ausreichend, nur einfache TF-IDF-Vektoren in die Pipeline einzugeben. 
+TF-IDF-Vektoren sind die erste Stufe der Pipeline, die Grundmenge der aus dem Text extrahierten Merkmale. 
+Auf der Grundlage der TF-IDF-Vektoren können Themenvektoren berechnet werden, die für die semantische Analyse von Texten erforderlich sind.\\\\
+Es gibt viele Bibliotheken, um die TF-IDF-Vektorisierung in Python zu implementieren. 
+Einige der beliebtesten Bibliotheken sind Scikit-Learn, Gensim, \ac{NLTK} und SpaCy.
 \subsection{Syntaktische Analyse}
 \subsection{Ansätze für die Erstellung eines Chatbots}\label{sec:ansaetze_erstellung_chatbots}
 Derzeit gibt es vier Hauptansätze für die Erstellung eines Chatbots \cite{lane_natural_2019}:
