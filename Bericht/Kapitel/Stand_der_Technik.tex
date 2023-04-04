@@ -275,6 +275,23 @@ TF-IDF-Vektoren sind jedoch eine noch effizientere Methode zur Vektorisierung vo
 Im Gegensatz zu Multisets von Wörtern und N-Grammen berücksichtigen TF-IDF-Vektoren nicht nur die Häufigkeit von Wörtern in einem Dokument, sondern auch die Bedeutung jedes Wortes im Kontext des gesamten Textkorpus. 
 So haben Wörter, die in allen Dokumenten häufig vorkommen, eine geringere Bedeutung als seltene Wörter, die dazu beitragen, ein Dokument von anderen zu unterscheiden.
 \subsubsection{TF-IDF-Vektoren}
+Das \ac{TF-IDF}-Vektorkonzept ist eines der grundlegenden Werkzeuge der natürlichen Sprachverarbeitung. 
+Es wird verwendet, um Textdokumente in numerische Vektoren umzuwandeln, die für Textanalyse, Dokumentenklassifikation, Empfehlungssysteme und viele andere Anwendungen verwendet werden können.\\\\
+Eine der wichtigsten Fragen, die sich bei der Verarbeitung natürlicher Sprache stellen, ist die Bestimmung der Bedeutung von Wörtern in einem Text. 
+Die Bedeutung von Wörtern kann anhand ihrer Häufigkeit in einem Dokument bestimmt werden. 
+Einige Wörter kommen jedoch häufig in allen Dokumenten vor, so dass sie nicht allzu wichtig sein sollten. 
+Andererseits können einige seltene Wörter von großer Bedeutung sein, weil sie möglicherweise nur in einem bestimmten Dokument vorkommen. 
+TF-IDF-Vektoren lösen dieses Problem, indem sie nicht nur die Häufigkeit der Wörter in einem Dokument, sondern auch ihre Bedeutung im Kontext des gesamten Textkorpus berücksichtigen. 
+Für jedes Wort in einem Dokument kann sein TF-IDF-Wert nach der folgenden Formel berechnet werden:
+\begin{equation}
+    TF(t, d) = \frac{Anzahl(t)}{Anzahl(d)}
+\end{equation}
+\begin{equation}
+    IDF(t, D) = \log \frac{Anzahl(D)}{Anzahl(D,\: die\: t\: beinhalten)}
+\end{equation}
+\begin{equation}
+    TFIDF(t, d, D) = TF(t, d)\cdot IDF(t, D)
+\end{equation}
 \subsection{Syntaktische Analyse}
 \subsection{Ansätze für die Erstellung eines Chatbots}\label{sec:ansaetze_erstellung_chatbots}
 Derzeit gibt es vier Hauptansätze für die Erstellung eines Chatbots \cite{lane_natural_2019}:
