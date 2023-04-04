@@ -136,7 +136,8 @@ Es gibt drei Möglichkeiten, Wörter und ihre Bedeutungen darzustellen:
     \item TF-IDF-Vektoren sind Indikatoren für Wörter, die deren Bedeutung am Besten darstellen.
 \end{itemize}
 Jede dieser Methoden kann entweder allein oder als Teil einer \ac{NLP}-Pipeline angewendet werden. 
-Alle beschriebenen Modelle sind statistisch in dem Sinne, dass sie auf Worthäufigkeiten beruhen.\\\\
+Alle beschriebenen Modelle sind statistisch in dem Sinne, dass sie auf Worthäufigkeiten beruhen.
+\subsubsection{Multisets von Wörtern}
 \ac{BOW}-Vektoren sind Vektoren, die Textdokumente als Wort-Multisets (Bags) darstellen, wobei ein Multiset eine Sammlung von Elementen ist, in der jedes Element mehr als einmal wiederholt werden kann. 
 Ein Wort-Bag ist eine Darstellung von Text, die das Vorkommen von Wörtern in einem Dokument beschreibt. 
 Sie beinhaltet zwei Dinge:
@@ -144,7 +145,7 @@ Sie beinhaltet zwei Dinge:
     \item Ein Wörterbuch mit bekannten Wörtern.
     \item Ein Maß für das Vorhandensein von bekannten Wörtern.
 \end{enumerate}
-Dies wird als "Wort-Bag" bezeichnet, weil alle Informationen über die Reihenfolge oder Struktur der Wörter im Dokument verworfen werden. 
+Dies wird als "Word-Bag" bezeichnet, weil alle Informationen über die Reihenfolge oder Struktur der Wörter im Dokument verworfen werden. 
 Das Modell interessiert sich nur dafür, ob bekannte Wörter im Dokument vorkommen, nicht aber, wo im Dokument. 
 Bei diesem Ansatz wird das Histogramm der Wörter im Text betrachtet, d. h. wir betrachten jedes Wort als ein Merkmal \cite{goldberg_neural_2017}.\\\\
 Ein Ansatz zur Vektorisierung einer Vielzahl von Wörtern besteht darin, für jedes Wort einen Einheitsvektor zu erstellen und diese Vektoren dann zu einem einzigen Vektor zu kombinieren. 
@@ -215,16 +216,65 @@ Für einen Vektorraum von Dokumenten in einer natürlichen Sprache ist die Dimen
 Jedes Dokument in einem K-dimensionalen Vektorraum kann durch einen K-dimensionalen Vektor beschrieben werden. 
 Wenn es Vektorrepräsentationen für alle Dokumente im gleichen Raum gibt, dann ist es möglich, sie zu vergleichen. 
 Den euklidischen Abstand zwischen Vektoren kann gemessen werden, indem sie subtrahiert werden und die Länge des Abstands zwischen ihnen berechnet wird, den sogenannten Abstand im Sinne der L2-Norm (L2-Metrik). 
-Dies ist der Abstand auf einer geraden Linie von dem Ort, der durch die Spitze (Scheitelpunkt) des einen Vektors gegeben ist, zu dem Ort, der der Spitze des anderen Vektors entspricht.\\\\
-Der Otiai-Koeffizient (Kosinuskoeffizient) ist ein Maß für die Ähnlichkeit zwischen zwei Multisets. 
-Der Otiae-Koeffizient kann verwendet werden, um den Grad der Ähnlichkeit zwischen zwei Dokumenten auf der Grundlage ihrer Wort-Multisets zu bestimmen. 
-Er ist einfach der Kosinus des Winkels zwischen zwei Vektoren (Theta):
+Dies ist der Abstand auf einer geraden Linie von dem Ort, der durch die Spitze (Scheitelpunkt) des einen Vektors gegeben ist, zu dem Ort, der der Spitze des anderen Vektors entspricht.
+\begin{figure}[H]
+    \centering
+    \fbox{\includegraphics[width=0.6\textwidth]{Bilder_Stand_der_Technik/l2.png}}
+    \caption{\label{figure:euklidische_Norm}Euklidische Norm}
+\end{figure}
+\noindent
+Der Ochiai-Koeffizient (Kosinuskoeffizient) ist ein Maß für die Ähnlichkeit zwischen zwei Multisets. 
+Der Ochiai-Koeffizient kann verwendet werden, um den Grad der Ähnlichkeit zwischen zwei Dokumenten auf der Grundlage ihrer Wort-Multisets zu bestimmen. 
+Er ist einfach der Kosinus des Winkels zwischen zwei Vektoren (Theta).
 \begin{figure}[H]
     \centering
     \fbox{\includegraphics[width=0.6\textwidth]{Bilder_Stand_der_Technik/vraum_theta.png}}
     \caption{\label{figure:Vraum_Theta}Zweidimensionale Theta}
 \end{figure}
 \noindent
+Er kann mithilfe des euklidischen Skalarprodukts nach folgender Formal berechnet werden:
+\begin{figure}[H]
+    \centering
+    \fbox{\includegraphics[width=0.2\textwidth]{Bilder_Stand_der_Technik/euk_dot_prod.png}}
+    \caption{\label{figure:Euklidisches_Skalarprodukt}Euklidisches Skalarprodukt}
+\end{figure}
+\noindent
+\begin{figure}[H]
+    \centering
+    \fbox{\includegraphics[width=0.6\textwidth]{Bilder_Stand_der_Technik/ochiai_koef.png}}
+    \caption{\label{figure:Ochiai_Koeffizient}Ochiai-Koeffizient}
+\end{figure}
+\noindent
+Das Skalarprodukt zweier Vektoren kann also berechnet werden, indem die Elemente der Vektoren paarweise multipliziert und dann die Ergebnisse addiert werden. 
+Anschließend wird das Ergebnis durch die Norm jedes Vektors dividiert. 
+Die Norm eines Vektors ist gleich dem euklidischen Abstand zwischen seinem Kopf und seinem Ende - der Quadratwurzel aus der Summe der Quadrate seiner Elemente. 
+Dieses normierte Skalarprodukt liegt wie der Kosinuswert zwischen -1 und 1. 
+Es ist auch der Kosinus des Winkels zwischen den beiden Vektoren. 
+Dieser Wert ist gleich dem Anteil des längeren Vektors, der von der senkrecht dazu stehenden Projektion des kürzeren Vektors abgedeckt wird. 
+Daraus ist ersichtlich, wie weit unsere beiden Vektoren in dieselbe Richtung zeigen.\\\\
+Ein offensichtlicher Vorteil ist, dass der vom Ochiai-Koeffizienten angenommene Wertebereich (von -1 bis +1) für die meisten Aufgaben des maschinellen Lernens geeignet ist. 
+Ein Kosinuskoeffizient von 1 spiegelt identische normalisierte Vektoren wider, die über alle Dimensionen hinweg in eine ähnliche Richtung zeigen. 
+Die Längen dieser Vektoren können unterschiedlich sein, aber sie zeigen in dieselbe Richtung. 
+Je näher der Cosinus-Ähnlichkeitswert bei 1 liegt, desto kleiner ist der Winkel zwischen den Vektoren. 
+Im NLP enthalten Dokumente, deren Kosinusfaktor der Vektoren nahe bei 1 liegt, ähnliche Wörter im gleichen Verhältnis. 
+Daher ist es wahrscheinlicher, dass es sich bei Dokumenten, deren Vektoren nahe beieinander liegen, um dieselbe Sache handelt. 
+Wenn der Kosinusfaktor 0 ist, haben die Vektoren keine gemeinsamen Komponenten. 
+Sie stehen in allen Dimensionen in einem 90°-Winkel zueinander. 
+Bei TF NLP-Vektoren tritt diese Situation nur ein, wenn die beiden Dokumente keine gemeinsamen Wörter haben. 
+Da sie völlig unterschiedliche Wörter verwenden, sprechen sie von völlig unterschiedlichen Dingen. 
+Das bedeutet nicht unbedingt, dass die Bedeutung oder das Thema unterschiedlich ist, sondern nur, dass sie unterschiedliche Wörter verwenden. 
+Bei einem Wert des Kosinusfaktors von -1 sind die Vektoren völlig entgegengesetzt. 
+Sie zeigen in entgegengesetzte Richtungen. 
+Bei einfachen Vektoren der Termhäufigkeiten ist dies jedoch nicht möglich, da Vektoren der Termhäufigkeiten nicht negativ sein können. 
+Sie befinden sich also immer im gleichen Quadranten des Vektorraums.\\\\
+Neben den Multisets von Wörtern gibt es weiteren Vektorisierungsmethoden, die ebenfalls in der Verarbeitung natürlicher Sprache verwendet werden - Multisets von N-Grammen und TF-IDF-Vektoren.
+Bei Multisets von N-Grammen handelt es sich um Mengen von mehreren aufeinanderfolgenden Wörtern in einem Text. 
+N-Gramme können helfen, den Kontext und die Beziehung zwischen Wörtern in einem Text zu erfassen. 
+In diesem Fall wird nicht die Häufigkeit der einzelnen Begriffe im Dokument berücksichtigt, sondern die Häufigkeit des Auftretens von N-Grammen.
+TF-IDF-Vektoren sind jedoch eine noch effizientere Methode zur Vektorisierung von Text. 
+Im Gegensatz zu Multisets von Wörtern und N-Grammen berücksichtigen TF-IDF-Vektoren nicht nur die Häufigkeit von Wörtern in einem Dokument, sondern auch die Bedeutung jedes Wortes im Kontext des gesamten Textkorpus. 
+So haben Wörter, die in allen Dokumenten häufig vorkommen, eine geringere Bedeutung als seltene Wörter, die dazu beitragen, ein Dokument von anderen zu unterscheiden.
+\subsubsection{TF-IDF-Vektoren}
 \subsection{Syntaktische Analyse}
 \subsection{Ansätze für die Erstellung eines Chatbots}\label{sec:ansaetze_erstellung_chatbots}
 Derzeit gibt es vier Hauptansätze für die Erstellung eines Chatbots \cite{lane_natural_2019}:
