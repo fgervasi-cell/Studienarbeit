@@ -256,33 +256,33 @@ Ein offensichtlicher Vorteil ist, dass der vom Ochiai-Koeffizienten angenommene 
 Ein Kosinuskoeffizient von 1 spiegelt identische normalisierte Vektoren wider, die über alle Dimensionen hinweg in eine ähnliche Richtung zeigen. 
 Die Längen dieser Vektoren können unterschiedlich sein, aber sie zeigen in dieselbe Richtung. 
 Je näher der Kosinuskoeffizient bei 1 liegt, desto kleiner ist der Winkel zwischen den Vektoren. 
-Im NLP enthalten Dokumente, deren Kosinuskoeffizient der Vektoren nahe bei 1 liegt, ähnliche Wörter im gleichen Verhältnis. 
+Im \ac{NLP} enthalten Dokumente, deren Kosinuskoeffizient der Vektoren nahe bei 1 liegt, ähnliche Wörter im gleichen Verhältnis. 
 Daher ist es wahrscheinlicher, dass es sich bei Dokumenten, deren Vektoren nahe beieinander liegen, um dieselbe Sache handelt. 
 Wenn der Kosinuskoeffizient 0 ist, haben die Vektoren keine gemeinsamen Komponenten. 
 Sie stehen in allen Dimensionen in einem 90°-Winkel zueinander. 
-Bei TF NLP-Vektoren tritt diese Situation nur ein, wenn die beiden Dokumente keine gemeinsamen Wörter haben. 
+Bei \ac{TF} \ac{NLP}-Vektoren tritt diese Situation nur ein, wenn die beiden Dokumente keine gemeinsamen Wörter haben. 
 Da sie völlig unterschiedliche Wörter verwenden, sprechen sie von völlig unterschiedlichen Dingen. 
 Das bedeutet nicht unbedingt, dass die Bedeutung oder das Thema unterschiedlich ist, sondern nur, dass sie unterschiedliche Wörter verwenden. 
 Bei einem Wert des Kosinuskoeffizient von -1 sind die Vektoren völlig entgegengesetzt. 
 Sie zeigen in entgegengesetzte Richtungen. 
 Bei einfachen Vektoren der Termhäufigkeiten ist dies jedoch nicht möglich, da Vektoren der Termhäufigkeiten nicht negativ sein können. 
 Sie befinden sich also immer im gleichen Quadranten des Vektorraums.\\\\
-Neben den Multisets von Wörtern gibt es weiteren Vektorisierungsmethoden, die ebenfalls in der Verarbeitung natürlicher Sprache verwendet werden - Multisets von N-Grammen und TF-IDF-Vektoren.
+Neben den Multisets von Wörtern gibt es weiteren Vektorisierungsmethoden, die ebenfalls in der Verarbeitung natürlicher Sprache verwendet werden - Multisets von N-Grammen und \ac{TF-IDF}-Vektoren.
 Bei Multisets von N-Grammen handelt es sich um Mengen von mehreren aufeinanderfolgenden Wörtern in einem Text. 
 N-Gramme können helfen, den Kontext und die Beziehung zwischen Wörtern in einem Text zu erfassen. 
 In diesem Fall wird nicht die Häufigkeit der einzelnen Begriffe im Dokument berücksichtigt, sondern die Häufigkeit des Auftretens von N-Grammen.
-TF-IDF-Vektoren sind jedoch eine noch effizientere Methode zur Vektorisierung von Text. 
-Im Gegensatz zu Multisets von Wörtern und N-Grammen berücksichtigen TF-IDF-Vektoren nicht nur die Häufigkeit von Wörtern in einem Dokument, sondern auch die Bedeutung jedes Wortes im Kontext des gesamten Textkorpus. 
+\ac{TF-IDF}-Vektoren sind jedoch eine noch effizientere Methode zur Vektorisierung von Text. 
+Im Gegensatz zu Multisets von Wörtern und N-Grammen berücksichtigen \ac{TF-IDF}-Vektoren nicht nur die Häufigkeit von Wörtern in einem Dokument, sondern auch die Bedeutung jedes Wortes im Kontext des gesamten Textkorpus. 
 So haben Wörter, die in allen Dokumenten häufig vorkommen, eine geringere Bedeutung als seltene Wörter, die dazu beitragen, ein Dokument von anderen zu unterscheiden.
-\subsubsection{TF-IDF-Vektoren}
+\subsubsection{\ac{TF-IDF}-Vektoren}
 Das \ac{TF-IDF}-Vektorkonzept ist eines der grundlegenden Werkzeuge der natürlichen Sprachverarbeitung. 
 Es wird verwendet, um Textdokumente in numerische Vektoren umzuwandeln, die für Textanalyse, Dokumentenklassifikation, Empfehlungssysteme und viele andere Anwendungen verwendet werden können.\\\\
 Eine der wichtigsten Fragen, die sich bei der Verarbeitung natürlicher Sprache stellen, ist die Bestimmung der Bedeutung von Wörtern in einem Text. 
 Die Bedeutung von Wörtern kann anhand ihrer Häufigkeit in einem Dokument bestimmt werden. 
 Einige Wörter kommen jedoch häufig in allen Dokumenten vor, so dass sie nicht allzu wichtig sein sollten. 
 Andererseits können einige seltene Wörter von großer Bedeutung sein, weil sie möglicherweise nur in einem bestimmten Dokument vorkommen. 
-TF-IDF-Vektoren lösen dieses Problem, indem sie nicht nur die Häufigkeit der Wörter in einem Dokument, sondern auch ihre Bedeutung im Kontext des gesamten Textkorpus berücksichtigen. 
-Für jedes Wort in einem Dokument kann sein TF-IDF-Wert nach der folgenden Formel berechnet werden:
+\ac{TF-IDF}-Vektoren lösen dieses Problem, indem sie nicht nur die Häufigkeit der Wörter in einem Dokument, sondern auch ihre Bedeutung im Kontext des gesamten Textkorpus berücksichtigen. 
+Für jedes Wort in einem Dokument kann sein \ac{TF-IDF}-Wert nach der folgenden Formel berechnet werden:
 \begin{equation}
     TF(t, d) = \frac{Anzahl(t)}{Anzahl(d)}
 \end{equation}
@@ -293,8 +293,8 @@ Für jedes Wort in einem Dokument kann sein TF-IDF-Wert nach der folgenden Forme
     TFIDF(t, d, D) = TF(t, d)\cdot IDF(t, D)
 \end{equation}
 Dabei ist t ein Wort, d ein Dokument, \ac{TF}(t, d) der Wert der Worthäufigkeit im Dokument und \ac{IDF}(t, D) der Wert der inversen Dokumenthäufigkeit. 
-Um einen TF-IDF-Vektor für jedes Dokument zu erhalten, müssen die TF-IDF-Werte für alle Wörter, die in dem Dokument vorkommen, verwendet werden. 
-Dies ergibt einen Vektor, bei dem jede Komponente einem TF-IDF-Wert für ein bestimmtes Wort im Dokument entspricht.
+Um einen \ac{TF-IDF}-Vektor für jedes Dokument zu erhalten, müssen die \ac{TF-IDF}-Werte für alle Wörter, die in dem Dokument vorkommen, verwendet werden. 
+Dies ergibt einen Vektor, bei dem jede Komponente einem \ac{TF-IDF}-Wert für ein bestimmtes Wort im Dokument entspricht.
 Beispielsweise werden die folgenden drei Dokumente betrachtet:\\
 Dokument \textnumero 1 \glqq Ein Cocktail ist variationsreich und auch zuhause gut zu mixen\grqq{}\\
 Dokument \textnumero 2 \glqq Der Mojito ist ein klassischer Cocktail und ein erfrischender Drink der 
@@ -305,7 +305,7 @@ Nach diesem Prozess sehen die Dokumente wie folgt aus:\\
 Dokument \textnumero 1 \glqq Cocktail variationsreich zuhause gut mixen\grqq{}\\
 Dokument \textnumero 2 \glqq Mojito klassischer Cocktail erfrischender Drink immer passt\grqq{}\\
 Dokument \textnumero 3 \glqq Dank Rezepte machen Cocktail selber zuhause\grqq{}\\
-Als erstes müssen die normalisierten TF-Vektoren jedes Terms berechnet werden:
+Als erstes müssen die normalisierten \ac{TF}-Vektoren jedes Terms berechnet werden:
 \begin{table}[H]
     \centering
     \begin{tabular}{l|c|c|c}
@@ -341,10 +341,10 @@ Als erstes müssen die normalisierten TF-Vektoren jedes Terms berechnet werden:
         \hline
         selber                & 0           & 0    & 0.167\\
     \end{tabular}
-    \caption{\label{table:TF_Vektoren}TF-Vektoren}
+    \caption{\label{table:TF_Vektoren}\ac{TF}-Vektoren}
 \end{table}
 \noindent
-Anschließend können die IDF-Vektoren für jeden Term (über den gesamten Dokumentenkorpus) berechnet werden:
+Anschließend können die \ac{IDF}-Vektoren für jeden Term (über den gesamten Dokumentenkorpus) berechnet werden:
 \begin{table}[H]
     \centering
     \begin{tabular}{l|c|c|c}
@@ -380,10 +380,10 @@ Anschließend können die IDF-Vektoren für jeden Term (über den gesamten Dokum
         \hline
         selber                & 0.477  \\
     \end{tabular}
-    \caption{\label{table:IDF_Vektoren}IDF-Vektoren}
+    \caption{\label{table:IDF_Vektoren}\ac{IDF}-Vektoren}
 \end{table}
 \noindent
-Jetzt kann mit der Berechnung der TF-IDF-Vektoren fortgefahren werden:
+Jetzt kann mit der Berechnung der \ac{TF-IDF}-Vektoren fortgefahren werden:
 \begin{table}[H]
     \centering
     \begin{tabular}{l|c|c|c}
@@ -419,26 +419,30 @@ Jetzt kann mit der Berechnung der TF-IDF-Vektoren fortgefahren werden:
         \hline
         selber                & 0           & 0    & 0.08\\
     \end{tabular}
-    \caption{\label{table:TFIDF_Vektoren}TFIDF-Vektoren}
+    \caption{\label{table:TFIDF_Vektoren}\ac{TF-IDF}-Vektoren}
 \end{table}
 \noindent
-Wie aus dem Beispiel ersichtlich, haben Wörter, die in allen Dokumenten vorkommen, wie z.B. \glqq Cocktail\grqq{}, in jedem Dokument den gleichen TF-IDF-Wert, Wörter, die in mehr als einem Dokument vorkommen, wie z.B. \glqq zuhause\grqq{}, haben einen niedrigeren IDF-Wert als seltene Wörter, wie z.B. \glqq selber\grqq{} oder "Rezept", die in den Dokumenten, in denen sie vorkommen, einen hohen IDF-Wert und damit einen hohen TF-IDF-Wert haben. 
-Diese durch die Berechnung von TF-IDF erhaltene Zahl assoziiert also ein bestimmtes Wort oder Token mit einem bestimmten Dokument in einem bestimmten Korpus und legt dann einen numerischen Wert für die Bedeutung dieses Wortes in diesem Dokument fest, wobei sein Vorkommen im gesamten Korpus berücksichtigt wird. 
-Da für jedes Wort in den Dokumenten nun TF-IDF-Werte vorliegen, können diese zu TF-IDF-Vektoren für jedes Dokument kombiniert werden. 
-Der TF-IDF-Vektor für jedes Dokument hat eine Dimension, die der Gesamtzahl der eindeutigen Wörter im Textkorpus entspricht. 
-Jedes Element im Vektor entspricht einem bestimmten Wort, und der Wert des Elements ist gleich seinem TF-IDF-Wert für dieses Dokument. 
-In diesem Beispiel sehen die TF-IDF-Vektoren für jedes Dokument wie folgt aus:\\
+Wie aus dem Beispiel ersichtlich, haben Wörter, die in allen Dokumenten vorkommen, wie z.B. \glqq Cocktail\grqq{}, in jedem Dokument den gleichen \ac{TF-IDF}-Wert, Wörter, die in mehr als einem Dokument vorkommen, wie z.B. \glqq zuhause\grqq{}, haben einen niedrigeren \ac{IDF}-Wert als seltene Wörter, wie z.B. \glqq selber\grqq{} oder "Rezept", die in den Dokumenten, in denen sie vorkommen, einen hohen \ac{IDF}-Wert und damit einen hohen \ac{TF-IDF}-Wert haben. 
+Diese durch die Berechnung von \ac{TF-IDF} erhaltene Zahl assoziiert also ein bestimmtes Wort oder Token mit einem bestimmten Dokument in einem bestimmten Korpus und legt dann einen numerischen Wert für die Bedeutung dieses Wortes in diesem Dokument fest, wobei sein Vorkommen im gesamten Korpus berücksichtigt wird. 
+Da für jedes Wort in den Dokumenten nun \ac{TF-IDF}-Werte vorliegen, können diese zu \ac{TF-IDF}-Vektoren für jedes Dokument kombiniert werden. 
+Der \ac{TF-IDF}-Vektor für jedes Dokument hat eine Dimension, die der Gesamtzahl der eindeutigen Wörter im Textkorpus entspricht. 
+Jedes Element im Vektor entspricht einem bestimmten Wort, und der Wert des Elements ist gleich seinem \ac{TF-IDF}-Wert für dieses Dokument. 
+In diesem Beispiel sehen die \ac{TF-IDF}-Vektoren für jedes Dokument wie folgt aus:\\
 Dokument \textnumero 1 [0. 0.0954 0.0352 0.0954 0.0954 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]\\
 Dokument \textnumero 2 [0. 0. 0. 0. 0. 0.068 0.068 0.068 0.068 0.068 0.068 0. 0. 0. 0.]\\
 Dokument \textnumero 3 [0. 0. 0.03 0. 0. 0. 0. 0. 0. 0. 0. 0.08 0.08 0.08 0.08]\\\\
 Aus diesen Vektoren kann die Ähnlichkeit zwischen den Dokumenten berechnet werden, z. B. mit Hilfe des Kosinuskoeffizients. 
 Je näher die Werte des Kosinuskoeffizients bei 1 liegen, desto ähnlicher sind sich die Dokumente. 
-Für die maximale derzeit erreichbare Effizienz bei der semantischen Suche, der Dokumentenklassifikation, bei Dialogsystemen und den meisten anderen Anwendungen ist es daher ausreichend, nur einfache TF-IDF-Vektoren in die Pipeline einzugeben. 
-TF-IDF-Vektoren sind die erste Stufe der Pipeline, die Grundmenge der aus dem Text extrahierten Merkmale. 
-Auf der Grundlage der TF-IDF-Vektoren können Themenvektoren berechnet werden, die für die semantische Analyse von Texten erforderlich sind.\\\\
-Es gibt viele Bibliotheken, um die TF-IDF-Vektorisierung in Python zu implementieren. 
+Für die maximale derzeit erreichbare Effizienz bei der semantischen Suche, der Dokumentenklassifikation, bei Dialogsystemen und den meisten anderen Anwendungen ist es daher ausreichend, nur einfache \ac{TF-IDF}-Vektoren in die Pipeline einzugeben. 
+T\ac{TF-IDF}-Vektoren sind die erste Stufe der Pipeline, die Grundmenge der aus dem Text extrahierten Merkmale. 
+Auf der Grundlage der \ac{TF-IDF}-Vektoren können Themenvektoren berechnet werden, die für die semantische Analyse von Texten erforderlich sind.\\\\
+Es gibt viele Bibliotheken, um die \ac{TF-IDF}-Vektorisierung in Python zu implementieren. 
 Einige der beliebtesten Bibliotheken sind Scikit-Learn, Gensim, \ac{NLTK} und SpaCy.
 \subsection{Syntaktische Analyse}
+Mit Hilfe von \ac{TF-IDF}-Vektoren ist es möglich, die Bedeutung von Wörtern in einem Textfragment zu schätzen. 
+\ac{TF-IDF}-Vektoren und -Matrizen können verwendet werden, um zu verstehen, wie wichtig jedes Wort für die Gesamtbedeutung eines Textfragments in einer Reihe von Dokumenten ist. 
+Solche \ac{TF-IDF}-Bedeutungsschätzungen sind nicht nur für Wörter, sondern auch für kurze Wortfolgen, N-Gramme, möglich. 
+Und letztere sind sehr praktisch für die Suche im Text (wenn die gesuchten Wörter oder N-Gramme genau bekannt sind).\\\\
 \subsection{Ansätze für die Erstellung eines Chatbots}\label{sec:ansaetze_erstellung_chatbots}
 Derzeit gibt es vier Hauptansätze für die Erstellung eines Chatbots \cite{lane_natural_2019}:
 \begin{itemize}
