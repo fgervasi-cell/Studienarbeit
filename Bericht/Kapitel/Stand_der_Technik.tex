@@ -685,5 +685,47 @@ Dies kann die Anwendung der Methode bei einigen Anwendungen einschränken.
 Wenn der Trainingsdatensatz nicht eine ausreichend große Bandbreite möglicher Antworten repräsentiert, kann das Modell außerdem dazu neigen, vorhersehbare oder falsche Antworten zu erzeugen.\\\\
 Die Implementierung der seq2seq-Methode in Python kann mit der TensorFlow-Bibliothek erfolgen, die eine Reihe von Werkzeugen für den Aufbau und das Training neuronaler Netze bietet. 
 In TensorFlow kann man die vortrainierten seq2seq-Modelle verwenden oder ein eigenes Modell erstellen, indem die Architektur und die Trainingsparameter des Netzwerks konfiguriert wird. \cite{tensorflow}
-\subsection{Mehrschichtiges Perzeptron}
+\subsection{Mehrschichtiges Perzeptron für ein Mehrklassen-Klassifizierungsproblem}
+Ein \ac{MLP} ist eine neuronale Netzwerkarchitektur, die aus mehreren Schichten von Neuronen besteht und für Klassifizierungs- und Regressionsaufgaben verwendet werden kann. 
+Mehrschichtige Perseptrons sind Arten von neuronalen Netzen, die bidirektional sind, da sie die Eingabedaten vorverteilen und die Gewichte zurückverteilen. 
+Ein mehrschichtiges Perseptron hat eine Eingabeschicht und eine Ausgabeschicht mit einer oder mehreren versteckten Schichten. 
+Bei \ac{MLP} sind alle Neuronen einer Schicht mit allen Neuronen der nächsten Schicht verbunden. 
+Die Eingabeschicht empfängt Eingangssignale, und die gewünschte Aufgabe wird von der Ausgabeschicht ausgeführt. 
+Und die versteckten Schichten sind für alle Berechnungen zuständig. 
+Die Architektur des mehrschichtigen Perseptrons sieht folgendermaßen aus:
+\begin{figure}[H]
+    \centering
+    \fbox{\includegraphics[width=0.8\textwidth]{Bilder_Stand_der_Technik/mehrschicht_perc.png}}
+    \caption{\label{figure:Mehrschichtiges_Perzeptron}Mehrschichtiges Perzeptron}
+\end{figure}
+\noindent
+Für ein Mehrklassen-Klassifizierungsproblem kann ein \ac{MLP} mit einer Verlustfunktion wie der kategorialen Kreuzentropie (Categorical Crossentropy) trainiert werden. 
+Zunächst muss ein \ac{MLP} über eine Eingabeschicht verfügen, die die Merkmale eines Objekts aufnimmt, und eine Ausgabeschicht, die die Wahrscheinlichkeiten für die Zugehörigkeit des Objekts zu den einzelnen Klassen ausgibt. 
+Die Dimensionalität der Ausgabeschicht muss der Anzahl der zu klassifizierenden Klassen entsprechen.
+Außerdem können zwischen der Eingabe- und der Ausgabeschicht mehrere verborgene Schichten liegen, die nichtlineare Transformationen der Eingabedaten durchführen, so dass das \ac{MLP}-Modell komplexe Beziehungen zwischen Objektmerkmalen und Klassen erfassen kann. 
+Jedes Neuron im \ac{MLP} nimmt als Eingabe die gewichtete Summe der Neuronenausgaben der vorherigen Schicht, fügt eine Vorspannung hinzu und durchläuft dann eine Aktivierungsfunktion. 
+Die Aktivierungsfunktion wird verwendet, um dem \ac{MLP} Nichtlinearität hinzuzufügen und kann z. B. sigmoid-Funktion oder ReLU sein.
+Beim \ac{MLP}-Training mit Gradientenabstieg werden die Gewichte und Vorspannungen der Neuronen bei jeder Trainingsiteration aktualisiert, wobei der Wert der Verlustfunktion minimiert wird.\\\\
+Die kategoriale Kreuzentropie ist eine Verlustfunktion, die für die Klassifizierung mehrerer Klassen verwendet wird und die Diskrepanz zwischen den wahren Klassenbezeichnungen und den vorhergesagten Klassenwahrscheinlichkeiten misst. 
+Daher kann \ac{MLP} nach dem Training zur Klassifizierung neuer Objekte verwendet werden, indem die Objektmerkmale durch \ac{MLP} geleitet werden und die Ausgabewahrscheinlichkeiten für jede Klasse ermittelt werden und dann die Klasse mit der höchsten Wahrscheinlichkeit als vorhergesagte Klassenbezeichnung ausgewählt wird.\\\\
+Die Theorie hinter der kategorialen Kreuzentropie ist die Informationstheorie und die Messung der Unsicherheit. 
+Angenommen, es gibt ein System, das mit einem probabilistischen Modell beschreiben werden muss. 
+Dieses System habe N mögliche Ergebnisse, die jeweils mit den Wahrscheinlichkeiten $p_{1}$, $p_{2}$, ..., $p_{N}$ auftreten können, wobei $\sum$pi = 1 und pi$\geq$0 für i = 1, 2, ..., N. 
+Dann kann die Entropie H des Systems wie folgt definiert werden: 
+\begin{equation}
+    H = -\sum (p_{i}*\log_{2}{p_{i}})
+\end{equation}
+, wobei $\sum$($p_{i}$* $\log_{2}{p_{i}}$) über i von 1 bis N genommen wird (QUELLE https://towardsdatascience.com/cross-entropy-loss-function-f38c4ec8643e). 
+Diese Formel zeigt, dass die Entropie des Systems ein Maß für die Ungewissheit oder Unsicherheit bei der Wahl eines der möglichen Ergebnisse ist.\\\\
+Wenn die kategoriale Kreuzentropie als Verlustfunktion für ein Mehrklassen-Klassifizierungsproblem verwendet wird, wird erwartet, dass das trainierte Modell einen Ausgabewahrscheinlichkeitsvektor hat, bei dem jedes Element des Vektors einer der Klassen entspricht. 
+Je unsicherer der Modellausgabevektor für ein bestimmtes Beispiel ist, desto höher ist der Wert der kategorialen Kreuzentropie. 
+Umgekehrt ist der Wert der kategorialen Kreuzentropie gleich Null, wenn das Modell eine Klasse für ein bestimmtes Beispiel genau vorhersagt.
+Beim Training von Klassifizierungsmodellen für Aufgaben des maschinellen Lernens mit mehreren Klassen wird daher versucht, den Wert der kategorialen Kreuzentropie zwischen dem Ausgabevektor des Modells und der richtigen Klasse für jedes Eingabebeispiel zu minimieren. 
+Zu diesem Zweck wird ein Optimierungsverfahren verwendet, z. B. den Gradientenabstieg, um die Gewichte und Verzerrungen des Modells bei jeder Trainingsiteration zu aktualisieren.\\\\
+In Keras kann die kategoriale Kreuzentropie als Verlustfunktion für verschiedene Modelltypen wie mehrschichtige Perzeptronen, Faltungsneuronale Netze und rekurrente Neuronale Netze verwendet werden. 
+Es handelt sich um eine Standardverlustfunktion für Mehrklassen-Klassifizierungsprobleme. 
+Bei der Verwendung der kategorialen Kreuzentropie in Keras können auch verschiedene Parameter wie Klassengewichte und Modellbewertungsmetriken angepasst werden, um genauere Klassifizierungsergebnisse zu erhalten. 
+Somit ist die kategoriale Kreuzentropie ein wichtiges Werkzeug beim maschinellen Lernen zur Lösung von Klassifizierungsproblemen mit mehreren Klassen. 
+Ihre Verwendung ermöglicht es, Modelle zu trainieren, die Eingabebeispiele genau klassifizieren und eine hohe Genauigkeit bei Klassifizierungsaufgaben erreichen können.
+
 \endinput
