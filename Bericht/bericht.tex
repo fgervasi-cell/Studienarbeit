@@ -178,12 +178,12 @@
 \pagenumbering{roman}
 \setcounter{page}{\value{roman-numbering}}
 \appendix
-% \addcontentsline{toc}{chapter}{Anhang}
 
 % \addcontentsline{toc}{chapter}{Index}
 \printindex
 
 \addcontentsline{toc}{chapter}{Literaturverzeichnis}
+\addcontentsline{toc}{chapter}{Anhang}
 
 % Haben Sie das "biblatex"-Paket nicht installiert, benutzen Sie folgendes:
 % Ohne das "biblatex"-Paket (s. bericht.sty) produziert folgendes
@@ -208,7 +208,7 @@
 
 \newpage
 \addcontentsline{toc}{chapter}{Liste der ToDo's}
-\listoftodos[Liste der ToDo's]
+%\listoftodos[Liste der ToDo's]
 
 
 \end{document}
