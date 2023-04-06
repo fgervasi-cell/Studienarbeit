@@ -133,7 +133,7 @@ Es gibt drei Möglichkeiten, Wörter und ihre Bedeutungen darzustellen:
 \begin{itemize}
     \item Multisets von Wörtern - Vektoren von Zahlen oder Häufigkeiten von Wörtern. 
     \item Multisets von N-Grammen - Vektoren von Mengen von Wortpaaren (Bigramme), Worttripeln (Trigramme), usw.
-    \item TF-IDF-Vektoren sind Indikatoren für Wörter, die deren Bedeutung am Besten darstellen.
+    \item \ac{TF}-\ac{IDF}-Vektoren sind Indikatoren für Wörter, die deren Bedeutung am Besten darstellen.
 \end{itemize}
 Jede dieser Methoden kann entweder allein oder als Teil einer \ac{NLP}-Pipeline angewendet werden. 
 Alle beschriebenen Modelle sind statistisch in dem Sinne, dass sie auf Worthäufigkeiten beruhen.
@@ -145,7 +145,7 @@ Sie beinhaltet zwei Dinge:
     \item Ein Wörterbuch mit bekannten Wörtern.
     \item Ein Maß für das Vorhandensein von bekannten Wörtern.
 \end{enumerate}
-Dies wird als "Word-Bag" bezeichnet, weil alle Informationen über die Reihenfolge oder Struktur der Wörter im Dokument verworfen werden. 
+Dies wird als \glqq{}Word-Bag\grqq{} bezeichnet, weil alle Informationen über die Reihenfolge oder Struktur der Wörter im Dokument verworfen werden. 
 Das Modell interessiert sich nur dafür, ob bekannte Wörter im Dokument vorkommen, nicht aber, wo im Dokument. 
 Bei diesem Ansatz wird das Histogramm der Wörter im Text betrachtet, d. h. wir betrachten jedes Wort als ein Merkmal \cite{goldberg_neural_2017}.\\\\
 Ein Ansatz zur Vektorisierung einer Vielzahl von Wörtern besteht darin, für jedes Wort einen Einheitsvektor zu erstellen und diese Vektoren dann zu einem einzigen Vektor zu kombinieren. 
@@ -169,10 +169,10 @@ Bei Dokumenten, die eine große Anzahl von Wörtern enthalten, wäre die Größe
 Außerdem macht es keinen Sinn, so viele Nullen zu speichern. 
 Um mit dem Wörterbuch arbeiten zu können, ohne viel Zeit für die Verarbeitung zu verschwenden, ist es notwendig, das Wörterbuch zu verkleinern. 
 Dazu ist es notwendig, auf die Möglichkeit der Rekonstuierung des Originaldokuments zu verzichten, d.h. sich die Wortfolge aller Dokumente zu merken. 
-Es ist notwendig, den größten Teil der Informationen zu erfassen, nicht das gesamte Dokument. Dafür sind Multiset-Vektoren hilfreich\\\\
-Um einen Vektor für ein Multiset von Wörtern zu erstellen, müssen Sie für jedes Wort der Mehrmenge einen Einheitsvektor erstellen und diese Vektoren dann zu einem einzigen Vektor kombinieren. 
+Es ist notwendig, den größten Teil der Informationen zu erfassen, nicht das gesamte Dokument. Dafür sind Multiset-Vektoren hilfreich.\\\\
+Um einen Vektor für ein Multiset von Wörtern zu erstellen, müssen für jedes Wort der Mehrmenge ein Einheitsvektor erstellt und diese Vektoren dann zu einem einzigen Vektor kombiniert werden. 
 Vektoren können nach verschiedenen Regeln kombiniert werden, z. B. durch Addition, Multiplikation, Verkettung oder andere Operationen. 
-Wenn alle diese unitären Vektoren zusammengezählt werden, wird einen Vektor der Worthäufigkeit erhalten. 
+Wenn alle diese unitären Vektoren zusammengezählt werden, wird ein Vektor der Worthäufigkeit erhalten. 
 Er spiegelt die Häufigkeit des Vorkommens von Wörtern wider, nicht die Reihenfolge, in der sie auftreten. 
 Dieser Vektor kann verwendet werden, um ein ganzes Dokument oder einen Satz als einen einzigen Vektor von nicht sehr großer Länge darzustellen. 
 Seine Länge entspricht der Länge des Wörterbuchs (der Anzahl der verfolgten eindeutigen Token). 
@@ -180,11 +180,11 @@ Außerdem kann bei einer einfachen Schlüsselwortsuche ein binärer Multiset-Vek
 Die Anzahl der Vorkommen eines Wortes in einem bestimmten Dokument wird als Termfrequenz (\ac{TF}) bezeichnet. 
 Je häufiger ein Wort in einem Dokument vorkommt, desto wahrscheinlicher ist es, dass das Dokument von diesem Thema handelt. 
 Anstelle von reinen Wortzählungen können auch normalisierte Termhäufigkeiten zur Beschreibung von Dokumenten aus einem Korpus verwendet werden. 
-Unter normalisierten Dokumenthäufigkeiten verstehen wir die Anzahl der Wörter im Verhältnis zur Länge des Dokuments. 
+Unter normalisierten Dokumenthäufigkeiten versteht man die Anzahl der Wörter im Verhältnis zur Länge des Dokuments. 
 Die Normalisierung ist sehr nützlich, um die Bedeutung eines Dokuments zu ermitteln, da reine Häufigkeiten nicht immer die tatsächliche Situation widerspiegeln. 
 Wenn beispielsweise das Wort \glqq Cocktail\grqq{} 15 Mal in Dokument \textnumero 1 und 400 Mal in Dokument \textnumero 2 vorkommt, kann man daraus schließen, dass es in Dokument Nummer zwei eher um Cocktails geht.
-Vielleicht handelt es sich aber bei Dokument \textnumero 1 um ein Rezept für die Zubereitung von Mai Tais mit 100 Wörtern, während Dokument \textnumero 1 ein Roman mit 500.000 Wörtern ist, in dem die Figuren gelegentlich Cocktails trinken. 
-Die Häufigkeit des Wortes \glqq Cocktail\grqq{} in Dokument \textnumero 1 beträgt also 0,15 und 0,0008 in Dokument \textnumero 1, was die tatsächliche Bedeutung des Begriffs \glqq Cocktail\grqq{} in diesen Dokumenten viel besser widerspiegelt:
+Vielleicht handelt es sich aber bei Dokument \textnumero 1 um ein Rezept für die Zubereitung von Mai Tais mit 100 Wörtern, während Dokument \textnumero 2 ein Roman mit 500.000 Wörtern ist, in dem die Figuren gelegentlich Cocktails trinken. 
+Die Häufigkeit des Wortes \glqq Cocktail\grqq{} in Dokument \textnumero 1 beträgt also 0,15 und 0,0008 in Dokument \textnumero 2, was die tatsächliche Bedeutung des Begriffs \glqq Cocktail\grqq{} in diesen Dokumenten viel besser widerspiegelt:
 \begin{figure}[H]
     \centering
     \fbox{\includegraphics[width=0.8\textwidth]{Bilder_Stand_der_Technik/norm_vektoren.png}}
@@ -192,7 +192,7 @@ Die Häufigkeit des Wortes \glqq Cocktail\grqq{} in Dokument \textnumero 1 betr�
 \end{figure}
 \noindent
 Ebenso ist es möglich, diesen Wert für jedes Wort zu berechnen und die relative Bedeutung dieses Begriffs für jedes Dokument zu ermitteln, woraus sich die Bedeutung jedes Dokuments ableiten lässt. 
-Um die Anzahl der Vorkommen von Wörtern zu ermitteln, können Sie das Objekt collections.Counter in Python verwenden und anschließend eine Normalisierung durchführen:
+Um die Anzahl der Vorkommen von Wörtern zu ermitteln, kann das Objekt \textit{collections.Counter} in Python verwendet und anschließend eine Normalisierung durchgeführt werden:
 \begin{figure}[H]
     \centering
     \fbox{\includegraphics[width=0.8\textwidth]{Bilder_Stand_der_Technik/norm_vek_py.png}}
@@ -203,8 +203,8 @@ Wenn mehr als ein Dokument bearbeitet wird, wird für jedes Dokument ein eigener
 In diesem Fall werden die Vektoren an diesen Stellen Nullwerte enthalten.\\\\
 Das ultimative Ziel der Textvektorisierung besteht darin, natürliche Sprache in ein Format zu übersetzen, das der Computer verstehen kann. 
 Eine Möglichkeit, dies zu erreichen, ist die Verwendung von Vektorräumen. 
-Vektorräume sind mathematische Objekte, in denen jedes Element durch einen Vektor dargestellt wird, und verschiedene Operationen mit Vektoren ermöglichen es uns, nützliche Merkmale zu extrahieren. 
-So wird ein Vektor mit zwei Werten in einem zweidimensionalen Vektorraum verortet, ein Vektor mit drei Werten in einem dreidimensionalen Vektorraum, usw. 
+Vektorräume sind mathematische Objekte, in denen jedes Element durch einen Vektor dargestellt wird und verschiedene Operationen mit Vektoren ermöglichen es uns, nützliche Merkmale zu extrahieren. 
+So wird ein Vektor mit zwei Werten in einem zweidimensionalen Vektorraum verortet, ein Vektor mit drei Werten in einem dreidimensionalen Vektorraum und so weiter. 
 Beispielsweise ist der Vektorraum von Dokumenten, die nur aus den Wörtern \glqq Cocktail\grqq{} und \glqq Maschine\grqq{} bestehen, zweidimensional und die Vektoren der enthaltenen Dokumente können wie folgt dargestellt werden:
 \begin{figure}[H]
     \centering
@@ -215,7 +215,7 @@ Beispielsweise ist der Vektorraum von Dokumenten, die nur aus den Wörtern \glqq
 Für einen Vektorraum von Dokumenten in einer natürlichen Sprache ist die Dimensionalität des Vektorraums gleich der Anzahl der verschiedenen Wörter im gesamten Korpus. 
 Jedes Dokument in einem K-dimensionalen Vektorraum kann durch einen K-dimensionalen Vektor beschrieben werden. 
 Wenn es Vektorrepräsentationen für alle Dokumente im gleichen Raum gibt, dann ist es möglich, sie zu vergleichen. 
-Den euklidischen Abstand zwischen Vektoren kann gemessen werden, indem sie subtrahiert werden und die Länge des Abstands zwischen ihnen berechnet wird, den sogenannten Abstand im Sinne der L2-Norm (L2-Metrik). 
+Der euklidische Abstand zwischen Vektoren kann gemessen werden, indem sie subtrahiert werden und die Länge des Abstands zwischen ihnen berechnet wird, den sogenannten Abstand im Sinne der L2-Norm (L2-Metrik). 
 Dies ist der Abstand auf einer geraden Linie von dem Ort, der durch die Spitze (Scheitelpunkt) des einen Vektors gegeben ist, zu dem Ort, der der Spitze des anderen Vektors entspricht.
 \begin{figure}[H]
     \centering
@@ -232,7 +232,7 @@ Er ist einfach der Kosinus des Winkels zwischen zwei Vektoren (Theta).
     \caption{\label{figure:Vraum_Theta}Zweidimensionale Theta}
 \end{figure}
 \noindent
-Er kann mithilfe des euklidischen Skalarprodukts nach folgender Formal berechnet werden:
+Er kann mithilfe des euklidischen Skalarprodukts nach folgender Formel berechnet werden:
 \begin{figure}[H]
     \centering
     \fbox{\includegraphics[width=0.2\textwidth]{Bilder_Stand_der_Technik/euk_dot_prod.png}}
@@ -260,14 +260,14 @@ Im \ac{NLP} enthalten Dokumente, deren Kosinuskoeffizient der Vektoren nahe bei 
 Daher ist es wahrscheinlicher, dass es sich bei Dokumenten, deren Vektoren nahe beieinander liegen, um dieselbe Sache handelt. 
 Wenn der Kosinuskoeffizient 0 ist, haben die Vektoren keine gemeinsamen Komponenten. 
 Sie stehen in allen Dimensionen in einem 90°-Winkel zueinander. 
-Bei \ac{TF} \ac{NLP}-Vektoren tritt diese Situation nur ein, wenn die beiden Dokumente keine gemeinsamen Wörter haben. 
+Bei \ac{TF}-\ac{NLP}-Vektoren tritt diese Situation nur ein, wenn die beiden Dokumente keine gemeinsamen Wörter haben. 
 Da sie völlig unterschiedliche Wörter verwenden, sprechen sie von völlig unterschiedlichen Dingen. 
 Das bedeutet nicht unbedingt, dass die Bedeutung oder das Thema unterschiedlich ist, sondern nur, dass sie unterschiedliche Wörter verwenden. 
 Bei einem Wert des Kosinuskoeffizient von -1 sind die Vektoren völlig entgegengesetzt. 
 Sie zeigen in entgegengesetzte Richtungen. 
 Bei einfachen Vektoren der Termhäufigkeiten ist dies jedoch nicht möglich, da Vektoren der Termhäufigkeiten nicht negativ sein können. 
 Sie befinden sich also immer im gleichen Quadranten des Vektorraums.\\\\
-Neben den Multisets von Wörtern gibt es weiteren Vektorisierungsmethoden, die ebenfalls in der Verarbeitung natürlicher Sprache verwendet werden - Multisets von N-Grammen und \ac{TF-IDF}-Vektoren.
+Neben den Multisets von Wörtern gibt es weitere Vektorisierungsmethoden, die ebenfalls in der Verarbeitung natürlicher Sprache verwendet werden - Multisets von N-Grammen und \ac{TF-IDF}-Vektoren.
 Bei Multisets von N-Grammen handelt es sich um Mengen von mehreren aufeinanderfolgenden Wörtern in einem Text. 
 N-Gramme können helfen, den Kontext und die Beziehung zwischen Wörtern in einem Text zu erfassen. 
 In diesem Fall wird nicht die Häufigkeit der einzelnen Begriffe im Dokument berücksichtigt, sondern die Häufigkeit des Auftretens von N-Grammen.
@@ -285,12 +285,15 @@ Andererseits können einige seltene Wörter von großer Bedeutung sein, weil sie
 Für jedes Wort in einem Dokument kann sein \ac{TF-IDF}-Wert nach der folgenden Formel berechnet werden:
 \begin{equation}
     TF(t, d) = \frac{Anzahl(t)}{Anzahl(d)}
+    \eqlabel{eq-tf}{Wert der Worthäufigkeit im Dokument}
 \end{equation}
 \begin{equation}
     IDF(t, D) = \log \frac{Anzahl(D)}{Anzahl(D,\: die\: t\: beinhalten)}
+    \eqlabel{eq-idf}{Wert der inversen Dokumenthäufigkeit}
 \end{equation}
 \begin{equation}
     TFIDF(t, d, D) = TF(t, d)\cdot IDF(t, D)
+    \eqlabel{eq-tfidf}{TF-IDF-Wert}
 \end{equation}
 Dabei ist t ein Wort, d ein Dokument, \ac{TF}(t, d) der Wert der Worthäufigkeit im Dokument und \ac{IDF}(t, D) der Wert der inversen Dokumenthäufigkeit. 
 Um einen \ac{TF-IDF}-Vektor für jedes Dokument zu erhalten, müssen die \ac{TF-IDF}-Werte für alle Wörter, die in dem Dokument vorkommen, verwendet werden. 
@@ -299,13 +302,13 @@ Beispielsweise werden die folgenden drei Dokumente betrachtet:\\
 Dokument \textnumero 1 \glqq Ein Cocktail ist variationsreich und auch zuhause gut zu mixen\grqq{}\\
 Dokument \textnumero 2 \glqq Der Mojito ist ein klassischer Cocktail und ein erfrischender Drink der 
 immer passt\grqq{}\\
-Dokument \textnumero 3 \glqq Dank unserem Rezept machen Sie dieser Cocktail selber zuhause\grqq{}\\
+Dokument \textnumero 3 \glqq Dank unserem Rezept machen Sie diesen Cocktail selber zuhause\grqq{}\\
 Zunächst müssen die Dokumente tokenisiert und unnötige Stoppwörter herausgefiltert werden, die für das Verständnis der Bedeutung der Dokumente keine große Rolle spielen. 
 Nach diesem Prozess sehen die Dokumente wie folgt aus:\\
 Dokument \textnumero 1 \glqq Cocktail variationsreich zuhause gut mixen\grqq{}\\
 Dokument \textnumero 2 \glqq Mojito klassischer Cocktail erfrischender Drink immer passt\grqq{}\\
 Dokument \textnumero 3 \glqq Dank Rezepte machen Cocktail selber zuhause\grqq{}\\
-Als erstes müssen die normalisierten \ac{TF}-Vektoren jedes Terms berechnet werden:
+Als erstes müssen die normalisierten \ac{TF}-Vektoren jeden Terms berechnet werden:
 \begin{table}[H]
     \centering
     \begin{tabular}{l|c|c|c}
@@ -422,11 +425,11 @@ Jetzt kann mit der Berechnung der \ac{TF-IDF}-Vektoren fortgefahren werden:
     \caption{\label{table:TFIDF_Vektoren}\ac{TF-IDF}-Vektoren}
 \end{table}
 \noindent
-Wie aus dem Beispiel ersichtlich, haben Wörter, die in allen Dokumenten vorkommen, wie z.B. \glqq Cocktail\grqq{}, in jedem Dokument den gleichen \ac{TF-IDF}-Wert, Wörter, die in mehr als einem Dokument vorkommen, wie z.B. \glqq zuhause\grqq{}, haben einen niedrigeren \ac{IDF}-Wert als seltene Wörter, wie z.B. \glqq selber\grqq{} oder "Rezept", die in den Dokumenten, in denen sie vorkommen, einen hohen \ac{IDF}-Wert und damit einen hohen \ac{TF-IDF}-Wert haben. 
+Wie aus dem Beispiel ersichtlich, haben Wörter, die in allen Dokumenten vorkommen, wie z.B. \glqq Cocktail\grqq{}, in jedem Dokument den gleichen \ac{TF-IDF}-Wert, Wörter, die in mehr als einem Dokument vorkommen, wie z.B. \glqq zuhause\grqq{}, haben einen niedrigeren \ac{IDF}-Wert als seltene Wörter, wie z.B. \glqq selber\grqq{} oder \glqq{}Rezept\grqq{}, die in den Dokumenten, in denen sie vorkommen, einen hohen \ac{IDF}-Wert und damit einen hohen \ac{TF-IDF}-Wert haben. 
 Diese durch die Berechnung von \ac{TF-IDF} erhaltene Zahl assoziiert also ein bestimmtes Wort oder Token mit einem bestimmten Dokument in einem bestimmten Korpus und legt dann einen numerischen Wert für die Bedeutung dieses Wortes in diesem Dokument fest, wobei sein Vorkommen im gesamten Korpus berücksichtigt wird. 
 Da für jedes Wort in den Dokumenten nun \ac{TF-IDF}-Werte vorliegen, können diese zu \ac{TF-IDF}-Vektoren für jedes Dokument kombiniert werden. 
 Der \ac{TF-IDF}-Vektor für jedes Dokument hat eine Dimension, die der Gesamtzahl der eindeutigen Wörter im Textkorpus entspricht. 
-Jedes Element im Vektor entspricht einem bestimmten Wort, und der Wert des Elements ist gleich seinem \ac{TF-IDF}-Wert für dieses Dokument. 
+Jedes Element im Vektor entspricht einem bestimmten Wort und der Wert des Elements ist gleich seinem \ac{TF-IDF}-Wert für dieses Dokument. 
 In diesem Beispiel sehen die \ac{TF-IDF}-Vektoren für jedes Dokument wie folgt aus:\\
 Dokument \textnumero 1 [0. 0.0954 0.0352 0.0954 0.0954 0. 0. 0. 0. 0. 0. 0. 0. 0. 0.]\\
 Dokument \textnumero 2 [0. 0. 0. 0. 0. 0.068 0.068 0.068 0.068 0.068 0.068 0. 0. 0. 0.]\\
@@ -434,7 +437,7 @@ Dokument \textnumero 3 [0. 0. 0.03 0. 0. 0. 0. 0. 0. 0. 0. 0.08 0.08 0.08 0.08]\
 Aus diesen Vektoren kann die Ähnlichkeit zwischen den Dokumenten berechnet werden, z. B. mit Hilfe des Kosinuskoeffizients. 
 Je näher die Werte des Kosinuskoeffizients bei 1 liegen, desto ähnlicher sind sich die Dokumente. 
 Für die maximale derzeit erreichbare Effizienz bei der semantischen Suche, der Dokumentenklassifikation, bei Dialogsystemen und den meisten anderen Anwendungen ist es daher ausreichend, nur einfache \ac{TF-IDF}-Vektoren in die Pipeline einzugeben. 
-T\ac{TF-IDF}-Vektoren sind die erste Stufe der Pipeline, die Grundmenge der aus dem Text extrahierten Merkmale. 
+\ac{TF-IDF}-Vektoren sind die erste Stufe der Pipeline, die Grundmenge der aus dem Text extrahierten Merkmale. 
 Auf der Grundlage der \ac{TF-IDF}-Vektoren können Themenvektoren berechnet werden, die für die semantische Analyse von Texten erforderlich sind.\\\\
 Es gibt viele Bibliotheken, um die \ac{TF-IDF}-Vektorisierung in Python zu implementieren. 
 Einige der beliebtesten Bibliotheken sind Scikit-Learn, Gensim, \ac{NLTK} und SpaCy.
@@ -443,10 +446,9 @@ Mit Hilfe von \ac{TF-IDF}-Vektoren ist es möglich, die Bedeutung von Wörtern i
 \ac{TF-IDF}-Vektoren und -Matrizen können verwendet werden, um zu verstehen, wie wichtig jedes Wort für die Gesamtbedeutung eines Textfragments in einer Reihe von Dokumenten ist. 
 Solche \ac{TF-IDF}-Bedeutungsschätzungen sind nicht nur für Wörter, sondern auch für kurze Wortfolgen, N-Gramme, möglich. 
 Und letztere sind sehr praktisch für die Suche im Text (wenn die gesuchten Wörter oder N-Gramme genau bekannt sind).\\\\
-Experimente auf dem Gebiet des NLP haben zu einem Algorithmus geführt, mit dem die Bedeutung von Wortkombinationen ermittelt und Vektoren zur Darstellung dieser Bedeutung berechnet werden können. 
+Experimente auf dem Gebiet des \ac{NLP} haben zu einem Algorithmus geführt, mit dem die Bedeutung von Wortkombinationen ermittelt und Vektoren zur Darstellung dieser Bedeutung berechnet werden können. 
 Dieser Algorithmus wird latente semantische Analyse (\ac{LSA}) genannt. 
-Mit ihr lassen sich nicht nur Wörter, sondern ganze Dokumente als Vektoren darstellen. (Quelle Semantic Vector Encoding and 
-Similarity Search (https://arxiv.org/pdf/1706.00957.pdf)) 
+Mit ihr lassen sich nicht nur Wörter, sondern ganze Dokumente als Vektoren darstellen \cite{rygl_semantic_2017}.
 Diese Vektoren werden semantische Vektoren oder Themenvektoren genannt. 
 Diese Themenvektoren können verwendet werden, um nach Dokumenten anhand ihrer semantischen Bedeutung zu suchen - eine semantische Suche. 
 In den meisten Fällen sind die Ergebnisse dieser Suche wesentlich besser als die einer Schlagwortsuche (\ac{TF-IDF}-Suche). 
@@ -455,17 +457,17 @@ Darüber hinaus können diese semantischen Vektoren verwendet werden, um die Wö
 Mit Hilfe der Wortvektoren und ihrer relativen Bedeutung ist es möglich, die repräsentativsten Wörter für ein Dokument zu finden, wie z. B. eine Reihe von Schlüsselwörtern, die seine Bedeutung widerspiegeln. 
 Es ist nun auch möglich, zwei beliebige Aussagen/Dokumente zu vergleichen und festzustellen, wie nahe sie sich in ihrer Bedeutung sind.\\\\
 Themenvektoren sind eine Möglichkeit, ein Dokument als Vektor darzustellen, wobei jedes Element einem Thema entspricht. 
-Jedes Thema ist eine Wahrscheinlichkeitsverteilung auf die Wörter im Korpus, und für jedes Dokument kann geschätzt werden, wie sehr es mit jedem Thema zu tun hat.
+Jedes Thema ist eine Wahrscheinlichkeitsverteilung auf die Wörter im Korpus und für jedes Dokument kann geschätzt werden, wie sehr es mit jedem Thema zu tun hat.
 Zur Berechnung der Themenvektoren wird der \ac{LSA}-Algorithmus verwendet, der auf einer \ac{SWZ}(eng. \ac{SVD}) der Term-Dokumenten-Matrix beruht.\\\\
 Bei der \ac{SWZ} wird die Matrix in drei Komponenten zerlegt: die Matrix der linken singulären Vektoren, die Matrix der rechten singulären Vektoren und die Diagonalmatrix der singulären Werte. 
 Diese drei einfacheren Matrizen aus der \ac{SWZ} offenbaren jedoch Eigenschaften der ursprünglichen \ac{TF-IDF}-Matrix. 
 Sie eignen sich zur Vereinfachung der Matrix. 
 Man kann die Matrizen abschneiden (einige Zeilen und Spalten weglassen), bevor man sie erneut multipliziert, wodurch die Anzahl der Dimensionen, mit denen man sich im Vektorraummodell befassen muss, reduziert wird. 
-Das Ergebnis der Multiplikation dieser abgeschnittenen Matrizen ist nicht dieselbe \ac{TF-IDF}-Matrix, sondern eine verbesserte: Die neue Dokumentendarstellung enthält das Wesentliche, die latente Semantik dieser Dokumente. 
+Das Ergebnis der Multiplikation dieser abgeschnittenen Matrizen ist nicht dieselbe \ac{TF-IDF}-Matrix, sondern eine verbesserte: die neue Dokumentendarstellung enthält das Wesentliche, die latente Semantik dieser Dokumente. 
 Aus diesem Grund wird \ac{SWZ} auch in anderen Anwendungen wie der Komprimierung eingesetzt (z. B. zur Komprimierung von JPEG-Bildern).\\\\
 Die latente semantische Analyse (\ac{LSA}) ist eine mathematische Methode, um den besten Weg zur linearen Transformation (Rotation und Streckung) eines beliebigen Satzes von \ac{NLP}-Vektoren, wie \ac{TF-IDF}-Vektoren oder Multiset-Vektoren, zu finden. 
-Für viele Anwendungen ist es am besten, die Achsen (Dimensionen) in den neuen Vektoren an der größten Streuung (Varianz) der Worthäufigkeiten auszurichten. (Quelle https://web.stanford.edu/~jurafsky/slp3/ed3book.pdf\#chapter.16.)
-Sie können dann diejenigen Dimensionen aus dem neuen Vektorraum ausschließen, die nur geringe Auswirkungen auf die Vektoränderungen von Dokument zu Dokument haben. 
+Für viele Anwendungen ist es am besten, die Achsen (Dimensionen) in den neuen Vektoren an der größten Streuung (Varianz) der Worthäufigkeiten auszurichten \cite{jurafsky_speech_2009}.
+Es können dann diejenigen Dimensionen aus dem neuen Vektorraum ausgeschlossen werden, die nur geringe Auswirkungen auf die Vektoränderungen von Dokument zu Dokument haben. 
 Diese Anwendung der \ac{SWZ} wird als trunkierte \ac{SWZ} (trunkated \ac{SVD}) bezeichnet.\\\\
 \ac{LSA} verwendet \ac{SWZ}, um nach Wortkombinationen zu suchen, die gemeinsam für die größte Varianz in den Datenwerten verantwortlich sind. 
 Die \ac{TF-IDF}-Vektoren können so gedreht werden, dass ihre neuen Dimensionen (Basisvektoren) mit diesen Richtungen der maximalen Varianz übereinstimmen. 
@@ -477,30 +479,31 @@ Die Dimensionen (Topics) mit der geringsten Variation in den Vektoren von Dokume
 Solche Themen mit geringer Varianz stellen in der Regel Rauschen dar und sind eine Ablenkung für jeden Algorithmus des maschinellen Lernens. 
 Wenn ein Thema in allen Dokumenten etwa gleich häufig vorkommt und nicht zur Unterscheidung zwischen den Dokumenten beiträgt, kann es verworfen werden, so dass die Vektordarstellung verallgemeinert werden kann, so dass sie sich besser für Dokumente eignet, auf die die Pipeline noch nicht gestoßen ist, selbst wenn sie aus einem anderen Kontext stammen.\\\\
 \ac{SWZ} ist ein Algorithmus zur Zerlegung einer beliebigen Matrix in drei Faktoren, d. h. drei Matrizen, die multipliziert werden, um die ursprüngliche Matrix zu bilden. 
-Dieser Algorithmus wird in der linearen Algebra verwendet, um eine Matrix umzukehren, und die drei mit \ac{SWZ} berechneten Matrixmultiplikatoren haben mehrere nützliche mathematische Eigenschaften, die für die Dimensionalitätsreduktion und die \ac{LSA}-Methode geeignet sind (QUELLE Eckart C., Young G. The Approximation of One Matrix by Another of LowerRank.)\\\\
+Dieser Algorithmus wird in der linearen Algebra verwendet, um eine Matrix umzukehren und die drei mit \ac{SWZ} berechneten Matrixmultiplikatoren haben mehrere nützliche mathematische Eigenschaften, die für die Dimensionalitätsreduktion und die \ac{LSA}-Methode geeignet sind \cite{eckart_approximation_1936}.\\\\
 Jedes Mal, wenn \ac{SWZ} eine Term-Dokumenten-Matrix \ac{BOW} oder eine Term-Dokumenten-Matrix \ac{TF-IDF} durchläuft, findet \ac{SWZ} übereinstimmende Wortkombinationen. 
 Um diese übereinstimmenden Wörter zu finden, berechnet \ac{SWZ} die Korrelation zwischen den Spalten (Termen) der Term-Dokumenten-Matrix. 
 \ac{SWZ} ermittelt gleichzeitig die Korrelation der Verwendung von Begriffen in Dokumenten und die Korrelation von Dokumenten untereinander. 
 Auf der Grundlage dieser Informationen berechnet \ac{SWZ} auch lineare Kombinationen von Begriffen mit maximaler Varianz innerhalb eines Korpus. 
 Solche Kombinationen von Termhäufigkeiten werden zu Themen. 
 Und nur die Themen, die die maximale Information und Varianz innerhalb eines Korpus beherbergen, werden als relevant markiert und beibehalten, die anderen werden abgeschnitten. 
-Darüber hinaus besteht die Möglichkeit der linearen Transformation (Drehung) der Term-Dokument-Vektoren, um sie in kürzere Themenvektoren für jedes der Dokumente umzuwandeln.(QUELLE Koll M. Generalized vector spaces model in information retrieval: https://dl.acm.org/citation.cfm?id=253506; Approach to Concept Based Information Retrieval, 1979.)\\\\
-\ac{SWZ} gruppiert die Begriffe mit hoher Korrelation (weil sie häufig in denselben Dokumenten vorkommen) und auch gleichzeitig in einer Reihe von Dokumenten variieren(QUELLE Isbell C. L. Jr. Restructuring Sparse High-Dimensional Data for Effective Retrieval: http:// papers.nips.cc/paper/1597-restructuring-sparse-high-dimensional-data-for-effective-retrieval. pdf, 1998.). 
+Darüber hinaus besteht die Möglichkeit der linearen Transformation (Drehung) der Term-Dokument-Vektoren, um sie in kürzere Themenvektoren für jedes der Dokumente umzuwandeln. \cite{wong_generalized_1985}\\\\
+\ac{SWZ} gruppiert die Begriffe mit hoher Korrelation (weil sie häufig in denselben Dokumenten vorkommen) und auch gleichzeitig in einer Reihe von Dokumenten variieren \cite{isbell_restructuring_1998}. 
 Diese linearen Wortkombinationen werden als Themen betrachtet, die \ac{BOW}-Vektoren (oder \ac{TF-IDF}-Vektoren) in Themenvektoren verwandeln, die angeben, auf welche Themen sich das Dokument bezieht. 
 Ein Themenvektor ist eine Zusammenfassung (Synthese) des Inhalts des Dokuments. 
-Eine \ac{SWZ} sieht wie folgt aus: (QUELLE Indexing by Latent Semantic Analysis / S. C. Deerwester, S. T. Dumais,T. K. Landauer)
+Eine \ac{SWZ} sieht wie folgt aus \cite{deerwester_indexing_1990}:
 \begin{equation}
     A_{m\times n} = U_{m\times p} S_{p\times p} V_{p\times n}^T
+    \eqlabel{eq-swz}{Singularitätwertzerlegung}
 \end{equation}
 \begin{figure}[H]
     \centering
     \fbox{\includegraphics[width=0.8\textwidth]{Bilder_Stand_der_Technik/matrix_svd.png}}
-    \caption{\label{figure:Matrix_SVD}\ac{SWZ} Matrize}
+    \caption{\label{figure:Matrix_SVD}\ac{SWZ}-Matrize}
 \end{figure}
 \noindent
-wobei: m die Anzahl der Begriffe im Wörterbuch, n die Anzahl der Dokumente im Korpus und p die Summe der Themen im Korpus ist, die der Anzahl der Wörter entspricht.\\\\
-Nach dem Theorem von Eckart-Young reduziert die \ac{SWZ} das Rauschen und die Spärlichkeit der ursprünglichen Matrix, indem sie durch eine Matrix derselben Dimensionalität, aber niedrigeren Rangs ersetzt wird, in der nur die wichtigsten Informationen erhalten bleiben.(QUELLE (Eckart C., Young G. The Approximation of One Matrix by Another of LowerRank.))\\\\
-Die U-Matrix enthält die Term-Theme-Matrix. 
+Wobei m die Anzahl der Begriffe im Wörterbuch, n die Anzahl der Dokumente im Korpus und p die Summe der Themen im Korpus ist, die der Anzahl der Wörter entspricht.\\\\
+Nach dem Theorem von Eckart-Young reduziert die \ac{SWZ} das Rauschen und die Spärlichkeit der ursprünglichen Matrix, indem sie durch eine Matrix derselben Dimensionalität, aber niedrigeren Rangs ersetzt wird, in der nur die wichtigsten Informationen erhalten bleiben. \cite{eckart_approximation_1936}\\\\
+Die U-Matrix enthält die Term-Themen-Matrix. 
 Sie wird auch als linke singuläre Vektormatrix bezeichnet, da sie die Zeilenvektoren enthält, die von links mit der Spaltenvektormatrix zu multiplizieren sind. 
 Die U-Matrix spiegelt die gegenseitige Korrelation von Wörtern und Themen auf der Grundlage des gemeinsamen Auftretens von Wörtern im selben Dokument wider. 
 Vor der Trunkierung (Entfernung der Spalten) ist sie quadratisch. 
@@ -524,12 +527,13 @@ Dabei müssen die Elemente der Matrix S in absteigender Reihenfolge sortiert wer
 In diesem Fall kann die Formel in einer anderen Form geschrieben werden:
 \begin{equation}
     A_{k} = U_{k} S_{k} V_{k}^T
+    \eqlabel{eq-trunkierte-swz}{Trunkierte SWZ-Matrix}
 \end{equation}
 Dabei sind $U_{k}$ und $V_{k}$ Matrizen, die durch Extraktion der ersten k Spalten aus den Matrizen U bzw. V gewonnen werden.
 \begin{figure}[H]
     \centering
     \fbox{\includegraphics[width=0.8\textwidth]{Bilder_Stand_der_Technik/trun_svd.png}}
-    \caption{\label{figure:Trun_SVD}Trunkierte \ac{SWZ} Matrize}
+    \caption{\label{figure:Trun_SVD}Trunkierte \ac{SWZ}-Matrize}
 \end{figure}
 \noindent
 Im latent-semantischen Modell kann also jeder Text und jeder Begriff durch Vektoren in einem reduzierten Raum der Dimension k - dem Themenraum - dargestellt werden. 
@@ -539,10 +543,10 @@ Der Informationsverlust entsteht durch die Vernachlässigung kleiner Singulärza
 Je mehr Singulärzahlen verworfen werden, d. h. je kleiner k, desto größer ist dieser Verlust. 
 Mit anderen Worten: Der Informationsverlust ist umso größer, je niedriger der Rang der approximierenden Matrix ist. 
 In diesem Fall gehen zunächst die nicht signifikanten Werte verloren, wodurch die dominanten Werte der Matrix erhöht werden.\\\\
-Der \ac{SWZ}-Algorithmus, das Herzstück von \ac{LSA}, erkennt, ob Wörter immer nebeneinander vorkommen, und fasst sie im Betreff zusammen. 
+Der \ac{SWZ}-Algorithmus, das Herzstück von \ac{LSA}, erkennt, ob Wörter immer nebeneinander vorkommen und fasst sie im Betreff zusammen. 
 Auf diese Weise kann er die Anzahl der Messungen ohne zusätzlichen Aufwand reduzieren. 
 \ac{LSA} (\ac{SWZ}) ist eine großartige Methode, um Wort-Dokument-Matrizen zu komprimieren und potenzielle zusammengesetzte Wörter oder N-Gramme für die Pipeline zu erkennen. 
-LSA reduziert die Anzahl der Messungen und hilft so, Übertraining zu vermeiden. 
+\ac{LSA} reduziert die Anzahl der Messungen und hilft so, Übertraining zu vermeiden. 
 Sie führt eine Verallgemeinerung auf der Grundlage eines kleinen Datensatzes durch, indem sie eine lineare Beziehung zwischen den Worthäufigkeiten annimmt.\\\\
 \ac{LSA}s können auch für die semantische Suche verwendet werden. 
 Eine semantische Suche (semantic search) ist eine Art der Volltextsuche, die die Bedeutung der Wörter in der Anfrage und der gesuchten Dokumente berücksichtigt. 
@@ -557,15 +561,15 @@ Anschließend kann der Kosinuskoeffizient zwischen dem Abfragevektor und den Dok
 \ac{LSA} und \ac{SWZ} können also zum Aufspüren versteckter Themen in Textdokumenten sowie zur semantischen Suche in großen Dokumentensammlungen verwendet werden.\\\\
 Es gibt viele Python-Bibliotheken und -Werkzeuge für die Implementierung von \ac{LSA} und \ac{SWZ}. 
 Eine der beliebtesten Bibliotheken für Matrix- und Singulärzerlegung ist NumPy. 
-NumPy erleichtert die Durchführung von Matrixoperationen und verfügt über eine Funktion zur Singulärzerlegung numpy.linalg.svd(). 
-Zusammen mit anderen Bibliotheken wie Pandas und Scikit-learn kann \ac{LSA} effizient durchgeführt werden. 
+NumPy erleichtert die Durchführung von Matrixoperationen und verfügt über eine Funktion zur Singulärzerlegung: \textit{numpy.linalg.svd()}. 
+Zusammen mit anderen Bibliotheken wie \textit{Pandas} und \textit{Scikit-learn} kann \ac{LSA} effizient durchgeführt werden. 
 Um \ac{LSA} zu starten, müssen die Textdaten mit Hilfe des \ac{TF-IDF}-Modells vektorisiert werden, wie zuvor beschrieben. 
-Dann muss eine singuläre Zerlegung der Term-Dokument-Matrix mit numpy.linalg.svd() durchgeführt werden. 
+Dann muss eine singuläre Zerlegung der Term-Dokument-Matrix mit \textit{numpy.linalg.svd()} durchgeführt werden. 
 Danach kann eine bestimmte Anzahl von Hauptkomponenten (Topics) ausgewählt werden, die zur Darstellung der Dokumente verwendet werden. 
 Dies kann durch die Auswahl der Komponenten mit den höchsten Singulärwerten geschehen. 
 Anhand dieser Komponenten kann dann die Nähe zwischen den Dokumenten bestimmt werden.\\\\ 
-Scikit-learn bietet auch eine TruncatedSVD-Klasse, mit der eine Truncated \ac{SVD} durchgeführt werden kann, um nur die ausgewählten Hauptkomponenten zu erhalten. 
-Diese Klasse erleichtert die Durchführung von \ac{LSA} auf großen Dokumentenkorpus und verfügt über zusätzliche Funktionen wie Datenverarbeitung und Normalisierung sowie automatische Auswahl der Anzahl der Komponenten auf der Grundlage des Prozentsatzes der erklärten Varianz.
+\textit{Scikit-learn} bietet auch eine \textit{TruncatedSVD}-Klasse, mit der eine Truncated-\ac{SVD} durchgeführt werden kann, um nur die ausgewählten Hauptkomponenten zu erhalten. 
+Diese Klasse erleichtert die Durchführung von \ac{LSA} auf großen Dokumentenkorpora und verfügt über zusätzliche Funktionen wie Datenverarbeitung und Normalisierung sowie automatische Auswahl der Anzahl der Komponenten auf der Grundlage des Prozentsatzes der erklärten Varianz.
 \subsection{Ansätze für die Erstellung eines Chatbots}\label{sec:ansaetze_erstellung_chatbots}
 Derzeit gibt es vier Hauptansätze für die Erstellung eines Chatbots \cite{lane_natural_2019}:
 \begin{itemize}
@@ -687,12 +691,12 @@ Die Implementierung der seq2seq-Methode in Python kann mit der TensorFlow-Biblio
 In TensorFlow kann man die vortrainierten seq2seq-Modelle verwenden oder ein eigenes Modell erstellen, indem die Architektur und die Trainingsparameter des Netzwerks konfiguriert wird. \cite{tensorflow}
 \subsection{Mehrschichtiges Perzeptron für ein Mehrklassen-Klassifizierungsproblem}
 Ein \ac{MLP} ist eine neuronale Netzwerkarchitektur, die aus mehreren Schichten von Neuronen besteht und für Klassifizierungs- und Regressionsaufgaben verwendet werden kann. 
-Mehrschichtige Perseptrons sind Arten von neuronalen Netzen, die bidirektional sind, da sie die Eingabedaten vorverteilen und die Gewichte zurückverteilen. 
-Ein mehrschichtiges Perseptron hat eine Eingabeschicht und eine Ausgabeschicht mit einer oder mehreren versteckten Schichten. 
+Mehrschichtige Perzeptronen sind Arten von neuronalen Netzen, die bidirektional sind, da sie die Eingabedaten vorverteilen und die Gewichte zurückverteilen. 
+Ein mehrschichtiges Perzeptron hat eine Eingabeschicht und eine Ausgabeschicht mit einer oder mehreren versteckten Schichten. 
 Bei \ac{MLP} sind alle Neuronen einer Schicht mit allen Neuronen der nächsten Schicht verbunden. 
-Die Eingabeschicht empfängt Eingangssignale, und die gewünschte Aufgabe wird von der Ausgabeschicht ausgeführt. 
-Und die versteckten Schichten sind für alle Berechnungen zuständig. 
-Die Architektur des mehrschichtigen Perseptrons sieht folgendermaßen aus:
+Die Eingabeschicht empfängt Eingangssignale und die gewünschte Aufgabe wird von der Ausgabeschicht ausgeführt. 
+Die versteckten Schichten sind für alle Berechnungen zuständig. 
+Die Architektur des mehrschichtigen Perzeptrons sieht folgendermaßen aus:
 \begin{figure}[H]
     \centering
     \fbox{\includegraphics[width=0.8\textwidth]{Bilder_Stand_der_Technik/mehrschicht_perc.png}}
@@ -710,19 +714,20 @@ Die kategoriale Kreuzentropie ist eine Verlustfunktion, die für die Klassifizie
 Daher kann \ac{MLP} nach dem Training zur Klassifizierung neuer Objekte verwendet werden, indem die Objektmerkmale durch \ac{MLP} geleitet werden und die Ausgabewahrscheinlichkeiten für jede Klasse ermittelt werden und dann die Klasse mit der höchsten Wahrscheinlichkeit als vorhergesagte Klassenbezeichnung ausgewählt wird.\\\\
 Die Theorie hinter der kategorialen Kreuzentropie ist die Informationstheorie und die Messung der Unsicherheit. 
 Angenommen, es gibt ein System, das mit einem probabilistischen Modell beschreiben werden muss. 
-Dieses System habe N mögliche Ergebnisse, die jeweils mit den Wahrscheinlichkeiten $p_{1}$, $p_{2}$, ..., $p_{N}$ auftreten können, wobei $\sum$pi = 1 und pi$\geq$0 für i = 1, 2, ..., N. 
+Dieses System habe N mögliche Ergebnisse, die jeweils mit den Wahrscheinlichkeiten $p_{1}$, $p_{2}$, ..., $p_{N}$ auftreten können, wobei $\sum_i p_i = 1$ und $p_i\geq0$ für i = 1, 2, ..., N. 
 Dann kann die Entropie H des Systems wie folgt definiert werden: 
 \begin{equation}
     H = -\sum (p_{i}*\log_{2}{p_{i}})
+    \eqlabel{eq-entropie}{Entropie H}
 \end{equation}
-, wobei $\sum$($p_{i}$* $\log_{2}{p_{i}}$) über i von 1 bis N genommen wird (QUELLE https://towardsdatascience.com/cross-entropy-loss-function-f38c4ec8643e). 
+Dabei wird $\sum$($p_{i}$* $\log_{2}{p_{i}}$) über i von 1 bis N genommen \cite{koech_cross-entropy_2022}. 
 Diese Formel zeigt, dass die Entropie des Systems ein Maß für die Ungewissheit oder Unsicherheit bei der Wahl eines der möglichen Ergebnisse ist.\\\\
 Wenn die kategoriale Kreuzentropie als Verlustfunktion für ein Mehrklassen-Klassifizierungsproblem verwendet wird, wird erwartet, dass das trainierte Modell einen Ausgabewahrscheinlichkeitsvektor hat, bei dem jedes Element des Vektors einer der Klassen entspricht. 
 Je unsicherer der Modellausgabevektor für ein bestimmtes Beispiel ist, desto höher ist der Wert der kategorialen Kreuzentropie. 
 Umgekehrt ist der Wert der kategorialen Kreuzentropie gleich Null, wenn das Modell eine Klasse für ein bestimmtes Beispiel genau vorhersagt.
 Beim Training von Klassifizierungsmodellen für Aufgaben des maschinellen Lernens mit mehreren Klassen wird daher versucht, den Wert der kategorialen Kreuzentropie zwischen dem Ausgabevektor des Modells und der richtigen Klasse für jedes Eingabebeispiel zu minimieren. 
 Zu diesem Zweck wird ein Optimierungsverfahren verwendet, z. B. den Gradientenabstieg, um die Gewichte und Verzerrungen des Modells bei jeder Trainingsiteration zu aktualisieren.\\\\
-In Keras kann die kategoriale Kreuzentropie als Verlustfunktion für verschiedene Modelltypen wie mehrschichtige Perzeptronen, Faltungsneuronale Netze und rekurrente Neuronale Netze verwendet werden. 
+In Keras kann die kategoriale Kreuzentropie als Verlustfunktion für verschiedene Modelltypen wie mehrschichtige Perzeptronen, faltungsneuronale Netze und rekurrente neuronale Netze verwendet werden. 
 Es handelt sich um eine Standardverlustfunktion für Mehrklassen-Klassifizierungsprobleme. 
 Bei der Verwendung der kategorialen Kreuzentropie in Keras können auch verschiedene Parameter wie Klassengewichte und Modellbewertungsmetriken angepasst werden, um genauere Klassifizierungsergebnisse zu erhalten. 
 Somit ist die kategoriale Kreuzentropie ein wichtiges Werkzeug beim maschinellen Lernen zur Lösung von Klassifizierungsproblemen mit mehreren Klassen. 
