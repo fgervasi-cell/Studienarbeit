@@ -1,4 +1,4 @@
-# imports and error handling
+import speech_recognition as sr
 
 r = sr.Recognizer()
 m = sr.Microphone()
@@ -6,11 +6,9 @@ with m as source:
     r.adjust_for_ambient_noise(source)
 
 while True:
-    asound.snd_lib_error_set_handler(c_error_handler)
     print("Start listening...")
     with m as source:
         audio = r.listen(source)
-    asound.snd_lib_error_set_handler(None)
     text = ""
     try:
         recognized_text = r.recognize_whisper(audio, language="german", model="tiny")
@@ -21,5 +19,5 @@ while True:
     except sr.RequestError as e:
         print("Could not request results from Whisper; {0}".format(e))
 
-    if text.lower().strip().startswith("mischmaschine"):
+    if text.lower().strip().startswith("mischmaschine"): #*\label{code:hot_word}*)
         print("Recognized hot word. Will output answer and command.")

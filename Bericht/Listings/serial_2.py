@@ -1,31 +1,23 @@
-from ctypes import *
 import speech_recognition as sr
 import serial
 import time
 
-ERROR_HANDLER_FUNC = CFUNCTYPE(None, c_char_p, c_int, c_char_p, c_int, c_char_p)
-def py_error_handler(filename, line, function, err, fmt):
-    pass
-c_error_handler = ERROR_HANDLER_FUNC(py_error_handler)
-
-asound = cdll.LoadLibrary("libasound.so")
-asound.snd_lib_error_set_handler(c_error_handler)
-
-def language_model_stub(s):
-    return s, "50,50,0,0\n"
+def language_model_stub(s): #*\label{code:begin_model_stub}*)
+    return s, "50,50,0,0\n" #*\label{code:end_model_stub}*)
 
 r = sr.Recognizer()
 m = sr.Microphone()
+with m as source:
+    r.adjust_for_ambient_noise(source)
 
 ser = serial.Serial("/dev/ttyACM0", 9600, timeout=5)
 ser.reset_input_buffer()
 time.sleep(5)
 
-with m as source:
-    asound.snd_lib_error_set_handler(c_error_handler)
+while True:
     print("Start listening...")
-    audio = r.listen(source)
-    asound.snd_lib_error_set_handler(None)
+    with m as source:
+        audio = r.listen(source)
     text = ""
     try:
         recognized_text = r.recognize_whisper(audio, language="german", model="tiny")
@@ -36,8 +28,10 @@ with m as source:
     except sr.RequestError as e:
         print("Could not request results from Whisper; {0}".format(e))
 
-    answer, cmd = language_model_stub(text)
-    ser.write(cmd.encode("utf-8"))
-    serial_answer = ser.readline().decode("utf-8").rstrip()
-    print(serial_answer)
+    if text.lower().rstrip().startswith("mischmaschine"):
+        print("Recognized hot word. Will output answer and command.")
+        answer, cmd = language_model_stub(text)
+        ser.write(cmd.encode("utf-8")) #*\label{code:send_command}*)
+        serial_answer = ser.readline().decode("utf-8").rstrip()
+        print(serial_answer)
 
