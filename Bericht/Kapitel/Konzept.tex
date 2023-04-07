@@ -166,6 +166,25 @@ Im Falle von seq2seq-Modell ist keine Kategorie vorgesehen, so dass eine zusätz
 Ein letztes Argument, das für den Ansatz spricht, ist die Möglichkeit, die Maschine bei Bedarf schnell an neue Anfragen und Anforderungen anzupassen, indem neue Muster und Regeln in das System eingeführt werden.
 Daher ist eine Mischung aus Informationssuchemethode und Musterabgleich für das vorliegende Problem am besten geeignet.
 \subsection{Befehle}
+Folgende Übergangsdiagram beschreibt die Abfolge von Aktionen und Übergängen zwischen Zuständen bei der Analyse der Befehle:
+\begin{figure}[H]
+    \centering
+    \fbox{\includegraphics[width=0.8\textwidth]{Bilder_Konzept/uebergangsdiagram.png}}
+    \caption{\label{figure:Uebergangsdiagram_Befehle}Übergangsdiagram beim Analyse der Befehle}
+\end{figure}
+\noindent
+In diesem Fall erhält die Methode eine Zeichenkette mit Informationen über den prozentualen Anteil von Flüssigkeiten aus verschiedenen Behälter und muss den prozentualen Anteil jeder Flüssigkeit zurückgeben.\\\\
+Der erste Zustand \glqq{}Anfangszustand\grqq{} bedeutet, dass die Methode gestartet wird. Dann verarbeitet die Methode nacheinander jedes Wort der Eingabezeichenkette. 
+Jedes Eingabewort, außer Wort \glqq{}Behälter\grqq{} wird als irrelevant wahrgenommen und erstmal ignoriert.\\\\ 
+Sobald die Maschine das Wort \glqq{}Behälter\grqq{} hört, geht die Methode zum nächsten Zustand über - der Indexerkennung. 
+Nach den Regeln kommt der Index nach dem Wort \glqq{}Behälter\grqq{}, aber zwischen dem Wort \glqq{}Behälter\grqq{} und der Indexzahl können andere Wörter stehen, die für diese Methode nicht relevant sind, z. B. \glqq{}Nummer\grqq{} oder \glqq{}mit Nummer\grqq{}. 
+Daher werden diese Wörter ignoriert, und die Maschine bleibt in demselben Zustand, bis sie eine Zahl zwischen eins und vier hört.\\\\
+Sobald der Index ermittelt ist, geht die Methode zum nächsten Zustand über - der Wertrmittlung. 
+In diesem Fall werden die Wörter, angefangen mit dem Wort \glqq{}Behälter\grqq{}, in umgekehrter Reihenfolge betrachtet, da der Wert nach den Regeln der Grammatik vor dem Wort \glqq{}Behälter\grqq{} stehen wird. 
+Alle Wörter bis zur ersten gefundenen Zahl werden ignoriert. 
+Sobald die Maschine eine beliebige Zahl hört, kehrt die Methode in den Ausgangszustand zurück.\\\\
+Die Analyse der Befehle kann dann zum Endzustand kehren, wenn sie aktuell sich im Anfangszustand befindet und alle Wörter gelesen wurden. 
+Sobald die Zeichenkette in einem anderen Zustand beendet wird, wird die Methode zum Errorzustand kehren.
 \endinput
 
 
