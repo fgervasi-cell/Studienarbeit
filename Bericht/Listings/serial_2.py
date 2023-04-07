@@ -10,7 +10,7 @@ m = sr.Microphone()
 with m as source:
     r.adjust_for_ambient_noise(source)
 
-ser = serial.Serial("/dev/ttyACM0", 9600, timeout=5)
+ser = serial.Serial("/dev/ttyACM0", 9600, timeout=5) #*\label{code:open_serial_serial_2}*)
 ser.reset_input_buffer()
 time.sleep(5)
 

@@ -261,7 +261,7 @@ void setup() {
   pinMode(pumpe5, OUTPUT);
 
   // 16(TX2) and 17(RX2)
-  Serial2.begin(115200);         //Kommunikation starten(Baud:115200)
+  Serial2.begin(115200);         //Kommunikation starten(Baud:115200) //*\label{code:serial2}*)
   delay(500);                    //Vorgang kann etwas dauern
   Serial2.print("baud=115200");  //Nextion auf gleiche Baudrate stellen
   Serial2.write(0xff);           //3 Endtags damit Nextion weiss alles wurde gesendet
