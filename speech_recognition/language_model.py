@@ -17,8 +17,14 @@ def parse_line(line):
     words = line.split()
     for i in range(len(words)):
         if words[i] == 'Behaelter':
-            index = int(words[i+1]) - 1
-            reservoirs[index] = int(words[i-3])
+            for x in range(i+1, len(words)):
+                if words[x].isdigit():
+                    index = int(words[x]) - 1
+                    break
+            for x in range(i-1, 0, -1):
+                if words[x].isdigit():
+                    reservoirs[index] = int(words[x])
+                    break
     return tuple(reservoirs)
 
 
