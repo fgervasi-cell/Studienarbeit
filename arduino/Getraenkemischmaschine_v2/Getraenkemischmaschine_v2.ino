@@ -246,8 +246,6 @@ int getValueAt(String s, int vpos) {
   return -1;
 }
 
-int isSetup = 1;
-
 void setup() {
   S = 0;                     //kein pwm Wert auswählen
   pinMode(Schalter, INPUT);  //Eingänge und Ausgänge definieren
@@ -262,12 +260,13 @@ void setup() {
   pinMode(pumpe4, OUTPUT);
   pinMode(pumpe5, OUTPUT);
 
-  Serial.begin(115200);         //Kommunikation starten(Baud:115200)
-  delay(500);                   //Vorgang kann etwas dauern
-  Serial.print("baud=115200");  //Nextion auf gleiche Baudrate stellen
-  Serial.write(0xff);           //3 Endtags damit Nextion weiß alles wurde gesendet
-  Serial.write(0xff);
-  Serial.write(0xff);
+  // 16(TX2) and 17(RX2)
+  Serial2.begin(115200);         //Kommunikation starten(Baud:115200)
+  delay(500);                    //Vorgang kann etwas dauern
+  Serial2.print("baud=115200");  //Nextion auf gleiche Baudrate stellen
+  Serial2.write(0xff);           //3 Endtags damit Nextion weiß alles wurde gesendet
+  Serial2.write(0xff);
+  Serial2.write(0xff);
   //Events einbinden
   j0.attachPop(j0PopCallback);
   j1.attachPop(j1PopCallback);
@@ -290,7 +289,8 @@ void setup() {
   page1.attachPush(page1PushCallback);
   page2.attachPush(page2PushCallback);
 
-  int isSetup = 0;
+  // Initiate serial communication with the Raspberry on standard serial port
+  Serial.begin(9600);
 }
 
 void loop() {
@@ -312,18 +312,15 @@ void loop() {
     if (analogRead(Sensor5) <= 800) {
       analogWrite(pumpe5, pwm5);
     }
-  } else if (Serial.available() > 0 && isSetup == 0) {
+  } else if (Serial.available() > 0) {
     String data = Serial.readStringUntil('\n');  // e.g. "50,50,0,0"
+    Serial.println("Received " + data);
     analogWrite(pumpe1, (getValueAt(data, 0) * 0.5 + 50) * 2.55);
     analogWrite(pumpe2, (getValueAt(data, 1) * 0.5 + 50) * 2.55);
     analogWrite(pumpe3, (getValueAt(data, 2) * 0.5 + 50) * 2.55);
     analogWrite(pumpe4, (getValueAt(data, 3) * 0.5 + 50) * 2.55);
     delay(3000);  // let the "button" be "pressed" for three seconds
-    analogWrite(pumpe1, 0);
-    analogWrite(pumpe2, 0);
-    analogWrite(pumpe3, 0);
-    analogWrite(pumpe4, 0);
-  } else  //Füllen Knopf aus -> Pumpen aus
+  } else //Füllen Knopf aus -> Pumpen aus
   {
     analogWrite(pumpe1, 0);
     analogWrite(pumpe2, 0);
