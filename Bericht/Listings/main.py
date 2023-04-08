@@ -3,6 +3,7 @@ import speech_recognition as sr
 import pyttsx3 as tts
 import serial
 import time
+import language_model
 
 ERROR_HANDLER_FUNC = CFUNCTYPE(None, c_char_p, c_int, c_char_p, c_int, c_char_p)
 def py_error_handler(filename, line, function, err, fmt):
@@ -11,9 +12,6 @@ c_error_handler = ERROR_HANDLER_FUNC(py_error_handler)
 
 asound = cdll.LoadLibrary("libasound.so")
 asound.snd_lib_error_set_handler(c_error_handler)
-
-def language_model_stub(s):
-        return s, "50,50,0,0\n"
 
 r = sr.Recognizer()
 m = sr.Microphone()
@@ -47,7 +45,7 @@ while True:
 
         if text.lower().strip().startswith("mischmaschine"):
                 print("Recognized hot word. Will output answer and command.")
-                answer, cmd = language_model_stub(text)
+                answer, cmd = language_model.get_response(text) #*\label{code:real_model}*)
                 engine.say(answer)
                 engine.runAndWait()
                 engine.stop()
