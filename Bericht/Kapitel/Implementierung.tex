@@ -56,7 +56,7 @@ Als Verlustfunktion wird kategoriale Kreuzentropie (categorical\_crossentropy) v
 Der Optimierer, der zum Trainieren des Modells verwendet wird, ist der stochastische Gradientenabstieg mit beschleunigtem Nesterov-Gradienten (SGD mit beschleunigtem Nesterov-Gradienten), der ein schnelleres Lernen und eine höhere Genauigkeit bei Klassifizierungsaufgaben ermöglicht.\\\\
 Nachdem das Modell trainiert wurde, wird das Ganze in ein Numpy-Array umgewandelt und als dialog\_model.h5 gespeichert und kann für den Dialog mit der Getränkemischmaschine verwendet werden.
 \subsection{Implementierung des Dialogsystems}
-\subsection{Implementierung der Bafehlverarbeitung}
+\subsection{Implementierung der Befehlverarbeitung}
 \section{Implementierung der Sprachsteuerung}
 Im Folgenden wird erläutert, wie die Sprachsteuerung für die Getränkemischmaschine implementiert wurde und welche Technologien dafür zum Einsatz kamen. Dabei wird zunächst auf die Spracherkennung d.h., die Umwandlung der Audiosignale (Sprachbefehl des Benutzers) in eine Form, die innerhalb des Quelltextes weiterverarbeitet werden kann, eingegangen (s. Abschnitt \ref{section:Spracherkennung}). Danach wird die Anbindung des Sprachverarbeitungssystems beschrieben, dessen Implementierung in Abschnitt \ref{section:Implementierung_Sprachverarbeitung} erklärt wird. Abschließend wird die Kommunikation mit der Mischmaschine über den Arduino illustriert (s. Abschnitt \ref{section:Befehlsverarbeitung}).
 \subsection{Spracherkennung}\label{section:Spracherkennung}
