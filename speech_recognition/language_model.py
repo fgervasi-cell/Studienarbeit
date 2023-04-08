@@ -1,4 +1,6 @@
 import nltk
+nltk.download('punkt')
+nltk.download('wordnet')
 from nltk.stem import WordNetLemmatizer
 lemmatizer = WordNetLemmatizer()
 import pickle
@@ -73,5 +75,5 @@ def get_response(msg):
     if(tag == "order"):
        nums = parse_line(msg)
     res = get_dialog_response(ints, intents)
-    result = ', '.join(str(num) for num in nums) + '\n'
+    result = ','.join(str(num) for num in nums) + '\n'
     return res, result
