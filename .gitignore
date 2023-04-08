@@ -5,6 +5,7 @@ raspberry-setup/
 embedded_systems.pdf
 zugang.txt
 Software_Ergonomie.pdf
+speech_recognition/model/
 
 # Windows files
 *.docx
