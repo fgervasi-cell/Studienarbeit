@@ -1,7 +1,24 @@
 \chapter{Implementierung}
 \section{Implementierung des Sprachverarbeitungssystems}\label{section:Implementierung_Sprachverarbeitung}
-\subsection{Word2Vec-Modell}
-\subsection{Sequence-to-Sequence-Modell}
+Um die Möglichkeit des Dialogs mit der Getränkmischmaschine zu realisieren, war es notwendig, ein Modell für das Dialogsystem zu implementieren. Das Projekt des Dialogsystems besteht aus den folgenden Komponenten:
+\begin{itemize}
+    \item train\_dialog\_model.py - der Code zum Einlesen der natürlichsprachlichen Daten in einen Trainingssatz und zur Verwendung eines sequenziellen neuronalen Netzes von Keras zur Erstellung eines Modells für die Klassifizierung.
+    \item model\_classes.pkl - eine Liste verschiedener Klassen von Antworten.
+    \item words\_for\_pattern.pkl - eine Liste verschiedener Wörter, die für die Mustererkennung verwendet werden können.
+    \item patterns.json - ein Stapel von JavaScript-Objekten, die verschiedene Tags auflisten, die verschiedenen Arten von Wortmustern entsprechen.
+    \item dialog\_model.h5 - das von train\_dialog\_model.py erstellte Modell.
+\end{itemize}
+Diese Komponenten wurden sowohl zur Erstellung eines Deep Learning Modells für Klassifizierung und zum Trainieren dieses Modells als auch zur Implementierung des Dialogsystems und Bafehlverarbeitungssystems verwendet.
+\subsection{Modell für Klassifizierung}
+In diesem Fall wird ein \ac{MLP}-Modell verwendet, um das Problem der Mehrklassenklassifizierung zu lösen. 
+\ac{MLP} ist eine der häufigsten Arten von neuronalen Netzen, die aus mehreren Schichten bestehen, die jeweils mehrere miteinander verbundene Neuronen enthalten. 
+In der Regel werden mehrere versteckte Schichten zwischen der Eingabe- und der Ausgabeschicht verwendet, damit das Modell komplexere Merkmale aus den Eingabedaten extrahieren und die Qualität der Klassifizierung verbessern kann. 
+In diesem Fall besteht das Modell aus drei Schichten: Die erste Schicht enthält 128 Neuronen, die zweite Schicht 64 Neuronen und die dritte Schicht (Ausgabeschicht) enthält die Anzahl der Neuronen, die der Anzahl der Klassen (Absichten) entspricht. 
+Für die Aktivierung der Neuronen in den ersten beiden versteckten Schichten wird die Aktivierungsfunktion ReLU (Rectified Linear Unit) verwendet, für die Aktivierung der Neuronen in der Ausgabeschicht wird die Funktion Softmax verwendet, um die Zugehörigkeitswahrscheinlichkeiten der Eingabebeispiele zu jeder Klasse zu erhalten.\\\\
+Als Verlustfunktion wird kategoriale Kreuzentropie (categorical\_crossentropy) verwendet, die Standardverlustfunktion für Mehrklassen-Klassifizierungsaufgaben in Keras. 
+Der Optimierer, der zum Trainieren des Modells verwendet wird, ist der stochastische Gradientenabstieg mit beschleunigtem Nesterov-Gradienten (SGD mit beschleunigtem Nesterov-Gradienten), der ein schnelleres Lernen und eine höhere Genauigkeit bei Klassifizierungsaufgaben ermöglicht.\\\\
+\subsection{Implementierung des Dialogsystems}
+\subsection{Implementierung der Bafehlverarbeitung}
 \section{Implementierung der Sprachsteuerung}
 Im Folgenden wird erläutert, wie die Sprachsteuerung für die Getränkemischmaschine implementiert wurde und welche Technologien dafür zum Einsatz kamen. Dabei wird zunächst auf die Spracherkennung d.h., die Umwandlung der Audiosignale (Sprachbefehl des Benutzers) in eine Form, die innerhalb des Quelltextes weiterverarbeitet werden kann, eingegangen (s. Abschnitt \ref{section:Spracherkennung}). Danach wird die Anbindung des Sprachverarbeitungssystems beschrieben, dessen Implementierung in Abschnitt \ref{section:Implementierung_Sprachverarbeitung} erklärt wird. Abschließend wird die Kommunikation mit der Mischmaschine über den Arduino illustriert (s. Abschnitt \ref{section:Befehlsverarbeitung}).
 \subsection{Spracherkennung}\label{section:Spracherkennung}
