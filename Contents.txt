@@ -1,6 +1,34 @@
 Inhaltsverzeichnis
 
 Abstract:
++ Kurze generelle Einführung in das übergeordnete Thema
+	- Künstliche Intelligenz
+		- 
+	- Eingebettete Systeme
++ Motivation und Ziel der Arbeit
+	- Implementierung einer Sprachsteuerung für eine Mischmaschine
+	- Die Mischmaschine kann Getränke aus vier versch. Behältern zu unterschiedl. Mischungsverhältnissen mischen
+	- Mischmaschine soll nicht nur Sprache des Benutzers erkennen und daraufhin eine Aktion durchführen
+	- Mischmaschine soll dem Benutzer auch Antworten können
+	- Eine Art Dialog zwischen Mischmaschine und Benutzer soll entstehen
+	- Alles soll offline funktionieren um die Einsatzmöglichkeiten/Orte groß zu halten
++ Vorgehen
+	- Theoretische und technische Grundlagen werden erarbeitet (insb. die Verarbeitung von Sprache mit Hilfe von KI)
+	- Anforderungen werden klargestellt (sollten bei Motivation und Ziel der Arbeit bereits erläutert worden sein)
+	- Verschiedene Konzepte werden vorgestellt und hinsichtlich ihrer Eignung evaluiert
+	- Spracherkennung nur auf dem Arduino
+	- Spracherkennung und -verarbeitung mittels mobiler Anwendung
+	- Spracherkennung und -verarbeitung auf Computer-Hardware
+	- Als auch verschiedene Ansätze für das Dialogsystem
++ Ergebnis
+	- Es wird erläutert warum die Wahl für die Implementierung schließlich auf das soeben genannte, dritte Konzept fällt
+	- Raspberry Pi 4 Modell B in Kombination mit dem, in der Mischmaschine verbauten, Arduino Mega
+	- Benutzer hat die Möglichkeit über ein Mikrofon, das an den Raspberry Pi angeschlossen ist mit der Maschine zu kommunizieren
+	- Die über das Mikrofon aufgenommenen Audiosignale werden zunächst in Text konvertiert
+	- Der Text wird von einem Sprachmodell interpretiert und klassifiziert
+	- Ergebnis der Interpretation sind ein für die Mischmaschine verständliches Kommando und die auszugebende Antwort
+	- Das Kommando wird über eine serielle Schnittstelle vom Raspberry Pi an den Arduino gesendet, der die Mischmaschine steuert
+	- Die Mischmaschine führt daraufhin die gewünschte Aktion aus und der Raspberry Pi gibt die Antwort über Lautsprecher an den Benutzer aus
 
 Einleitung:
 
