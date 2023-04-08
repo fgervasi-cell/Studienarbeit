@@ -9,14 +9,52 @@ Um die Möglichkeit des Dialogs mit der Getränkmischmaschine zu realisieren, wa
     \item dialog\_model.h5 - das von train\_dialog\_model.py erstellte Modell.
 \end{itemize}
 Diese Komponenten wurden sowohl zur Erstellung eines Deep Learning Modells für Klassifizierung und zum Trainieren dieses Modells als auch zur Implementierung des Dialogsystems und Bafehlverarbeitungssystems verwendet.
-\subsection{Modell für Klassifizierung}
-In diesem Fall wird ein \ac{MLP}-Modell verwendet, um das Problem der Mehrklassenklassifizierung zu lösen. 
+\subsection{Implementierung des Klassifizierungsmodells}
+Für die Implementierung des Modells wurden folgenden Python Bibliotheken und Klassen verwendet:
+\begin{itemize}
+    \item 'nltk': eine Python-Bibliothek für die Arbeit mit natürlichen Sprachdaten. Es bietet Werkzeuge für Aufgaben wie Tokenisierung, Stemming, Lemmatisierung, Part-of-Speech-Tagging und mehr.
+    \item 'nltk('punkt')': die \ac{NLTK}-Daten, die für die Tokenisierung benötigt werden, bei der ein Text in einzelne Wörter zerlegt wird.
+    \item 'nltk'('wordnet'): die \ac{NLTK}-Daten, die für die Lemmatisierung benötigt werden, d. h. die Reduzierung eines Wortes auf seine Grund- oder Wurzelform.
+    \item 'json': Python-Bibliothek für die Arbeit mit \ac{JSON}-Daten, einem leichtgewichtigen Format für den Datenaustausch. Sie bietet Methoden zur Kodierung von Python-Objekten in das \ac{JSON}-Format und zur Dekodierung von \ac{JSON}-Daten in Python-Objekte.
+    \item 'pickle': eine Python-Bibliothek zur Serialisierung und Deserialisierung von Python-Objekten. Sie kann verwendet werden, um ein Python-Objekt in einen Byte-Stream zu konvertieren, der in einer Datei gespeichert oder über ein Netzwerk übertragen und später wieder in ein Python-Objekt deserialisiert werden kann.
+    \item 'numpy': eine Python-Bibliothek für numerische Berechnungen. Sie bietet Unterstützung für große, mehrdimensionale Arrays und Matrizen sowie eine große Sammlung mathematischer Funktionen, die mit diesen Arrays arbeiten.
+    \item 'random': eine Python-Bibliothek zur Erzeugung von Zufallszahlen und zur Durchführung von Zufallsoperationen. Sie bietet Methoden zur Erzeugung zufälliger Ganzzahlen, zur Auswahl zufälliger Elemente aus einer Liste, zum zufälligen Mischen einer Liste und mehr.
+    \item 'keras.models.Sequential': eine Klasse, die von der Keras-Bibliothek bereitgestellt wird, einer in Python geschriebenen \ac{API} für neuronale Netze auf hoher Ebene. Die Klasse Sequential wird verwendet, um einen linearen Stapel von Schichten für ein neuronales Netzwerkmodell zu erstellen.
+    \item 'keras.layers.Dense': eine Klasse, die von der Keras-Bibliothek bereitgestellt wird, um eine vollständig verbundene neuronale Netzwerkschicht zu erstellen.
+    \item 'keras.layers.Activation': eine von der Keras-Bibliothek bereitgestellte Klasse zur Anwendung von Aktivierungsfunktionen auf die Ausgabe einer Schicht eines neuronalen Netzes.
+    \item 'keras.layers.Dropout': eine von der Keras-Bibliothek bereitgestellte Klasse zur Anwendung der Dropout-Regularisierung auf die Ausgabe einer neuronalen Netzwerkschicht.
+    \item 'keras.optimizers.SGD': eine von der Keras-Bibliothek bereitgestellte Klasse zur Definition des stochastischen Gradientenabstiegs-Optimierers für das Training eines neuronalen Netzes.
+\end{itemize}
+Als erste wurden alle Listen initialisiert, in denen die Daten der natürlichen Sprache gespeichert werden. 
+Dafür gibes die \glqq{}patterns\grqq{} json-Datei, die die \glqq{}Vorsätze\grqq{} enthält. Die Datei sieht folgendemaßen aus:
+\begin{figure}[H]
+    \centering
+    \fbox{\includegraphics[width=0.8\textwidth]{Bilder_Implementierung/json_patterns.png}}
+    \caption{\label{figure:Json_Patterns}Patterns Datei}
+\end{figure}
+\noindent
+Das json-Modul wird verwendet, um die Datei zu laden und als Variable zu speichern.\\
+\lstinputlisting[language=python, style=algoBericht, label={save_patterns}, basicstyle=\tiny\sffamily, captionpos=b, caption={Speichern der Patterns}]{./Listings/save_patterns.py}
+Listing \ref{save_patterns} zeigt, dassine verschachtelte for-Schleife alle bereits tokenisierte Wörter in \glqq{}patterns\grqq{} extrahiert und sie der \glqq{}words\_for\_pattern\grqq{} Variable hinzufügt.
+Anschließend werden jedes Paar von Mustern mit dem entsprechenden Tag einer Dokumentenliste hinzugefügt. 
+Auch die Tags werden in eine Klassenliste (\glqq{}model\_classes\grqq{}) aufgenommen.
+Als Nächstes wird die Wortliste genommen und alle Wörter darin lemmatisiert und kleingeschrieben. 
+Nach der Sortierung der Liste sind die Daten für das Training eines Deep Learning Modells vorbereitet.\\
+\lstinputlisting[language=python, style=algoBericht, label={training_test_data}, basicstyle=\tiny\sffamily, captionpos=b, caption={Initialisierung der Test- und Trainingdata}]{./Listings/training_test_data.py}
+Wie in Listing \ref{training_test_data} gezeigt wird, werden zunächst die Trainingsdaten mit einer Variable \glqq{}training\grqq{} initialisiert. 
+Es wird eine verschachtelte Liste erstellt, die \ac{BOW} für jedes einzelne Dokument enthält. 
+Das Merkmal output\_row dient einfach als Schlüssel für die Liste. 
+Dann werden die Trainingsmengen gemischt und in Training und Test aufgeteilt, wobei die Patterns die Variable X und die Intents die Variable Y sind. 
+Da die Trainings- und Testdaten fertig sind, wird jetzt ein Deep-Learning-Modell von Keras namens Sequential verwendet.\\
+\lstinputlisting[language=python, style=algoBericht, label={train_model}, basicstyle=\tiny\sffamily, captionpos=b, caption={Training des Modells}]{./Listings/train_model.py}
+Listing \ref{speech_rec_2} zeigt, dass in diesem Fall ein \ac{MLP}-Modell verwendet wird, um das Problem der Mehrklassenklassifizierung zu lösen. 
 \ac{MLP} ist eine der häufigsten Arten von neuronalen Netzen, die aus mehreren Schichten bestehen, die jeweils mehrere miteinander verbundene Neuronen enthalten. 
 In der Regel werden mehrere versteckte Schichten zwischen der Eingabe- und der Ausgabeschicht verwendet, damit das Modell komplexere Merkmale aus den Eingabedaten extrahieren und die Qualität der Klassifizierung verbessern kann. 
 In diesem Fall besteht das Modell aus drei Schichten: Die erste Schicht enthält 128 Neuronen, die zweite Schicht 64 Neuronen und die dritte Schicht (Ausgabeschicht) enthält die Anzahl der Neuronen, die der Anzahl der Klassen (Absichten) entspricht. 
 Für die Aktivierung der Neuronen in den ersten beiden versteckten Schichten wird die Aktivierungsfunktion ReLU (Rectified Linear Unit) verwendet, für die Aktivierung der Neuronen in der Ausgabeschicht wird die Funktion Softmax verwendet, um die Zugehörigkeitswahrscheinlichkeiten der Eingabebeispiele zu jeder Klasse zu erhalten.\\\\
 Als Verlustfunktion wird kategoriale Kreuzentropie (categorical\_crossentropy) verwendet, die Standardverlustfunktion für Mehrklassen-Klassifizierungsaufgaben in Keras. 
 Der Optimierer, der zum Trainieren des Modells verwendet wird, ist der stochastische Gradientenabstieg mit beschleunigtem Nesterov-Gradienten (SGD mit beschleunigtem Nesterov-Gradienten), der ein schnelleres Lernen und eine höhere Genauigkeit bei Klassifizierungsaufgaben ermöglicht.\\\\
+Nachdem das Modell trainiert wurde, wird das Ganze in ein Numpy-Array umgewandelt und als dialog\_model.h5 gespeichert und kann für den Dialog mit der Getränkemischmaschine verwendet werden.
 \subsection{Implementierung des Dialogsystems}
 \subsection{Implementierung der Bafehlverarbeitung}
 \section{Implementierung der Sprachsteuerung}
