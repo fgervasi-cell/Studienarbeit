@@ -4,6 +4,12 @@ Bericht/PaxHeaders.13848/
 raspberry-setup/
 embedded_systems.pdf
 zugang.txt
+Software_Ergonomie.pdf
+
+# Windows files
+*.docx
+*.ppt
+*.pptx
 
 # Python
 *__pycache__/
