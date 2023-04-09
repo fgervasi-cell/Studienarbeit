@@ -48,5 +48,6 @@ speech_recognition/model/
 # Build tool auxiliary files:
 *.synctex.gz
 *.fdb_latexmk
+*.synctex(busy)
 
 # see https://github.com/github/gitignore/blob/main/TeX.gitignore
