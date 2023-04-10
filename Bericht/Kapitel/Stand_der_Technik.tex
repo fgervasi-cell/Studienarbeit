@@ -17,9 +17,32 @@ Neben den bereits genannten Komponenten besitzt die Mischmaschine außerdem eine
 \section{Hardware}
 \subsection{Arduino}
 \subsubsection{Allgemeines}
-Arduino ist eine Plattform/Organisation, die sich der Herstellung von Mikrocontrollern und der für den Umgang mit der Hardware erforderlichen Software widmet. Darunter fallen in erster Linie die Arduino-IDE und -Sprache zur Programmierung der Arduino-Mikrocontroller. Arduino verfolgt das Ziel, Hardwareprogrammierung oder \ac{IT} im Allgemeinen für alle Menschen unabhängig ihres Hintergrunds zu ermöglichen und näher zu bringen - allen voran auch denjenigen, die sich nicht professionell mit \ac{IT} auseinandersetzen. Deshalb liegt der Fokus von Arduino auf preisgünstigen Mikrocontrollern und einer einfachen Handhabung.
+Arduino ist eine Plattform/Organisation, die sich der Herstellung von Mikrocontrollern und der für den Umgang mit der Hardware erforderlichen Software widmet. Darunter fallen in erster Linie die Arduino-IDE und -Sprache zur Programmierung der Arduino-Mikrocontroller. Arduino verfolgt das Ziel, Hardwareprogrammierung oder \ac{IT} im Allgemeinen für alle Menschen unabhängig ihres Hintergrunds zu ermöglichen und näher zu bringen - allen voran auch denjenigen, die sich nicht professionell mit \ac{IT} auseinandersetzen \cite{arduino_education}. Deshalb liegt der Fokus von Arduino auf preisgünstigen Mikrocontrollern und einer einfachen Handhabung. Arduino stellt zu diesem Zweck auch viele Lernmaterialien bereit, die bspw. von Lehrkräften verwendet werden können als auch eine Community-Plattform für den Wissensaustausch zwischen den Benutzern von Arduino Hard- und Software. Pläne für die Arduino-Boards werden unter der \textit{Creative Commons} Lizenz veröffentlicht, sodass sie von anderen nachgebaut oder erweitert werden können. Auch der Quelltext der Arduino-Software ist quelloffen.\\\\
+Aufgrund des großen Erfolgs von Arduino gibt es inzwischen zahlreiche Nachahmungen wie bspw. ...
 \subsubsection{Arduino-Programmierung}
+Die Programmierung eines Arduino-Mikrocontrollers erfolgt über die Arduino-IDE. Die Arduino-IDE kann auf allen gängigen Betriebssystemen (Windows, Mac und Linux) installiert und verwendet werden, was den Umgang mit Arduino sehr flexibel und gut für Einsteiger macht, da sie ihre gewohnte Umgebung verwenden können. Die Arduino-IDE ist dabei angelehnt an andere, gängige Entwicklungsumgebungen, sodass sich erfahrene Programmierer sofort zurecht finden, ist aber auf die Arduino-Programmierung optimiert. Beispielsweise werden an den Computer angeschlossene Boards automatisch erkannt, per Knopfdruck kann der aktuelle Quelltext auf den Mikrocontroller hochgeladen werden und die evtl. zusätzlich benötigten C++-Bibliotheken können verwaltet werden. Neben der Desktop-Version kann die Arduino-Entwicklungsumgebung auch online im Browser verwendet werden. Abbildung \ref{img:arduino_ide} zeigt einen Ausschnitt der Benutzeroberfläche in der Arduino-Entwicklungsumgebung.
+\begin{figure}[H]
+    \centering
+    \fbox{\includegraphics[width=\textwidth]{./img/Bilder_Stand_der_Technik/arduino_ide.png}}
+    \caption{Arduino-IDE}
+    \label{img:arduino_ide}
+\end{figure}
+\noindent
+Ein Arduino-Mikrocontroller wird programmiert, indem das Programm in der Arduino-IDE und -Sprache geschrieben wird. Anschließend kann der Mikrocontroller über die USB-Schnittstelle an den Computer angeschlossen und der Quellcode durch Knopfdruck in der Entwicklungsumgebung an den Mikrocontroller gesendet werden, der sofort mit der Ausführung des Programms beginnt. Die meisten Mikrocontroller unterstützen kein Debugging um den Entwickler bei der Programmierung und Fehlersuche zu unterstützen. Manche Modelle verfügen jedoch über einen in Hardware implementierten Debugger zu diesem Zweck, der ebenfalls über die Entwicklungsumgebung verwendet werden kann.\\\\
+Die Arduino-Programmiersprache ist angelehnt an \textit{Wiring} \cite{wiring} und kann durch eigene C++-Bibliotheken erweitert werden. Die Programmstruktur ist fest vorgegeben. Jedes Arduino-Programm besteht aus einer \textit{setup} und einer \textit{loop} Funktion. Die \textit{setup} Funktion wird exakt einmal zu Beginn des Programms aufgerufen, also wenn der Arduino mit Strom versorgt wird. Die \textit{loop} Funktion stellt die Hauptbefehlsschleife dar und enthält den Code, der den Großteil der Programmlogik enthält. Sie wird in einer Dauerschleife immer wieder neu aufgerufen. Listing \ref{arduino_example} stellt den Aufbau eines Arduino-Programms dar.\\
+\lstinputlisting[language=c++, style=algoBericht, label={arduino_example}, basicstyle=\tiny\sffamily, captionpos=b, caption={Aufbau eines Arduino-Programms}]{./Listings/example.ino}
+Die Arduino-Sprache stellt einige Sprachelemente bereit, die den Umgang mit der zugrundeligenden Hardware ermöglichen und erleichtern. Mit Sprachelementen sind sowohl innerhalb des Codes zugreifbare, globale Funktionen als auch Objekte gemeint. Abgesehen von \textit{setup} und \textit{loop} sind die wichtigsten Sprachelemente \cite{arduino_language}: 
+\begin{itemize}
+    \item \textit{digitalRead()} und \textit{digitalWrite()}:
+    \item \textit{pinMode()}:
+    \item \textit{analogRead()} und \textit{analogWrite()}:
+    \item \textit{delay()}:
+    \item \textit{Serial}:
+    \item \textit{HIGH} und \textit{LOW}:
+    \item \textit{INPUT} und \textit{OUTPUT}:
+\end{itemize}
 \subsubsection{Elegoo Mega 2560 R3}
+Bei dem \textit{Elegoo Mega 2560 R3} handelt es sich um eine Nachahmung des Arduino Mega 2560 R3. Der \textit{Elegoo Mega 2560 R3} ist der, in der Mischmaschine eingebaute, Mikrocontroller und soll im Folgenden kurz vorgestellt werden.
 \subsection{Nextion}
 \subsection{Raspberry Pi}
 \section{Sprachverarbeitung}

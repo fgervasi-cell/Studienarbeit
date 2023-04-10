@@ -208,7 +208,6 @@ Hardware (Ziel: 10 Seiten
 			- Ziel: Hardwareprogrammierung für alle ermöglichen (auch Menschen die sich nicht professionell mit IT auseinandersetzen)
 			- Deshalb liegt der Fokus auf günstigen Preisen (günstigste Boards für unter 50$) und leichter Bedienbarkeit (bspw. durch "Bundles" die darauf ausgelegt sind kleine Projekte umzusetzen)
 			- Arduino stellt zu diesem Zweck auch viele Lernmaterialien bereit, die bspw. von Lehrkräften verwendet werden können
-			- Arduino-IDE kann auf allen gängigen Betriebssystemen verwendet werden was es sehr flexibel und gut für Einsteiger macht, da sie ihre gewohnte Umgebung verwenden können (Windows, Mac, Linux)
 			- Pläne für die Arduino-Boards werden unter der Creative Commons Lizenz veröffentlicht sodass sie von anderen nachgebaut oder erweitert werden können
 			- Arduino-Cloud:
 		+ Nachahmungen
@@ -218,6 +217,7 @@ Hardware (Ziel: 10 Seiten
 			- Was ist in einem Arduino-Board eingebaut? Internet (WLAN-Chip, Ethernet-Anschluss)? Soundkarte?
 	- Arduino-Programmierung
 		+ Arduino-IDE
+			- Arduino-IDE kann auf allen gängigen Betriebssystemen verwendet werden was es sehr flexibel und gut für Einsteiger macht, da sie ihre gewohnte Umgebung verwenden können (Windows, Mac, Linux)
 			- Für verscheidene Plattformen erhältlich
 			- Kostenlos und open-source
 			- Angelehnt an gängige IDEs aber für Arduino-Programmierung optimiert
