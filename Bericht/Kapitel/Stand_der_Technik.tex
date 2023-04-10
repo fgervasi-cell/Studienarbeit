@@ -62,7 +62,7 @@ Bei der Spracherkennung kommen Deep-Learning-Techniken zum Einsatz, die es einem
 Anschließend wird das Syntaxanalyseverfahren verwendet, um die Satzstruktur zu bestimmen und Schlüsselwörter und -sätze hervorzuheben, die zur Bestimmung des Benutzerbefehls verwendet werden können.
 Auch die Tonwertanalyse ist ein wichtiger Bestandteil der Verarbeitung natürlicher Sprache. 
 Mit Hilfe der Tonalitätsanalyse lässt sich die emotionale Färbung des Textes bestimmen, was für die Ermittlung der Absicht des Nutzers nützlich sein kann. 
-Da die Tonwertanalyse im Rahmen dieser Arbeit nicht relevant ist, wird sie nicht weiter erörtert.\\\\
+Da die Tonwertanalyse im Rahmen dieser Arbeit nicht relevant ist, wird sie nicht weiter erörtert.\cite{jurafsky_speech_2009}\\\\
 Darüber hinaus werden grammatik- und regelbasierte Technologien zur Verarbeitung natürlicher Sprache eingesetzt. 
 Diese Technologien werden eingesetzt, um die korrekte Struktur des Benutzerbefehls zu bestimmen und Schlüsselwörter hervorzuheben, die zur Durchführung von Aktionen verwendet werden können. 
 Außerdem werden Techniken des maschinellen Lernens eingesetzt, damit der Computer aus früheren Befehlen und Aktionen \glqq{}lernen\grqq{} kann, was die Genauigkeit der Erkennung von Benutzerbefehlen verbessert.\\\\
@@ -91,8 +91,11 @@ Viele Anwendungen erfordern jedoch nur einfache Algorithmen, um viele dieser Sch
 Ein Chatbot oder virtueller Assistent für Verbraucher wie Alexa oder Allo ist in der Regel so konzipiert, dass er äußerst sachkundig und leistungsfähig ist. 
 Die Logik, die zur Beantwortung von Anfragen verwendet wird, ist jedoch oft oberflächlich und besteht aus einer Reihe von Codephrasen, die mit einer einzigen if-then-Entscheidungsverzweigung zur gleichen Antwort führen. 
 Alexa (und die zugrundeliegende Lex-Engine) verhält sich wie ein einschichtiger, flacher Baum von Operatoren (if, elif, elif...). 
-Andererseits stützt sich die Google Translate-Pipeline (oder jedes ähnliche maschinelle Übersetzungssystem) auf eine mehrstufige Hierarchie von Merkmalsextraktoren, Entscheidungsbäumen und Wissensgraphen, die Fragmente von Wissen über die Welt miteinander verbinden.\\\\
-Alle \ac{NLP}-Merkmale müssen gut funktionieren, damit das Dialogsystem richtig funktioniert:
+Andererseits stützt sich die Google Translate-Pipeline (oder jedes ähnliche maschinelle Übersetzungssystem) auf eine mehrstufige Hierarchie von Merkmalsextraktoren, Entscheidungsbäumen und Wissensgraphen, die Fragmente von Wissen über die Welt miteinander verbinden.(QUELLE Title: "Hands-On Chatbots and Conversational UI Development: Build chatbots and voice user interfaces with Chatfuel, Dialogflow, Microsoft Bot Framework, Twilio, and Alexa Skills"
+Author: Srini Janarthanam
+Publisher: Packt Publishing
+ISBN: 978-1788294669)\\\\
+Alle \ac{NLP}-Merkmale müssen gut funktionieren, damit das Dialogsystem richtig funktioniert \cite{lane_natural_2019}:
 \begin{itemize}
     \item Merkmalsextraktion (normalerweise zur Erstellung eines Vektorraummodells).
     \item Informationssuche zur Beantwortung von Sachfragen.
@@ -104,17 +107,17 @@ Eine der wichtigsten Aufgaben der Verarbeitung natürlicher Sprache ist die Toke
 Dieser Prozess ist ein wichtiger Bestandteil der Verarbeitung natürlicher Sprache, da er es Programmen und Algorithmen ermöglicht, Texte anhand ihrer Bestandteile zu verstehen und zu analysieren. 
 Die Tokenisierung ist für die Verarbeitung natürlicher Sprache von entscheidender Bedeutung, da sie es Programmen ermöglicht, Schlüsselwörter, Phrasen und semantische Einheiten in einem Text hervorzuheben. 
 Die Tokenisierung kann auch dazu verwendet werden, nicht benötigte Textelemente wie Satzzeichen, Leerzeichen und andere Zeichen, die keine Bedeutung haben, zu entfernen. 
-Dadurch können Programme und Algorithmen effizienter und genauer arbeiten und die Wahrscheinlichkeit von Fehlern und falscher Textverarbeitung verringern.\\\\
+Dadurch können Programme und Algorithmen effizienter und genauer arbeiten und die Wahrscheinlichkeit von Fehlern und falscher Textverarbeitung verringern.\cite{jurafsky_speech_2009}\\\\
 Im \ac{NLP} ist die Tokenisierung eine besondere Art der Segmentierung von Dokumenten. 
 Bei der Segmentierung wird der Text in kleinere Abschnitte (Segmente) mit engerem Informationsgehalt unterteilt. 
 Die Segmentierung kann die Aufteilung eines Dokuments in Absätze, in Sätze, in Phrasen und in Token (Wörter) sowie Satzzeichen umfassen. 
 Ein Tokenizer kann mit einem Scanner im Kompilierungsprozess verglichen werden. 
-Token sind in diesem Fall die Endpunkte von kontextfreien Grammatiken - \ac{CFG} - zur Analyse von Programmiersprachen-Terminalen.\\\\
+Token sind in diesem Fall die Endpunkte von kontextfreien Grammatiken - \ac{CFG} - zur Analyse von Programmiersprachen-Terminalen. (QUELLE "Natural Language Processing with Python" by Steven Bird, Ewan Klein, and Edward Loper)\\\\
 Die Tokenisierung ist der erste Schritt in der \ac{NLP}-Pipeline und kann daher den Rest der Pipeline stark beeinflussen. 
 Der Tokenizer zerlegt unstrukturierte Daten, d. h. natürlichsprachliche Texte, in Informationseinheiten, die als einzelne Elemente gezählt werden können. 
 Die so gezählte Anzahl von Token-Vorkommen in einem Dokument kann direkt als Vektor verwendet werden, der dieses Dokument repräsentiert. 
 Ein solcher Ansatz ermöglicht es, aus einer unstrukturierten Zeichenfolge (einem Textdokument) unmittelbar eine für das maschinelle Lernen geeignete numerische Datenstruktur zu gewinnen. 
-Diese Werte können den Computer direkt dazu veranlassen, nützliche Aktionen durchzuführen und Reaktionen zu erzeugen.\\\\
+Diese Werte können den Computer direkt dazu veranlassen, nützliche Aktionen durchzuführen und Reaktionen zu erzeugen.\cite{lane_natural_2019}\\\\
 Die einfachste Art, einen Satz zu tokenisieren, ist die Verwendung von Leerzeichen als Worttrenner in Zeichenketten. 
 Dies ist jedoch nicht optimal, denn wenn ein Satz z. B. ein Satzzeichen enthält, wird es von einem der Tokenisierer erfasst. 
 Optimierte Tokenizer sind in mehreren Python-Bibliotheken implementiert, die jeweils ihre eigenen Vor- und Nachteile haben: spaCy, Stanford CoreNLP und \ac{NLTK}. 
@@ -130,7 +133,7 @@ So bleibt beispielsweise das Wort \glqq{}kein\grqq{}, das die Bedeutung umkehrt,
 Ohne N-Gramm-Tokenisierung würde ein solches Wort an verschiedenen Positionen herumhängen und seine Bedeutung würde mit dem gesamten Satz oder Dokument assoziiert werden, anstatt mit benachbarten Wörtern. 
 Das Bigramm \glqq{}war nicht\grqq{} behält viel mehr Bedeutung der einzelnen Wörter \glqq{}war\grqq{} und \glqq{}nicht\grqq{} als die entsprechenden Singlegramme im Multigrammvektor. 
 Durch die Verknüpfung eines Wortes mit seinen Nachbarn in einem Förderband kann ein Teil seines Kontexts erhalten bleiben. 
-N-Gramme sind also ein Instrument zur Speicherung von Kontextinformationen, während die Daten die Pipeline durchlaufen.\\\\
+N-Gramme sind also ein Instrument zur Speicherung von Kontextinformationen, während die Daten die Pipeline durchlaufen.\cite{lane_natural_2019}\\\\
 Die Größe des Vokabulars spielt eine wichtige Rolle für die Leistung der \ac{NLP}-Pipeline. 
 Die Größe des Wörterbuchs bestimmt die Größe der Trainingsstichprobe, die benötigt wird, um eine Überanpassung an ein bestimmtes Wort oder eine bestimmte Phrase zu vermeiden und die Größe der Trainingsmenge bestimmt die Kosten der Verarbeitung. 
 Eine Technik zur Verringerung der Größe des Wörterbuchs besteht darin, Token, die ähnliche Dinge bedeuten, in einer einzigen normalisierten Form zusammenzufassen. 
@@ -140,7 +143,7 @@ In diesem Fall wird die Groß-/Kleinschreibung ignoriert und zwei identische Wö
 Ein weiterer wichtiger Schritt bei der Tokenisierung von Texten ist die Entfernung von Stoppwörtern, um den Umfang des Wörterbuchs zu verringern. 
 Stoppwörter sind in jeder Sprache gebräuchliche Wörter, die sehr häufig vorkommen, aber sehr viel weniger aussagekräftige Informationen über die Bedeutung eines Satzes enthalten (z. B. a, an, the, this, of, on im Englischen oder der, die, das, diese im Deutschen). 
 Stoppwörter können jedoch nützliche Informationen enthalten, so dass man sie nicht immer verwerfen sollte. 
-Das \ac{NLTK}-Paket für Python enthält derzeit die umfassendste Liste kanonischer Stoppwörter in verschiedenen Sprachen.\\\\
+Das \ac{NLTK}-Paket für Python enthält derzeit die umfassendste Liste kanonischer Stoppwörter in verschiedenen Sprachen. (QUELLE Applied Natural Language Processing: Identification, Investigation, and Resolution by Atefeh Farzindar and Diana Inkpen)\\\\
 Eine weitere gängige Methode der Normalisierung ist die Beseitigung kleiner semantischer Unterschiede im Zusammenhang mit Pluralendungen und Possessivendungen von Wörtern oder sogar unterschiedlichen Verbformen. 
 Diese Methode der Normalisierung, bei der ein gemeinsamer Wortstamm für verschiedene Wortformen gefunden wird, wird als Stemming bezeichnet. 
 Der gemeinsame Wortstamm von \glqq{}Gehäuse\grqq{} und \glqq{}Haus\grqq{} ist zum Beispiel \glqq{}Haus\grqq{}.
@@ -149,19 +152,19 @@ Der gemeinsame Wortstamm von \glqq{}Gehäuse\grqq{} und \glqq{}Haus\grqq{} ist z
  Einer der Hauptvorteile des Stemming besteht darin, die Anzahl der Wörter zu verringern, deren Bedeutung das Sprachmodell im Auge behalten muss. 
  Durch diese Methode wird die Größe des Wörterbuchs reduziert, wodurch der Verlust nützlicher Informationen und Bedeutungen so weit wie möglich begrenzt wird. 
  Das Stemming spielt eine wichtige Rolle bei der Suche nach Schlüsselwörtern oder Informationen. 
-Zwei der bekanntesten Algorithmen sind Porter's Stemmer und Snowball.\\\\
+Zwei der bekanntesten Algorithmen sind Porter's Stemmer und Snowball.(QUELLE "Foundations of Statistical Natural Language Processing" by Christopher D. Manning and Hinrich Schütze)\\\\
 Mit Informationen über die Beziehungen zwischen den Bedeutungen verschiedener Wörter ist es möglich, mehrere Wörter miteinander zu verknüpfen, auch wenn ihre Schreibweise sehr unterschiedlich ist. 
 Eine solche erweiterte Normalisierung eines Wortes auf seine semantische Wurzel - ein Lemma - wird Lemmatisierung genannt. 
 Die Lemmatisierung ist potenziell eine viel genauere Art der Normalisierung als das Stemming oder die Groß- und Kleinschreibung, da sie die Bedeutung des Wortes berücksichtigt. 
 Der Lemmatisierer verwendet eine Wissensbasis von Synonymen und Wortendungen, um nur eng verwandte Wörter zu einem Token zu kombinieren. 
-In Python kann die Lemmatisierung mit dem \ac{NLTK}-Paket implementiert werden, das den \textit{WordNetLemmatizer} enthält.\\\\
+In Python kann die Lemmatisierung mit dem \ac{NLTK}-Paket implementiert werden, das den \textit{WordNetLemmatizer} enthält. (QUELLE https\://www.nltk.org/\_modules/nltk/stem/wordnet.html)\\\\
 Wie bereits gezeigt wurde, ist die Tokenisierung der Prozess der Zerlegung von Text in einzelne Wörter oder Token. 
 Für viele Anwendungen der Verarbeitung natürlicher Sprache ist jedoch nicht nur wichtig, welche Wörter im Text enthalten sind, sondern man muss auch in der Lage sein, diese Wörter als Zahlen darzustellen. 
 Dadurch wird es möglich, maschinelles Lernen und andere Algorithmen, die mit Zahlen arbeiten, zur Textverarbeitung einzusetzen. 
 Bei der Verarbeitung natürlicher Sprache wird dazu die Wortvektorisierung verwendet.
 \subsection{Vektorisierung von Wörtern}
 Die Vektorisierung hilft dabei, eine numerische Darstellung zu finden, die die Bedeutung oder den Informationsgehalt der dargestellten Wörter widerspiegelt. 
-Es gibt drei Möglichkeiten, Wörter und ihre Bedeutungen darzustellen:
+Es gibt drei Möglichkeiten, Wörter und ihre Bedeutungen darzustellen \cite{lane_natural_2019}:
 \begin{itemize}
     \item Multisets von Wörtern - Vektoren von Zahlen oder Häufigkeiten von Wörtern. 
     \item Multisets von N-Grammen - Vektoren von Mengen von Wortpaaren (Bigramme), Worttripeln (Trigramme), usw.
@@ -191,11 +194,11 @@ Zum Beispiel sieht der unitäre Vektor für den Satz \glqq Mojito ist ein lecker
 \end{figure}
 \noindent
 Eine der Eigenschaften der vektoriellen Darstellung von Wörtern und der tabellarischen Darstellung von Dokumenten ist, dass keine ursprünglichen Informationen verloren gehen. 
-Das Originaldokument kann aus dieser einheitlichen Vektortabelle rekonstruiert werden. 
+Das Originaldokument kann aus dieser einheitlichen Vektortabelle rekonstruiert werden. (QUELLE "Natural Language Processing with Python" by Steven Bird, Ewan Klein, and Edward Loper) 
 Daher werden solche unitären Vektoren in neuronalen Netzen, bei der \ac{seq2seq}-Modellierung und bei der Erstellung von Sprachmodellen verwendet. 
 Unitäre Vektoren eignen sich hervorragend für alle \ac{NLP}-Modelle oder -Pipelines, bei denen die Bedeutung des Ausgangstextes vollständig erhalten bleiben muss.
 Die Erstellung von unitären Vektoren für jedes Wort kann mit verschiedenen Bibliotheken in Python erfolgen. 
-Zum Beispiel kann die NumPy-Bibliothek verwendet werden, um unitäre Vektoren zu erstellen.\\\\
+Zum Beispiel kann die NumPy-Bibliothek verwendet werden, um unitäre Vektoren zu erstellen.(QUELLE https://numpy.org/)\\\\
 Diese Vektordarstellung hat jedoch ihre Nachteile. 
 Bei Dokumenten, die eine große Anzahl von Wörtern enthalten, wäre die Größe des unitären Vektorwörterbuchs enorm und würde enorme Ressourcen zur Verarbeitung erfordern. 
 Außerdem macht es keinen Sinn, so viele Nullen zu speichern. 
@@ -208,8 +211,8 @@ Wenn alle diese unitären Vektoren zusammengezählt werden, wird ein Vektor der 
 Er spiegelt die Häufigkeit des Vorkommens von Wörtern wider, nicht die Reihenfolge, in der sie auftreten. 
 Dieser Vektor kann verwendet werden, um ein ganzes Dokument oder einen Satz als einen einzigen Vektor von nicht sehr großer Länge darzustellen. 
 Seine Länge entspricht der Länge des Wörterbuchs (der Anzahl der verfolgten eindeutigen Token). 
-Außerdem kann bei einer einfachen Schlüsselwortsuche ein binärer Multiset-Vektor durch eine logische OR-Operation aus unitären Vektoren gewonnen werden.\\\\
-Die Anzahl der Vorkommen eines Wortes in einem bestimmten Dokument wird als Termfrequenz (\ac{TF}) bezeichnet. 
+Außerdem kann bei einer einfachen Schlüsselwortsuche ein binärer Multiset-Vektor durch eine logische OR-Operation aus unitären Vektoren gewonnen werden. (QUELLE "Natural Language Processing with Python" by Steven Bird, Ewan Klein, and Edward Loper)\\\\
+Die Anzahl der Vorkommen eines Wortes in einem bestimmten Dokument wird als Termfrequenz (\ac{TF}) bezeichnet \cite{lane_natural_2019}. 
 Je häufiger ein Wort in einem Dokument vorkommt, desto wahrscheinlicher ist es, dass das Dokument von diesem Thema handelt. 
 Anstelle von reinen Wortzählungen können auch normalisierte Termhäufigkeiten zur Beschreibung von Dokumenten aus einem Korpus verwendet werden. 
 Unter normalisierten Dokumenthäufigkeiten versteht man die Anzahl der Wörter im Verhältnis zur Länge des Dokuments. 
@@ -248,14 +251,14 @@ Für einen Vektorraum von Dokumenten in einer natürlichen Sprache ist die Dimen
 Jedes Dokument in einem K-dimensionalen Vektorraum kann durch einen K-dimensionalen Vektor beschrieben werden. 
 Wenn es Vektorrepräsentationen für alle Dokumente im gleichen Raum gibt, dann ist es möglich, sie zu vergleichen. 
 Der euklidische Abstand zwischen Vektoren kann gemessen werden, indem sie subtrahiert werden und die Länge des Abstands zwischen ihnen berechnet wird, den sogenannten Abstand im Sinne der L2-Norm (L2-Metrik). 
-Dies ist der Abstand auf einer geraden Linie von dem Ort, der durch die Spitze (Scheitelpunkt) des einen Vektors gegeben ist, zu dem Ort, der der Spitze des anderen Vektors entspricht.
+Dies ist der Abstand auf einer geraden Linie von dem Ort, der durch die Spitze (Scheitelpunkt) des einen Vektors gegeben ist, zu dem Ort, der der Spitze des anderen Vektors entspricht. (QUELLE https://mathworld.wolfram.com/L2-Norm.html)
 \begin{equation}
     d(p, q) = ||q-p||_2 = \sqrt{(q_1 - p_1)^2 + ... + (q_n - p_n)^2} = \sqrt{\sum_{i=1}^{n} (q_i - p_i)^2}
     \eqlabel{eu-norm}{Euklidische Norm}
 \end{equation}
 Der Ochiai-Koeffizient (Kosinuskoeffizient) ist ein Maß für die Ähnlichkeit zwischen zwei Multisets. 
 Der Ochiai-Koeffizient kann verwendet werden, um den Grad der Ähnlichkeit zwischen zwei Dokumenten auf der Grundlage ihrer Wort-Multisets zu bestimmen. 
-Er ist einfach der Kosinus des Winkels zwischen zwei Vektoren (Theta).
+Er ist einfach der Kosinus des Winkels zwischen zwei Vektoren (Theta). (QUELLE "Data Mining: Concepts and Techniques" by Jiawei Han, Micheline Kamber, and Jian Pei)
 \begin{figure}[H]
     \centering
     \fbox{\includegraphics[width=0.6\textwidth]{Bilder_Stand_der_Technik/vraum_theta.png}}
@@ -281,7 +284,7 @@ Daraus ist ersichtlich, wie weit unsere beiden Vektoren in dieselbe Richtung zei
 Ein offensichtlicher Vorteil ist, dass der vom Ochiai-Koeffizienten angenommene Wertebereich (von -1 bis +1) für die meisten Aufgaben des maschinellen Lernens geeignet ist. 
 Ein Kosinuskoeffizient von 1 spiegelt identische normalisierte Vektoren wider, die über alle Dimensionen hinweg in eine ähnliche Richtung zeigen. 
 Die Längen dieser Vektoren können unterschiedlich sein, aber sie zeigen in dieselbe Richtung. 
-Je näher der Kosinuskoeffizient bei 1 liegt, desto kleiner ist der Winkel zwischen den Vektoren. 
+Je näher der Kosinuskoeffizient bei 1 liegt, desto kleiner ist der Winkel zwischen den Vektoren.
 Im \ac{NLP} enthalten Dokumente, deren Kosinuskoeffizient der Vektoren nahe bei 1 liegt, ähnliche Wörter im gleichen Verhältnis. 
 Daher ist es wahrscheinlicher, dass es sich bei Dokumenten, deren Vektoren nahe beieinander liegen, um dieselbe Sache handelt. 
 Wenn der Kosinuskoeffizient 0 ist, haben die Vektoren keine gemeinsamen Komponenten. 
@@ -292,7 +295,7 @@ Das bedeutet nicht unbedingt, dass die Bedeutung oder das Thema unterschiedlich 
 Bei einem Wert des Kosinuskoeffizient von -1 sind die Vektoren völlig entgegengesetzt. 
 Sie zeigen in entgegengesetzte Richtungen. 
 Bei einfachen Vektoren der Termhäufigkeiten ist dies jedoch nicht möglich, da Vektoren der Termhäufigkeiten nicht negativ sein können. 
-Sie befinden sich also immer im gleichen Quadranten des Vektorraums.\\\\
+Sie befinden sich also immer im gleichen Quadranten des Vektorraums. (QUELLE "Data Mining: Concepts and Techniques" by Jiawei Han, Micheline Kamber, and Jian Pei)\\\\
 Neben den Multisets von Wörtern gibt es weitere Vektorisierungsmethoden, die ebenfalls in der Verarbeitung natürlicher Sprache verwendet werden - Multisets von N-Grammen und \ac{TF-IDF}-Vektoren.
 Bei Multisets von N-Grammen handelt es sich um Mengen von mehreren aufeinanderfolgenden Wörtern in einem Text. 
 N-Gramme können helfen, den Kontext und die Beziehung zwischen Wörtern in einem Text zu erfassen. 
@@ -308,7 +311,7 @@ Die Bedeutung von Wörtern kann anhand ihrer Häufigkeit in einem Dokument besti
 Einige Wörter kommen jedoch häufig in allen Dokumenten vor, so dass sie nicht allzu wichtig sein sollten. 
 Andererseits können einige seltene Wörter von großer Bedeutung sein, weil sie möglicherweise nur in einem bestimmten Dokument vorkommen. 
 \ac{TF-IDF}-Vektoren lösen dieses Problem, indem sie nicht nur die Häufigkeit der Wörter in einem Dokument, sondern auch ihre Bedeutung im Kontext des gesamten Textkorpus berücksichtigen. 
-Für jedes Wort in einem Dokument kann sein \ac{TF-IDF}-Wert nach der folgenden Formel berechnet werden:
+Für jedes Wort in einem Dokument kann sein \ac{TF-IDF}-Wert nach der folgenden Formel berechnet werden: (QUELLE "Introduction to Information Retrieval" by Christopher D. Manning, Prabhakar Raghavan, and Hinrich Schütze)
 \begin{equation}
     TF(t, d) = \frac{Anzahl(t)}{Anzahl(d)}
     \eqlabel{eq-tf}{Wert der Worthäufigkeit im Dokument}
@@ -323,7 +326,7 @@ Für jedes Wort in einem Dokument kann sein \ac{TF-IDF}-Wert nach der folgenden 
 \end{equation}
 Dabei ist t ein Wort, d ein Dokument, \ac{TF}(t, d) der Wert der Worthäufigkeit im Dokument und \ac{IDF}(t, D) der Wert der inversen Dokumenthäufigkeit. 
 Um einen \ac{TF-IDF}-Vektor für jedes Dokument zu erhalten, müssen die \ac{TF-IDF}-Werte für alle Wörter, die in dem Dokument vorkommen, verwendet werden. 
-Dies ergibt einen Vektor, bei dem jede Komponente einem \ac{TF-IDF}-Wert für ein bestimmtes Wort im Dokument entspricht.
+Dies ergibt einen Vektor, bei dem jede Komponente einem \ac{TF-IDF}-Wert für ein bestimmtes Wort im Dokument entspricht. (QUELLE "Introduction to Information Retrieval" by Christopher D. Manning, Prabhakar Raghavan, and Hinrich Schütze)
 Beispielsweise werden die folgenden drei Dokumente betrachtet:\\
 Dokument \textnumero 1 \glqq Ein Cocktail ist variationsreich und auch zuhause gut zu mixen\grqq{}\\
 Dokument \textnumero 2 \glqq Der Mojito ist ein klassischer Cocktail und ein erfrischender Drink der 
@@ -464,7 +467,7 @@ Aus diesen Vektoren kann die Ähnlichkeit zwischen den Dokumenten berechnet werd
 Je näher die Werte des Kosinuskoeffizients bei 1 liegen, desto ähnlicher sind sich die Dokumente. 
 Für die maximale derzeit erreichbare Effizienz bei der semantischen Suche, der Dokumentenklassifikation, bei Dialogsystemen und den meisten anderen Anwendungen ist es daher ausreichend, nur einfache \ac{TF-IDF}-Vektoren in die Pipeline einzugeben. 
 \ac{TF-IDF}-Vektoren sind die erste Stufe der Pipeline, die Grundmenge der aus dem Text extrahierten Merkmale. 
-Auf der Grundlage der \ac{TF-IDF}-Vektoren können Themenvektoren berechnet werden, die für die semantische Analyse von Texten erforderlich sind.\\\\
+Auf der Grundlage der \ac{TF-IDF}-Vektoren können Themenvektoren berechnet werden, die für die semantische Analyse von Texten erforderlich sind. \cite{lane_natural_2019}\\\\
 Es gibt viele Bibliotheken, um die \ac{TF-IDF}-Vektorisierung in Python zu implementieren. 
 Einige der beliebtesten Bibliotheken sind Scikit-Learn, Gensim, \ac{NLTK} und SpaCy.
 \subsection{Syntaktische Analyse}
@@ -481,26 +484,26 @@ In den meisten Fällen sind die Ergebnisse dieser Suche wesentlich besser als di
 Manchmal liefert eine semantische Suche genau die Dokumente, nach denen der Benutzer gesucht hat, auch wenn er nicht die richtigen Wörter für seine Anfrage gefunden hat. 
 Darüber hinaus können diese semantischen Vektoren verwendet werden, um die Wörter und N-Gramme zu finden, die das Thema einer Aussage, eines Dokuments oder eines Korpus (Menge von Dokumenten) am besten repräsentieren. 
 Mit Hilfe der Wortvektoren und ihrer relativen Bedeutung ist es möglich, die repräsentativsten Wörter für ein Dokument zu finden, wie z. B. eine Reihe von Schlüsselwörtern, die seine Bedeutung widerspiegeln. 
-Es ist nun auch möglich, zwei beliebige Aussagen/Dokumente zu vergleichen und festzustellen, wie nahe sie sich in ihrer Bedeutung sind.\\\\
+Es ist nun auch möglich, zwei beliebige Aussagen/Dokumente zu vergleichen und festzustellen, wie nahe sie sich in ihrer Bedeutung sind. (QUELLE "Foundations of Statistical Natural Language Processing" by Christopher D. Manning and Hinrich Schütze)\\\\
 Themenvektoren sind eine Möglichkeit, ein Dokument als Vektor darzustellen, wobei jedes Element einem Thema entspricht. 
 Jedes Thema ist eine Wahrscheinlichkeitsverteilung auf die Wörter im Korpus und für jedes Dokument kann geschätzt werden, wie sehr es mit jedem Thema zu tun hat.
-Zur Berechnung der Themenvektoren wird der \ac{LSA}-Algorithmus verwendet, der auf einer \ac{SWZ}(eng. \ac{SVD}) der Term-Dokumenten-Matrix beruht.\\\\
+Zur Berechnung der Themenvektoren wird der \ac{LSA}-Algorithmus verwendet, der auf einer \ac{SWZ}(eng. \ac{SVD}) der Term-Dokumenten-Matrix beruht. (QUELLE Dumais et al. Using latent semantic analysis to improve access to textual information: https://dl.acm.org/citation.cfm?id=57214, 1988)\\\\
 Bei der \ac{SWZ} wird die Matrix in drei Komponenten zerlegt: die Matrix der linken singulären Vektoren, die Matrix der rechten singulären Vektoren und die Diagonalmatrix der singulären Werte. 
 Diese drei einfacheren Matrizen aus der \ac{SWZ} offenbaren jedoch Eigenschaften der ursprünglichen \ac{TF-IDF}-Matrix. 
 Sie eignen sich zur Vereinfachung der Matrix. 
 Man kann die Matrizen abschneiden (einige Zeilen und Spalten weglassen), bevor man sie erneut multipliziert, wodurch die Anzahl der Dimensionen, mit denen man sich im Vektorraummodell befassen muss, reduziert wird. 
 Das Ergebnis der Multiplikation dieser abgeschnittenen Matrizen ist nicht dieselbe \ac{TF-IDF}-Matrix, sondern eine verbesserte: die neue Dokumentendarstellung enthält das Wesentliche, die latente Semantik dieser Dokumente. 
-Aus diesem Grund wird \ac{SWZ} auch in anderen Anwendungen wie der Komprimierung eingesetzt (z. B. zur Komprimierung von JPEG-Bildern).\\\\
+Aus diesem Grund wird \ac{SWZ} auch in anderen Anwendungen wie der Komprimierung eingesetzt (z. B. zur Komprimierung von JPEG-Bildern). \cite{lane_natural_2019}\\\\
 Die latente semantische Analyse (\ac{LSA}) ist eine mathematische Methode, um den besten Weg zur linearen Transformation (Rotation und Streckung) eines beliebigen Satzes von \ac{NLP}-Vektoren, wie \ac{TF-IDF}-Vektoren oder Multiset-Vektoren, zu finden. 
 Für viele Anwendungen ist es am besten, die Achsen (Dimensionen) in den neuen Vektoren an der größten Streuung (Varianz) der Worthäufigkeiten auszurichten \cite{jurafsky_speech_2009}.
 Es können dann diejenigen Dimensionen aus dem neuen Vektorraum ausgeschlossen werden, die nur geringe Auswirkungen auf die Vektoränderungen von Dokument zu Dokument haben. 
-Diese Anwendung der \ac{SWZ} wird als trunkierte \ac{SWZ} (trunkated \ac{SVD}) bezeichnet.\\\\
+Diese Anwendung der \ac{SWZ} wird als trunkierte \ac{SWZ} (trunkated \ac{SVD}) bezeichnet. \cite{lane_natural_2019}\\\\
 \ac{LSA} verwendet \ac{SWZ}, um nach Wortkombinationen zu suchen, die gemeinsam für die größte Varianz in den Datenwerten verantwortlich sind. 
 Die \ac{TF-IDF}-Vektoren können so gedreht werden, dass ihre neuen Dimensionen (Basisvektoren) mit diesen Richtungen der maximalen Varianz übereinstimmen. 
 Die Basisvektoren stellen die Koordinatenachsen des neuen Vektorraums dar. 
 Jede der Dimensionen (Koordinatenachsen) wird zu einer Kombination von Worthäufigkeiten und nicht zu einer einzelnen Worthäufigkeit. 
-Sie können also als gewichtete Kombinationen der Wörter betrachtet werden, die die verschiedenen im Korpus verwendeten Themen bilden. 
-Die \ac{LSA}-Methode liefert, wie der \ac{IDF}-Teil von \ac{TF-IDF}, Informationen darüber, welche Vektordimensionen für die Semantik (Bedeutung) von Dokumenten eine wichtige Rolle spielen. 
+Sie können also als gewichtete Kombinationen der Wörter betrachtet werden, die die verschiedenen im Korpus verwendeten Themen bilden.  
+Die \ac{LSA}-Methode liefert, wie der \ac{IDF}-Teil von \ac{TF-IDF}, Informationen darüber, welche Vektordimensionen für die Semantik (Bedeutung) von Dokumenten eine wichtige Rolle spielen. (QUELLE Dumais et al. Using latent semantic analysis to improve access to textual information: https://dl.acm.org/citation.cfm?id=57214, 1988)
 Die Dimensionen (Topics) mit der geringsten Variation in den Vektoren von Dokument zu Dokument können verworfen werden. 
 Solche Themen mit geringer Varianz stellen in der Regel Rauschen dar und sind eine Ablenkung für jeden Algorithmus des maschinellen Lernens. 
 Wenn ein Thema in allen Dokumenten etwa gleich häufig vorkommt und nicht zur Unterscheidung zwischen den Dokumenten beiträgt, kann es verworfen werden, so dass die Vektordarstellung verallgemeinert werden kann, so dass sie sich besser für Dokumente eignet, auf die die Pipeline noch nicht gestoßen ist, selbst wenn sie aus einem anderen Kontext stammen.\\\\
@@ -538,16 +541,16 @@ Vor der Trunkierung ist die Anzahl der Themen (p) gleich der Anzahl der Wörter.
 Die U-Matrix enthält als Spalten Vektoren der Themen für alle Wörter des Korpus. 
 Das bedeutet, dass sie verwendet werden kann, um einen Wort-Dokument-Vektor (\ac{TF-IDF}-Vektor oder \ac{BOW}-Vektor) in einen Themen-Dokument-Vektor umzuwandeln. 
 Um einen neuen \glqq topic-document\grqq{}-Vektor zu erhalten, multipliziert man einfach die U-Matrix \glqq topic-word\grqq{} mit einem beliebigen \glqq word-document\grqq{}-Vektor. 
-Der Punkt ist, dass die Gewichte (Scores) in den Zellen der U-Matrix die Bedeutung der Wörter für die Themen widerspiegeln.\\\\
+Der Punkt ist, dass die Gewichte (Scores) in den Zellen der U-Matrix die Bedeutung der Wörter für die Themen widerspiegeln. (QUELLE "Introduction to Information Retrieval" by Christopher D. Manning, Prabhakar Raghavan, and Hinrich Schütze)\\\\
 Die quadratische diagonale S-Matrix (Sigma-Matrix) enthält die Singulärwerte (Eigenwerte) des Themas. 
 Diese singulären Werte geben an, wie viel Information in jeder Dimension des neuen semantischen (Themen-)Vektorraums enthalten ist. 
 In der diagonalen Matrix befinden sich Werte, die nicht Null sind, nur auf der Diagonalen von der linken oberen Ecke bis zur rechten unteren Ecke. 
 Alle anderen Positionen in der S-Matrix enthalten Nullen. 
-Und die Dimensionen (Themen) sind so angeordnet, dass die erste Dimension die meisten Informationen (erklärbare Varianz) über den Fall enthält. 
+Und die Dimensionen (Themen) sind so angeordnet, dass die erste Dimension die meisten Informationen (erklärbare Varianz) über den Fall enthält. (QUELLE Indexing by Latent Semantic Analysis / S. C. Deerwester, S. T. Dumais,T. K. Landauer [et al.])
 Wenn es also notwendig ist, das Themenmodell abzuschneiden, kann man mit den Messungen von unten rechts beginnen und sich nach links bewegen. 
 Und dann aufhören, diese singulären Werte auf Null zu setzen, wenn der Fehler des thematischen Modells eine signifikante Auswirkung auf den Gesamtfehler der \ac{NLP}-Pipeline haben wird.\\\\
 Die $V^{T}$-Matrix \glqq Dokument-Dokument\grqq{} enthält als Spalten die rechten singulären Vektoren und gibt Aufschluss über die gemeinsamen Bedeutungen von Dokumenten, da sie die Häufigkeit der Verwendung der gleichen Themen in Dokumenten in dem neuen semantischen Modell von Dokumenten misst. 
-Es enthält so viele Zeilen (p) und Spalten, wie es Dokumente im Korpus gibt.\\\\
+Es enthält so viele Zeilen (p) und Spalten, wie es Dokumente im Korpus gibt. \cite{lane_natural_2019}\\\\
 Nachdem die singuläre Zerlegung abgeschlossen ist, müssen die Themen so gekürzt werden, dass sie die Bedeutung der Dokumente wiedergeben. 
 Dabei müssen die Elemente der Matrix S in absteigender Reihenfolge sortiert werden. 
 In diesem Fall kann die Formel in einer anderen Form geschrieben werden:
@@ -565,15 +568,15 @@ Dabei sind $U_{k}$ und $V_{k}$ Matrizen, die durch Extraktion der ersten k Spalt
 Im latent-semantischen Modell kann also jeder Text und jeder Begriff durch Vektoren in einem reduzierten Raum der Dimension k - dem Themenraum - dargestellt werden. 
 Diese \ac{SWZ} wird als parsimonious bezeichnet, weil sie in dem Fall, in dem k viel kleiner als m, n und p ist, eine erhebliche Kompression der ursprünglichen Information ermöglicht. 
 Komprimierung ist in dem Sinne zu verstehen, dass ein Teil der von der ursprünglichen Matrix übermittelten Informationen verloren geht und nur die wichtigsten (dominanten) Informationen erhalten bleiben. 
-Der Informationsverlust entsteht durch die Vernachlässigung kleiner Singulärzahlen. 
+Der Informationsverlust entsteht durch die Vernachlässigung kleiner Singulärzahlen. (QUELLE Indexing by Latent Semantic Analysis / S. C. Deerwester, S. T. Dumais,T. K. Landauer [et al.])
 Je mehr Singulärzahlen verworfen werden, d. h. je kleiner k, desto größer ist dieser Verlust. 
 Mit anderen Worten: Der Informationsverlust ist umso größer, je niedriger der Rang der approximierenden Matrix ist. 
-In diesem Fall gehen zunächst die nicht signifikanten Werte verloren, wodurch die dominanten Werte der Matrix erhöht werden.\\\\
+In diesem Fall gehen zunächst die nicht signifikanten Werte verloren, wodurch die dominanten Werte der Matrix erhöht werden. \cite{lane_natural_2019}\\\\
 Der \ac{SWZ}-Algorithmus, das Herzstück von \ac{LSA}, erkennt, ob Wörter immer nebeneinander vorkommen und fasst sie im Betreff zusammen. 
 Auf diese Weise kann er die Anzahl der Messungen ohne zusätzlichen Aufwand reduzieren. 
 \ac{LSA} (\ac{SWZ}) ist eine großartige Methode, um Wort-Dokument-Matrizen zu komprimieren und potenzielle zusammengesetzte Wörter oder N-Gramme für die Pipeline zu erkennen. 
 \ac{LSA} reduziert die Anzahl der Messungen und hilft so, Übertraining zu vermeiden. 
-Sie führt eine Verallgemeinerung auf der Grundlage eines kleinen Datensatzes durch, indem sie eine lineare Beziehung zwischen den Worthäufigkeiten annimmt.\\\\
+Sie führt eine Verallgemeinerung auf der Grundlage eines kleinen Datensatzes durch, indem sie eine lineare Beziehung zwischen den Worthäufigkeiten annimmt.\cite{jurafsky_speech_2009}\\\\
 \ac{LSA}s können auch für die semantische Suche verwendet werden. 
 Eine semantische Suche (semantic search) ist eine Art der Volltextsuche, die die Bedeutung der Wörter in der Anfrage und der gesuchten Dokumente berücksichtigt. 
 Durch die Verwendung von Themenvektoren ist es möglich, die Bedeutung von Wörtern, Dokumenten, Aussagen und Korpora zu vergleichen. 
@@ -584,10 +587,10 @@ Sie können verwendet werden, um Dokumente zu finden, die für die Anfrage relev
 Dazu muss die Suchanfrage des Nutzers zunächst mit denselben Attributen vektorisiert werden wie die Dokumentenvektorisierung. 
 Dann kann \ac{SWZ} verwendet werden, um die Dimensionalität des Abfragevektors auf die gleichen Dimensionen wie die der Dokumentvektoren zu reduzieren. 
 Anschließend kann der Kosinuskoeffizient zwischen dem Abfragevektor und den Dokumentvektoren berechnet werden, um festzustellen, welche Dokumente der Abfrage am nächsten liegen. 
-\ac{LSA} und \ac{SWZ} können also zum Aufspüren versteckter Themen in Textdokumenten sowie zur semantischen Suche in großen Dokumentensammlungen verwendet werden.\\\\
+\ac{LSA} und \ac{SWZ} können also zum Aufspüren versteckter Themen in Textdokumenten sowie zur semantischen Suche in großen Dokumentensammlungen verwendet werden. \cite{lane_natural_2019}\\\\
 Es gibt viele Python-Bibliotheken und -Werkzeuge für die Implementierung von \ac{LSA} und \ac{SWZ}. 
 Eine der beliebtesten Bibliotheken für Matrix- und Singulärzerlegung ist NumPy. 
-NumPy erleichtert die Durchführung von Matrixoperationen und verfügt über eine Funktion zur Singulärzerlegung: \textit{numpy.linalg.svd()}. 
+NumPy erleichtert die Durchführung von Matrixoperationen und verfügt über eine Funktion zur Singulärzerlegung: \textit{numpy.linalg.svd()}. (QUELLE https://numpy.org/)
 Zusammen mit anderen Bibliotheken wie \textit{Pandas} und \textit{Scikit-learn} kann \ac{LSA} effizient durchgeführt werden. 
 Um \ac{LSA} zu starten, müssen die Textdaten mit Hilfe des \ac{TF-IDF}-Modells vektorisiert werden, wie zuvor beschrieben. 
 Dann muss eine singuläre Zerlegung der Term-Dokument-Matrix mit \textit{numpy.linalg.svd()} durchgeführt werden. 
@@ -595,7 +598,7 @@ Danach kann eine bestimmte Anzahl von Hauptkomponenten (Topics) ausgewählt werd
 Dies kann durch die Auswahl der Komponenten mit den höchsten Singulärwerten geschehen. 
 Anhand dieser Komponenten kann dann die Nähe zwischen den Dokumenten bestimmt werden.\\\\ 
 \textit{Scikit-learn} bietet auch eine \textit{TruncatedSVD}-Klasse, mit der eine Truncated-\ac{SVD} durchgeführt werden kann, um nur die ausgewählten Hauptkomponenten zu erhalten. 
-Diese Klasse erleichtert die Durchführung von \ac{LSA} auf großen Dokumentenkorpora und verfügt über zusätzliche Funktionen wie Datenverarbeitung und Normalisierung sowie automatische Auswahl der Anzahl der Komponenten auf der Grundlage des Prozentsatzes der erklärten Varianz.
+Diese Klasse erleichtert die Durchführung von \ac{LSA} auf großen Dokumentenkorpora und verfügt über zusätzliche Funktionen wie Datenverarbeitung und Normalisierung sowie automatische Auswahl der Anzahl der Komponenten auf der Grundlage des Prozentsatzes der erklärten Varianz. \cite{scikit-learn}
 \subsection{Ansätze für die Erstellung eines Chatbots}\label{sec:ansaetze_erstellung_chatbots}
 Derzeit gibt es vier Hauptansätze für die Erstellung eines Chatbots \cite{lane_natural_2019}:
 \begin{itemize}
@@ -731,13 +734,13 @@ Die Architektur des mehrschichtigen Perzeptrons sieht folgendermaßen aus:
 \noindent
 Für ein Mehrklassen-Klassifizierungsproblem kann ein \ac{MLP} mit einer Verlustfunktion wie der kategorialen Kreuzentropie (Categorical Crossentropy) trainiert werden. 
 Zunächst muss ein \ac{MLP} über eine Eingabeschicht verfügen, die die Merkmale eines Objekts aufnimmt, und eine Ausgabeschicht, die die Wahrscheinlichkeiten für die Zugehörigkeit des Objekts zu den einzelnen Klassen ausgibt. 
-Die Dimensionalität der Ausgabeschicht muss der Anzahl der zu klassifizierenden Klassen entsprechen.
+Die Dimensionalität der Ausgabeschicht muss der Anzahl der zu klassifizierenden Klassen entsprechen. ()QUELLE "Deep Learning" by Ian Goodfellow, Yoshua Bengio, and Aaron Courville
 Außerdem können zwischen der Eingabe- und der Ausgabeschicht mehrere verborgene Schichten liegen, die nichtlineare Transformationen der Eingabedaten durchführen, so dass das \ac{MLP}-Modell komplexe Beziehungen zwischen Objektmerkmalen und Klassen erfassen kann. 
 Jedes Neuron im \ac{MLP} nimmt als Eingabe die gewichtete Summe der Neuronenausgaben der vorherigen Schicht, fügt eine Vorspannung hinzu und durchläuft dann eine Aktivierungsfunktion. 
 Die Aktivierungsfunktion wird verwendet, um dem \ac{MLP} Nichtlinearität hinzuzufügen und kann z. B. sigmoid-Funktion oder ReLU sein.
-Beim \ac{MLP}-Training mit Gradientenabstieg werden die Gewichte und Vorspannungen der Neuronen bei jeder Trainingsiteration aktualisiert, wobei der Wert der Verlustfunktion minimiert wird.\\\\
+Beim \ac{MLP}-Training mit Gradientenabstieg werden die Gewichte und Vorspannungen der Neuronen bei jeder Trainingsiteration aktualisiert, wobei der Wert der Verlustfunktion minimiert wird. (QUELLE "Hands-On Machine Learning with Scikit-Learn, Keras, and TensorFlow" by Aurélien Géron)\\\\
 Die kategoriale Kreuzentropie ist eine Verlustfunktion, die für die Klassifizierung mehrerer Klassen verwendet wird und die Diskrepanz zwischen den wahren Klassenbezeichnungen und den vorhergesagten Klassenwahrscheinlichkeiten misst. 
-Daher kann \ac{MLP} nach dem Training zur Klassifizierung neuer Objekte verwendet werden, indem die Objektmerkmale durch \ac{MLP} geleitet werden und die Ausgabewahrscheinlichkeiten für jede Klasse ermittelt werden und dann die Klasse mit der höchsten Wahrscheinlichkeit als vorhergesagte Klassenbezeichnung ausgewählt wird.\\\\
+Daher kann \ac{MLP} nach dem Training zur Klassifizierung neuer Objekte verwendet werden, indem die Objektmerkmale durch \ac{MLP} geleitet werden und die Ausgabewahrscheinlichkeiten für jede Klasse ermittelt werden und dann die Klasse mit der höchsten Wahrscheinlichkeit als vorhergesagte Klassenbezeichnung ausgewählt wird. (QUELLE "Neural Networks and Deep Learning: A Textbook" by Charu Aggarwal)\\\\
 Die Theorie hinter der kategorialen Kreuzentropie ist die Informationstheorie und die Messung der Unsicherheit. 
 Angenommen, es gibt ein System, das mit einem probabilistischen Modell beschreiben werden muss. 
 Dieses System habe N mögliche Ergebnisse, die jeweils mit den Wahrscheinlichkeiten $p_{1}$, $p_{2}$, ..., $p_{N}$ auftreten können, wobei $\sum_i p_i = 1$ und $p_i\geq0$ für i = 1, 2, ..., N. 
@@ -752,9 +755,9 @@ Wenn die kategoriale Kreuzentropie als Verlustfunktion für ein Mehrklassen-Klas
 Je unsicherer der Modellausgabevektor für ein bestimmtes Beispiel ist, desto höher ist der Wert der kategorialen Kreuzentropie. 
 Umgekehrt ist der Wert der kategorialen Kreuzentropie gleich Null, wenn das Modell eine Klasse für ein bestimmtes Beispiel genau vorhersagt.
 Beim Training von Klassifizierungsmodellen für Aufgaben des maschinellen Lernens mit mehreren Klassen wird daher versucht, den Wert der kategorialen Kreuzentropie zwischen dem Ausgabevektor des Modells und der richtigen Klasse für jedes Eingabebeispiel zu minimieren. 
-Zu diesem Zweck wird ein Optimierungsverfahren verwendet, z. B. den Gradientenabstieg, um die Gewichte und Verzerrungen des Modells bei jeder Trainingsiteration zu aktualisieren.\\\\
+Zu diesem Zweck wird ein Optimierungsverfahren verwendet, z. B. den Gradientenabstieg, um die Gewichte und Verzerrungen des Modells bei jeder Trainingsiteration zu aktualisieren. (QUELLE "Python Machine Learning" by Sebastian Raschka and Vahid Mirjalili)\\\\
 In Keras kann die kategoriale Kreuzentropie als Verlustfunktion für verschiedene Modelltypen wie mehrschichtige Perzeptronen, faltungsneuronale Netze und rekurrente neuronale Netze verwendet werden. 
-Es handelt sich um eine Standardverlustfunktion für Mehrklassen-Klassifizierungsprobleme. 
+Es handelt sich um eine Standardverlustfunktion für Mehrklassen-Klassifizierungsprobleme. (QUELLE "Hands-On Machine Learning with Scikit-Learn, Keras, and TensorFlow" by Aurélien Géron)
 Bei der Verwendung der kategorialen Kreuzentropie in Keras können auch verschiedene Parameter wie Klassengewichte und Modellbewertungsmetriken angepasst werden, um genauere Klassifizierungsergebnisse zu erhalten. 
 Somit ist die kategoriale Kreuzentropie ein wichtiges Werkzeug beim maschinellen Lernen zur Lösung von Klassifizierungsproblemen mit mehreren Klassen. 
 Ihre Verwendung ermöglicht es, Modelle zu trainieren, die Eingabebeispiele genau klassifizieren und eine hohe Genauigkeit bei Klassifizierungsaufgaben erreichen können.
