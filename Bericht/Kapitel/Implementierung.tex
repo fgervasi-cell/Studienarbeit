@@ -54,10 +54,63 @@ In der Regel werden mehrere versteckte Schichten zwischen der Eingabe- und der A
 In diesem Fall besteht das Modell aus drei Schichten: Die erste Schicht enthält 128 Neuronen, die zweite Schicht 64 Neuronen und die dritte Schicht (Ausgabeschicht) enthält die Anzahl der Neuronen, die der Anzahl der Klassen (Absichten) entspricht. 
 Für die Aktivierung der Neuronen in den ersten beiden versteckten Schichten wird die Aktivierungsfunktion \ac{ReLU} verwendet, für die Aktivierung der Neuronen in der Ausgabeschicht wird die Funktion Softmax verwendet, um die Zugehörigkeitswahrscheinlichkeiten der Eingabebeispiele zu jeder Klasse zu erhalten.\\\\
 Als Verlustfunktion wird kategoriale Kreuzentropie (categorical\_crossentropy) verwendet, die Standardverlustfunktion für Mehrklassen-Klassifizierungsaufgaben in Keras. 
-Der Optimierer, der zum Trainieren des Modells verwendet wird, ist der stochastische Gradientenabstieg mit beschleunigtem Nesterov-Gradienten (SGD mit beschleunigtem Nesterov-Gradienten), der ein schnelleres Lernen und eine höhere Genauigkeit bei Klassifizierungsaufgaben ermöglicht. Der gesamte Quelltext für das Klassifierzierungsmodell lässt sich in Anhang \ref{Anhang_E} finden.\\\\
+Der Optimierer, der zum Trainieren des Modells verwendet wird, ist der stochastische Gradientenabstieg mit beschleunigtem Nesterov-Gradienten (SGD mit beschleunigtem Nesterov-Gradienten), der ein schnelleres Lernen und eine höhere Genauigkeit bei Klassifizierungsaufgaben ermöglicht. 
+Der gesamte Quellcode für das Klassifierzierungsmodell lässt sich in Anhang \ref{Anhang_E} finden.\\\\
 Nachdem das Modell trainiert wurde, wird das Ganze in ein Numpy-Array umgewandelt und als \textit{dialog\_model.h5} gespeichert und kann für den Dialog mit der Getränkemischmaschine verwendet werden.
 \subsection{Implementierung des Dialogsystems}
+Für die Implementierung des Dialogsystems müssen zunächst die notwendigen Bibliotheken und Werkzeuge importiert werden: `nltk', `nltk(`punkt')', `nltk(`wordnet')', `pickle', `json', `numpy', `random' und `re' (das Modul für reguläre Ausdrücke), sowie doe Methode `load\_model' vom `keras.models'.
+Dann werden das trainierte Modell, die Patternsdatei und das Vokabular für das Modell von der Festplatte geladen. 
+Die Funktion `load\_model' von Keras wird verwendet, um ein trainiertes neuronales Netzwerkmodell aus einer .h5-Datei zu laden. 
+Die Datei `patterns.json' enthält vordefinierte Intents und die entsprechenden Antworten, während die Dateien `words\_for\_pattern.pkl' und `model\_classes.pkl' Vokabular- und Klasseninformationen für das Modell enthalten.
+Wie aus dem Quellcode in Anhang \ref{Anhang_E} hervorgeht, besteht die Antwortgenerierung der Getränkemischmaschine aus den folgenden Methoden:
+\begin{itemize}
+    \item `get\_response(msg)': Zurückgabe der Antwort und der extrahierten Behälterwerte.
+    \item `get\_dialog\_response(ints, intents\_json)': Antwortgenerierung.
+    \item `predict\_class(sentence, model)': Voraussage der Klasse des Satzes.
+    \item `bow(sentence, words)': Erstellung einer \ac{BOW}-Darstellung des Satzes.
+    \item `clean\_up\_sentence(sentence)': Tokenisierung und Lemmatisierung der Eingabezeichenkette.
+\end{itemize}
+\lstinputlisting[language=python, style=algoBericht, label={cleanup}, basicstyle=\tiny\sffamily, captionpos=b, caption={Preprocessing des Satzes}]{./Listings/cleanup.py}
+Listing \ref{cleanup} zeigt, dass die `clean\_up\_sentence' Methode einen Satz als Eingabe nimmt und folgende Operationen durchführt: 
+Sie tokenisiert den Satz mit der Methode Methode `nltk.word\_tokenize', lemmatisiert jedes Wort (wandelt es in seine Grundform um) mit dem WordNetLemmatizer von \ac{NLTK}, wandelt alle Wörter in Kleinbuchstaben um und gibt eine Liste der bereinigten Wörter zurück.\\
+\lstinputlisting[language=python, style=algoBericht, label={bow}, basicstyle=\tiny\sffamily, captionpos=b, caption={Erstellung der \ac{BOW}-Darstellung}]{./Listings/bow.py}
+Die `bow' Methode aus \ref{bow} nimmt einen bereinigten Satz und eine Liste von Wörtern als Eingabe. 
+Sie erstellt eine \ac{BOW}-Darstellung des Satzes, wobei jedes Element im Bag angibt, ob ein bestimmtes Wort aus der Wortliste im Satz vorkommt oder nicht. 
+Im Einzelnen führt sie folgende Operationen durch: 
+Sie initialisiert ein Array bag mit Nullen, dessen Länge der Länge der Wortliste entspricht; für jedes Wort im bereinigten Satz durchläuft sie die Wortliste und setzt das entsprechende Element in bag auf 1, wenn das Wort aus der Liste mit diesem Wort übereinstimmt, und gibt am Ende das resultierende Array bag zurück.\\
+\lstinputlisting[language=python, style=algoBericht, label={predict_class}, basicstyle=\tiny\sffamily, captionpos=b, caption={Voraussage der Klasse}]{./Listings/predict_class.py}
+Wie Listing \ref{predict_class} zeigt, Die `predict\_class' Methode einen Satz und ein zuvor trainiertes Modell als Eingabe nimmt. 
+Sie verwendet das Modell, um die Klasse des Satzes (d. h. die Intent dahinter) auf der Grundlage der \ac{BOW}-Darstellung vorherzusagen. 
+Es gibt eine Liste von Wörterbüchern zurück, wobei jedes Wörterbuch die vorhergesagte Absicht und die entsprechende Wahrscheinlichkeit enthält.
+Es verwendet einen `ERROR\_THRESHOLD'-Wert von 0,75, um Vorhersagen mit niedrigen Wahrscheinlichkeiten herauszufiltern.\\
+\lstinputlisting[language=python, style=algoBericht, label={get_dialog_response}, basicstyle=\tiny\sffamily, captionpos=b, caption={Antwortgenerierung}]{./Listings/get_dialog_response.py}
+Die `get\_dialog\_response' Methode (\ref{get_dialog_response}) nimmt die Liste der vorhergesagten Intents und das intents\_json-Verzeichnis als Eingabe. 
+Sie verwendet die vorhergesagte Intent, um eine Liste möglicher Antworten aus dem intents\_json-Verzeichnis abzurufen. 
+Anschließend wählt sie eine zufällige Antwort aus der Liste aus und gibt sie zurück.\\
+\lstinputlisting[language=python, style=algoBericht, label={get_response}, basicstyle=\tiny\sffamily, captionpos=b, caption={Antwortrückgabe}]{./Listings/get_response.py}
+Wie Listing \ref{get_response} zeigt, nimmt die `get\_response' Methode schließlich eine Nachricht als Eingabe. 
+Sie verwendet die `predict\_class' Methode , um die Intent der Nachricht vorherzusagen, und verwendet dann die `get\_dialog\_response' Methode, um eine Antwort für diese Intent zu erhalten. 
+Wenn die vorhergesagte Intent \glqq{}Bestellung\grqq{} ist, wird auch die Befehlverarbeiungsmethode aufgerufen, um numerische Werte aus der Nachricht zu extrahieren. 
+Anschließend wird die Antwort zusammen mit den numerischen Werten (falls vorhanden) zurückgegeben.
 \subsection{Implementierung der Befehlverarbeitung}
+Wie Listing \ref{get_response} zeigt, Wenn die Intent \glqq{}Bestellung\grqq{} vorhergesagt wurde, wird auch die Befehlverarbeiungsmethode `parce\_line' aufgerufen, um einen Prozentwert für jeden Behälter zurückzugeben.\\
+\lstinputlisting[language=python, style=algoBericht, label={befehle}, basicstyle=\tiny\sffamily, captionpos=b, caption={Befehlverarbeitung}]{./Listings/befehle.py}
+Listing \ref{get_response} zeigt wie die `parse\_line' Methode aufgebaut ist. 
+Die Methode nimmt eine String-Zeile als Eingabe und extrahiert daraus die mit jedem Behälter verbundenen Prozentsätze. 
+Die Methode geht davon aus, dass die Eingabezeichenkette ein bestimmtes Format hat, in dem die Prozentsätze für jeden Behälter in einer bestimmten Reihenfolge stehen (siehe Übergangsdiagramm \ref{figure:Uebergangsdiagram_Befehle} im Konzept-Kapitel \ref{sec:befehlverarbeitung_konzept}).\\\\
+Die Methode verwendet die in der Python-Bibliothek integrierten Funktionen `split()' und `isdigit()', um die erforderlichen Informationen aus der Eingabezeichenfolge zu extrahieren. 
+Die Methode `split()' wird verwendet, um die Eingabezeichenfolge in einzelne Wörter zu zerlegen, und die Methode `isdigit()' wird verwendet, um zu prüfen, ob ein Wort eine Ziffer ist. 
+Mithilfe von `re' Bibliothek werden auch alle Sonderzeichen entfernt, die potenziell vorkommen können: die Methode `re.sub()' aus dem `re' Modul wird verwendet, um alle Vorkommen eines Kommas, eines Ausrufezeichens, eines Punktes oder eines Fragezeichens durch eine leere Zeichenkette '' zu ersetzen. 
+Der reguläre Ausdruck `[,.!?]' innerhalb der `sub()'-Funktion passt auf jedes einzelne Zeichen, das entweder ein Komma, ein Ausrufezeichen, ein Fragezeichen oder ein Punkt ist.\\\\
+Im Einzelnen führt sie folgende Operationen durch: 
+Sie initialisiert ein Array mit vier Elementen, wobei jedes Element auf 0 initialisiert ist. 
+Danach wird über die Wortliste mit einer for-Schleife iteriert und geprüft, ob das Wort am aktuellen Index gleich der Zeichenkette \glqq{}Behaelter\grqq{} oder \glqq{}Reservoir\grqq{} ist.
+Wenn das Wort \glqq{}Behaelter\grqq{} oder \glqq{}Reservoir\grqq{} ist, iteriert die Methode über die Wörter nach dem aktuellen Index mit einer weiteren for-Schleife und prüft mit der Methode isdigit(), ob das Wort am aktuellen Index x eine Ziffer ist.
+Wenn das der Fall ist, wird diese Zahl als Behälter Index betrachtet. Danach wird ab dem Wort Behälter mit einer weiteren for-Schleife zurückiteriert, bis noch eine Zahl getroffen wird, die die Prozentzahl eines Getränks für den Behälter mit aktuellem Index darstellt.
+Diese Zahl wird in der Reservoirs-Liste bei dem Index des aktuellen Behälter gespeichert. 
+Die Methode endet, wenn über alle Wörter der Liste iteriert wurde.\\\\
+Die Methode gibt ein Tupel von vier ganzen Zahlen zurück, wobei jede ganze Zahl den mit jedem Behälter verbundenen Prozentsatz darstellt. 
+Wenn ein Behälter in der Eingabezeichenkette nicht erwähnt wird, gibt die Methode 0 als Prozentsatz für diesen Behälter zurück.
 \section{Implementierung der Sprachsteuerung}
 Im Folgenden wird erläutert, wie die Sprachsteuerung für die Getränkemischmaschine implementiert wurde und welche Technologien dafür zum Einsatz kamen. Dabei wird zunächst auf die Spracherkennung d.h., die Umwandlung der Audiosignale (Sprachbefehl des Benutzers) in eine Form, die innerhalb des Quelltextes weiterverarbeitet werden kann, eingegangen (s. Abschnitt \ref{section:Spracherkennung}). Danach wird die Anbindung des Sprachverarbeitungssystems beschrieben, dessen Implementierung in Abschnitt \ref{section:Implementierung_Sprachverarbeitung} erklärt wird. Abschließend wird die Kommunikation mit der Mischmaschine über den Arduino illustriert (s. Abschnitt \ref{section:Befehlsverarbeitung}).
 \subsection{Spracherkennung}\label{section:Spracherkennung}
