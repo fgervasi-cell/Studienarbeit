@@ -249,12 +249,10 @@ Jedes Dokument in einem K-dimensionalen Vektorraum kann durch einen K-dimensiona
 Wenn es Vektorrepräsentationen für alle Dokumente im gleichen Raum gibt, dann ist es möglich, sie zu vergleichen. 
 Der euklidische Abstand zwischen Vektoren kann gemessen werden, indem sie subtrahiert werden und die Länge des Abstands zwischen ihnen berechnet wird, den sogenannten Abstand im Sinne der L2-Norm (L2-Metrik). 
 Dies ist der Abstand auf einer geraden Linie von dem Ort, der durch die Spitze (Scheitelpunkt) des einen Vektors gegeben ist, zu dem Ort, der der Spitze des anderen Vektors entspricht.
-\begin{figure}[H]
-    \centering
-    \fbox{\includegraphics[width=0.6\textwidth]{Bilder_Stand_der_Technik/l2.png}}
-    \caption{\label{figure:euklidische_Norm}Euklidische Norm}
-\end{figure}
-\noindent
+\begin{equation}
+    d(p, q) = ||q-p||_2 = \sqrt{(q_1 - p_1)^2 + ... + (q_n - p_n)^2} = \sqrt{\sum_{i=1}^{n} (q_i - p_i)^2}
+    \eqlabel{eu-norm}{Euklidische Norm}
+\end{equation}
 Der Ochiai-Koeffizient (Kosinuskoeffizient) ist ein Maß für die Ähnlichkeit zwischen zwei Multisets. 
 Der Ochiai-Koeffizient kann verwendet werden, um den Grad der Ähnlichkeit zwischen zwei Dokumenten auf der Grundlage ihrer Wort-Multisets zu bestimmen. 
 Er ist einfach der Kosinus des Winkels zwischen zwei Vektoren (Theta).
@@ -265,18 +263,14 @@ Er ist einfach der Kosinus des Winkels zwischen zwei Vektoren (Theta).
 \end{figure}
 \noindent
 Er kann mithilfe des euklidischen Skalarprodukts nach folgender Formel berechnet werden:
-\begin{figure}[H]
-    \centering
-    \fbox{\includegraphics[width=0.2\textwidth]{Bilder_Stand_der_Technik/euk_dot_prod.png}}
-    \caption{\label{figure:Euklidisches_Skalarprodukt}Euklidisches Skalarprodukt}
-\end{figure}
-\noindent
-\begin{figure}[H]
-    \centering
-    \fbox{\includegraphics[width=0.6\textwidth]{Bilder_Stand_der_Technik/ochiai_koef.png}}
-    \caption{\label{figure:Ochiai_Koeffizient}Ochiai-Koeffizient}
-\end{figure}
-\noindent
+\begin{equation}
+    A \cdot B = ||A||\: ||B||\: cos\, \theta
+    \eqlabel{eu-skal-prod}{Euklidisches Skalarprodukt}
+\end{equation}
+\begin{equation}
+    cosine\: similarity = S_c(A, B) := cos( \theta) = \frac{A \cdot B}{||A||\: ||B||} =  \frac{\sum_{i=1}^{n} (A_i\: B_i)}{ \sqrt{\sum_{i=1}^{n} A_i^2}\: \sqrt{\sum_{i=1}^{n} B_i^2}}
+    \eqlabel{och-coef}{Ochiai-Koeffizient}
+\end{equation}
 Das Skalarprodukt zweier Vektoren kann also berechnet werden, indem die Elemente der Vektoren paarweise multipliziert und dann die Ergebnisse addiert werden. 
 Anschließend wird das Ergebnis durch die Norm jedes Vektors dividiert. 
 Die Norm eines Vektors ist gleich dem euklidischen Abstand zwischen seinem Kopf und seinem Ende - der Quadratwurzel aus der Summe der Quadrate seiner Elemente. 
