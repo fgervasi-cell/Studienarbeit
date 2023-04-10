@@ -183,3 +183,65 @@ Validierung:
 + Entspricht das Ergebnis den Erwartungen?
 
 Fazit und Ausblick:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Hardware (Ziel: 10 Seiten
++ Arduino
+	- Allgemeines
+		+ Firma
+			- Gründung:
+			- Designt und baut die Hardware (Mikrocontroller und die Boards dafür) -> was ist ein "Board"?
+			- Entwickelt die nötige Software für den Umgang mit Arduino Hardware (allen voran die Arduino IDE und Sprache)
+			- Stellt Community Plattform bereit für Wissensaustausch
+			- Ziel: Hardwareprogrammierung für alle ermöglichen (auch Menschen die sich nicht professionell mit IT auseinandersetzen)
+			- Deshalb liegt der Fokus auf günstigen Preisen (günstigste Boards für unter 50$) und leichter Bedienbarkeit (bspw. durch "Bundles" die darauf ausgelegt sind kleine Projekte umzusetzen)
+			- Arduino stellt zu diesem Zweck auch viele Lernmaterialien bereit, die bspw. von Lehrkräften verwendet werden können
+			- Arduino-IDE kann auf allen gängigen Betriebssystemen verwendet werden was es sehr flexibel und gut für Einsteiger macht, da sie ihre gewohnte Umgebung verwenden können (Windows, Mac, Linux)
+			- Pläne für die Arduino-Boards werden unter der Creative Commons Lizenz veröffentlicht sodass sie von anderen nachgebaut oder erweitert werden können
+			- Arduino-Cloud:
+		+ Nachahmungen
+		+ Unterschiedliche Modelle
+			- Was hat es mit den "Shields" auf sich?
+			- Können verwendet werden um die Basisfunktionalität eines Arduino-Boards zu erweitern (?)
+			- Was ist in einem Arduino-Board eingebaut? Internet (WLAN-Chip, Ethernet-Anschluss)? Soundkarte?
+	- Arduino-Programmierung
+		+ Arduino-IDE
+			- Für verscheidene Plattformen erhältlich
+			- Kostenlos und open-source
+			- Angelehnt an gängige IDEs aber für Arduino-Programmierung optimiert
+			- Erkennt automatisch angeschlossene Boards
+			- Code hochladen per Knopfdruck
+			- Verwaltung von dazugeladenen C++-Bibliotheken etc.
+			- Bild von IDE einfügen?
+			- Gibt auch eine online IDE
+		+ Arduino-Sprache
+			- Angelehnt an...
+			- Erweiterbar durch eigene C++ Bibliotheken
+		+ Wichtige Sprachelemente (bspw. Serial)
+		+ Wie wird programmiert?
+			- Über USB-Kabel Programmcode hochladen
+			- Wird solange ausgeführt wie der Arduino mit Strom versorgt ist
+			- Manche Modelle haben eingebauten Hardware-Debugger
+			- Aufbau eines Arduino-Programms
+	- Elegoo Mega 2560 R3
+		- Schnittstellen
+		- Unterschiede zum "Original"
++ Nextion
+	- Allgemeines
+		+ Firma
+		+ Angebot (Modelle etc.)
+	- Welches Display wird hier konkret verwendet und wie benutzt man es? Was kann es?
+	- Wie kann das Display programmiert werden? (auf die eingebundene Bibliothek eingehen für Arduino)
++ Raspberry Pi
