@@ -238,6 +238,8 @@ Hardware (Ziel: 10 Seiten
 	- Elegoo Mega 2560 R3
 		- Schnittstellen
 		- Unterschiede zum "Original"
+		- Wieviele digitale Pins und wieviele analoge Pins (wo kommen die analogen Pins bei diesem Projekt zum Einsatz > Wasserstand!)?
+		- Wieviele serielle Pins? usw.
 + Nextion
 	- Allgemeines
 		+ Firma

@@ -33,13 +33,13 @@ Die Arduino-Programmiersprache ist angelehnt an \textit{Wiring} \cite{wiring} un
 \lstinputlisting[language=c++, style=algoBericht, label={arduino_example}, basicstyle=\tiny\sffamily, captionpos=b, caption={Aufbau eines Arduino-Programms}]{./Listings/example.ino}
 Die Arduino-Sprache stellt einige Sprachelemente bereit, die den Umgang mit der zugrundeligenden Hardware ermöglichen und erleichtern. Mit Sprachelementen sind sowohl innerhalb des Codes zugreifbare, globale Funktionen als auch Objekte gemeint. Abgesehen von \textit{setup} und \textit{loop} sind die wichtigsten Sprachelemente \cite{arduino_language}: 
 \begin{itemize}
-    \item \textit{digitalRead()} und \textit{digitalWrite()}:
-    \item \textit{pinMode()}:
-    \item \textit{analogRead()} und \textit{analogWrite()}:
-    \item \textit{delay()}:
-    \item \textit{Serial}:
     \item \textit{HIGH} und \textit{LOW}:
     \item \textit{INPUT} und \textit{OUTPUT}:
+    \item \textit{digitalRead(pin)} und \textit{digitalWrite(pin, value)}: Wird verwendet um einen der digitalen Ein-/Ausgabe-Pins des Arduinos zu Lesen oder zu Schreiben. Dabei können nur die Werte 0 oder 1 bzw. \textit{LOW} oder \textit{HIGH} gelesen und geschrieben werden. Das Argument \textit{pin} bezieht sich auf die Nummer des Pins, auf den zugegriffen werden soll.
+    \item \textit{pinMode(pin, mode)}: Diese Funktion wird meist in der \textit{setup} Routine eines Arduino-Programms verwendet und registriert einen bestimmten Pin als \textit{INPUT} oder als \textit{OUTPUT} Pin, d.h. als Pin, der entweder lesend oder schreibend zugegriffen wird.
+    \item \textit{analogRead(pin)} und \textit{analogWrite(pin, value)}: Diese beiden Funktionen können, im Gegensatz zu \textit{digitalRead} und \textit{digitalWrite}, verwendet werden um analoge Werte, d.h. Werte die in einem bestimmten Bereich liegen und sich von 0 und 1 unterscheiden können, zu lesen und zu schreiben. \textit{pin} bezeiht sich hierbei auf die Nummer eines der analogen Pins des Arduino-Mikrocontrollers. Die verfügbare Auflösung ist von Modell zu Modell unterschiedlich. Die Auflösung bestimmt die Größe des Wertebereichs (?)...
+    \item \textit{delay(ms)}: Verzögert die Ausführung des Programms um \textit{ms} Millisekunden.
+    \item \textit{Serial}:
 \end{itemize}
 \subsubsection{Elegoo Mega 2560 R3}
 Bei dem \textit{Elegoo Mega 2560 R3} handelt es sich um eine Nachahmung des Arduino Mega 2560 R3. Der \textit{Elegoo Mega 2560 R3} ist der, in der Mischmaschine eingebaute, Mikrocontroller und soll im Folgenden kurz vorgestellt werden.
