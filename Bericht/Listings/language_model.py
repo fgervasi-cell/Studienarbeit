@@ -22,7 +22,7 @@ def parse_line(line):
     line = re.sub(r'[,.!?]', '', line)
     words = line.split()
     for i in range(len(words)):
-        if words[i] == 'Behaelter' or words[i] == 'Behälter' or words[i] == 'Reservoir':
+        if words[i] == 'Behaelter' or words[i] == 'Reservoir':
             for x in range(i+1, len(words)):
                 if words[x].isdigit():
                     index = int(words[x]) - 1
