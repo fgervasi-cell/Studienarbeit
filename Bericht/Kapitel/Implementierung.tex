@@ -90,9 +90,27 @@ Anschließend wählt sie eine zufällige Antwort aus der Liste aus und gibt sie 
 \lstinputlisting[language=python, style=algoBericht, label={get_response}, basicstyle=\tiny\sffamily, captionpos=b, caption={Antwortrückgabe}]{./Listings/get_response.py}
 Wie Listing \ref{get_response} zeigt, nimmt die `get\_response' Methode schließlich eine Nachricht als Eingabe. 
 Sie verwendet die `predict\_class' Methode , um die Intent der Nachricht vorherzusagen, und verwendet dann die `get\_dialog\_response' Methode, um eine Antwort für diese Intent zu erhalten. 
-Wenn die vorhergesagte Intent " Bestellung" ist, wird auch die Befehlverarbeiungsmethode aufgerufen, um numerische Werte aus der Nachricht zu extrahieren. 
+Wenn die vorhergesagte Intent \glqq{}Bestellung\grqq{} ist, wird auch die Befehlverarbeiungsmethode aufgerufen, um numerische Werte aus der Nachricht zu extrahieren. 
 Anschließend wird die Antwort zusammen mit den numerischen Werten (falls vorhanden) zurückgegeben.
 \subsection{Implementierung der Befehlverarbeitung}
+Wie Listing \ref{get_response} zeigt, Wenn die Intent \glqq{}Bestellung\grqq{} vorhergesagt wurde, wird auch die Befehlverarbeiungsmethode `parce\_line' aufgerufen, um einen Prozentwert für jeden Behälter zurückzugeben.\\
+\lstinputlisting[language=python, style=algoBericht, label={befehle}, basicstyle=\tiny\sffamily, captionpos=b, caption={Befehlverarbeitung}]{./Listings/befehle.py}
+Listing \ref{get_response} zeigt wie die `parse\_line' Methode aufgebaut ist. 
+Die Methode nimmt eine String-Zeile als Eingabe und extrahiert daraus die mit jedem Behälter verbundenen Prozentsätze. 
+Die Methode geht davon aus, dass die Eingabezeichenkette ein bestimmtes Format hat, in dem die Prozentsätze für jeden Behälter in einer bestimmten Reihenfolge stehen (siehe Übergangsdiagramm \ref{figure:Uebergangsdiagram_Befehle} im Konzept-Kapitel \ref{sec:befehlverarbeitung_konzept}).\\\\
+Die Methode verwendet die in der Python-Bibliothek integrierten Funktionen `split()' und `isdigit()', um die erforderlichen Informationen aus der Eingabezeichenfolge zu extrahieren. 
+Die Methode `split()' wird verwendet, um die Eingabezeichenfolge in einzelne Wörter zu zerlegen, und die Methode `isdigit()' wird verwendet, um zu prüfen, ob ein Wort eine Ziffer ist. 
+Mithilfe von `re' Bibliothek werden auch alle Sonderzeichen entfernt, die potenziell vorkommen können: die Methode `re.sub()' aus dem `re' Modul wird verwendet, um alle Vorkommen eines Kommas, eines Ausrufezeichens, eines Punktes oder eines Fragezeichens durch eine leere Zeichenkette '' zu ersetzen. 
+Der reguläre Ausdruck `[,.!?]' innerhalb der `sub()'-Funktion passt auf jedes einzelne Zeichen, das entweder ein Komma, ein Ausrufezeichen, ein Fragezeichen oder ein Punkt ist.\\\\
+Im Einzelnen führt sie folgende Operationen durch: 
+Sie initialisiert ein Array mit vier Elementen, wobei jedes Element auf 0 initialisiert ist. 
+Danach wird über die Wortliste mit einer for-Schleife iteriert und geprüft, ob das Wort am aktuellen Index gleich der Zeichenkette \glqq{}Behaelter\grqq{} oder \glqq{}Reservoir\grqq{} ist.
+Wenn das Wort \glqq{}Behaelter\grqq{} oder \glqq{}Reservoir\grqq{} ist, iteriert die Methode über die Wörter nach dem aktuellen Index mit einer weiteren for-Schleife und prüft mit der Methode isdigit(), ob das Wort am aktuellen Index x eine Ziffer ist.
+Wenn das der Fall ist, wird diese Zahl als Behälter Index betrachtet. Danach wird ab dem Wort Behälter mit einer weiteren for-Schleife zurückiteriert, bis noch eine Zahl getroffen wird, die die Prozentzahl eines Getränks für den Behälter mit aktuellem Index darstellt.
+Diese Zahl wird in der Reservoirs-Liste bei dem Index des aktuellen Behälter gespeichert. 
+Die Methode endet, wenn über alle Wörter der Liste iteriert wurde.\\\\
+Die Methode gibt ein Tupel von vier ganzen Zahlen zurück, wobei jede ganze Zahl den mit jedem Behälter verbundenen Prozentsatz darstellt. 
+Wenn ein Behälter in der Eingabezeichenkette nicht erwähnt wird, gibt die Methode 0 als Prozentsatz für diesen Behälter zurück.
 \section{Implementierung der Sprachsteuerung}
 Im Folgenden wird erläutert, wie die Sprachsteuerung für die Getränkemischmaschine implementiert wurde und welche Technologien dafür zum Einsatz kamen. Dabei wird zunächst auf die Spracherkennung d.h., die Umwandlung der Audiosignale (Sprachbefehl des Benutzers) in eine Form, die innerhalb des Quelltextes weiterverarbeitet werden kann, eingegangen (s. Abschnitt \ref{section:Spracherkennung}). Danach wird die Anbindung des Sprachverarbeitungssystems beschrieben, dessen Implementierung in Abschnitt \ref{section:Implementierung_Sprachverarbeitung} erklärt wird. Abschließend wird die Kommunikation mit der Mischmaschine über den Arduino illustriert (s. Abschnitt \ref{section:Befehlsverarbeitung}).
 \subsection{Spracherkennung}\label{section:Spracherkennung}
