@@ -240,10 +240,14 @@ Hardware (Ziel: 10 Seiten
 		- Unterschiede zum "Original"
 		- Wieviele digitale Pins und wieviele analoge Pins (wo kommen die analogen Pins bei diesem Projekt zum Einsatz > Wasserstand!)?
 		- Wieviele serielle Pins? usw.
+		- Welche Pins benutzen die Pumpen?
 + Nextion
 	- Allgemeines
 		+ Firma
 		+ Angebot (Modelle etc.)
+		+ Wodurch unterscheiden sich die verschiedenen Modellreihen?
 	- Welches Display wird hier konkret verwendet und wie benutzt man es? Was kann es?
+	- Zu welcher Modellreihe gehört es?
 	- Wie kann das Display programmiert werden? (auf die eingebundene Bibliothek eingehen für Arduino)
+	- Nextion-Editor und eigene Programmiersprache (?)
 + Raspberry Pi
