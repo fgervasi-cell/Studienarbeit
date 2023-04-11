@@ -250,4 +250,5 @@ Hardware (Ziel: 10 Seiten
 	- Zu welcher Modellreihe gehört es?
 	- Wie kann das Display programmiert werden? (auf die eingebundene Bibliothek eingehen für Arduino)
 	- Nextion-Editor und eigene Programmiersprache (?)
+	- Auf den Arduino-Code eingehen: welche Nextion-spezifischen Funktionen etc. wurden verwendet?
 + Raspberry Pi
