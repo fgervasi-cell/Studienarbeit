@@ -35,7 +35,7 @@ while True:
         asound.snd_lib_error_set_handler(None)
         text = ""
         try:
-                recognized_text = r.recognize_whisper(audio, language="german", model="tiny")
+                recognized_text = r.recognize_whisper(audio, language="german", model="tiny") #*\label{code:start_time}*)
                 text = recognized_text
                 print("Recognized text: " + text)
         except sr.UnknownValueError:
@@ -48,7 +48,7 @@ while True:
                 answer, cmd = language_model.get_response(text) #*\label{code:real_model}*)
                 engine.say(answer)
                 engine.runAndWait()
-                engine.stop()
+                engine.stop() #*\label{code:end_time}*)
 
                 ser.write(cmd.encode("utf-8"))
                 serial_answer = ser.readline().decode("utf-8").rstrip()
