@@ -73,7 +73,7 @@ Wie aus dem Quellcode in Anhang \ref{Anhang_E} hervorgeht, besteht die Antwortge
 \lstinputlisting[language=python, style=algoBericht, label={cleanup}, basicstyle=\tiny\sffamily, captionpos=b, caption={Preprocessing des Satzes}]{./Listings/cleanup.py}
 Listing \ref{cleanup} zeigt, dass die `clean\_up\_sentence' Methode einen Satz als Eingabe nimmt und folgende Operationen durchführt: 
 Sie tokenisiert den Satz mit der Methode `nltk.word\_tokenize', lemmatisiert jedes Wort (wandelt es in seine Grundform um) mit dem \textit{WordNetLemmatizer} von \ac{NLTK}, wandelt alle Wörter in Kleinbuchstaben um und gibt eine Liste der bereinigten Wörter zurück.\\
-\lstinputlisting[language=python, style=algoBericht, label={bow}, basicstyle=\tiny\sffamily, captionpos=b, caption={Erstellung der \ac{BOW}-Darstellung}]{./Listings/bow.py}
+\lstinputlisting[language=python, style=algoBericht, label={bow}, basicstyle=\tiny\sffamily, captionpos=b, caption={Erstellung der BOW-Darstellung}]{./Listings/bow.py}
 Die `bow' Methode aus \ref{bow} nimmt einen bereinigten Satz und eine Liste von Wörtern als Eingabe. 
 Sie erstellt eine \ac{BOW}-Darstellung des Satzes, wobei jedes Element im Bag angibt, ob ein bestimmtes Wort aus der Wortliste im Satz vorkommt oder nicht. 
 Im Einzelnen führt sie folgende Operationen durch: 

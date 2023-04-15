@@ -279,7 +279,7 @@ Die Häufigkeit des Wortes \glqq Cocktail\grqq{} in Dokument \textnumero 1 betr�
 \begin{figure}[H]
     \centering
     \fbox{\includegraphics[width=0.8\textwidth]{Bilder_Stand_der_Technik/norm_vektoren.png}}
-    \caption{\label{figure:Norm_Vektoren}Normalisierte \ac{TF}-Vektoren}
+    \caption{\label{figure:Norm_Vektoren}Normalisierte TF-Vektoren}
 \end{figure}
 \noindent
 Ebenso ist es möglich, diesen Wert für jedes Wort zu berechnen und die relative Bedeutung dieses Begriffs für jedes Dokument zu ermitteln, woraus sich die Bedeutung jedes Dokuments ableiten lässt. 
@@ -287,7 +287,7 @@ Um die Anzahl der Vorkommen von Wörtern zu ermitteln, kann das Objekt \textit{c
 \begin{figure}[H]
     \centering
     \fbox{\includegraphics[width=0.8\textwidth]{Bilder_Stand_der_Technik/norm_vek_py.png}}
-    \caption{\label{figure:Norm_Vektoren_Python}Normalisierte \ac{TF}-Vektoren mit Python}
+    \caption{\label{figure:Norm_Vektoren_Python}Normalisierte TF-Vektoren mit Python}
 \end{figure}
 \noindent
 Wenn mehr als ein Dokument bearbeitet wird, wird für jedes Dokument ein eigener Häufigkeitsvektor erstellt, der jedoch absolut alle Begriffe aus allen Dokumenten (alle Wörter aus dem Wörterbuch) enthält, auch wenn einige der Wörter nicht in allen Dokumenten vorkommen. 
@@ -429,7 +429,7 @@ Als erstes müssen die normalisierten \ac{TF}-Vektoren jeden Terms berechnet wer
         \hline
         selber                & 0           & 0    & 0.167\\
     \end{tabular}
-    \caption{\label{table:TF_Vektoren}\ac{TF}-Vektoren}
+    \caption{\label{table:TF_Vektoren}TF-Vektoren}
 \end{table}
 \noindent
 Anschließend können die \ac{IDF}-Vektoren für jeden Term (über den gesamten Dokumentenkorpus) berechnet werden:
@@ -468,7 +468,7 @@ Anschließend können die \ac{IDF}-Vektoren für jeden Term (über den gesamten 
         \hline
         selber                & 0.477  \\
     \end{tabular}
-    \caption{\label{table:IDF_Vektoren}\ac{IDF}-Vektoren}
+    \caption{\label{table:IDF_Vektoren}IDF-Vektoren}
 \end{table}
 \noindent
 Jetzt kann mit der Berechnung der \ac{TF-IDF}-Vektoren fortgefahren werden:
@@ -507,7 +507,7 @@ Jetzt kann mit der Berechnung der \ac{TF-IDF}-Vektoren fortgefahren werden:
         \hline
         selber                & 0           & 0    & 0.08\\
     \end{tabular}
-    \caption{\label{table:TFIDF_Vektoren}\ac{TF-IDF}-Vektoren}
+    \caption{\label{table:TFIDF_Vektoren}TF-IDF-Vektoren}
 \end{table}
 \noindent
 Wie aus dem Beispiel ersichtlich, haben Wörter, die in allen Dokumenten vorkommen, wie z.B. \glqq Cocktail\grqq{}, in jedem Dokument den gleichen \ac{TF-IDF}-Wert, Wörter, die in mehr als einem Dokument vorkommen, wie z.B. \glqq zuhause\grqq{}, haben einen niedrigeren \ac{IDF}-Wert als seltene Wörter, wie z.B. \glqq selber\grqq{} oder \glqq{}Rezept\grqq{}, die in den Dokumenten, in denen sie vorkommen, einen hohen \ac{IDF}-Wert und damit einen hohen \ac{TF-IDF}-Wert haben. 
@@ -583,7 +583,7 @@ Eine \ac{SWZ} sieht wie folgt aus \cite{deerwester_indexing_1990}:
 \begin{figure}[H]
     \centering
     \fbox{\includegraphics[width=0.8\textwidth]{Bilder_Stand_der_Technik/matrix_svd.png}}
-    \caption{\label{figure:Matrix_SVD}\ac{SWZ}-Matrize}
+    \caption{\label{figure:Matrix_SVD}SWZ-Matrize}
 \end{figure}
 \noindent
 Wobei m die Anzahl der Begriffe im Wörterbuch, n die Anzahl der Dokumente im Korpus und p die Summe der Themen im Korpus ist, die der Anzahl der Wörter entspricht.\\\\
@@ -618,7 +618,7 @@ Dabei sind $U_{k}$ und $V_{k}$ Matrizen, die durch Extraktion der ersten k Spalt
 \begin{figure}[H]
     \centering
     \fbox{\includegraphics[width=0.8\textwidth]{Bilder_Stand_der_Technik/trun_svd.png}}
-    \caption{\label{figure:Trun_SVD}Trunkierte \ac{SWZ}-Matrize}
+    \caption{\label{figure:Trun_SVD}Trunkierte SWZ-Matrize}
 \end{figure}
 \noindent
 Im latent-semantischen Modell kann also jeder Text und jeder Begriff durch Vektoren in einem reduzierten Raum der Dimension k - dem Themenraum - dargestellt werden. 
@@ -677,7 +677,7 @@ Ein Chatbot, der auf \ac{AIML} basiert, sieht folgendermaßen aus:
 \begin{figure}[H]
     \centering
     \fbox{\includegraphics[width=0.8\textwidth]{Bilder_Stand_der_Technik/aiml_bot.png}}
-    \caption{\label{figure:Aiml_Bot}\ac{AIML} Chatbot}
+    \caption{\label{figure:Aiml_Bot}AIML-Chatbot}
 \end{figure}
 \noindent
 Eine der Einschränkungen von \ac{AIML} ist die Art der Muster, die abgeglichen werden können und auf die reagiert wird. 

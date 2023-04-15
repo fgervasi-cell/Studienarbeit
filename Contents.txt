@@ -65,6 +65,26 @@ Einleitung:
 Stand der Technik: (Sortierung beachten -> wichtigstes (bspw. Getränkemischmaschine) zuerst!)
 
 + Spracherkennung
+	- 1.5, 2.4 Spracherkennung und 11 aus Sprachverarbeitung: Grundlagen und Methoden der Sprachsynthese und Spracherkennung
+	- Sprache zu erkennen stellt Computer vor große Probleme
+	- Silben, Wörter oder Sätze haben keine eindeutigen Identifikationsmerkmale im Sprachsignal!
+	- zwei Ansätze zur Spracherkennung
+		+ Mustervergleich
+			- Extraktion von Merkmalen aus dem Sprachsignal
+			- Vergleichen der Merkmalssequenz mit einer Liste von vordefnierten Merkmalssequenzen und zugehörigen Wörtern/Ausdrücken
+		+ Statistische Spracherkennung
+			- Statistische Beschreibungen für Laute oder Wörter
+	- Spracherkenner muss trainiert werden: für alle Wörter des Vokabulars müssen Sprachsignale aufgenommen und die benötigten Merkmale extrahiert und abgespeichert werden, um einen anschließenden Vergleich zu ermöglichen
+	- Die Aufgabe des Spracherkenners liegt auch in der Lokalisierung von Worten innerhalb des Sprachsignals
+	- Zum Erkennen von Worten können bspw. Sprechpausen verwendet werden, an denen das Audosignal in Wörter zerlegt wird 
+	- Es gibt verschiedene Klassen von Spracherkennungssystemen (OpenAI Whisper ist ein sog. "kontinuierlicher" und "sprecherunabhängiger" Spracherkenner)
+	- Merkmalsextraktion
+		+ Sprechsignale können sich aufgrund vieler verschiedener Einflüsse stark unterscheiden, selbst wenn der selbe Laut oder das selbe Wort gesprochen wurde
+		+ Deshalb ist es nicht sinnvoll die rohen Audiodaten zu Vergleichszwecken zu verwenden sondern aus den Signalen Merkmale zu extrahieren, die diese möglichst gut beschreiben aber nur für die Spracherkennung relevante Informationen enthalten
+		+ Die Merkmale sollten im Gegensatz zum Sprachsignal möglichst konstant sein für einen Laut oder ein bestimmtes Wort
+		+ Mel-Ceptrum
+	- Statistische Spracherkennung
+
 + Sprachmodelle und KI
 + Arduino-Programmierung
 + Getränkemischmaschine
