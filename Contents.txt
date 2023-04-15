@@ -230,6 +230,9 @@ Fazit und Ausblick: (Ziel: 4 Seiten)
 		- KI dient letztlich nur der Klassifizierung der Eingabe und der Merkmalsextraktion (Prozentangaben je Behälter)
 		- Die Spracherkennung erkennt die deutsche Sprache und das Sprachmodell gibt ebenfalls eine deutsche Antwort zurück
 	- Kosten
+		- Raspbery Pi Modell B 4GB liegt bei etwa 70 Euro
+		- Mikrofon:
+		- Lautsprecher:
 	- Verbrauch von Arbeits- und Festplattenspeicher
 		- Es wurde ein kleineres Modell verwendet...
 		- Die 32 GB SD-Karte, die für das Projekt zur Verfügung stand wurde nicht ausgelastet/hat ausgereicht
@@ -244,6 +247,19 @@ Fazit und Ausblick: (Ziel: 4 Seiten)
 	- Zu lange Reaktionszeit
 	- Unintuitive Formulierung mit Behältern (lieber "gib mir Getränk xyz" > Speichern von vordefinierten Mischungen)
 	- Testen in wie vielen Fällen das Hot-Word tatsächlich erkannt wird (ich glaube nicht so oft)
+		- Test 1: Nein
+		- Test 2: Ja
+		- Test 3: Nein
+		- Test 4: Ja
+		- Test 5: Nein
+		- Test 6: Ja
+		- Test 7: Nein
+		- Test 8: Ja
+		- Test 9: Ja
+		- Test 10: Nein
+		- Probleme: die Qualität der Erkennung hängt von vielen Faktoren ab (verwendetes Mikrofon, Aussprache, Stimmlage, ...)
+		- Kann sich bereits von Person zu Person unterscheiden!
+		- Test in einem stillen Raum und geachtet auf deutliche und laute Aussprache
 + Mögliche Erweiterungen
 	- Hardware richtig einbauen (wie?)
 	- Reaktionszeit verkürzen (wie?)
