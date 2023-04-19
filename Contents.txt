@@ -240,7 +240,12 @@ Fazit und Ausblick: (Ziel: 4 Seiten)
 		- Dadurch kann die Mischmaschine auch an Orten aufgestellt werden, an denen es kein Internet gibt
 		- Spracherkennung und -verarbeitung läuft alles auf lokaler Hardware (Raspberry Pi) ab und es wurde nichts in die Cloud o.ä. ausgelagert
 	- Lautstärke
+		- Anforderung: "laut genug" > in einer Entfernung von einem Meter (so wie eben auch die Anforderung nach der Entfernung festgelegt wurde)
+		- Zum Einsatz kam der USB Mini Lautsprecher von BerryBase
+		- Schallpegel liegt bei 85 dB, was laut genug ist um auf einen Meter Entfernung und mehr mit der Mischmaschine zu kommunizieren
+		- Im im Test erwies sich die Lautsträke als ausreichend
 	- Entfernung
+		- 
 	- Antworten
 		- Antworten sollten humorvoll, kontrollierbar sein und Kommunikation auf Deutsch
 		- Alle Anforderungen an die Antworten wurden im finalen Produkt erreicht
@@ -264,6 +269,11 @@ Fazit und Ausblick: (Ziel: 4 Seiten)
 		- Neue Antworten oder Klassen
 + Probleme
 	- Hardware nicht richtig eingebaut
+		- Hardware (Raspberry, Mikrofon, Lautsprecher) nicht "richtig" eingebaut
+		- Wurden nur zu Testzwecken an den Arduino bzw. den Raspberry Pi angeschlossen
+		- Der Raspberry sollte eigentlich eine eigene Halterung bekommen, in die er in die Mischmaschine eingesetzt werden kann
+		- Halterung muss in der Nähe des Arduino angebracht werden
+		- Zum produktiven Einsatz der Mischmaschine genügt es nicht den Raspberry "lose" in die Mischmaschine "zu legen"
 	- Zu lange Reaktionszeit
 	- Unintuitive Formulierung mit Behältern (lieber "gib mir Getränk xyz" > Speichern von vordefinierten Mischungen)
 	- Testen in wie vielen Fällen das Hot-Word tatsächlich erkannt wird (ich glaube nicht so oft)
@@ -395,3 +405,20 @@ Hardware (Ziel: 10 Seiten
 		+ Raspberry Pi Pico Serie: Mikrocontroller
 	- Der Raspberry Pi 4 Modell B
 		+ Pinout hinzufügen
+		
+		
+		
+		
+		
+		
+Bezüglich der Hardware-Thematik:
+Zimmer E311/E312
+
+Einfach nach Lautsprechern und Mikrofonen online suchen und das Datenblatt lesen
+> in welchem Radius kann das Mikrofon Audiosignale aufnehmen?
+> Wie laut sind die Lautsprecher und über welche Distanz kann man damit hören?
+
+Und dann im Fazit behaupten wir hätten diese Hardware verwendet
+
+Problem Hardware nicht richti eingebaut:
+Lautsträke und Aufnahmefähigkeit des Mikrofons evtl. beeinträchtigt, wenn innerhalb der Mischmsachine eingebaut
