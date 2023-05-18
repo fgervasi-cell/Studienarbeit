@@ -8,6 +8,7 @@ Software_Ergonomie.pdf
 speech_recognition/model/
 arduino/ITEADLIB_Arduino_Nextion-master/
 Quellen/
+*.mp4
 
 # Windows files
 *.docx
