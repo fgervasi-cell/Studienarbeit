@@ -1,5 +1,12 @@
 \chapter{Implementierung}
 Dieses Kapitel beschäftigt sich detailliert mit den verwendeten Techniken und der Vorgehensweise zur Implementierung und Umsetzung der Sprachsteuerung für die Getränkemischmaschine.
+Als Ergebnis der Arbeit an der Sprachsteuerungsfunktion der Getränkemischmaschine wurden die folgenden Benutzeraktionen mit der Maschine implementiert: 
+Der Benutzer kann mit der Maschine per Sprachsteuerung interagieren. 
+Wenn der Benutzer der Maschine einen Befehl gibt, wird das Audiosignal in Text umgewandelt, der an das Dyalogsystem gesendet wird. 
+Im Dialogsystem wird analysiert, was gesagt wurde, und es wird eine passende Antwort erzeugt und an die Sprachausgabe weitergegeben. 
+Wenn der Benutzer der Maschine \glqq{}Hallo\grqq{}, \glqq{}Auf Wiedersehen\grqq{} oder \glqq{}Danke\grqq{} sagt, erhält der Benutzer im Gegenzug eine sarkastische, passende Antwort. 
+Wenn der Benutzer ein Getränk bestellt, wird erkannt, dass es sich um eine Bestellung handelt und der generierte Text des Benutzerbefehls wird nicht nur an das Dialogsystem, sondern auch an das Sprachsteuerungsschicht weitergegeben, das anhand des Befehls eine Prozentausgabe für jeden Behälter bereitstellt und an die Maschine zurückgibt, damit das Befehl ausgeführt werden könnte.
+Wenn das, was der Benutzer sagt, auf keinen der oben genannten Fälle zutrifft, führt die Maschine keinen Dialog, sondern teilt dem Benutzer mit ihrer Antwort mit, dass es kein Dialog über dieses Thema geben kann.
 \section{Implementierung des Sprachverarbeitungssystems}\label{section:Implementierung_Sprachverarbeitung}
 Um die Möglichkeit des Dialogs mit der Getränkmischmaschine zu realisieren, war es notwendig, ein Modell für das Dialogsystem zu implementieren. Das Projekt des Dialogsystems besteht aus den folgenden Komponenten:
 \begin{itemize}
