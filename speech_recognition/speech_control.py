@@ -10,7 +10,7 @@ m = sr.Microphone()
 with m as source:
     r.adjust_for_ambient_noise(source)
 
-engine = tts.init("espeak", True)
+engine = tts.init()
 voices = engine.getProperty("voices")
 engine.setProperty("voice", voices[1].id)
 
@@ -35,7 +35,7 @@ while True:
         engine.runAndWait()
         engine.stop()
 
-        ser = serial.Serial("/dev/ttyUSB0", 9600, timeout=1)
-        ser.reset_input_buffer()
-        ser.write(cmd.encode("utf-8"))
+        #ser = serial.Serial("/dev/ttyUSB0", 9600, timeout=1)
+        #ser.reset_input_buffer()
+        #ser.write(cmd.encode("utf-8"))
 
