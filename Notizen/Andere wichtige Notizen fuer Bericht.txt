@@ -1,0 +1,31 @@
+Das Paket "SpeechRecognition" vereinfacht die Benutzung vieler verschiedener Spracherkennungs Dienste/Software
+Vereint verschiedene Spracherkennungs Dienste/Software hinter einer einheitlichen Schnittstelle
+SChneller Wechsel möglich
+
+Spracherkennung:
+	- Was ist Spracherkennung und wie funktioniert es? (evtl. lieber in Stand der Technik)
+	- Welche Bibliotheken zur Spracherkennung gibt es? (s. https://realpython.com/python-speech-recognition/)
+	- Welche Bibliothek wurde gewählt und warum? (evtl. Bibliotheken ausprobieren, Zeit messen, vergleichen, ...)
+	- Welche APIs zur Spracherkennung gibt es? (z.B. Microsoft Bing Speech, Google Web Speech API, Google Cloud Speech, Houndify, IBM Speech to Text, CMU Sphinx, Wit.ai, Whisper, ...)
+		- Wenn ich viel Text produzieren möchte gehe ich hier die einzelnen Methodenaufrufe und Parameter durch und erkläre wie die einzelnen APIs grob über SpeechRecognition aufgerufen werden können
+	- Welche API wurde gwählt und warum?
+Befehlsverarbeitung in der Mischmaschine:
+	aka wie sieht der Code auf dem Arduino aus und wie kommuniziert der Raspberry mit dem Arduino (pyserial Bibliothek...)
+	- Auf verschiedene Möglichkeiten eingehen (USB oder serial pins)
+	- Welche Probleme hatte ich diesbezüglich? (Nextion-Display und Pi müssen über unterschiedliche serielle Kanäle kommunizieren mit dem Arduino!!!)
+	- usw.
+	
+Sowohl Raspberry als auch Display wollten über die selbe serielle Schnittstelle kommunizieren
+Klappt natrülcih nicht weil beim Empfänger (Arduino) die Daten korrumpiert ankommen (sind nicht mehr lesbar)
+Verwirrung war: "Serial" Objekt bezieht sich auf die Standardschnittstelle was sowohl den USB-Hub als auch die TX/RX Pins einschließt, die vom Display verwendet werden (Referenz auf SChaltplan?)
+Lösung: müssen beide verschiedene serielle SChnittstellen verwenden
+Standardmäßig erwartet das Nextion-Display die Verwendung der "Serial2" Schnittstelle, die sich auf die Pins TX2/RX2 bezieht
+-> Pins umstecken
+-> Raspberry standard Serial Port überlassen
+-> klappt!
+Wie viele verschiedene serielle Schnittstellen hat die verwendete Hardware? -> nachschauen für Arduino Mega
+
+
+> Codebeispiele aufräumen
+> Verwirrung, da weiter oben While-True-Loop eingeführt und weiter unten fehlt er
+> Codezeilen an falscher Stelle ausgespart (acuh weiter oben)

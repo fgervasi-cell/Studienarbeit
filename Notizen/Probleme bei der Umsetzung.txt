@@ -1,0 +1,10 @@
+Probleme bei der Umsetzung:
+
+> PyTorch benötigt von Whisper
+	> Raspberry ohne CUDA (was Voraussetzung für bestimmte PyTorch-Funktionalitäten ist)
+	> Raspberry hat keine dedizierte Grafikkarte
+	> zu wenig RAM für die Kompilierung von PyTorch
+	> "Illegal instruction", da falsche PyTorch-Version für Prozessorarchitektur des Raspberry (deshalb selbst kompilieren)
+	> Verwendung von "swapfile" zur Vergrößerung des RAM
+
+Probleme von der Tafel:

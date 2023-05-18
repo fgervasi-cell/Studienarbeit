@@ -1,0 +1,11 @@
+spaCy
+Stanford CoreNLP
+NLTK
+-> Quellen?
+
+Seite 21
+Scikit-Learn
+Gensim
+NLTK
+SpaCy
+-> Quellen?

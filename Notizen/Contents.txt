@@ -1,0 +1,424 @@
+Inhaltsverzeichnis
+
+Abstract:
++ Kurze generelle Einführung in das übergeordnete Thema
+	- Künstliche Intelligenz
+		- 
+	- Eingebettete Systeme
++ Motivation und Ziel der Arbeit
+	- Implementierung einer Sprachsteuerung für eine Mischmaschine
+	- Die Mischmaschine kann Getränke aus vier versch. Behältern zu unterschiedl. Mischungsverhältnissen mischen
+	- Mischmaschine soll nicht nur Sprache des Benutzers erkennen und daraufhin eine Aktion durchführen
+	- Mischmaschine soll dem Benutzer auch Antworten können
+	- Eine Art Dialog zwischen Mischmaschine und Benutzer soll entstehen
+	- Alles soll offline funktionieren um die Einsatzmöglichkeiten/Orte groß zu halten
++ Vorgehen
+	- Theoretische und technische Grundlagen werden erarbeitet (insb. die Verarbeitung von Sprache mit Hilfe von KI)
+	- Anforderungen werden klargestellt (sollten bei Motivation und Ziel der Arbeit bereits erläutert worden sein)
+	- Verschiedene Konzepte werden vorgestellt und hinsichtlich ihrer Eignung evaluiert
+	- Spracherkennung nur auf dem Arduino
+	- Spracherkennung und -verarbeitung mittels mobiler Anwendung
+	- Spracherkennung und -verarbeitung auf Computer-Hardware
+	- Als auch verschiedene Ansätze für das Dialogsystem
++ Ergebnis
+	- Es wird erläutert warum die Wahl für die Implementierung schließlich auf das soeben genannte, dritte Konzept fällt
+	- Raspberry Pi 4 Modell B in Kombination mit dem, in der Mischmaschine verbauten, Arduino Mega
+	- Benutzer hat die Möglichkeit über ein Mikrofon, das an den Raspberry Pi angeschlossen ist mit der Maschine zu kommunizieren
+	- Die über das Mikrofon aufgenommenen Audiosignale werden zunächst in Text konvertiert
+	- Der Text wird von einem Sprachmodell interpretiert und klassifiziert
+	- Ergebnis der Interpretation sind ein für die Mischmaschine verständliches Kommando und die auszugebende Antwort
+	- Das Kommando wird über eine serielle Schnittstelle vom Raspberry Pi an den Arduino gesendet, der die Mischmaschine steuert
+	- Die Mischmaschine führt daraufhin die gewünschte Aktion aus und der Raspberry Pi gibt die Antwort über Lautsprecher an den Benutzer aus
+
+Einleitung:
+
++ Die Informationstechnik versteckt sich heutzutage fast überall - selbst dort, wo sie von den meisten Menschen nicht vermutet werden würde
++ Beispiele sind:
++ Hier sorgen Mikrochips für...
++ Solche Systeme, die Eigenschaft xyz erfüllen, nennt man häufig Embedded Systems (z. Dt. Eingebettete Systeme)
++ Internet der Dinge: eingebettete Systeme die internetfähig sind (vernetzte Geräte)
+	- Aktueller Trend der zu einem noch größeren Anstieg von eingebetteten Systemen sorgt
++ Nach Schätzungen von ... liegt die derzeitige Anzahl solcher eingebetteten Systemen derzeit bei ... weltweit - Tendenz steigend (Grafik einfügen)
++ Die Anzahl eingebetteter Systeme insgesamt kann also nocht höher eingeschätzt werden
++ Die unglaubliche Masse an benötigten Mikrochips/-computern bringt auch Probleme mit sich 
+	- (Kriege, technologischer Wettlauf, Ressourcenknappheit, Abhängigkeit von wenigen Ländern ...)
+	- Taiwan, China, USA ...
+	- Giga Factories für Chip Herstellung erwähnen, wo diese gebaut werden und wie viel Geld dort im Spiel ist
+	- Länder investieren Unsummen dafür im Bereich der Mikrochips unabhängiger zu werden
+	- https://www.capital.de/wirtschaft-politik/chips--china--usa-und-die-eu-im-wettlauf-um-die-spitzen-halbleiter-32600652.html
++ Aufgabenstellung
+	- Im Rahmen dieser Arbeit geht es um die Sprachsteuerung einer Getränkemischmaschine
+	- Die Getränkemischmaschine ist als das eingebettete System zu verstehen
+	- Die Getränkemischmaschine ist in einer vorherigen Arbeit bereits konzipiert und gebaut worden
+	- Sie verfügt derzeit ausschließlich über eine 
+	- Ziel der Arbeit ist es eine natürlichsprachliche Interaktion mit der Maschine zu ermöglichen mit mindestens dem Funktionsumfang der akutell über die Bildschirmeingabe möglich ist
++ Vorgehen
+	- Sprachverarbeitung mittels KI/ML
+		- Betrachtung verschiedener Möglichkeiten der Umsetzung
+		- Dient der Interpretation des Gesagten und dem Übersetzen in einen Maschinenbefehl
+	- Spracherkennung
+		- Aufnahme des Tonsignals
+		- Umwandeln des Tonsignals/der Schallwellen in "Text" der dann an das KI-Modell weitergereicht werden kann
+	- Man muss sich bei eingebetteten Systemen der Hardwareanforerungen/-leistung bewusst sein
+		- Diskussion verschiedener Ansätze
+
+Stand der Technik: (Sortierung beachten -> wichtigstes (bspw. Getränkemischmaschine) zuerst!)
+
++ Spracherkennung
+	- 1.5, 2.4 Spracherkennung und 11 aus Sprachverarbeitung: Grundlagen und Methoden der Sprachsynthese und Spracherkennung
+	- Sprache zu erkennen stellt Computer vor große Probleme
+	- Silben, Wörter oder Sätze haben keine eindeutigen Identifikationsmerkmale im Sprachsignal!
+	- zwei Ansätze zur Spracherkennung
+		+ Mustervergleich
+			- Extraktion von Merkmalen aus dem Sprachsignal
+			- Vergleichen der Merkmalssequenz mit einer Liste von vordefnierten Merkmalssequenzen und zugehörigen Wörtern/Ausdrücken
+		+ Statistische Spracherkennung
+			- Statistische Beschreibungen für Laute oder Wörter
+	- Spracherkenner muss trainiert werden: für alle Wörter des Vokabulars müssen Sprachsignale aufgenommen und die benötigten Merkmale extrahiert und abgespeichert werden, um einen anschließenden Vergleich zu ermöglichen
+	- Die Aufgabe des Spracherkenners liegt auch in der Lokalisierung von Worten innerhalb des Sprachsignals
+	- Zum Erkennen von Worten können bspw. Sprechpausen verwendet werden, an denen das Audosignal in Wörter zerlegt wird 
+	- Es gibt verschiedene Klassen von Spracherkennungssystemen (OpenAI Whisper ist ein sog. "kontinuierlicher" und "sprecherunabhängiger" Spracherkenner)
+	- Merkmalsextraktion
+		+ Sprechsignale können sich aufgrund vieler verschiedener Einflüsse stark unterscheiden, selbst wenn der selbe Laut oder das selbe Wort gesprochen wurde
+		+ Deshalb ist es nicht sinnvoll die rohen Audiodaten zu Vergleichszwecken zu verwenden sondern aus den Signalen Merkmale zu extrahieren, die diese möglichst gut beschreiben aber nur für die Spracherkennung relevante Informationen enthalten
+		+ Die Merkmale sollten im Gegensatz zum Sprachsignal möglichst konstant sein für einen Laut oder ein bestimmtes Wort
+		+ Mel-Ceptrum
+	- Statistische Spracherkennung
+
++ Sprachmodelle und KI
++ Arduino-Programmierung
++ Getränkemischmaschine
+	- Ziel der Arbeit ist die Implementierung einer Sprachsteuerung für eine Getränkemischmaschine
+	- Die Getränkemischmaschine wurde bereits in einem vorangegangenen Projekt erstellt
+	- In diesem Abschnitt soll darauf eingegangen werden um was es sich dabei handelt und wie die Mischmaschine derzeit funktioniert
+	- Anwendungsfall: dient dem Mischen von Getränken/Flüssigkeiten
+	- Aufbau
+		- Dazu 5 Behälter zu je einem Liter
+		- Für jeden Behälter gibt es eine Pumpe die den Inhalt zum "Ausgang" befördert
+		- Am "Ausgang" (besseres Wort finden) werden die Schläuche zusammengeführt wodurch die Getränke gemischt werden
+		- Sog. Rückschlagventile sorgen dafür, dass ein Zurückfließen des gemischten Getränks in die Behälter verhindert wird
+		- Ein Knopf auf der Vorderseite zum Einschalten und ein Touch-Display zur Konfiguration des Mischungsverhältnisses durch den Benutzer
+		- Ein weiterer Knopf zum Befüllen (gedrückt lassen)
+	- Funktionsweise (technisch)
+		- Arduino ist mit dem Touch-Display und den Pumpen verbunden
+		- Drücken des Startknopfes -> Stromversorgung -> Arduino und Display starten
+		- Das Bediendisplay kommuniziert mit dem Arduino
+		- Einstellen des Mischungsverhältnisses über "Slider"
+		- Wenn "Save" gedrückt wird -> übertragen der aktuellen Slider-Werte an Arduino
+		- Umrechnung der Slider-Werte in Durchsatzrate für Pumpen
+		- Wenn Druckknopf gedrückt: Arduino steuert Pumpen mit entsprechender Durchsatzrate an
+
+Konzept:
+
++ Wie soll unser System grob funktionieren/umgesetzt werden?
++ Allgemein
+	- Wie ist die grundlegende Idee/Vorgehensweise?
+	- Benutzer soll über Sprache mit der Mischmaschine interagieren können
+	- Das Gesprochene muss irgendwie aufgenommen (Mikrofon) und verarbeitet werden (Sprachmodell)
+	- Verarbeitung soll durch ein Sprachmodell gelöst werden (Maschinelles Lernen)
+	- Mischmaschine soll Sprache des Benutzers aufnehmen können (Mikrofon)
+	- Anhand der Spracheingabe werden eine Antwort und ein konkreter Befehl generiert 
+		- Sprachverarbeitung 
+		- Maschinelles Lernen
+		- KI
+		- Sprachmodell
+	- Antwort muss ausgegeben werden (Lautsprecher)
+	- Konkreter Befehl ist Anweisung an Maschine (bspw. bereite Getränk xy zu)
++ Bewertungskriterien
+	- Anhand welcher Kriterien können die folgenden Konzepte bewertet werden?
++ Konzept A: Spracherkennung und -verarbeitung mittels Arduino
+	- Audiosignal wird direkt von einem der Arduinos in Getränkemischmaschine aufgenommen
+	- Arduino verarbeitet Audiosignal zu Text/verabler Darstellung (Spracherkennung)
+	- Anhand der Spracheingabe berechnet Arduino Antwort, die gegeben werden soll, und führt Aktion aus
+	- Problem: Leistung des Arduinos zu schwach um Sprachmodell auszuführen
+	- Abwandlung des Konzepts: Lediglich Spracherkennung im Arduino und senden der Audiosignale (bspw. als Text) and einen Server, der die Berechnungen vornimmt
+	- Problem: Sprachmodule für Arduino, welche Audiosignale in lesbare Form/Text übersetzen können nur sehr rudimentär/nicht mächtig genug
+		- nur vordefinierte und manuell trainierte Wörter und/oder Sätze
+		- Sätze müssen immer exakt gleich gesprochen/formuliert werden
+		- keine Dynamik -> wenn auf der Maschine neue Getränke hinzugefügt werden müsste Konfiguration des Sprachmoduls angepasst werden
+		- Für jedes Getränk einen Satz wie "ich möchte Getränk xy"
+	- Bewertungsmatrix
++ Konzept B: Spracherkennung und -verarbeitung mittels mobiler Anwendung
+	- Audiosignale über Mikrofon in Mischmaschine aufzunehmen kann ein Problem darstellen
+	- Antwort über Mikrofon auszugeben ebenfalls 
+	- Zusätzliche Hardware benötigt, die auch noch richtig verbaut werden muss
+	- Kann das Tonsignal vom Mikrofon richtig aufgenommen werden?
+	- Wie ist die Klangqualität des Lautsprechers?
+	- Umgehen dieser Probleme durch Konzept B
+	- Kommunikation mit Getränkemischmaschine über eine App
+	- Aufnahme der Audiosignale, 
+	- Spracherkennung (Umwandlung in bspw. String), 
+	- versenden an cloudbasierten Sprachverarbeitungsservice, 
+	- Entgegennahme der Antwort, 
+	- Kommunikation mit Mischmaschine
+	- Kann alles über Mobiltelefon abgewickelt werden
+	- Probleme:
+	- Großer Overhead/Mehraufwand durch App-Entwicklung
+	- Spracheingabe und -ausgabe über App nicht intuitiv (Anwender möchte eigentlich mit Maschine kommunizieren
+	- Zusätzlicher Aufwand für Anwender -> App-Installation
+	- Immerhin die Antwort könnte von einem Lautsprecher in der Mischmaschine erfolgen?
++ Konzept C: Spracherkennung und -verarbeitung auf Computer-Hardware
+	- Computer statt Mikrocontroller
+	- Grund/Motivation: Mehr Leistung um Spracherkennung und -verarbeitung mittels Sprachmodell durchzuführen
++ Konzept D:
++ Konzept für die Sprachsteuerung
++ Finales Konzept
+	- Für welches Konzept wurde sich entschieden und warum?
+	- Argumentation für Bewertungsmatrix
+	- Konzept A (nur Arduino): Man versucht alles auf dem Arduino zu machen -> Verwendung eines Sprachmoduls
+		- Freiheitsgrade in der Spracheingabe des Benutzers niedrig: eigentlich sogar keine -> nur vordefinierte Begriffe/Sätze erlaubt (trainiert mit Sprachmodul)
+		- Hardwarekosten niedrig: nur Sprachmodul, ein Ausgabe von Audio
+		- Verfügbare Rechenleistung niedrig: extrem gering (nur Arduino)
+		- Performanz sehr hoch: (direkte Ausführung von Aktion da Spracherkennung auf Arduino der auch Mischmaschine steuert)
+		- Overhead niedrig: man muss nichts kompliziertes zuzsätzlich Bauen/Programmieren 
+	- Konzept A
+		- Freiheitsgrade in der Spracheingabe des Benutzers sehr hoch: je nach Hardware sollte es kein Problem sein großes Modell in Cloud auszuführen
+		- Hardwarekosten hoch: kommt darauf an was man als Cloud nutzt, sorgt man selbst für die Hardware oder findet man günstigen Anbieter?, zusätzlich Sprachmodul (bzw. Mikrofon und Lautsprecher)
+		- Verfügbare Rechenleistung sehr hoch: kommt darauf an was man als Cloud nutzt und wie viel man ausgeben möchte -> theoretisch aber fast unbegrenzt 
+		- Performanz mittel: Aufnahme des Audiosignals vom Arduino (evtl. Vorverarbeitung) -> senden und Empfangen von HTTP-Requests -> Wartezeiten, Latenzen, Verbindungsabbrüche, Kommunikation über Netzwerk
+		- Overhead hoch: Sprachmodul für Arduino, Cloudanwendung und Anbieter bei dem die Anwendung läuft (oder selbst einen "Server" hinstellen)
+	- Konzept B: 
+		- Freiheitsgrade in der Spracheingabe des Benutzers sehr hoch: Ebenfalls Verwendung von Cloud (siehe Konzept A)
+		- Hardwarekosten niedrig: keine Cloud benötigt (auch kein Sprachmodul o.ä.) -> Handy hat jeder
+		- Verfügbare Rechenleistung sehr hoch: s. Konzept A -> Cloud, Mobiltelefon
+		- Performanz mittel: ebenfalls selbe Begründung wie bei A (hier evtl. noch schlechter da Umweg über Mobiltelefon)
+		- Overhead sehr hoch: eigene Mobilanwendung programmieren sehr aufwendig, auch für Benutzer unpraktisch
+	- Konzept C:
+		- Freiheitsgrade in der Spracheingabe des Benutzers hoch: nicht "sehr hoch" wegen eingeschränkter Leistung (man ist auf einen Miniaturcomputer beschränkt)
+		- Hardwarekosten sehr hoch: nicht wie bei Cloud wo man sich evtl. günstigen Anbieter suchen kann -> Raspberries bspw. extrem teuer und kaum verfügbar (Alternativen denkbar)
+		- Verfügbare Rechenleistung hoch: selbsterkärend schlechter als was mit Cloud möglich ist aber immernoch gut (besser als Arduino)
+		- Performanz sehr hoch: keine Latenzen, serielle Schnittstelle extrem schnell
+		- Overhead niedrig: Hardware driekt in Mischmaschine, nichts "aussen rum" benötigt (wie bspw. Cloud oder gar App) 
+	
+Umsetzung:
+
++ Trainieren des Sprachmodells
++ Befehlsverarbeitung in der Getränkemischmaschine
++ Anbindung des Sprachmodells an die Mischmaschine
+
+Validierung:
+
++ Wie gut funktioniert unser System?
++ Wie oft wird bspw. die "richtige" Antwort gegeben?
++ Entspricht das Ergebnis den Erwartungen?
+
+Fazit und Ausblick: (Ziel: 4 Seiten)
++ Was wurde in dieser Arbeit gemacht?
+	- Es wurde eine Sprachsteuerung für eine Getränkemischmaschine implementiert
+	- Mit Hilfe der Sprachsteuerung kann der Benutzer Getränke aus den fünf Behältern Mischen, indem er die Behälter mit der jeweiligen Prozentangabe nennt
+	- Dafür wurde ein Sprachmodell trainiert welches anhand eines Textes (Spracheingabe des Benutzers) die Prozentangaben für die jeweiligen Behälter extrahiert und die Art der Eingabe klassifiziert
+	- Klassifikation: Bestellung?, Begrüßung?, Verabschiedung?, keine Antwort?
+	- Je nach Klasse werden bestimmte Antworten ausgewählt
+	- Sprachmodell läuft auf Raspberry Pi (zusammen mit dem restlichen Sprachsteuerungs-Code)
+	- Dieser steuert den Arduino mit den Prozentwerten an und gibt die Antwort über Lautsprecher aus
+	- Der Text der in das Sprachmodell eingeht wird ebenfalls über ein Mikrofon auf dem Raspberry erkannt
++ Erfüllung der Anforderungen
+	- Es wurden zu Anfang der Arbeit Anforderungen an das zu entwickelnde System definiert, deren Erfüllung geprüft werden soll
+	- Wurden die einzelnen Anforderungen erfüllt und wenn ja wie? Wenn nein warum nicht? Was sind die Textergebnisse? Wie wurde getestet?
+	- Antwortzeit
+		- Test 1: ~24.68 Sekunden
+		- Test 2: ~23.01 Sekunden
+		- Test 3: ~26.29 Sekunden
+		- Test 4: ~25.64 Sekunden
+		- Test 5: ~24.71 Sekunden
+		- Test 6: ~25.07 Sekunden
+		- Test 7: ~43.97 Sekunden
+		- Test 8: ~25.01 Sekunden
+		- Test 9: ~25.36 Sekunden
+		- Test 10: ~22.89 Sekunden
+		- Mittel: 26.66 Sekunden
+		- Die "großen" Unterschiede in den Zeiten kommen eigentlich nur von den unterschiedlichen Antworten, die die Mischmaschine ausgibt
+		- Gemessen mit Startpunk nach der Aufnahme der Audiodaten direkt vor der Umwandlung in Text
+		- Endpunkt nach der Ausgabe des Textes über die Lautsprecher
+		- Testsatz: "Mischmaschine Behälter 1 50 Prozent Behälter 2 50 Prozent"
+		- Zeitaufwändig: Text-to-Speech und Sprachmodell
+		- Sprachmodell Zeit:  knapp über 5 Sekunden
+		- Text-to-Speech Zeit: etwa 15 Sekunden
+	- Offline-Funktionalität
+		- Definitiv erfüllt
+		- Keine Anbindung zum Internet notwendig
+		- Dadurch kann die Mischmaschine auch an Orten aufgestellt werden, an denen es kein Internet gibt
+		- Spracherkennung und -verarbeitung läuft alles auf lokaler Hardware (Raspberry Pi) ab und es wurde nichts in die Cloud o.ä. ausgelagert
+	- Lautstärke
+		- Anforderung: "laut genug" > in einer Entfernung von einem Meter (so wie eben auch die Anforderung nach der Entfernung festgelegt wurde)
+		- Zum Einsatz kam der USB Mini Lautsprecher von BerryBase
+		- Schallpegel liegt bei 85 dB, was laut genug ist um auf einen Meter Entfernung und mehr mit der Mischmaschine zu kommunizieren
+		- Im im Test erwies sich die Lautsträke als ausreichend
+	- Entfernung
+		- 
+	- Antworten
+		- Antworten sollten humorvoll, kontrollierbar sein und Kommunikation auf Deutsch
+		- Alle Anforderungen an die Antworten wurden im finalen Produkt erreicht
+		- Bei dem gewählten Ansatz werden vordefinierte Antworten ausgewählt
+		- Es können eigene "humorvolle" Antworten definiert werden (Grenze ist nur durch den eigenen Humor gegeben)
+		- Kontrollierbar, da die Antworten ja eben selbst formuliert werden und nicht durch KI
+		- KI dient letztlich nur der Klassifizierung der Eingabe und der Merkmalsextraktion (Prozentangaben je Behälter)
+		- Die Spracherkennung erkennt die deutsche Sprache und das Sprachmodell gibt ebenfalls eine deutsche Antwort zurück
+	- Kosten
+		- Raspbery Pi Modell B 4GB liegt bei etwa 70 Euro
+		- Mikrofon:
+		- Lautsprecher:
+	- Verbrauch von Arbeits- und Festplattenspeicher
+		- Es wurde ein kleineres Modell verwendet...
+		- Die 32 GB SD-Karte, die für das Projekt zur Verfügung stand wurde nicht ausgelastet/hat ausgereicht
+		- Noch Verfügbarer Speicher im Wurzelverzeichnis des Dateisystems: 18 Gigabyte (37% verwendet) > andere betriebssystemseitige Programme fallen da ebenfalls mit rein!
+		- RAM während der Ausführung der Sprachsteuerung:
+	- Anpassungsfähigkeit
+		- Neuer Behälter?
+		- Neue Sprache?
+		- Neue Antworten oder Klassen
++ Probleme
+	- Hardware nicht richtig eingebaut
+		- Hardware (Raspberry, Mikrofon, Lautsprecher) nicht "richtig" eingebaut
+		- Wurden nur zu Testzwecken an den Arduino bzw. den Raspberry Pi angeschlossen
+		- Der Raspberry sollte eigentlich eine eigene Halterung bekommen, in die er in die Mischmaschine eingesetzt werden kann
+		- Halterung muss in der Nähe des Arduino angebracht werden
+		- Zum produktiven Einsatz der Mischmaschine genügt es nicht den Raspberry "lose" in die Mischmaschine "zu legen"
+	- Zu lange Reaktionszeit
+	- Unintuitive Formulierung mit Behältern (lieber "gib mir Getränk xyz" > Speichern von vordefinierten Mischungen)
+	- Testen in wie vielen Fällen das Hot-Word tatsächlich erkannt wird (ich glaube nicht so oft)
+		- Test 1: Nein
+		- Test 2: Ja
+		- Test 3: Nein
+		- Test 4: Ja
+		- Test 5: Nein
+		- Test 6: Ja
+		- Test 7: Nein
+		- Test 8: Ja
+		- Test 9: Ja
+		- Test 10: Nein
+		- Probleme: die Qualität der Erkennung hängt von vielen Faktoren ab (verwendetes Mikrofon, Aussprache, Stimmlage, ...)
+		- Kann sich bereits von Person zu Person unterscheiden!
+		- Test in einem stillen Raum und geachtet auf deutliche und laute Aussprache
++ Mögliche Erweiterungen
+	- Hardware richtig einbauen (wie?)
+	- Reaktionszeit verkürzen (wie?)
+	- Arduino durch Raspberry ersetzen (wie? > Pins des Raspberry?)
+	- Wie könnten vordefinierte Mischungen vom Benutzer gespeichert werden?
+	- Andere Befehle abgesehen von Getränkeausgabe per Sprachsteuerung (z.B. Administration, Spülvorgang einleiten, umbenennen von Behältern ...) > Ausweiten des Befehlsumfangs
+	- Hot-Word-Erkennung verbessern (Modell speziell auf Hot-Word trainieren damit dieses besonders gut erkannt wird oder anderes Hot-Word verwenden > Mischmaschine kein sehr verbreitetets Wort)
++ Abschließende Worte
+	- Erfolg/Miserfolg?
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Hardware (Ziel: 10 Seiten
++ Arduino
+	- Allgemeines
+		+ Firma
+			- Gründung:
+			- Designt und baut die Hardware (Mikrocontroller und die Boards dafür) -> was ist ein "Board"?
+			- Entwickelt die nötige Software für den Umgang mit Arduino Hardware (allen voran die Arduino IDE und Sprache)
+			- Stellt Community Plattform bereit für Wissensaustausch
+			- Ziel: Hardwareprogrammierung für alle ermöglichen (auch Menschen die sich nicht professionell mit IT auseinandersetzen)
+			- Deshalb liegt der Fokus auf günstigen Preisen (günstigste Boards für unter 50$) und leichter Bedienbarkeit (bspw. durch "Bundles" die darauf ausgelegt sind kleine Projekte umzusetzen)
+			- Arduino stellt zu diesem Zweck auch viele Lernmaterialien bereit, die bspw. von Lehrkräften verwendet werden können
+			- Pläne für die Arduino-Boards werden unter der Creative Commons Lizenz veröffentlicht sodass sie von anderen nachgebaut oder erweitert werden können
+			- Arduino-Cloud:
+		+ Nachahmungen
+		+ Unterschiedliche Modelle
+			- Was hat es mit den "Shields" auf sich?
+			- Können verwendet werden um die Basisfunktionalität eines Arduino-Boards zu erweitern (?)
+			- Was ist in einem Arduino-Board eingebaut? Internet (WLAN-Chip, Ethernet-Anschluss)? Soundkarte?
+	- Arduino-Programmierung
+		+ Arduino-IDE
+			- Arduino-IDE kann auf allen gängigen Betriebssystemen verwendet werden was es sehr flexibel und gut für Einsteiger macht, da sie ihre gewohnte Umgebung verwenden können (Windows, Mac, Linux)
+			- Für verscheidene Plattformen erhältlich
+			- Kostenlos und open-source
+			- Angelehnt an gängige IDEs aber für Arduino-Programmierung optimiert
+			- Erkennt automatisch angeschlossene Boards
+			- Code hochladen per Knopfdruck
+			- Verwaltung von dazugeladenen C++-Bibliotheken etc.
+			- Bild von IDE einfügen?
+			- Gibt auch eine online IDE
+		+ Arduino-Sprache
+			- Angelehnt an...
+			- Erweiterbar durch eigene C++ Bibliotheken
+		+ Wichtige Sprachelemente (bspw. Serial)
+		+ Wie wird programmiert?
+			- Über USB-Kabel Programmcode hochladen
+			- Wird solange ausgeführt wie der Arduino mit Strom versorgt ist
+			- Manche Modelle haben eingebauten Hardware-Debugger
+			- Aufbau eines Arduino-Programms
+	- Elegoo Mega 2560 R3
+		- Schnittstellen
+		- Unterschiede zum "Original"
+		- Wieviele digitale Pins und wieviele analoge Pins (wo kommen die analogen Pins bei diesem Projekt zum Einsatz > Wasserstand!)?
+		- Wieviele serielle Pins? usw.
+		- Welche Pins benutzen die Pumpen?
++ Nextion
+	- Allgemeines
+		+ Firma
+		+ Angebot (Modelle etc.)
+		+ Wodurch unterscheiden sich die verschiedenen Modellreihen?
+	- Welches Display wird hier konkret verwendet und wie benutzt man es? Was kann es?
+	- Zu welcher Modellreihe gehört es?
+	- Wie kann das Display programmiert werden? (auf die eingebundene Bibliothek eingehen für Arduino)
+	- Nextion-Editor und eigene Programmiersprache (?)
+	- Auf den Arduino-Code eingehen: welche Nextion-spezifischen Funktionen etc. wurden verwendet?
+	- Nextion Editor
+		+ Erstellen eines HMI-Projekts
+		+ Ein HMI-Projekt besteht aus:
+			- 
+		+ Programmelemente:
+			- Seiten (mindestens eine Seite notwendig innerhalb eines Projekts)
+			- Innerhalb der Seiten werde Komponenten angeordnet
+			- Jede Komponente hat eine Reihe von Attributen wie bspw. x-y-Koordinaten oder eine ID
+			- Komponenten feuern bestimmte Events (bspw. Touch Press oder Touch Release)
+			- Wie kann auf die Events reagiert werden? Das Display sendet Events in Form eines ASCII-Zeichenstroms über die serielle Schnittstelle
+			- Vom Client aus kann das Display über eine umfangreiche Menge von Instruktionen gesteuert werden
+			- Es existieren Bibliotheken für Arduino, Raspberry Pi und weitere Geräte, die die Kommunikation mit Nextion erleichtern (abstrahieren von Instruktionen)
+		+ Ähnlich wie bei Arduino: Programmierung des Displays über serielle Schnittstelle (USB) und "Upload"-Knopf
+		+ Bild von Benutzeroberfläche der Mischmaschine
+		+ Listing von Beispielcode (wie kann die Arduino-Bibliothek verwendet werden?)
+		+ Bibliothek für Arduino
+			- C++-Bibliothek
+			- #include<"Nextion.h">
+			- Für jede Komponente eine Klasse (NexButton, NexCheckbox, NexPage, ...)
+			- Es gibt eine Konfigurationsdatei "NexConfig.h" (eigentlich nur Konstanten die hier geändert werden können)
+			- Es ist notwendig alle Komponenten, auf deren Events reagiert werden soll, einer Liste hinzuzufügen/zu deklarieren
+			- Diese Liste wird der nexLoop-Methode übergeben, die in der loop-Methode des Arduino-Programms aufgerufen werden muss
+			- Daraufhin werden die deklarierten Komponenten immer wieder auf neue Events überprüft
+			- Um auf das Event eines konkreten Objektes zu hören wird mir einem Aufruf der attachPop-Methode eine Callback-Funktion für eine bestimmte Komponente übergeben
+			- Diese wird dann entsprechend aufgerufen, wenn die Komponente das entsprechende Event feuert/auslöst
+			- Mit attachPush wird eine Callback-Funktion für das Push Touch Event registriert statt für das Pop Touch Event
++ Raspberry Pi
+	- Allgemeines
+		+ Raspberry Pi Foundation (Herstellung des namensgebenden Minicomputers)
+		+ Verfolgt ein dasselbe Ziel wie Arduino
+		+ Einer möglichst breiten Gruppe von Menschen IT näher zu bringen
+		+ Preisgünstige Minicomputer (Raspberry Pis)
+		+ Lernmaterialien für Lehkräfte oder für das Selbststudium
+		+ Software Raspberry Pi OS (mit und ohne Desktop), Raspberry Imager, Auch alleinstehende Desktop-Version für "normale" Rechner verfügbar! (?)
+		+ Auch andere Betriebssysteme möglich
+		+ Raspberry Pi Pico Serie: Mikrocontroller
+	- Der Raspberry Pi 4 Modell B
+		+ Pinout hinzufügen
+		
+		
+		
+		
+		
+		
+Bezüglich der Hardware-Thematik:
+Zimmer E311/E312
+
+Einfach nach Lautsprechern und Mikrofonen online suchen und das Datenblatt lesen
+> in welchem Radius kann das Mikrofon Audiosignale aufnehmen?
+> Wie laut sind die Lautsprecher und über welche Distanz kann man damit hören?
+
+Und dann im Fazit behaupten wir hätten diese Hardware verwendet
+
+Problem Hardware nicht richti eingebaut:
+Lautsträke und Aufnahmefähigkeit des Mikrofons evtl. beeinträchtigt, wenn innerhalb der Mischmsachine eingebaut
