@@ -129,8 +129,7 @@ Die Performanz des Gesamtsystems kann, wie bei Konzept A (nur mittels Arduino), 
 Der Mehraufwand ist gering, da weder ein Cloudservice noch eine externe Anwendung entwickelt werden müssen.\\\\
 Letzten Endes wurde das Konzept C als finales Hardware-Konzept gewählt. Wie ein Blick in die Bewertungsmatrix zeigt lässt sich dies mit den sehr guten Werten, die sich aus der Betrachtung der beschriebenen Bewertungskriterien ergaben, begründen.\\\\
 Im nachfolgenden Abschnitt soll das Konzept für die Sprachsteuerung vorgestellt werden. Dieses kann unabhängig von dem Hardware-Konzept betrachtet werden, da die vorhandene Rechenleistung, die in dem gewählten Hardware-Konzept zur Verfügung steht, als ausreichend angesehen wird, um die Sprachsteuerung in angemessener Zeit umzusetzen. Das Konzept C stellt von allen Konzepten, die auch offline funktionieren, die meiste Rechenleistung zur Verfügung.
-\section{Konzept für die Sprachsteuerung}
-\subsection{Ansatz für das Dialogsystem}
+\section{Konzept für das Dialogsystem}
 Aus dem Vergleich der wichtigsten Ansätze zur Erstellung von Chatbots, die in Kapitel \ref{sec:ansaetze_erstellung_chatbots} besprochen wurden, lassen sich die folgenden Vor- und Nachteile der einzelnen Methoden ableiten:
 \begin{table}[H]
     \centering
@@ -166,7 +165,7 @@ Beim Musterabgleich kann eine Kategorie \glqq{}Getränkebestellung\grqq{} zugewi
 Im Falle von seq2seq-Modell ist keine Kategorie vorgesehen, so dass eine zusätzliche Prüfung jeder Eingabeanweisung eingeführt werden müsste, um festzustellen, wann der Benutzer die Bestellung aufgegeben hat.\\\\
 Ein letztes Argument, das für den Ansatz spricht, ist die Möglichkeit, die Maschine bei Bedarf schnell an neue Anfragen und Anforderungen anzupassen, indem neue Muster und Regeln in das System eingeführt werden.
 Daher ist eine Mischung aus Informationssuchemethode und Musterabgleich für das vorliegende Problem am besten geeignet.
-\subsection{Befehle}\label{sec:befehlverarbeitung_konzept}
+\section{Konzept für die Befehlverarbeitung}\label{sec:befehlverarbeitung_konzept}
 Folgendes Übergangsdiagramm beschreibt die Abfolge von Aktionen und Übergängen zwischen Zuständen bei der Analyse der Befehle:
 \begin{figure}[H]
     \centering
